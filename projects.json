@@ -1,0 +1,360 @@
+[
+    {
+        "id": "axios",
+        "title": "AXIOS Extracteur Hospitalier",
+        "category": "Tkinter",
+        "badge": "Desktop / Automatisation & Extraction SIH",
+        "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+        "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers (EASILY, TD WEB, CYBERLAB) et passerelle d'injection vers la suite PRAXIS.",
+        "tags": [
+            "Python",
+            "Tkinter",
+            "Selenium",
+            "RPA",
+            "Santé / CHU",
+            "Extraction PDF"
+        ],
+        "type": "desktop",
+        "download_url": "#",
+        "features": [
+            "Connecteur multi-sources SIH : extraction automatisée depuis EASILY, TD WEB et CYBERLAB",
+            "SAS de validation qualité avec scoring de fiabilité (indices de confiance vert/orange/rouge)",
+            "Contrôle des bornes physiologiques interdisant les aberrations lors des corrections manuelles",
+            "Passerelle d'exportation technique JSON avec horodatage d'audit pour injection directe eCRF"
+        ],
+        "videos": [
+            {
+                "url": "assets/previews/axios.mp4",
+                "focus": "🤖 Remplissage automatique des grilles depuis un PDF médical, badges de confiance colorés s'allumant en temps réel et validation assistée anti-aberrations."
+            }
+        ],
+        "screenshots": [
+            {
+                "url": "assets/images/axios_sas.png",
+                "caption": "SAS de contrôle qualité et indices de confiance de l'extraction"
+            }
+        ],
+        "roadmap": [
+            {
+                "title": "Pont bidirectionnel PRAXIS-AXIOS",
+                "desc": "Lecture automatique du patient actif dans CLINIQUE.db pour pré-remplir le pivot d'identité.",
+                "status": "in_progress"
+            },
+            {
+                "title": "Harmonisation des sql_tags",
+                "desc": "Alignement strict des clés extraites avec les schémas metadata.",
+                "status": "planned"
+            }
+        ]
+    },
+    {
+        "id": "iknos",
+        "title": "IKNOS v1.1",
+        "category": "PySide6",
+        "badge": "Desktop / Coordination Pré-Greffe Rénale",
+        "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+        "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM, score psychosocial SMPG, contrôle des péremptions et conformité RGPD avancée.",
+        "tags": [
+            "Python",
+            "PySide6",
+            "Qt6",
+            "SQLite",
+            "Santé / CHU",
+            "RGPD"
+        ],
+        "type": "desktop",
+        "download_url": "#",
+        "features": [
+            "Pipeline clinique Kanban en 5 stades avec transition automatisée des patients selon l'avancement effectif du dossier",
+            "Contrôle dynamique des péremptions d'examens médicaux avec alertes colorimétriques de validité",
+            "Module d'évaluation psychosociale avec calcul du score SMPG sur 100 points et orientation ETP",
+            "Studio de courriers médicaux et convocations avec fusion de balises dynamiques et export PDF",
+            "Conformité RGPD stricte : registre des accès, anonymisation et intégrité SQLite"
+        ],
+        "videos": [
+            {
+                "url": "assets/previews/iknos.mp4",
+                "focus": "🗂️ Progression automatisée des cartes sur le Kanban 5 stades selon les jalons cliniques validés, alertes visuelles pulsantes sur examens périmés et compilation PDF instantanée."
+            }
+        ],
+        "screenshots": [
+            {
+                "url": "assets/images/iknos_kanban.png",
+                "caption": "Pipeline Kanban de coordination pré-greffe"
+            },
+            {
+                "url": "assets/images/iknos_smpg.png",
+                "caption": "Calculateur d'évaluation psychosociale SMPG"
+            }
+        ],
+        "roadmap": []
+    },
+    {
+        "id": "delphi",
+        "title": "DELPHI V5.6",
+        "category": "Tkinter",
+        "badge": "Desktop / Décisionnel & Épidémiologie Greffe",
+        "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+        "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL (Agence de la Biomédecine). Analyse croisée des listes d'attente, des délais d'accès et reporting Excel/PDF automatisé.",
+        "tags": [
+            "Python",
+            "Tkinter",
+            "Pandas",
+            "OpenPyXL",
+            "Matplotlib",
+            "Santé / CHU",
+            "CRISTAL"
+        ],
+        "type": "desktop",
+        "download_url": "#",
+        "features": [
+            "Moteur d'analyse bicéphale : Mode réconciliation 'Liste d'attente' et Mode enrichissement 'Cohorte des greffés'",
+            "Algorithme de réconciliation flou : matching NEFG et dédoublonnage phonétique (noms de naissance, marital, d'usage et DDN)",
+            "Analyses épidémiologiques avancées : délais d'attente, fardeau de la dialyse avant greffe, néphropathies et survie",
+            "Module de reporting bureautique automatique : rapports vectoriels multipages PDF et classeurs Excel avec graphiques natifs (OpenPyXL)",
+            "Tableau de bord statistique interactif embarqué (Matplotlib / Tkinter) avec visualisation par centre de dialyse"
+        ],
+        "videos": [
+            {
+                "url": "assets/previews/delphi.mp4",
+                "focus": "📊 Rapprochement flou d'identités en temps réel, génération dynamique d'histogrammes et camemberts interactifs, puis ouverture d'un classeur Excel avec graphiques natifs."
+            }
+        ],
+        "screenshots": [
+            {
+                "url": "assets/images/delphi_dashboard.png",
+                "caption": "Tableau de bord interactif Tkinter & Matplotlib"
+            },
+            {
+                "url": "assets/images/delphi_excel.png",
+                "caption": "Export Excel automatisé avec graphiques natifs OpenPyXL"
+            }
+        ],
+        "roadmap": []
+    },
+    {
+        "id": "coachmaster",
+        "title": "Coachmaster V6.0",
+        "category": "HTML",
+        "badge": "Web App PWA / Sport & Pédagogie",
+        "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif, rotations de plateaux et suivi d'assiduité hors-ligne.",
+        "tags": [
+            "HTML5",
+            "JavaScript",
+            "IndexedDB",
+            "Dexie.js",
+            "PWA",
+            "Sport Tech"
+        ],
+        "type": "web_standalone",
+        "download_url": "apps/coachmaster/index.html",
+        "features": [
+            "Architecture PWA 100% hors-ligne avec base locale IndexedDB (Dexie.js)",
+            "Générateur de séances articulé sur les référentiels DTN FFF, FUNino et Coerver Coaching",
+            "Double tableau tactique Canvas interactif : mode création statique et tableau blanc animé",
+            "Chronomètre d'entraînement avec alerte haptique (vibreur) et sifflet multi-tons haute fréquence"
+        ],
+        "videos": [
+            {
+                "url": "assets/previews/coachmaster.mp4",
+                "focus": "⚽ Dessin vectoriel tactile en direct (flèches, passes, courses), manipulation fluide des joueurs sur le terrain et chronomètre d'entraînement haptique animé."
+            }
+        ],
+        "screenshots": [
+            {
+                "url": "assets/images/coachmaster_cover.png",
+                "caption": "Interface d'entraînement et tableau tactique Canvas"
+            }
+        ],
+        "roadmap": []
+    },
+    {
+        "id": "optitime",
+        "title": "OptiTime V13.6",
+        "category": "Flet",
+        "badge": "Web App & UI / Flet & Gamification",
+        "description": "Assistant de gestion du temps gamifié intégrant un compagnon virtuel (Optigotchi), un suivi d'activité et des micro-pauses ergonomiques pour la santé au travail.",
+        "tags": [
+            "Python",
+            "Flet",
+            "Flutter Web",
+            "Gamification",
+            "SQLite"
+        ],
+        "type": "web_standalone",
+        "download_url": "https://optitime.onrender.com",
+        "features": [
+            "Architecture réactive Flet (moteur Flutter Web) avec interface sombre néomorphe ultra-fluide",
+            "Chronomètre de session dynamique avec styles UI animés en CSS/SVG pur",
+            "Moteur de gamification (Optigotchi) : gain d'XP, système de trophées et inventaire",
+            "Catalogue de pauses actives (cohérence cardiaque, ergonomie) récompensées en énergie virtuelle",
+            "Éditeur d'historique intégré (Dataframe) avec graphiques de productivité"
+        ],
+        "videos": [
+            {
+                "url": "assets/previews/optitime.mp4",
+                "focus": "✨ Onde ECG pulsante et auras néomorphiques animées en pur CSS, prise de niveau de l'Optigotchi avec effets visuels et bascule de thème UI en direct."
+            }
+        ],
+        "screenshots": [
+            {
+                "url": "assets/images/optitime_main.png",
+                "caption": "Chronomètre animé et tableau de bord Optigotchi"
+            }
+        ],
+        "roadmap": []
+    },
+    {
+        "id": "themis",
+        "title": "THEMIS",
+        "category": "Flet",
+        "badge": "Web App / Gestion Commerciale & ERP (Flet)",
+        "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi du Chiffre d'Affaires (CA) et génération de dossiers contractuels complets.",
+        "tags": [
+            "Python",
+            "Flet",
+            "Flutter Web",
+            "CRM",
+            "Facturation"
+        ],
+        "type": "web_standalone",
+        "download_url": "https://themis-flet.onrender.com",
+        "features": [
+            "Application bureautique lourde développée avec le framework Flet (plus de 3 200 lignes de code)",
+            "Tableau de bord financier interactif : suivi du Chiffre d'Affaires (CA), devis actifs, factures émises et encaissements",
+            "Éditeur de devis sur-mesure intégrant la rédaction dynamique du cahier des charges fonctionnel",
+            "Système de facturation complet : calcul automatisé des acomptes, des soldes et émission d'avoirs",
+            "Moteur de rendu HTML/CSS pour l'édition de documents légaux prêts à l'impression"
+        ],
+        "videos": [
+            {
+                "url": "assets/previews/themis.mp4",
+                "focus": "💼 Recalcul en direct des acomptes et impact immédiat sur le Chiffre d'Affaires (CA) global lors de l'édition, suivi des KPIs de facturation et rendu WYSIWYG d'un contrat commercial PDF complet."
+            }
+        ],
+        "screenshots": [
+            {
+                "url": "assets/images/themis_dashboard.png",
+                "caption": "Tableau de bord de gestion commerciale et suivi du Chiffre d'Affaires"
+            }
+        ],
+        "roadmap": []
+    },
+    {
+        "id": "ephor",
+        "title": "EPHOR Superviseur",
+        "category": "CustomTkinter",
+        "badge": "Desktop / DevOps & Versioning",
+        "description": "Interface graphique de supervision Git et de sauvegarde de code automatisée avec mode 'fantôme' (auto-commit) et gestion visuelle des rollbacks.",
+        "tags": [
+            "Python",
+            "CustomTkinter",
+            "Git",
+            "DevOps",
+            "Threading"
+        ],
+        "type": "desktop",
+        "download_url": "#",
+        "features": [
+            "Moteur Git intégré avec initialisation automatique de dépôts et .gitignore préconfigurés",
+            "Mode 'Fantôme' (Watchdog) : surveillance asynchrone des fichiers et snapshot automatique",
+            "Studio d'Audit visuel : visionneuse de Diff avec coloration syntaxique des ajouts/suppressions",
+            "Système de Rollback destructif sécurisé pour annuler instantanément des développements instables"
+        ],
+        "videos": [
+            {
+                "url": "assets/previews/ephor.mp4",
+                "focus": "🛡️ Visionneuse de Diff bicolore (ajouts verts / suppressions rouges), compte à rebours du Mode Fantôme et exécution spectaculaire d'un Rollback Git destructif."
+            }
+        ],
+        "screenshots": [
+            {
+                "url": "assets/images/ephor_dark.png",
+                "caption": "Console DevOps sombre avec visualiseur de Diff Git"
+            }
+        ],
+        "roadmap": []
+    },
+    {
+        "id": "praxis",
+        "title": "PRAXIS GOLD V108",
+        "category": "Tkinter",
+        "badge": "Desktop / Suite eCRF & Greffe Rénale",
+        "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+        "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux (eCRF, audit trail, matrice sur 30 ans et passerelle CRISTAL).",
+        "tags": [
+            "Python",
+            "Tkinter",
+            "SQLite",
+            "Santé / CHU",
+            "Audit Trail",
+            "eCRF"
+        ],
+        "type": "desktop",
+        "download_url": "#",
+        "features": [
+            "Moteur universel d'eCRF dynamique piloté par JSON (Socle J0 et suivis longitudinaux M3 à Y30)",
+            "Système expert de validation clinique : contrôle des bornes physiologiques en direct et calcul automatique (clairance, ischémie)",
+            "Console de Pilotage Global : Matrice des jalons dynamique (recul 30 ans) et Kanban de production",
+            "Audit Trail médico-légal strict horodaté traçant chaque champ modifié [Valeur antérieure ➔ Nouvelle]",
+            "Générateur de rapports HTML print-ready autonomes et coffre-fort d'archivage physique ZIP mensuel"
+        ],
+        "videos": [
+            {
+                "url": "assets/previews/Borne Bio Praxis.mp4",
+                "focus": "Borne Biologique"
+            },
+            {
+                "url": "assets/previews/Douanier Date Praxis.mp4",
+                "focus": "Borne Date"
+            }
+        ],
+        "screenshots": [
+            {
+                "url": "assets/images/Dashboard_PRAXIS.png",
+                "caption": "Erreur IA"
+            },
+            {
+                "url": "assets/images/Fiche patient_PRAXIS.png",
+                "caption": "Interface de consultation d'un dossier clinique patient comprenant l'historique des événements et un espace de mémo clinique."
+            },
+            {
+                "url": "assets/images/Formulaire Socle_PRAXIS.png",
+                "caption": "Interface du module de consultation pour l'identification d'un patient dans l'application de suivi de greffe."
+            },
+            {
+                "url": "assets/images/rapport HTML_PRAXIS.png",
+                "caption": "Fenêtre du centre d'impression affichant l'absence de rapports HTML en attente de génération."
+            },
+            {
+                "url": "assets/images/Vue_Pilotage_PRAXIS.png",
+                "caption": "Tableau de bord de gestion et de suivi des dossiers de transplantation par patient."
+            },
+            {
+                "url": "assets/images/Pilotage global_PRAXIS.png",
+                "caption": "Tableau de bord de suivi d'activité et statistiques de transplantation présentant des indicateurs globaux de saisie et de conformité."
+            },
+            {
+                "url": "assets/images/import Backlog_PRAXIS.png",
+                "caption": "Interface d'importation et de traitement des données patients depuis un fichier Excel vers une base SQLite."
+            },
+            {
+                "url": "assets/images/requete_PRAXIS.png",
+                "caption": "Quota atteint, attente 5s..."
+            },
+            {
+                "url": "assets/images/Mode admin_PRAXIS.png",
+                "caption": "Erreur IA"
+            },
+            {
+                "url": "assets/images/stats_PRAXIS.png",
+                "caption": "Erreur IA"
+            },
+            {
+                "url": "assets/images/Jalons_PRAXIS.png",
+                "caption": "Erreur IA"
+            }
+        ],
+        "roadmap": []
+    }
+]
