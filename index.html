@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🌐 Optimisation pour le partage (Open Graph / Réseaux Sociaux) -->
+    <meta name="description" content="Dhamusoft : Conception d'applications métiers, d'outils de coordination et automatisation de processus. De l'idée au déploiement.">
+    
+    <!-- Open Graph (Pour Facebook, LinkedIn, WhatsApp...) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/"> 
+    <meta property="og:title" content="Dhamusoft - Logiciels, Automatisation & Applications">
+    <meta property="og:description" content="Découvrez le portfolio Dhamusoft : Conception d'applications métiers, d'outils de coordination et automatisation de processus. De l'idée au déploiement.">
+    <meta property="og:image" content="https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/assets/images/logo_dhamusoft.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dhamusoft - Logiciels, Automatisation & Applications">
+    <meta name="twitter:description" content="Conception d'applications métiers, d'outils de coordination et automatisation de processus.">
+    <meta name="twitter:image" content="https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/assets/images/logo_dhamusoft.png">
+
     <title>Dhamusoft - Logiciels, Automatisation & Applications</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     
@@ -415,7 +432,7 @@
             border-radius: 8px;
         }
         
-        /* Boutons de Contact Flottants */
+        /* 📱 Boutons de Contact Flottants */
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
@@ -453,6 +470,55 @@
         }
         .email-btn:hover { transform: scale(1.1); background-color: var(--primary-hover); }
         .email-btn svg { width: 30px; height: 30px; fill: white; }
+
+        /* NOUVEAU BOUTON PARTAGE */
+        .share-btn {
+            position: fixed;
+            bottom: 180px; 
+            right: 30px;
+            background-color: var(--accent); /* Or Dhamusoft */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .share-btn:hover { transform: scale(1.1); background-color: var(--accent-hover); }
+        .share-btn svg { width: 26px; height: 26px; fill: white; }
+
+        /* Notification Toast pour la copie du lien */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #1f2937;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px;
+            position: fixed;
+            z-index: 2000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+            font-weight: 600;
+            border: 1px solid #374151;
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
 
         /* 🎯 Encart Problématique / Enjeu */
         .problematique-box {
@@ -570,7 +636,7 @@
         <!-- Grille où s'affichent les projets -->
         <div id="projects-grid" class="projects-grid"></div>
 
-        <!-- 📖 GLOSSAIRE (AJOUTÉ ICI) -->
+        <!-- 📖 GLOSSAIRE -->
         <section class="glossary-section">
             <h2 class="glossary-title">📖 Petit Glossaire Technique</h2>
             <p class="glossary-subtitle">Quelques définitions simples pour comprendre le jargon technique utilisé dans ce portfolio.</p>
@@ -917,9 +983,41 @@
         // 🔥 DÉMARRAGE
         chargerDonneesMisesAJour();
 
+        // 🔄 FONCTION DE PARTAGE
+        const shareBtn = document.querySelector('#btn-partager');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                const url = window.location.href;
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Dhamusoft - Portfolio',
+                        text: "Découvrez les applications et logiciels développés par Dhamusoft.",
+                        url: url
+                    }).catch(console.error);
+                } else {
+                    navigator.clipboard.writeText(url).then(() => {
+                        const toast = document.getElementById("toast");
+                        toast.className = "show";
+                        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+                    });
+                }
+            });
+        }
+
     })();
     </script>
     
+    <!-- Toast Notification (Message caché par défaut) -->
+    <div id="toast">✅ Lien copié dans le presse-papier !</div>
+
+    <!-- BOUTON DE PARTAGE -->
+    <button id="btn-partager" class="share-btn" aria-label="Partager le portfolio">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!-- Icone de partage (Share Nodes) -->
+            <path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.9-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.9 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/>
+        </svg>
+    </button>
+
     <!-- Bouton de contact Email direct -->
     <a href="mailto:dhamusoft@gmail.com" class="email-btn" aria-label="Envoyer un email à Dhamusoft">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
