@@ -4,7 +4,7 @@
         "title": "AXIOS Extracteur Hospitalier",
         "category": "Tkinter",
         "badge": "Desktop / Automatisation & Extraction SIH",
-        "hospital": "Projet Institutionnel & Santé",
+        "hospital": "Déploiement en milieu hospitalier",
         "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers (EASILY, TD WEB, CYBERLAB) et passerelle d'injection vers la suite PRAXIS.",
         "enjeu": "Face à des méthodes de saisie manuelles très longues, le service a fini par accumuler un retard important dans le traitement des dossiers patients. L'enjeu d'AXIOS est d'apporter une vraie modernisation pour rattraper tout ce retard. En automatisant la récupération des données directement dans les logiciels de l'hôpital pour les envoyer au bon endroit, ce projet offre un gain de temps énorme. Son potentiel est tel qu'il a déjà reçu le soutien de principe des responsables du service.",
         "tags": [
@@ -53,7 +53,7 @@
         "title": "IKNOS v1.1",
         "category": "PySide6",
         "badge": "Desktop / Coordination Pré-Greffe Rénale",
-        "hospital": "Projet Institutionnel & Santé",
+        "hospital": "Déploiement en milieu hospitalier",
         "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM, score psychosocial SMPG, contrôle des péremptions et conformité RGPD avancée.",
         "enjeu": "Le parcours d'un patient avant qu'il ne puisse être inscrit sur liste d'attente est très long. Il demande de coordonner de nombreux examens qui ont tous des dates d'expiration strictes. Face au risque de voir un dossier bloqué simplement à cause d'un examen périmé, l'enjeu était de créer un outil visuel simple. IKNOS permet de suivre chaque patient étape par étape et alerte l'équipe avant que les examens ne soient plus valables, évitant ainsi les retards d'inscription pénalisants.",
         "tags": [
@@ -96,7 +96,7 @@
         "title": "DELPHI V5.6",
         "category": "Tkinter",
         "badge": "Desktop / Décisionnel & Épidémiologie Greffe",
-        "hospital": "Projet Institutionnel & Santé",
+        "hospital": "Déploiement en milieu hospitalier",
         "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL (Agence de la Biomédecine). Analyse croisée des listes d'attente, des délais d'accès et reporting Excel/PDF automatisé.",
         "enjeu": "Utiliser des fichiers de statistiques nationales est souvent un calvaire : les données sont brutes, difficiles à lire, et remplies de petites erreurs d'identités (fautes de frappe, changement de nom après mariage). L'enjeu de DELPHI était de concevoir un moteur intelligent capable de nettoyer et de corriger automatiquement ces erreurs. Une fois la donnée propre, l'outil la transforme instantanément en graphiques clairs. Les médecins peuvent ainsi comprendre leur activité sans passer des heures à manipuler des tableaux.",
         "tags": [
@@ -287,7 +287,7 @@
         "title": "PRAXIS GOLD V108",
         "category": "Tkinter",
         "badge": "Desktop / Suite eCRF & Greffe Rénale",
-        "hospital": "Projet Institutionnel & Santé",
+        "hospital": "Déploiement en milieu hospitalier",
         "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux (eCRF, audit trail, matrice sur 30 ans et passerelle CRISTAL).",
         "enjeu": "Lors du parcours d'une greffe, les informations du patient (données avant, pendant et après l'opération, bilans biologiques) sont souvent éparpillées sur de multiples dossiers et logiciels. L'enjeu majeur de PRAXIS était de regrouper et d'harmoniser toutes ces données sur une seule interface claire avant leur saisie officielle. L'outil a été conçu pour être un grand carrefour d'informations, permettant aux équipes soignantes de voir facilement l'avancement des dossiers sans perdre de temps.",
         "tags": [
@@ -320,7 +320,7 @@
         "screenshots": [
             {
                 "url": "assets/images/Dashboard_PRAXIS.png",
-                "caption": ""
+                "caption": "Erreur IA"
             },
             {
                 "url": "assets/images/Fiche patient_PRAXIS.png",
@@ -348,19 +348,19 @@
             },
             {
                 "url": "assets/images/requete_PRAXIS.png",
-                "caption": ""
+                "caption": "Quota atteint, attente 5s..."
             },
             {
                 "url": "assets/images/Mode admin_PRAXIS.png",
-                "caption": ""
+                "caption": "Erreur IA"
             },
             {
                 "url": "assets/images/stats_PRAXIS.png",
-                "caption": ""
+                "caption": "Erreur IA"
             },
             {
                 "url": "assets/images/Jalons_PRAXIS.png",
-                "caption": ""
+                "caption": "Erreur IA"
             }
         ],
         "roadmap": []
