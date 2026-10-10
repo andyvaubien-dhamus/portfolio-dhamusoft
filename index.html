@@ -9,17 +9,17 @@
     <style>
         :root {
             /* 🎨 COULEURS EXTRAITES DU LOGO DHAMUSOFT */
-            --primary: #2C4C6E;       /* Bleu marine profond du texte Dhamusoft */
-            --primary-hover: #1E3754; /* Bleu marine assombri au survol */
-            --accent: #C59B43;        /* Or/Cuivre des lettres U, S et de la flèche */
+            --primary: #2C4C6E;       /* Bleu marine profond */
+            --primary-hover: #1E3754; 
+            --accent: #C59B43;        /* Or Dhamusoft */
             --accent-hover: #A88132;
             
-            /* 💡 Fonds clairs préservés pour la lisibilité */
-            --bg-page: #f8fafc;       /* Fond minéral très clair */
-            --card-bg: #ffffff;       /* Cartes blanches pures */
-            --text-main: #0f172a;     /* Texte principal sombre */
-            --text-muted: #475569;    /* Texte secondaire adouci */
-            --border: #e2e8f0;        /* Bordures discrètes */
+            /* 💡 Fonds et textes */
+            --bg-page: #f8fafc;       
+            --card-bg: #ffffff;       
+            --text-main: #0f172a;     
+            --text-muted: #475569;    
+            --border: #e2e8f0;        
             --frame-border: #cbd5e1;  
         }
 
@@ -30,6 +30,9 @@
             background-color: var(--bg-page);
             color: var(--text-main);
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
@@ -37,15 +40,46 @@
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
         }
+        
+        main.container {
+            flex: 1; /* Pousse le footer vers le bas */
+        }
 
-        /* 🖼️ Grand Logo d'en-tête (Hero) */
+        /* 🖼️ Grand Logo et Accroche */
         .logo-hero {
             display: block;
             width: 100%;
             max-width: 650px; 
             height: auto;
-            margin: 0 auto 2.5rem auto; 
+            margin: 0 auto 1.5rem auto; 
             filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));
+        }
+        
+        .hero-subtitle {
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        /* 🛠️ Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
+        }
+        .tech-tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.5);
         }
 
         /* Filtres */
@@ -54,7 +88,6 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 0.65rem;
-            margin-top: 1rem;
         }
         .filter-btn {
             background: var(--card-bg);
@@ -85,12 +118,17 @@
             box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
         }
 
-        /* Grille */
+        /* Grille et Animations */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
             gap: 1.75rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Carte */
@@ -102,10 +140,12 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            opacity: 0; /* Caché par défaut pour l'animation */
+            animation: fadeInSlide 0.6s ease-out forwards;
             transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-4px) !important;
             border-color: var(--primary);
             box-shadow: 0 10px 20px rgba(44, 76, 110, 0.08);
         }
@@ -392,20 +432,14 @@
             z-index: 1000;
             transition: transform 0.3s ease;
         }
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-        }
-        .whatsapp-btn svg {
-            width: 35px;
-            height: 35px;
-            fill: white;
-        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        .whatsapp-btn svg { width: 35px; height: 35px; fill: white; }
 
         .email-btn {
             position: fixed;
-            bottom: 105px; /* Placé juste au-dessus du bouton WhatsApp */
+            bottom: 105px; 
             right: 30px;
-            background-color: var(--primary); /* Bleu Dhamusoft */
+            background-color: var(--primary); 
             color: white;
             border-radius: 50%;
             width: 60px;
@@ -417,20 +451,13 @@
             z-index: 1000;
             transition: transform 0.3s ease;
         }
-        .email-btn:hover {
-            transform: scale(1.1);
-            background-color: var(--primary-hover);
-        }
-        .email-btn svg {
-            width: 30px;
-            height: 30px;
-            fill: white;
-        }
+        .email-btn:hover { transform: scale(1.1); background-color: var(--primary-hover); }
+        .email-btn svg { width: 30px; height: 30px; fill: white; }
 
         /* 🎯 Encart Problématique / Enjeu */
         .problematique-box {
             background-color: #f8f9fa;
-            border-left: 4px solid #d4af37; /* Ligne Or Dhamusoft */
+            border-left: 4px solid #d4af37; 
             padding: 15px 20px;
             margin: 20px 0;
             border-radius: 0 8px 8px 0;
@@ -439,15 +466,28 @@
         }
         .problematique-title {
             font-weight: 700;
-            color: #1a365d; /* Bleu sombre */
+            color: #1a365d; 
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 1.1em;
         }
-        .problematique-text {
-            font-style: italic;
+        .problematique-text { font-style: italic; }
+
+        /* 📌 Footer */
+        .site-footer {
+            background-color: var(--primary);
+            color: #f8fafc;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 4rem;
+        }
+        .site-footer p { margin: 0; font-size: 0.95rem; }
+        .footer-sub { 
+            font-size: 0.85rem !important; 
+            opacity: 0.8; 
+            margin-top: 0.5rem !important; 
         }
         
     </style>
@@ -455,8 +495,20 @@
 <body>
 
     <header class="container">
-        <!-- 🟢 VOTRE LOGO EN PLEINE LARGEUR CENTRÉE -->
+        <!-- 🟢 LOGO & ACCROCHE -->
         <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" class="logo-hero">
+        <p class="hero-subtitle">Conception d'applications métiers, d'outils de coordination et automatisation de processus.<br>De l'idée au déploiement.</p>
+
+        <!-- 🛠️ TECH STACK -->
+        <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Tkinter & CustomTkinter</span>
+            <span class="tech-tag">Flet</span>
+            <span class="tech-tag">HTML5 / CSS / JS</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">Git & DevOps</span>
+            <span class="tech-tag">Gemini IA</span>
+        </div>
 
         <!-- Filtres par Pôle -->
         <div class="filter-bar">
@@ -472,6 +524,14 @@
         <div id="projects-grid" class="projects-grid"></div>
     </main>
 
+    <!-- 📌 FOOTER -->
+    <footer class="site-footer">
+        <div class="container" style="padding: 0;">
+            <p>© 2026 Dhamusoft — Tous droits réservés.</p>
+            <p class="footer-sub">Développé avec passion en Guadeloupe 🌴</p>
+        </div>
+    </footer>
+
     <!-- Modale globale -->
     <div id="modal" class="hidden">
         <div id="modal-overlay"></div>
@@ -484,7 +544,6 @@
     <!-- SCRIPT HYBRIDE SÉCURISÉ INTÉGRÉ -->
     <script>
     (function() {
-        // Base de données par défaut (utilisée si le fetch échoue)
         let projectsData = [];
 
         const gridContainer = document.querySelector('#projects-grid');
@@ -496,10 +555,8 @@
 
         let currentFilter = 'all';
 
-        // 🔄 LA FONCTION FETCH EST RESTAURÉE ET MISE À JOUR 
         async function chargerDonneesMisesAJour() {
             try {
-                // L'ajout de getTime() empêche le navigateur de charger une vieille version en cache
                 const timestamp = new Date().getTime();
                 const reponse = await fetch('projects.json?t=' + timestamp);
                 
@@ -511,9 +568,8 @@
                     }
                 }
             } catch (e) {
-                console.error("❌ Erreur lors du chargement de projects.json. Vérifiez le fichier sur GitHub.", e);
+                console.error("❌ Erreur lors du chargement de projects.json.", e);
             }
-            // On met à jour l'affichage après avoir récupéré les données
             filterProjects();
         }
 
@@ -672,7 +728,6 @@
 
                 ${renderVideos(project)}
 
-                <!-- 🎯 NOUVEL ENCART : PROBLÉMATIQUE / ENJEU -->
                 ${project.enjeu ? `
                 <div class="problematique-box">
                     <div class="problematique-title">🎯 L'Enjeu / La Problématique</div>
@@ -717,7 +772,7 @@
             } else if (currentFilter === 'web') {
                 filtered = projectsData.filter(p => p.type === 'web_standalone');
             } else if (currentFilter === 'devops') {
-                filtered = projectsData.filter(p => p.id === 'ephor' || p.category === 'CustomTkinter');
+                filtered = projectsData.filter(p => p.id === 'ephor' || p.category === 'CustomTkinter' || p.id === 'taxis');
             }
             renderGallery(filtered);
         }
@@ -725,10 +780,13 @@
         function renderGallery(projects) {
             if (!gridContainer) return;
 
-            gridContainer.innerHTML = projects.map(p => {
+            gridContainer.innerHTML = projects.map((p, index) => {
                 const isChu = !!p.hospital;
+                // Calcul dynamique du délai d'animation (0.1s d'écart entre chaque carte)
+                const animDelay = index * 0.1;
+                
                 return `
-                    <div class="card ${isChu ? 'card-chu' : ''}">
+                    <div class="card ${isChu ? 'card-chu' : ''}" style="animation-delay: ${animDelay}s">
                         ${isChu ? '<div class="chu-tag">🏥 Santé</div>' : ''}
                         <div class="card-badge">${p.badge}</div>
                         <h3 class="card-title">${p.title}</h3>
@@ -759,8 +817,7 @@
             });
         });
 
-        // 🔥 DÉMARRAGE : Appel de la fonction fetch qui récupère projects.json 
-        // et déclenche l'affichage automatiquement une fois chargé.
+        // 🔥 DÉMARRAGE
         chargerDonneesMisesAJour();
 
     })();
