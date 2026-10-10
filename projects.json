@@ -364,5 +364,33 @@
             }
         ],
         "roadmap": []
+    },
+    {
+        "id": "taxis",
+        "title": "TAXIS Studio Médias",
+        "category": "CustomTkinter",
+        "badge": "Desktop / Outil Interne & Sécurité",
+        "description": "Application de gestion de contenu avec interface Drag & Drop, intégrant un bouclier RGPD (OCR Tesseract) et un assistant IA (Gemini) pour la détection de données sensibles et la génération de légendes.",
+        "enjeu": "Gérer les captures d'écran de logiciels médicaux comporte un risque majeur : publier accidentellement la donnée d'un vrai patient (violation RGPD). L'enjeu de TAXIS Studio était de concevoir un outil d'administration interne ultra-sécurisé. L'outil simplifie l'ajout de projets au portfolio par un simple glisser-déposer, tout en scannant systématiquement chaque image via une double barrière (reconnaissance de caractères OCR croisée à l'Intelligence Artificielle) pour bloquer automatiquement toute publication de donnée à caractère personnel.",
+        "tags": [
+            "Python",
+            "CustomTkinter",
+            "Gemini IA",
+            "OCR Tesseract",
+            "RGPD",
+            "JSON"
+        ],
+        "type": "desktop",
+        "download_url": "#",
+        "features": [
+            "Interface graphique Drag & Drop moderne développée avec CustomTkinter et TkinterDnD",
+            "Bouclier RGPD local par reconnaissance optique de caractères (Tesseract OCR : NIR, IPP, Noms...)",
+            "Analyse de sécurité sémantique par Intelligence Artificielle (API Google Gemini)",
+            "Générateur automatique de légendes d'images contextuelles assisté par IA",
+            "Moteur CRUD d'édition et d'exportation en temps réel de la base de données portfolio (JSON)"
+        ],
+        "videos": [],
+        "screenshots": [],
+        "roadmap": []
     }
 ]
