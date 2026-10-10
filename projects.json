@@ -4,14 +4,15 @@
         "title": "AXIOS Extracteur Hospitalier",
         "category": "Tkinter",
         "badge": "Desktop / Automatisation & Extraction SIH",
-        "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+        "hospital": "Projet Institutionnel & Santé",
         "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers (EASILY, TD WEB, CYBERLAB) et passerelle d'injection vers la suite PRAXIS.",
+        "enjeu": "Face à des méthodes de saisie manuelles très longues, le service a fini par accumuler un retard important dans le traitement des dossiers patients. L'enjeu d'AXIOS est d'apporter une vraie modernisation pour rattraper tout ce retard. En automatisant la récupération des données directement dans les logiciels de l'hôpital pour les envoyer au bon endroit, ce projet offre un gain de temps énorme. Son potentiel est tel qu'il a déjà reçu le soutien de principe des responsables du service.",
         "tags": [
             "Python",
             "Tkinter",
             "Selenium",
             "RPA",
-            "Santé / CHU",
+            "Santé",
             "Extraction PDF"
         ],
         "type": "desktop",
@@ -52,14 +53,15 @@
         "title": "IKNOS v1.1",
         "category": "PySide6",
         "badge": "Desktop / Coordination Pré-Greffe Rénale",
-        "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+        "hospital": "Projet Institutionnel & Santé",
         "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM, score psychosocial SMPG, contrôle des péremptions et conformité RGPD avancée.",
+        "enjeu": "Le parcours d'un patient avant qu'il ne puisse être inscrit sur liste d'attente est très long. Il demande de coordonner de nombreux examens qui ont tous des dates d'expiration strictes. Face au risque de voir un dossier bloqué simplement à cause d'un examen périmé, l'enjeu était de créer un outil visuel simple. IKNOS permet de suivre chaque patient étape par étape et alerte l'équipe avant que les examens ne soient plus valables, évitant ainsi les retards d'inscription pénalisants.",
         "tags": [
             "Python",
             "PySide6",
             "Qt6",
             "SQLite",
-            "Santé / CHU",
+            "Santé",
             "RGPD"
         ],
         "type": "desktop",
@@ -94,15 +96,16 @@
         "title": "DELPHI V5.6",
         "category": "Tkinter",
         "badge": "Desktop / Décisionnel & Épidémiologie Greffe",
-        "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+        "hospital": "Projet Institutionnel & Santé",
         "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL (Agence de la Biomédecine). Analyse croisée des listes d'attente, des délais d'accès et reporting Excel/PDF automatisé.",
+        "enjeu": "Utiliser des fichiers de statistiques nationales est souvent un calvaire : les données sont brutes, difficiles à lire, et remplies de petites erreurs d'identités (fautes de frappe, changement de nom après mariage). L'enjeu de DELPHI était de concevoir un moteur intelligent capable de nettoyer et de corriger automatiquement ces erreurs. Une fois la donnée propre, l'outil la transforme instantanément en graphiques clairs. Les médecins peuvent ainsi comprendre leur activité sans passer des heures à manipuler des tableaux.",
         "tags": [
             "Python",
             "Tkinter",
             "Pandas",
             "OpenPyXL",
             "Matplotlib",
-            "Santé / CHU",
+            "Santé",
             "CRISTAL"
         ],
         "type": "desktop",
@@ -138,6 +141,7 @@
         "category": "HTML",
         "badge": "Web App PWA / Sport & Pédagogie",
         "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif, rotations de plateaux et suivi d'assiduité hors-ligne.",
+        "enjeu": "Dans le football amateur, l'encadrement des jeunes repose beaucoup sur des parents ou des bénévoles très volontaires, mais qui manquent parfois de repères pour organiser les entraînements. L'enjeu de Coachmaster est de leur offrir un assistant simple et clé en main. Il les aide à préparer leurs séances et à utiliser un tableau tactique directement sur le bord du terrain, même sans connexion internet. C'est un outil d'accompagnement pratique qui ne prétend pas, bien sûr, remplacer les vraies formations officielles de la Ligue.",
         "tags": [
             "HTML5",
             "JavaScript",
@@ -174,6 +178,7 @@
         "category": "Flet",
         "badge": "Web App & UI / Flet & Gamification",
         "description": "Assistant de gestion du temps gamifié intégrant un compagnon virtuel (Optigotchi), un suivi d'activité et des micro-pauses ergonomiques pour la santé au travail.",
+        "enjeu": "Rester devant un écran toute la journée finit toujours par créer de la fatigue, des douleurs physiques et une perte de concentration. Le problème, c'est que les outils classiques pour gérer son temps sont souvent trop stricts et finissent par être abandonnés. L'idée derrière OptiTime était de transformer la santé au travail en un jeu positif. L'application motive l'utilisateur à travailler par séquences et à prendre de vraies pauses, en le récompensant visuellement grâce à l'évolution d'un petit compagnon virtuel.",
         "tags": [
             "Python",
             "Flet",
@@ -210,6 +215,7 @@
         "category": "Flet",
         "badge": "Web App / Gestion Commerciale & ERP (Flet)",
         "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi du Chiffre d'Affaires (CA) et génération de dossiers contractuels complets.",
+        "enjeu": "Lorsqu'on lance une jeune entreprise, la gestion administrative devient très vite un casse-tête : on fait ses devis sur un logiciel, ses factures sur un autre, et on suit l'argent gagné sur un tableur. Cela demande beaucoup d'énergie et provoque souvent des erreurs. L'enjeu de THEMIS est de regrouper toute cette gestion commerciale dans un seul et même outil très simple. En gérant l'argent, les acomptes et les contrats au même endroit, l'outil permet de libérer l'esprit du créateur pour qu'il se concentre sur son vrai métier.",
         "tags": [
             "Python",
             "Flet",
@@ -246,6 +252,7 @@
         "category": "CustomTkinter",
         "badge": "Desktop / DevOps & Versioning",
         "description": "Interface graphique de supervision Git et de sauvegarde de code automatisée avec mode 'fantôme' (auto-commit) et gestion visuelle des rollbacks.",
+        "enjeu": "Créer des logiciels avec l'aide de l'Intelligence Artificielle permet d'aller beaucoup plus vite, mais cela expose au risque d'intégrer des erreurs inattendues, ou de casser une fonction qui marchait très bien la veille. L'enjeu principal d'EPHOR est d'offrir un vrai filet de sécurité. L'outil surveille le travail en arrière-plan et sauvegarde automatiquement le code. En cas de problème ou d'hallucination de l'IA, il permet de revenir instantanément à une version saine et fonctionnelle, sans perdre son travail.",
         "tags": [
             "Python",
             "CustomTkinter",
@@ -280,13 +287,14 @@
         "title": "PRAXIS GOLD V108",
         "category": "Tkinter",
         "badge": "Desktop / Suite eCRF & Greffe Rénale",
-        "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+        "hospital": "Projet Institutionnel & Santé",
         "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux (eCRF, audit trail, matrice sur 30 ans et passerelle CRISTAL).",
+        "enjeu": "Lors du parcours d'une greffe, les informations du patient (données avant, pendant et après l'opération, bilans biologiques) sont souvent éparpillées sur de multiples dossiers et logiciels. L'enjeu majeur de PRAXIS était de regrouper et d'harmoniser toutes ces données sur une seule interface claire avant leur saisie officielle. L'outil a été conçu pour être un grand carrefour d'informations, permettant aux équipes soignantes de voir facilement l'avancement des dossiers sans perdre de temps.",
         "tags": [
             "Python",
             "Tkinter",
             "SQLite",
-            "Santé / CHU",
+            "Santé",
             "Audit Trail",
             "eCRF"
         ],
@@ -312,7 +320,7 @@
         "screenshots": [
             {
                 "url": "assets/images/Dashboard_PRAXIS.png",
-                "caption": "Erreur IA"
+                "caption": ""
             },
             {
                 "url": "assets/images/Fiche patient_PRAXIS.png",
@@ -340,19 +348,19 @@
             },
             {
                 "url": "assets/images/requete_PRAXIS.png",
-                "caption": "Quota atteint, attente 5s..."
+                "caption": ""
             },
             {
                 "url": "assets/images/Mode admin_PRAXIS.png",
-                "caption": "Erreur IA"
+                "caption": ""
             },
             {
                 "url": "assets/images/stats_PRAXIS.png",
-                "caption": "Erreur IA"
+                "caption": ""
             },
             {
                 "url": "assets/images/Jalons_PRAXIS.png",
-                "caption": "Erreur IA"
+                "caption": ""
             }
         ],
         "roadmap": []

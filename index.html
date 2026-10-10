@@ -8,7 +8,7 @@
     
     <style>
         :root {
-            /* 🎨 NOUVELLES COULEURS EXTRAITES DU LOGO DHAMUSOFT */
+            /* 🎨 COULEURS EXTRAITES DU LOGO DHAMUSOFT */
             --primary: #2C4C6E;       /* Bleu marine profond du texte Dhamusoft */
             --primary-hover: #1E3754; /* Bleu marine assombri au survol */
             --accent: #C59B43;        /* Or/Cuivre des lettres U, S et de la flèche */
@@ -42,17 +42,17 @@
         .logo-hero {
             display: block;
             width: 100%;
-            max-width: 650px; /* Taille optimale pour PC */
+            max-width: 650px; 
             height: auto;
-            margin: 0 auto 2.5rem auto; /* Centrage parfait avec marge en bas */
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05)); /* Ombre douce optionnelle */
+            margin: 0 auto 2.5rem auto; 
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));
         }
 
         /* Filtres */
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* On centre les filtres sous le logo */
+            justify-content: center;
             gap: 0.65rem;
             margin-top: 1rem;
         }
@@ -125,7 +125,7 @@
 
         .card-badge {
             font-size: 0.75rem;
-            color: var(--accent); /* Utilisation de l'Or Dhamusoft */
+            color: var(--accent);
             text-transform: uppercase;
             font-weight: 800;
             margin-bottom: 0.5rem;
@@ -135,7 +135,7 @@
             margin-bottom: 0.6rem; 
             font-size: 1.3rem; 
             font-weight: 800;
-            color: var(--primary); /* Utilisation du Bleu Dhamusoft */
+            color: var(--primary);
         }
         .card-desc { 
             font-size: 0.92rem; 
@@ -208,7 +208,7 @@
         #modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.75); /* Fond assombri pour faire ressortir la modale */
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(6px);
         }
 
@@ -270,10 +270,10 @@
             max-height: 420px;
         }
 
-        /* Encart Focus Vidéo - Utilise l'Or Dhamusoft */
+        /* Encart Focus Vidéo */
         .video-focus-box {
             background: #f8fafc;
-            border-left: 4px solid var(--accent); /* Touche Dorée Dhamusoft */
+            border-left: 4px solid var(--accent);
             border-right: 1px solid var(--border);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
@@ -311,7 +311,7 @@
         }
         .screenshot-item a {
             display: block;
-            background: var(--primary); /* Fond de soutien Bleu */
+            background: var(--primary);
             overflow: hidden;
         }
         .screenshot-item img {
@@ -345,14 +345,14 @@
         .features-list { list-style: disc; padding-left: 1.3rem; font-size: 0.95rem; }
         .features-list li { margin-bottom: 0.5rem; color: #334155; }
 
-        /* Roadmap - Utilise l'Or Dhamusoft */
+        /* Roadmap */
         .roadmap-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
         .roadmap-item {
             background: #f8fafc;
             padding: 1rem 1.1rem;
             border-radius: 8px;
             border: 1px solid var(--border);
-            border-left: 4px solid var(--accent); /* Touche Dorée Dhamusoft */
+            border-left: 4px solid var(--accent);
         }
         .roadmap-header { display: flex; justify-content: space-between; align-items: center; }
         .roadmap-header strong { color: var(--primary); }
@@ -429,7 +429,7 @@
 
         /* 🎯 Encart Problématique / Enjeu */
         .problematique-box {
-            background-color: #f8f9fa; /* Fond très clair */
+            background-color: #f8f9fa;
             border-left: 4px solid #d4af37; /* Ligne Or Dhamusoft */
             padding: 15px 20px;
             margin: 20px 0;
@@ -484,212 +484,8 @@
     <!-- SCRIPT HYBRIDE SÉCURISÉ INTÉGRÉ -->
     <script>
     (function() {
-        let projectsData = [
-            {
-                "id": "praxis",
-                "title": "PRAXIS GOLD V108",
-                "category": "Tkinter",
-                "badge": "Desktop / Suite eCRF & Greffe Rénale",
-                "hospital": "Projet de Santé Institutionnel",
-                "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux (eCRF, audit trail, matrice sur 30 ans et passerelle CRISTAL).",
-                "enjeu": "Lors du parcours d'une greffe, les informations du patient (données avant, pendant et après l'opération, bilans biologiques) sont souvent éparpillées sur de multiples dossiers et logiciels. L'enjeu majeur de PRAXIS était de regrouper et d'harmoniser toutes ces données sur une seule interface claire avant leur saisie officielle. L'outil a été conçu pour être un grand carrefour d'informations, permettant aux équipes soignantes de voir facilement l'avancement des dossiers sans perdre de temps.",
-                "tags": ["Python", "Tkinter", "SQLite", "Santé", "Audit Trail", "eCRF"],
-                "type": "desktop",
-                "preview_video": "assets/previews/praxis.mp4",
-                "video_focus": "⚡ Flashs colorimétriques en direct (vert/rouge) sur les bornes physiologiques, blocage strict d'une date impossible par le 'Douanier' et navigation interactive dans la matrice sur 30 ans.",
-                "download_url": "#",
-                "features": [
-                    "Moteur universel d'eCRF dynamique piloté par JSON (Socle J0 et suivis longitudinaux M3 à Y30)",
-                    "Système expert de validation clinique : contrôle des bornes physiologiques en direct et calcul automatique (clairance, ischémie)",
-                    "Console de Pilotage Global : Matrice des jalons dynamique (recul 30 ans) et Kanban de production",
-                    "Audit Trail médico-légal strict horodaté traçant chaque champ modifié [Valeur antérieure ➔ Nouvelle]",
-                    "Générateur de rapports HTML print-ready autonomes et coffre-fort d'archivage physique ZIP mensuel"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/praxis_1_matrice.png", "caption": "Console globale : Matrice dynamique des jalons de suivi longitudinal sur 30 ans" },
-                    { "url": "assets/images/praxis_2_douanier.png", "caption": "Contrôle expert en direct : Douanier chronologique et bornes physiologiques" },
-                    { "url": "assets/images/praxis_3_audittrail.png", "caption": "Audit Trail médico-légal strict traçant chaque modification [Valeur antérieure ➔ Nouvelle]" },
-                    { "url": "assets/images/praxis_4_rapport.png", "caption": "Générateur autonome de bilans cliniques print-ready et archivage ZIP" }
-                ]
-            },
-            {
-                "id": "axios",
-                "title": "AXIOS Extracteur Hospitalier",
-                "category": "Tkinter",
-                "badge": "Desktop / Automatisation & Extraction SIH",
-                "hospital": "Projet de Santé Institutionnel",
-                "description": "Robot d'extraction et SAS de contrôle qualité pour logiciels de santé et passerelle d'injection vers la suite PRAXIS.",
-                "enjeu": "Face à des méthodes de saisie manuelles très longues, le service a fini par accumuler un retard important dans le traitement des dossiers patients. L'enjeu d'AXIOS est d'apporter une vraie modernisation pour rattraper tout ce retard. En automatisant la récupération des données directement dans les logiciels de l'hôpital pour les envoyer au bon endroit, ce projet offre un gain de temps énorme. Son potentiel est tel qu'il a déjà reçu le soutien de principe des responsables du service.",
-                "tags": ["Python", "Tkinter", "Selenium", "RPA", "Santé", "Extraction PDF"],
-                "type": "desktop",
-                "preview_video": "assets/previews/axios.mp4",
-                "video_focus": "🤖 Remplissage automatique des grilles depuis un PDF médical, badges de confiance colorés s'allumant en temps réel et validation assistée anti-aberrations.",
-                "download_url": "#",
-                "features": [
-                    "Connecteur multi-sources SIH : extraction automatisée depuis EASILY, TD WEB et CYBERLAB",
-                    "SAS de validation qualité avec scoring de fiabilité (indices de confiance vert/orange/rouge)",
-                    "Contrôle des bornes physiologiques interdisant les aberrations lors des corrections manuelles",
-                    "Passerelle d'exportation technique JSON avec horodatage d'audit pour injection directe eCRF"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/axios_1_sas.png", "caption": "SAS de contrôle qualité avec scoring de fiabilité (indices de confiance vert/orange/rouge)" },
-                    { "url": "assets/images/axios_2_extraction.png", "caption": "Connecteur multi-sources : Extraction automatisée depuis EASILY, TD WEB et CYBERLAB" },
-                    { "url": "assets/images/axios_3_bornes.png", "caption": "Garde-fou physiologique interdisant les valeurs aberrantes lors des corrections manuelles" },
-                    { "url": "assets/images/axios_4_export.png", "caption": "Passerelle d'exportation technique JSON normalisée pour injection directe eCRF" }
-                ],
-                "roadmap": [
-                    { "title": "Pont bidirectionnel PRAXIS-AXIOS", "desc": "Lecture automatique du patient actif dans CLINIQUE.db pour pré-remplir le pivot d'identité.", "status": "in_progress" },
-                    { "title": "Harmonisation des sql_tags", "desc": "Alignement strict des clés extraites avec les schémas metadata.", "status": "planned" }
-                ]
-            },
-            {
-                "id": "iknos",
-                "title": "IKNOS v1.1",
-                "category": "PySide6",
-                "badge": "Desktop / Coordination Pré-Greffe Rénale",
-                "hospital": "Projet de Santé Institutionnel",
-                "description": "Plateforme de coordination pré-greffe : suivi des parcours patients, contrôle des péremptions des examens médicaux et gestion documentaire.",
-                "enjeu": "Le parcours d'un patient avant qu'il ne puisse être inscrit sur liste d'attente est très long. Il demande de coordonner de nombreux examens qui ont tous des dates d'expiration strictes. Face au risque de voir un dossier bloqué simplement à cause d'un examen périmé, l'enjeu était de créer un outil visuel simple. IKNOS permet de suivre chaque patient étape par étape et alerte l'équipe avant que les examens ne soient plus valables, évitant ainsi les retards d'inscription pénalisants.",
-                "tags": ["Python", "PySide6", "Qt6", "SQLite", "Santé", "RGPD"],
-                "type": "desktop",
-                "preview_video": "assets/previews/iknos.mp4",
-                "video_focus": "🗂️ Progression automatisée des cartes sur le Kanban 5 stades selon les jalons cliniques validés, alertes visuelles pulsantes sur examens périmés et compilation PDF instantanée.",
-                "download_url": "#",
-                "features": [
-                    "Pipeline clinique Kanban en 5 stades avec transition automatisée des patients selon l'avancement effectif du dossier",
-                    "Contrôle dynamique des péremptions d'examens médicaux avec alertes colorimétriques de validité",
-                    "Module d'évaluation psychosociale avec calcul du score SMPG sur 100 points et orientation ETP",
-                    "Studio de courriers médicaux et convocations avec fusion de balises dynamiques et export PDF",
-                    "Conformité RGPD stricte : registre des accès, anonymisation et intégrité SQLite"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/iknos_1_kanban.png", "caption": "Pipeline clinique Kanban en 5 stades avec transition automatisée selon l'avancement effectif" },
-                    { "url": "assets/images/iknos_2_peremptions.png", "caption": "Contrôle dynamique des péremptions d'examens médicaux avec alertes colorimétriques" },
-                    { "url": "assets/images/iknos_3_smpg.png", "caption": "Module psychosocial d'évaluation globale (Score SMPG sur 100 points et orientation ETP)" },
-                    { "url": "assets/images/iknos_4_dossier.png", "caption": "Studio de courriers médicaux et génération vectorielle du dossier patient officiel en PDF" }
-                ]
-            },
-            {
-                "id": "delphi",
-                "title": "DELPHI V5.6",
-                "category": "Tkinter",
-                "badge": "Desktop / Décisionnel & Épidémiologie",
-                "hospital": "Projet de Santé Institutionnel",
-                "description": "Plateforme d'analyse et de nettoyage pour les données statistiques de santé. Analyse croisée des listes d'attente et reporting Excel/PDF automatisé.",
-                "enjeu": "Utiliser des fichiers de statistiques nationales est souvent un calvaire : les données sont brutes, difficiles à lire, et remplies de petites erreurs d'identités (fautes de frappe, changement de nom après mariage). L'enjeu de DELPHI était de concevoir un moteur intelligent capable de nettoyer et de corriger automatiquement ces erreurs. Une fois la donnée propre, l'outil la transforme instantanément en graphiques clairs. Les médecins peuvent ainsi comprendre leur activité sans passer des heures à manipuler des tableaux.",
-                "tags": ["Python", "Tkinter", "Pandas", "OpenPyXL", "Matplotlib", "Santé", "Statistiques"],
-                "type": "desktop",
-                "preview_video": "assets/previews/delphi.mp4",
-                "video_focus": "📊 Rapprochement flou d'identités en temps réel, génération dynamique d'histogrammes et camemberts interactifs, puis ouverture d'un classeur Excel avec graphiques natifs.",
-                "download_url": "#",
-                "features": [
-                    "Moteur d'analyse bicéphale : Mode réconciliation 'Liste d'attente' et Mode enrichissement 'Cohorte des greffés'",
-                    "Algorithme de réconciliation flou : matching NEFG et dédoublonnage phonétique (noms de naissance, marital, d'usage et DDN)",
-                    "Analyses épidémiologiques avancées : délais d'attente, fardeau de la dialyse avant greffe, néphropathies et survie",
-                    "Module de reporting bureautique automatique : rapports vectoriels multipages PDF et classeurs Excel avec graphiques natifs (OpenPyXL)",
-                    "Tableau de bord statistique interactif embarqué (Matplotlib / Tkinter) avec visualisation par centre de dialyse"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/delphi_1_reconciliation.png", "caption": "Algorithme de réconciliation d'identités (NEFG, noms maritaux et dates de naissance)" },
-                    { "url": "assets/images/delphi_2_dashboard.png", "caption": "Tableau de bord statistique interactif Tkinter & Matplotlib (profils ABO, âges et survie)" },
-                    { "url": "assets/images/delphi_3_centres.png", "caption": "Analyse territoriale et répartition des patients par centre de dialyse d'origine" },
-                    { "url": "assets/images/delphi_4_excel.png", "caption": "Classeur Excel automatisé multi-onglets avec graphiques natifs intégrés prêts à l'impression" }
-                ]
-            },
-            {
-                "id": "coachmaster",
-                "title": "Coachmaster V6.0",
-                "category": "HTML",
-                "badge": "Web App PWA / Sport & Pédagogie",
-                "description": "Application web hors-ligne pour éducateurs de football : générateur de séances, tableau tactique et suivi d'assiduité.",
-                "enjeu": "Dans le football amateur, l'encadrement des jeunes repose beaucoup sur des parents ou des bénévoles très volontaires, mais qui manquent parfois de repères pour organiser les entraînements. L'enjeu de Coachmaster est de leur offrir un assistant simple et clé en main. Il les aide à préparer leurs séances et à utiliser un tableau tactique directement sur le bord du terrain, même sans connexion internet. C'est un outil d'accompagnement pratique qui ne prétend pas, bien sûr, remplacer les vraies formations officielles de la Ligue.",
-                "tags": ["HTML5", "JavaScript", "IndexedDB", "Dexie.js", "PWA", "Sport"],
-                "type": "web_standalone",
-                "preview_video": "assets/previews/coachmaster.mp4",
-                "video_focus": "⚽ Dessin vectoriel tactile en direct (flèches, passes, courses), manipulation fluide des joueurs sur le terrain et chronomètre d'entraînement haptique animé.",
-                "download_url": "apps/coachmaster/index.html",
-                "features": [
-                    "Architecture PWA 100% hors-ligne avec base locale IndexedDB (Dexie.js)",
-                    "Générateur de séances articulé sur les référentiels DTN FFF, FUNino et Coerver Coaching",
-                    "Double tableau tactique Canvas interactif : mode création statique et tableau blanc animé",
-                    "Chronomètre d'entraînement avec alerte haptique (vibreur) et sifflet multi-tons haute fréquence"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/coachmaster_cover.png", "caption": "Interface d'entraînement et tableau tactique Canvas" }
-                ]
-            },
-            {
-                "id": "optitime",
-                "title": "OptiTime V13.6",
-                "category": "Flet",
-                "badge": "Web App & UI / Flet & Gamification",
-                "description": "Assistant de gestion du temps ludique intégrant un compagnon virtuel (Optigotchi) et des micro-pauses pour la santé au travail.",
-                "enjeu": "Rester devant un écran toute la journée finit toujours par créer de la fatigue, des douleurs physiques et une perte de concentration. Le problème, c'est que les outils classiques pour gérer son temps sont souvent trop stricts et finissent par être abandonnés. L'idée derrière OptiTime était de transformer la santé au travail en un jeu positif. L'application motive l'utilisateur à travailler par séquences et à prendre de vraies pauses, en le récompensant visuellement grâce à l'évolution d'un petit compagnon virtuel.",
-                "tags": ["Python", "Flet", "Flutter Web", "Gamification", "SQLite"],
-                "type": "web_standalone",
-                "preview_video": "assets/previews/optitime.mp4",
-                "video_focus": "✨ Onde ECG pulsante et auras néomorphiques animées en pur CSS, prise de niveau de l'Optigotchi avec effets visuels et bascule de thème UI en direct.",
-                "download_url": "https://optitime.onrender.com",
-                "features": [
-                    "Architecture réactive Flet (moteur Flutter Web) avec interface sombre néomorphe ultra-fluide",
-                    "Chronomètre de session dynamique avec styles UI animés en CSS/SVG pur",
-                    "Moteur de gamification (Optigotchi) : gain d'XP, système de trophées et inventaire",
-                    "Catalogue de pauses actives (cohérence cardiaque, ergonomie) récompensées en énergie virtuelle",
-                    "Éditeur d'historique intégré (Dataframe) avec graphiques de productivité"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/optitime_main.png", "caption": "Chronomètre animé et tableau de bord Optigotchi" }
-                ]
-            },
-            {
-                "id": "themis",
-                "title": "THEMIS",
-                "category": "Flet",
-                "badge": "Web App / Gestion Commerciale & ERP (Flet)",
-                "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi des revenus et création de contrats.",
-                "enjeu": "Lorsqu'on lance une jeune entreprise, la gestion administrative devient très vite un casse-tête : on fait ses devis sur un logiciel, ses factures sur un autre, et on suit l'argent gagné sur un tableur. Cela demande beaucoup d'énergie et provoque souvent des erreurs. L'enjeu de THEMIS est de regrouper toute cette gestion commerciale dans un seul et même outil très simple. En gérant l'argent, les acomptes et les contrats au même endroit, l'outil permet de libérer l'esprit du créateur pour qu'il se concentre sur son vrai métier.",
-                "tags": ["Python", "Flet", "Flutter Web", "CRM", "Facturation"],
-                "type": "web_standalone",
-                "preview_video": "assets/previews/themis.mp4",
-                "video_focus": "💼 Recalcul en direct des acomptes et impact immédiat sur le Chiffre d'Affaires (CA) global lors de l'édition, suivi des KPIs de facturation et rendu WYSIWYG d'un contrat commercial PDF complet.",
-                "download_url": "https://themis-flet.onrender.com",
-                "features": [
-                    "Application bureautique lourde développée avec le framework Flet (plus de 3 200 lignes de code)",
-                    "Tableau de bord financier interactif : suivi du Chiffre d'Affaires (CA), devis actifs, factures émises et encaissements",
-                    "Éditeur de devis sur-mesure intégrant la rédaction dynamique du cahier des charges fonctionnel",
-                    "Système de facturation complet : calcul automatisé des acomptes, des soldes et émission d'avoirs",
-                    "Moteur de rendu HTML/CSS pour l'édition de documents légaux prêts à l'impression"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/themis_dashboard.png", "caption": "Tableau de bord de gestion commerciale et suivi du Chiffre d'Affaires" }
-                ]
-            },
-            {
-                "id": "ephor",
-                "title": "EPHOR Superviseur",
-                "category": "CustomTkinter",
-                "badge": "Desktop / Sécurité du code",
-                "description": "Outil de sauvegarde de code en continu avec mode 'fantôme' (auto-enregistrement) et possibilité d'annuler les erreurs de programmation.",
-                "enjeu": "Créer des logiciels avec l'aide de l'Intelligence Artificielle permet d'aller beaucoup plus vite, mais cela expose au risque d'intégrer des erreurs inattendues, ou de casser une fonction qui marchait très bien la veille. L'enjeu principal d'EPHOR est d'offrir un vrai filet de sécurité. L'outil surveille le travail en arrière-plan et sauvegarde automatiquement le code. En cas de problème ou d'hallucination de l'IA, il permet de revenir instantanément à une version saine et fonctionnelle, sans perdre son travail.",
-                "tags": ["Python", "CustomTkinter", "Git", "Sécurité", "Sauvegarde"],
-                "type": "desktop",
-                "preview_video": "assets/previews/ephor.mp4",
-                "video_focus": "🛡️ Visionneuse de Diff bicolore (ajouts verts / suppressions rouges), compte à rebours du Mode Fantôme et exécution spectaculaire d'un Rollback Git destructif.",
-                "download_url": "#",
-                "features": [
-                    "Moteur Git intégré avec initialisation automatique de dépôts et .gitignore préconfigurés",
-                    "Mode 'Fantôme' (Watchdog) : surveillance asynchrone des fichiers et snapshot automatique",
-                    "Studio d'Audit visuel : visionneuse de Diff avec coloration syntaxique des ajouts/suppressions",
-                    "Système de Rollback destructif sécurisé pour annuler instantanément des développements instables"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/ephor_1_console.png", "caption": "Console de supervision avec détection automatique des sauvegardes" },
-                    { "url": "assets/images/ephor_2_diff.png", "caption": "Studio d'Audit visuel pour voir les modifications en couleur" },
-                    { "url": "assets/images/ephor_3_watchdog.png", "caption": "Mode Fantôme créant des sauvegardes invisibles pendant les pauses" },
-                    { "url": "assets/images/ephor_4_rollback.png", "caption": "Module de retour en arrière pour effacer les développements ratés" }
-                ]
-            }
-        ];
+        // Base de données par défaut (utilisée si le fetch échoue)
+        let projectsData = [];
 
         const gridContainer = document.querySelector('#projects-grid');
         const modal = document.querySelector('#modal');
@@ -700,19 +496,24 @@
 
         let currentFilter = 'all';
 
+        // 🔄 LA FONCTION FETCH EST RESTAURÉE ET MISE À JOUR 
         async function chargerDonneesMisesAJour() {
             try {
-                const reponse = await fetch('projects.json');
+                // L'ajout de getTime() empêche le navigateur de charger une vieille version en cache
+                const timestamp = new Date().getTime();
+                const reponse = await fetch('projects.json?t=' + timestamp);
+                
                 if (reponse.ok) {
                     const dataDistant = await reponse.json();
                     if (Array.isArray(dataDistant) && dataDistant.length > 0) {
                         projectsData = dataDistant;
-                        console.log("✅ Projets chargés depuis projects.json.");
+                        console.log("✅ Projets chargés avec succès depuis projects.json !");
                     }
                 }
             } catch (e) {
-                console.log("ℹ️ Utilisation des projets embarqués par défaut.");
+                console.error("❌ Erreur lors du chargement de projects.json. Vérifiez le fichier sur GitHub.", e);
             }
+            // On met à jour l'affichage après avoir récupéré les données
             filterProjects();
         }
 
@@ -958,7 +759,10 @@
             });
         });
 
+        // 🔥 DÉMARRAGE : Appel de la fonction fetch qui récupère projects.json 
+        // et déclenche l'affichage automatiquement une fois chargé.
         chargerDonneesMisesAJour();
+
     })();
     </script>
     
