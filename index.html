@@ -475,6 +475,53 @@
         }
         .problematique-text { font-style: italic; }
 
+        /* 📖 SECTION GLOSSAIRE */
+        .glossary-section {
+            margin-top: 5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .glossary-title {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .glossary-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+        .glossary-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        .glossary-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: var(--accent);
+        }
+        .glossary-term {
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+        .glossary-def {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
         /* 📌 Footer */
         .site-footer {
             background-color: var(--primary);
@@ -522,6 +569,56 @@
     <main class="container">
         <!-- Grille où s'affichent les projets -->
         <div id="projects-grid" class="projects-grid"></div>
+
+        <!-- 📖 GLOSSAIRE (AJOUTÉ ICI) -->
+        <section class="glossary-section">
+            <h2 class="glossary-title">📖 Petit Glossaire Technique</h2>
+            <p class="glossary-subtitle">Quelques définitions simples pour comprendre le jargon technique utilisé dans ce portfolio.</p>
+            
+            <div class="glossary-grid">
+                <div class="glossary-card">
+                    <div class="glossary-term">eCRF (Cahier d'Observation)</div>
+                    <div class="glossary-def">Formulaire numérique ultra-sécurisé utilisé en recherche clinique pour recueillir les données de santé des patients.</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">Audit Trail</div>
+                    <div class="glossary-def">Traçabilité inviolable enregistrant silencieusement chaque action (qui, quand, quoi) pour garantir l'intégrité médico-légale des données.</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">RPA (Automatisation Robotisée)</div>
+                    <div class="glossary-def">Robots logiciels programmés pour effectuer des tâches répétitives à la place d'un humain (comme cliquer ou copier-coller des données).</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">PWA (Progressive Web App)</div>
+                    <div class="glossary-def">Application web moderne qui peut s'installer sur un smartphone et fonctionner même sans aucune connexion internet.</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">OCR (Reconnaissance Optique)</div>
+                    <div class="glossary-def">Technologie permettant à l'ordinateur d'"extraire" et de lire automatiquement le texte présent dans une image ou un PDF scanné.</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">Kanban</div>
+                    <div class="glossary-def">Méthode de gestion très visuelle utilisant des colonnes (ex: À faire, En cours, Terminé) pour suivre facilement l'avancée d'un projet ou d'un dossier.</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">Git & DevOps</div>
+                    <div class="glossary-def">Système agissant comme une "machine à remonter le temps" pour le code informatique. Il sauvegarde l'historique et permet d'annuler les erreurs facilement.</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">JSON</div>
+                    <div class="glossary-def">Format de fichier texte léger et universel, utilisé pour faire communiquer facilement différentes applications informatiques entre elles.</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">Frameworks (Tkinter, Flet...)</div>
+                    <div class="glossary-def">Ce sont des "boîtes à outils" pour les programmeurs. Ils permettent de concevoir les fenêtres, boutons et interfaces visuelles d'un logiciel.</div>
+                </div>
+                <div class="glossary-card">
+                    <div class="glossary-term">SQLite / IndexedDB</div>
+                    <div class="glossary-def">Des bases de données "locales", directement embarquées dans l'ordinateur ou le navigateur, sans avoir besoin de faire appel à un serveur externe.</div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- 📌 FOOTER -->
