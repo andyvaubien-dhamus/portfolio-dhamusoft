@@ -374,6 +374,56 @@
             padding: 0.65rem 1.1rem;
             border-radius: 8px;
         }
+        
+        /* Bouton WhatsApp Flottant */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-btn svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* 🎯 Encart Problématique / Enjeu */
+        .problematique-box {
+            background-color: #f8f9fa; /* Fond très clair */
+            border-left: 4px solid #d4af37; /* Ligne Or Dhamusoft */
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            color: #444;
+            line-height: 1.6;
+        }
+        .problematique-title {
+            font-weight: 700;
+            color: #1a365d; /* Bleu sombre */
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1em;
+        }
+        .problematique-text {
+            font-style: italic;
+        }
+        
     </style>
 </head>
 <body>
@@ -385,7 +435,7 @@
         <!-- Filtres par Pôle -->
         <div class="filter-bar">
             <button class="filter-btn active" data-filter="all">Tous les projets</button>
-            <button class="filter-btn chu-filter" data-filter="chu">🏥 CHU Guadeloupe (Greffe Rénale)</button>
+            <button class="filter-btn chu-filter" data-filter="chu">🏥 Santé & Institutionnel</button>
             <button class="filter-btn" data-filter="web">Web & PWA</button>
             <button class="filter-btn" data-filter="devops">DevOps & Outils</button>
         </div>
@@ -416,6 +466,7 @@
                 "badge": "Desktop / Suite eCRF & Greffe Rénale",
                 "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
                 "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux (eCRF, audit trail, matrice sur 30 ans et passerelle CRISTAL).",
+                "enjeu": "Lors du parcours d'une greffe, les informations du patient (données préopératoires, peropératoires, biologiques et de suivi) sont souvent éparpillées sur de multiples supports hospitaliers. L'enjeu majeur était de centraliser et d'harmoniser ces données critiques sur une interface unique avant leur saisie officielle dans la base de données nationale (CRISTAL). PRAXIS a ainsi été conçu comme un véritable carrefour d'informations, doublé d'un outil de monitoring et de reporting performant permettant aux équipes de rendre compte, en temps réel, de l'avancement de la saisie des dossiers.",
                 "tags": ["Python", "Tkinter", "SQLite", "Santé / CHU", "Audit Trail", "eCRF"],
                 "type": "desktop",
                 "preview_video": "assets/previews/praxis.mp4",
@@ -442,6 +493,7 @@
                 "badge": "Desktop / Automatisation & Extraction SIH",
                 "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
                 "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers (EASILY, TD WEB, CYBERLAB) et passerelle d'injection vers la suite PRAXIS.",
+                "enjeu": "Face à des méthodes de saisie traditionnelles chronophages, le service a accumulé un retard conséquent dans le traitement des dossiers. L'enjeu d'AXIOS est d'apporter une véritable modernisation des usages pour permettre de résorber massivement ce passif. En automatisant l'extraction des données depuis les logiciels de l'hôpital, ce projet (actuellement en cours de déploiement) offre une perspective de gain de temps si importante qu'il a déjà reçu le soutien de principe des acteurs majeurs du service.",
                 "tags": ["Python", "Tkinter", "Selenium", "RPA", "Santé / CHU", "Extraction PDF"],
                 "type": "desktop",
                 "preview_video": "assets/previews/axios.mp4",
@@ -471,6 +523,7 @@
                 "badge": "Desktop / Coordination Pré-Greffe Rénale",
                 "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
                 "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM, score psychosocial SMPG, contrôle des péremptions et conformité RGPD avancée.",
+                "enjeu": "Le parcours d'évaluation d'un patient avant son inscription sur liste d'attente de greffe est un processus long, nécessitant de coordonner une multitude d'examens médicaux aux durées de validité très strictes. Face au risque de voir des dossiers bloqués à cause d'un examen périmé ou d'un manque de visibilité globale, l'enjeu était de créer un outil de pilotage visuel et proactif. IKNOS permet aux équipes de suivre précisément chaque patient (via un système Kanban) et d'anticiper les péremptions, évitant ainsi les retards d'inscription tout en intégrant une évaluation psychosociale standardisée.",
                 "tags": ["Python", "PySide6", "Qt6", "SQLite", "Santé / CHU", "RGPD"],
                 "type": "desktop",
                 "preview_video": "assets/previews/iknos.mp4",
@@ -497,6 +550,7 @@
                 "badge": "Desktop / Décisionnel & Épidémiologie Greffe",
                 "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
                 "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL (Agence de la Biomédecine). Analyse croisée des listes d'attente, des délais d'accès et reporting Excel/PDF automatisé.",
+                "enjeu": "L'exploitation des données épidémiologiques du registre national (CRISTAL) est souvent freinée par des bases de données brutes, difficiles à manipuler, et par de fréquentes incohérences d'identités (fautes de frappe, noms d'usage vs noms de naissance). L'enjeu était de concevoir un moteur décisionnel capable de nettoyer et de réconcilier intelligemment ces données complexes, pour les transformer instantanément en indicateurs visuels clairs (délais d'accès à la greffe, fardeau de la dialyse). DELPHI automatise tout ce travail de traitement et de reporting, offrant aux médecins une vision claire de leur activité sans passer des heures sur des tableurs.",
                 "tags": ["Python", "Tkinter", "Pandas", "OpenPyXL", "Matplotlib", "Santé / CHU", "CRISTAL"],
                 "type": "desktop",
                 "preview_video": "assets/previews/delphi.mp4",
@@ -522,6 +576,7 @@
                 "category": "HTML",
                 "badge": "Web App PWA / Sport & Pédagogie",
                 "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif, rotations de plateaux et suivi d'assiduité hors-ligne.",
+                "enjeu": "Dans le football amateur, l'encadrement des équipes de jeunes repose souvent sur l'engagement de bénévoles et de parents qui manquent parfois de repères techniques. L'enjeu de Coachmaster est d'offrir à toute personne volontaire un assistant pédagogique 'clés en main' pour l'aider à structurer ses séances et animer le tableau tactique sereinement depuis le bord du terrain, même hors-ligne. Si l'application facilite grandement la logistique et l'animation sportive, elle se positionne comme un strict facilitateur et ne prétend en aucun cas remplacer les formations officielles dispensées par la Ligue.",
                 "tags": ["HTML5", "JavaScript", "IndexedDB", "Dexie.js", "PWA", "Sport Tech"],
                 "type": "web_standalone",
                 "preview_video": "assets/previews/coachmaster.mp4",
@@ -543,6 +598,7 @@
                 "category": "Flet",
                 "badge": "Web App & UI / Flet & Gamification",
                 "description": "Assistant de gestion du temps gamifié intégrant un compagnon virtuel (Optigotchi), un suivi d'activité et des micro-pauses ergonomiques pour la santé au travail.",
+                "enjeu": "Le travail prolongé sur écran entraîne inévitablement une fatigue cognitive, des troubles musculo-squelettiques et une baisse de productivité. Les outils de gestion du temps classiques finissent souvent par être ignorés car ils sont perçus comme rigides ou rébarbatifs. L'enjeu avec OptiTime était de transformer la santé au travail et la gestion des tâches en une expérience positive par le biais de la gamification. L'application motive l'utilisateur à respecter des cycles de concentration sains et à prendre des micro-pauses ergonomiques en récompensant ses efforts via l'évolution d'un compagnon virtuel.",
                 "tags": ["Python", "Flet", "Flutter Web", "Gamification", "SQLite"],
                 "type": "web_standalone",
                 "preview_video": "assets/previews/optitime.mp4",
@@ -565,6 +621,7 @@
                 "category": "Flet",
                 "badge": "Web App / Gestion Commerciale & ERP (Flet)",
                 "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi du Chiffre d'Affaires (CA) et génération de dossiers contractuels complets.",
+                "enjeu": "Pour un créateur de logiciels ou une jeune structure indépendante, la gestion administrative fragmentée (devis sous traitement de texte, facturation manuelle, suivi sur tableur) devient rapidement une charge mentale chronophage et source d'erreurs. L'enjeu de THEMIS est de centraliser et d'automatiser l'intégralité du cycle de vie commercial sur un seul outil. En regroupant le suivi du chiffre d'affaires en temps réel, le calcul dynamique des acomptes et la génération instantanée de dossiers contractuels complets, l'application permet de sécuriser sa facturation pour se reconcentrer sur la production technique.",
                 "tags": ["Python", "Flet", "Flutter Web", "CRM", "Facturation"],
                 "type": "web_standalone",
                 "preview_video": "assets/previews/themis.mp4",
@@ -587,6 +644,7 @@
                 "category": "CustomTkinter",
                 "badge": "Desktop / DevOps & Versioning",
                 "description": "Interface graphique de supervision Git et de sauvegarde de code automatisée avec mode 'fantôme' (auto-commit) et gestion visuelle des rollbacks.",
+                "enjeu": "Le développement d'applications assisté par l'Intelligence Artificielle accélère considérablement la production, mais expose au risque de régressions inattendues (hallucinations, fonctions mal codées ou erreurs structurelles). L'enjeu principal d'EPHOR est d'offrir un filet de sécurité absolu. En s'appuyant sur Git, l'outil permet de tracer chaque modification et de revenir à un état antérieur sain et fonctionnel sans aucun effort. Une évolution prochaine intégrera une prévisualisation du résultat du code pour valider les changements avant leur application.",
                 "tags": ["Python", "CustomTkinter", "Git", "DevOps", "Threading"],
                 "type": "desktop",
                 "preview_video": "assets/previews/ephor.mp4",
@@ -706,7 +764,7 @@
             if (project.hospital) {
                 return `<div class="action-notice">
                     <span class="lock-icon">🔒</span>
-                    <span>Déploiement CHU de Guadeloupe — Données de santé protégées (Démonstration sur demande)</span>
+                    <span>Projet Institutionnel — Données protégées (Démonstration sur demande)</span>
                 </div>`;
             }
 
@@ -786,6 +844,14 @@
                 </div>
 
                 ${renderVideos(project)}
+
+                <!-- 🎯 NOUVEL ENCART : PROBLÉMATIQUE / ENJEU -->
+                ${project.enjeu ? `
+                <div class="problematique-box">
+                    <div class="problematique-title">🎯 L'Enjeu / La Problématique</div>
+                    <div class="problematique-text">"${project.enjeu}"</div>
+                </div>
+                ` : ''}
 
                 <p class="modal-description">${project.description}</p>
 
@@ -869,5 +935,13 @@
         chargerDonneesMisesAJour();
     })();
     </script>
+    
+    <!-- Bouton de contact WhatsApp direct -->
+    <a href="https://wa.me/590690051144" class="whatsapp-btn" target="_blank" aria-label="Contactez Dhamusoft sur WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.12.553 4.148 1.558 5.96L.5 24l6.195-1.041A11.96 11.96 0 0 0 12.031 24c6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.828 17.262c-.25.713-1.42 1.32-1.996 1.402-.518.073-1.18.113-3.376-.8-2.646-1.1-4.32-3.805-4.453-3.985-.133-.18-1.06-1.41-1.06-2.69 0-1.28.665-1.914.903-2.164.238-.25.518-.313.69-.313.173 0 .346 0 .506.006.166.006.388-.06.611.48.238.571.815 1.986.888 2.133.073.146.12.32.02.531-.1.21-.15.342-.3.511-.15.17-.315.356-.45.485-.15.146-.308.306-.133.606.173.3.771 1.666 2.08.1.1.206.19.32.278.113.09.97.771 1.861 1.155.263.113.52.1.713-.01.213-.12.443-.514.65-1.02.13-.31.345-.25.565-.17.22.08 1.39.656 1.63 1.13.24.475.25.96.068 1.485z"/>
+        </svg>
+    </a>
+    
 </body>
 </html>

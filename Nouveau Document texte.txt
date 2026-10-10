@@ -1,0 +1,14 @@
+🔄 Votre nouveau flux de travail professionnel
+Votre écosystème est maintenant complet. À l'avenir, pour ajouter une nouvelle application médicale ou un nouvel outil :
+
+Vous ouvrez TAXIS Studio sur votre PC, glissez vos images et cliquez sur Générer.
+
+Vous ouvrez votre terminal (invite de commande) dans le dossier de votre site.
+
+Vous tapez votre formule magique :
+
+DOS
+git add .
+git commit -m "Mise à jour du portfolio"
+git push
+Dans la minute qui suit, le site en ligne andyvaubien-dhamus.github.io reflétera vos nouveautés !
