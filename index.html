@@ -603,6 +603,16 @@
             margin-top: 0.5rem !important; 
         }
         
+        .footer-link {
+            color: #cbd5e1;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .footer-link:hover {
+            color: #ffffff;
+        }
+        
     </style>
 </head>
 <body>
@@ -691,11 +701,14 @@
     <footer class="site-footer">
         <div class="container" style="padding: 0;">
             <p>© 2026 Dhamusoft — Tous droits réservés.</p>
-            <p class="footer-sub">Développé avec passion en Guadeloupe 🌴</p>
+            <p class="footer-sub">
+                Développé avec passion en Guadeloupe 🌴 | 
+                <a id="link-mentions" class="footer-link">Mentions Légales</a>
+            </p>
         </div>
     </footer>
 
-    <!-- Modale globale -->
+    <!-- Modale globale (utilisée pour les projets ET les mentions légales) -->
     <div id="modal" class="hidden">
         <div id="modal-overlay"></div>
         <div class="modal-dialog">
@@ -1026,6 +1039,57 @@
                         setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
                     });
                 }
+            });
+        }
+
+        // ⚖️ OUVERTURE DE LA FENÊTRE MENTIONS LÉGALES
+        const btnMentions = document.querySelector('#link-mentions');
+        if (btnMentions) {
+            btnMentions.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                modalBody.innerHTML = `
+                    <div class="modal-header">
+                        <h2>⚖️ Mentions Légales</h2>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>1. Éditeur du site</h3>
+                        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            <strong>Nom commercial :</strong> Dhamusoft<br>
+                            <strong>Statut :</strong> Micro-entreprise en cours d'immatriculation<br>
+                            <strong>Siège social :</strong> [Votre adresse rue], Capesterre-Belle-Eau, Guadeloupe<br>
+                            <strong>Directeur de la publication :</strong> [VAUBIEN Andy]
+                        </p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>2. Contact</h3>
+                        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            <strong>Email :</strong> dhamusoft@gmail.com<br>
+                            <strong>Téléphone :</strong> +590 690 05 11 44
+                        </p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>3. Hébergement</h3>
+                        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            Ce site est hébergé par <strong>GitHub, Inc.</strong><br>
+                            88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.
+                        </p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>4. Données personnelles et respect de la vie privée (RGPD)</h3>
+                        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            Conformément à la réglementation, ce site vitrine ne collecte aucune donnée personnelle à l'insu de l'utilisateur. Les seules données potentiellement traitées sont celles que vous transmettez volontairement en contactant Dhamusoft via les boutons de redirection de votre choix (Email, WhatsApp).<br><br>
+                            Ce site ne dépose <strong>aucun cookie de traçage publicitaire ou comportemental</strong> nécessitant le recueil de votre consentement préalable.
+                        </p>
+                    </div>
+                `;
+                
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
             });
         }
 
