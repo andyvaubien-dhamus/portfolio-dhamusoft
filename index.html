@@ -239,7 +239,7 @@
         }
         #modal-close-btn:hover { color: var(--primary); }
 
-        /* Bannière CHU */
+        /* Bannière Santé */
         .hospital-banner {
             display: flex;
             align-items: center;
@@ -375,7 +375,7 @@
             border-radius: 8px;
         }
         
-        /* Bouton WhatsApp Flottant */
+        /* Boutons de Contact Flottants */
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
@@ -398,6 +398,32 @@
         .whatsapp-btn svg {
             width: 35px;
             height: 35px;
+            fill: white;
+        }
+
+        .email-btn {
+            position: fixed;
+            bottom: 105px; /* Placé juste au-dessus du bouton WhatsApp */
+            right: 30px;
+            background-color: var(--primary); /* Bleu Dhamusoft */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .email-btn:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-hover);
+        }
+        .email-btn svg {
+            width: 30px;
+            height: 30px;
             fill: white;
         }
 
@@ -464,10 +490,10 @@
                 "title": "PRAXIS GOLD V108",
                 "category": "Tkinter",
                 "badge": "Desktop / Suite eCRF & Greffe Rénale",
-                "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
+                "hospital": "Projet de Santé Institutionnel",
                 "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux (eCRF, audit trail, matrice sur 30 ans et passerelle CRISTAL).",
-                "enjeu": "Lors du parcours d'une greffe, les informations du patient (données préopératoires, peropératoires, biologiques et de suivi) sont souvent éparpillées sur de multiples supports hospitaliers. L'enjeu majeur était de centraliser et d'harmoniser ces données critiques sur une interface unique avant leur saisie officielle dans la base de données nationale (CRISTAL). PRAXIS a ainsi été conçu comme un véritable carrefour d'informations, doublé d'un outil de monitoring et de reporting performant permettant aux équipes de rendre compte, en temps réel, de l'avancement de la saisie des dossiers.",
-                "tags": ["Python", "Tkinter", "SQLite", "Santé / CHU", "Audit Trail", "eCRF"],
+                "enjeu": "Lors du parcours d'une greffe, les informations du patient (données avant, pendant et après l'opération, bilans biologiques) sont souvent éparpillées sur de multiples dossiers et logiciels. L'enjeu majeur de PRAXIS était de regrouper et d'harmoniser toutes ces données sur une seule interface claire avant leur saisie officielle. L'outil a été conçu pour être un grand carrefour d'informations, permettant aux équipes soignantes de voir facilement l'avancement des dossiers sans perdre de temps.",
+                "tags": ["Python", "Tkinter", "SQLite", "Santé", "Audit Trail", "eCRF"],
                 "type": "desktop",
                 "preview_video": "assets/previews/praxis.mp4",
                 "video_focus": "⚡ Flashs colorimétriques en direct (vert/rouge) sur les bornes physiologiques, blocage strict d'une date impossible par le 'Douanier' et navigation interactive dans la matrice sur 30 ans.",
@@ -491,10 +517,10 @@
                 "title": "AXIOS Extracteur Hospitalier",
                 "category": "Tkinter",
                 "badge": "Desktop / Automatisation & Extraction SIH",
-                "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
-                "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers (EASILY, TD WEB, CYBERLAB) et passerelle d'injection vers la suite PRAXIS.",
-                "enjeu": "Face à des méthodes de saisie traditionnelles chronophages, le service a accumulé un retard conséquent dans le traitement des dossiers. L'enjeu d'AXIOS est d'apporter une véritable modernisation des usages pour permettre de résorber massivement ce passif. En automatisant l'extraction des données depuis les logiciels de l'hôpital, ce projet (actuellement en cours de déploiement) offre une perspective de gain de temps si importante qu'il a déjà reçu le soutien de principe des acteurs majeurs du service.",
-                "tags": ["Python", "Tkinter", "Selenium", "RPA", "Santé / CHU", "Extraction PDF"],
+                "hospital": "Projet de Santé Institutionnel",
+                "description": "Robot d'extraction et SAS de contrôle qualité pour logiciels de santé et passerelle d'injection vers la suite PRAXIS.",
+                "enjeu": "Face à des méthodes de saisie manuelles très longues, le service a fini par accumuler un retard important dans le traitement des dossiers patients. L'enjeu d'AXIOS est d'apporter une vraie modernisation pour rattraper tout ce retard. En automatisant la récupération des données directement dans les logiciels de l'hôpital pour les envoyer au bon endroit, ce projet offre un gain de temps énorme. Son potentiel est tel qu'il a déjà reçu le soutien de principe des responsables du service.",
+                "tags": ["Python", "Tkinter", "Selenium", "RPA", "Santé", "Extraction PDF"],
                 "type": "desktop",
                 "preview_video": "assets/previews/axios.mp4",
                 "video_focus": "🤖 Remplissage automatique des grilles depuis un PDF médical, badges de confiance colorés s'allumant en temps réel et validation assistée anti-aberrations.",
@@ -521,10 +547,10 @@
                 "title": "IKNOS v1.1",
                 "category": "PySide6",
                 "badge": "Desktop / Coordination Pré-Greffe Rénale",
-                "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
-                "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM, score psychosocial SMPG, contrôle des péremptions et conformité RGPD avancée.",
-                "enjeu": "Le parcours d'évaluation d'un patient avant son inscription sur liste d'attente de greffe est un processus long, nécessitant de coordonner une multitude d'examens médicaux aux durées de validité très strictes. Face au risque de voir des dossiers bloqués à cause d'un examen périmé ou d'un manque de visibilité globale, l'enjeu était de créer un outil de pilotage visuel et proactif. IKNOS permet aux équipes de suivre précisément chaque patient (via un système Kanban) et d'anticiper les péremptions, évitant ainsi les retards d'inscription tout en intégrant une évaluation psychosociale standardisée.",
-                "tags": ["Python", "PySide6", "Qt6", "SQLite", "Santé / CHU", "RGPD"],
+                "hospital": "Projet de Santé Institutionnel",
+                "description": "Plateforme de coordination pré-greffe : suivi des parcours patients, contrôle des péremptions des examens médicaux et gestion documentaire.",
+                "enjeu": "Le parcours d'un patient avant qu'il ne puisse être inscrit sur liste d'attente est très long. Il demande de coordonner de nombreux examens qui ont tous des dates d'expiration strictes. Face au risque de voir un dossier bloqué simplement à cause d'un examen périmé, l'enjeu était de créer un outil visuel simple. IKNOS permet de suivre chaque patient étape par étape et alerte l'équipe avant que les examens ne soient plus valables, évitant ainsi les retards d'inscription pénalisants.",
+                "tags": ["Python", "PySide6", "Qt6", "SQLite", "Santé", "RGPD"],
                 "type": "desktop",
                 "preview_video": "assets/previews/iknos.mp4",
                 "video_focus": "🗂️ Progression automatisée des cartes sur le Kanban 5 stades selon les jalons cliniques validés, alertes visuelles pulsantes sur examens périmés et compilation PDF instantanée.",
@@ -547,11 +573,11 @@
                 "id": "delphi",
                 "title": "DELPHI V5.6",
                 "category": "Tkinter",
-                "badge": "Desktop / Décisionnel & Épidémiologie Greffe",
-                "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
-                "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL (Agence de la Biomédecine). Analyse croisée des listes d'attente, des délais d'accès et reporting Excel/PDF automatisé.",
-                "enjeu": "L'exploitation des données épidémiologiques du registre national (CRISTAL) est souvent freinée par des bases de données brutes, difficiles à manipuler, et par de fréquentes incohérences d'identités (fautes de frappe, noms d'usage vs noms de naissance). L'enjeu était de concevoir un moteur décisionnel capable de nettoyer et de réconcilier intelligemment ces données complexes, pour les transformer instantanément en indicateurs visuels clairs (délais d'accès à la greffe, fardeau de la dialyse). DELPHI automatise tout ce travail de traitement et de reporting, offrant aux médecins une vision claire de leur activité sans passer des heures sur des tableurs.",
-                "tags": ["Python", "Tkinter", "Pandas", "OpenPyXL", "Matplotlib", "Santé / CHU", "CRISTAL"],
+                "badge": "Desktop / Décisionnel & Épidémiologie",
+                "hospital": "Projet de Santé Institutionnel",
+                "description": "Plateforme d'analyse et de nettoyage pour les données statistiques de santé. Analyse croisée des listes d'attente et reporting Excel/PDF automatisé.",
+                "enjeu": "Utiliser des fichiers de statistiques nationales est souvent un calvaire : les données sont brutes, difficiles à lire, et remplies de petites erreurs d'identités (fautes de frappe, changement de nom après mariage). L'enjeu de DELPHI était de concevoir un moteur intelligent capable de nettoyer et de corriger automatiquement ces erreurs. Une fois la donnée propre, l'outil la transforme instantanément en graphiques clairs. Les médecins peuvent ainsi comprendre leur activité sans passer des heures à manipuler des tableaux.",
+                "tags": ["Python", "Tkinter", "Pandas", "OpenPyXL", "Matplotlib", "Santé", "Statistiques"],
                 "type": "desktop",
                 "preview_video": "assets/previews/delphi.mp4",
                 "video_focus": "📊 Rapprochement flou d'identités en temps réel, génération dynamique d'histogrammes et camemberts interactifs, puis ouverture d'un classeur Excel avec graphiques natifs.",
@@ -575,9 +601,9 @@
                 "title": "Coachmaster V6.0",
                 "category": "HTML",
                 "badge": "Web App PWA / Sport & Pédagogie",
-                "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif, rotations de plateaux et suivi d'assiduité hors-ligne.",
-                "enjeu": "Dans le football amateur, l'encadrement des équipes de jeunes repose souvent sur l'engagement de bénévoles et de parents qui manquent parfois de repères techniques. L'enjeu de Coachmaster est d'offrir à toute personne volontaire un assistant pédagogique 'clés en main' pour l'aider à structurer ses séances et animer le tableau tactique sereinement depuis le bord du terrain, même hors-ligne. Si l'application facilite grandement la logistique et l'animation sportive, elle se positionne comme un strict facilitateur et ne prétend en aucun cas remplacer les formations officielles dispensées par la Ligue.",
-                "tags": ["HTML5", "JavaScript", "IndexedDB", "Dexie.js", "PWA", "Sport Tech"],
+                "description": "Application web hors-ligne pour éducateurs de football : générateur de séances, tableau tactique et suivi d'assiduité.",
+                "enjeu": "Dans le football amateur, l'encadrement des jeunes repose beaucoup sur des parents ou des bénévoles très volontaires, mais qui manquent parfois de repères pour organiser les entraînements. L'enjeu de Coachmaster est de leur offrir un assistant simple et clé en main. Il les aide à préparer leurs séances et à utiliser un tableau tactique directement sur le bord du terrain, même sans connexion internet. C'est un outil d'accompagnement pratique qui ne prétend pas, bien sûr, remplacer les vraies formations officielles de la Ligue.",
+                "tags": ["HTML5", "JavaScript", "IndexedDB", "Dexie.js", "PWA", "Sport"],
                 "type": "web_standalone",
                 "preview_video": "assets/previews/coachmaster.mp4",
                 "video_focus": "⚽ Dessin vectoriel tactile en direct (flèches, passes, courses), manipulation fluide des joueurs sur le terrain et chronomètre d'entraînement haptique animé.",
@@ -597,8 +623,8 @@
                 "title": "OptiTime V13.6",
                 "category": "Flet",
                 "badge": "Web App & UI / Flet & Gamification",
-                "description": "Assistant de gestion du temps gamifié intégrant un compagnon virtuel (Optigotchi), un suivi d'activité et des micro-pauses ergonomiques pour la santé au travail.",
-                "enjeu": "Le travail prolongé sur écran entraîne inévitablement une fatigue cognitive, des troubles musculo-squelettiques et une baisse de productivité. Les outils de gestion du temps classiques finissent souvent par être ignorés car ils sont perçus comme rigides ou rébarbatifs. L'enjeu avec OptiTime était de transformer la santé au travail et la gestion des tâches en une expérience positive par le biais de la gamification. L'application motive l'utilisateur à respecter des cycles de concentration sains et à prendre des micro-pauses ergonomiques en récompensant ses efforts via l'évolution d'un compagnon virtuel.",
+                "description": "Assistant de gestion du temps ludique intégrant un compagnon virtuel (Optigotchi) et des micro-pauses pour la santé au travail.",
+                "enjeu": "Rester devant un écran toute la journée finit toujours par créer de la fatigue, des douleurs physiques et une perte de concentration. Le problème, c'est que les outils classiques pour gérer son temps sont souvent trop stricts et finissent par être abandonnés. L'idée derrière OptiTime était de transformer la santé au travail en un jeu positif. L'application motive l'utilisateur à travailler par séquences et à prendre de vraies pauses, en le récompensant visuellement grâce à l'évolution d'un petit compagnon virtuel.",
                 "tags": ["Python", "Flet", "Flutter Web", "Gamification", "SQLite"],
                 "type": "web_standalone",
                 "preview_video": "assets/previews/optitime.mp4",
@@ -620,8 +646,8 @@
                 "title": "THEMIS",
                 "category": "Flet",
                 "badge": "Web App / Gestion Commerciale & ERP (Flet)",
-                "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi du Chiffre d'Affaires (CA) et génération de dossiers contractuels complets.",
-                "enjeu": "Pour un créateur de logiciels ou une jeune structure indépendante, la gestion administrative fragmentée (devis sous traitement de texte, facturation manuelle, suivi sur tableur) devient rapidement une charge mentale chronophage et source d'erreurs. L'enjeu de THEMIS est de centraliser et d'automatiser l'intégralité du cycle de vie commercial sur un seul outil. En regroupant le suivi du chiffre d'affaires en temps réel, le calcul dynamique des acomptes et la génération instantanée de dossiers contractuels complets, l'application permet de sécuriser sa facturation pour se reconcentrer sur la production technique.",
+                "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi des revenus et création de contrats.",
+                "enjeu": "Lorsqu'on lance une jeune entreprise, la gestion administrative devient très vite un casse-tête : on fait ses devis sur un logiciel, ses factures sur un autre, et on suit l'argent gagné sur un tableur. Cela demande beaucoup d'énergie et provoque souvent des erreurs. L'enjeu de THEMIS est de regrouper toute cette gestion commerciale dans un seul et même outil très simple. En gérant l'argent, les acomptes et les contrats au même endroit, l'outil permet de libérer l'esprit du créateur pour qu'il se concentre sur son vrai métier.",
                 "tags": ["Python", "Flet", "Flutter Web", "CRM", "Facturation"],
                 "type": "web_standalone",
                 "preview_video": "assets/previews/themis.mp4",
@@ -642,10 +668,10 @@
                 "id": "ephor",
                 "title": "EPHOR Superviseur",
                 "category": "CustomTkinter",
-                "badge": "Desktop / DevOps & Versioning",
-                "description": "Interface graphique de supervision Git et de sauvegarde de code automatisée avec mode 'fantôme' (auto-commit) et gestion visuelle des rollbacks.",
-                "enjeu": "Le développement d'applications assisté par l'Intelligence Artificielle accélère considérablement la production, mais expose au risque de régressions inattendues (hallucinations, fonctions mal codées ou erreurs structurelles). L'enjeu principal d'EPHOR est d'offrir un filet de sécurité absolu. En s'appuyant sur Git, l'outil permet de tracer chaque modification et de revenir à un état antérieur sain et fonctionnel sans aucun effort. Une évolution prochaine intégrera une prévisualisation du résultat du code pour valider les changements avant leur application.",
-                "tags": ["Python", "CustomTkinter", "Git", "DevOps", "Threading"],
+                "badge": "Desktop / Sécurité du code",
+                "description": "Outil de sauvegarde de code en continu avec mode 'fantôme' (auto-enregistrement) et possibilité d'annuler les erreurs de programmation.",
+                "enjeu": "Créer des logiciels avec l'aide de l'Intelligence Artificielle permet d'aller beaucoup plus vite, mais cela expose au risque d'intégrer des erreurs inattendues, ou de casser une fonction qui marchait très bien la veille. L'enjeu principal d'EPHOR est d'offrir un vrai filet de sécurité. L'outil surveille le travail en arrière-plan et sauvegarde automatiquement le code. En cas de problème ou d'hallucination de l'IA, il permet de revenir instantanément à une version saine et fonctionnelle, sans perdre son travail.",
+                "tags": ["Python", "CustomTkinter", "Git", "Sécurité", "Sauvegarde"],
                 "type": "desktop",
                 "preview_video": "assets/previews/ephor.mp4",
                 "video_focus": "🛡️ Visionneuse de Diff bicolore (ajouts verts / suppressions rouges), compte à rebours du Mode Fantôme et exécution spectaculaire d'un Rollback Git destructif.",
@@ -657,10 +683,10 @@
                     "Système de Rollback destructif sécurisé pour annuler instantanément des développements instables"
                 ],
                 "screenshots": [
-                    { "url": "assets/images/ephor_1_console.png", "caption": "Console de supervision Git CustomTkinter avec détection automatique des dépôts locaux" },
-                    { "url": "assets/images/ephor_2_diff.png", "caption": "Studio d'Audit visuel : Visionneuse de Diff avec coloration syntaxique des modifications" },
-                    { "url": "assets/images/ephor_3_watchdog.png", "caption": "Mode Fantôme (Watchdog asynchrone) créant des snapshots automatiques après 30s d'inactivité" },
-                    { "url": "assets/images/ephor_4_rollback.png", "caption": "Module de Rollback destructif sécurisé pour annulation instantanée de développements instables" }
+                    { "url": "assets/images/ephor_1_console.png", "caption": "Console de supervision avec détection automatique des sauvegardes" },
+                    { "url": "assets/images/ephor_2_diff.png", "caption": "Studio d'Audit visuel pour voir les modifications en couleur" },
+                    { "url": "assets/images/ephor_3_watchdog.png", "caption": "Mode Fantôme créant des sauvegardes invisibles pendant les pauses" },
+                    { "url": "assets/images/ephor_4_rollback.png", "caption": "Module de retour en arrière pour effacer les développements ratés" }
                 ]
             }
         ];
@@ -764,7 +790,7 @@
             if (project.hospital) {
                 return `<div class="action-notice">
                     <span class="lock-icon">🔒</span>
-                    <span>Projet Institutionnel — Données protégées (Démonstration sur demande)</span>
+                    <span>Projet Institutionnel & Santé — Données protégées (Démonstration sur demande)</span>
                 </div>`;
             }
 
@@ -828,7 +854,7 @@
                 <div class="hospital-banner">
                     <span class="hospital-icon">🏥</span>
                     <div>
-                        <strong>Projet Institutionnel Hospitalier</strong>
+                        <strong>Projet Institutionnel & Santé</strong>
                         <p>${project.hospital}</p>
                     </div>
                 </div>
@@ -902,7 +928,7 @@
                 const isChu = !!p.hospital;
                 return `
                     <div class="card ${isChu ? 'card-chu' : ''}">
-                        ${isChu ? '<div class="chu-tag">🏥 CHU Guadeloupe</div>' : ''}
+                        ${isChu ? '<div class="chu-tag">🏥 Santé</div>' : ''}
                         <div class="card-badge">${p.badge}</div>
                         <h3 class="card-title">${p.title}</h3>
                         <p class="card-desc">${p.description ? p.description.substring(0, 115) : ''}...</p>
@@ -936,6 +962,13 @@
     })();
     </script>
     
+    <!-- Bouton de contact Email direct -->
+    <a href="mailto:dhamusoft@gmail.com" class="email-btn" aria-label="Envoyer un email à Dhamusoft">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+    </a>
+
     <!-- Bouton de contact WhatsApp direct -->
     <a href="https://wa.me/590690051144" class="whatsapp-btn" target="_blank" aria-label="Contactez Dhamusoft sur WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
