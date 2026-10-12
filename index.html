@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 🌐 Optimisation Réseaux Sociaux -->
     <meta name="description" content="Dhamusoft : Conception d'applications métiers, d'outils de coordination et automatisation de processus. De l'idée au déploiement.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/"> 
@@ -23,7 +22,7 @@
             --accent: #C59B43;        /* Or Dhamusoft */
             --accent-hover: #A88132;
             
-            /* 💡 Fonds minéraux & contrastes d'exposition */
+            /* 💡 Fonds minéraux et contrastes */
             --bg-page: #f8fafc;       
             --card-bg: #ffffff;       
             --text-main: #0f172a;     
@@ -66,11 +65,45 @@
             text-align: center;
             font-size: 1.15rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 500;
         }
 
-        /* 🔀 COMMUTATEUR DES DEUX PAGES (DUAL-HUB) */
+        /* 🚀 Barre d'action rapide Header (RDV & Plaquette) */
+        .header-cta-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .header-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.55rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .btn-cta-rdv {
+            background: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+        .btn-cta-rdv:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .btn-cta-pdf {
+            background: #ffffff;
+            color: var(--primary);
+            border: 1px solid var(--frame-border);
+        }
+        .btn-cta-pdf:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+        /* 🔀 COMMUTATEUR DUAL-HUB (SHOWROOM VS LAB) */
         .hub-switcher-wrap {
             display: flex;
             justify-content: center;
@@ -101,12 +134,11 @@
             box-shadow: 0 4px 12px rgba(44, 76, 110, 0.25);
         }
 
-        /* VUES */
         .view-section { display: none; }
         .view-section.active { display: block; animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ⭐ SECTION HERO FLAGSHIP (THEMIS) */
+        /* ⭐ HERO FLAGSHIP (THEMIS) */
         .themis-hero-card {
             background: linear-gradient(135deg, #091a2b 0%, #173352 100%);
             border-radius: 18px;
@@ -115,8 +147,6 @@
             margin-bottom: 3rem;
             box-shadow: 0 15px 35px rgba(9, 26, 43, 0.25);
             border: 1px solid rgba(197, 155, 67, 0.35);
-            position: relative;
-            overflow: hidden;
         }
         .themis-badge-top {
             display: inline-block;
@@ -127,7 +157,6 @@
             text-transform: uppercase;
             padding: 0.35rem 0.9rem;
             border-radius: 20px;
-            letter-spacing: 0.5px;
             margin-bottom: 1rem;
         }
         .themis-title { font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
@@ -143,7 +172,7 @@
         }
         .themis-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
 
-        /* Filtres Showroom */
+        /* Filtres */
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -174,7 +203,7 @@
             border-color: #059669;
         }
 
-        /* Grille des Fiches Solutions */
+        /* Grille Solutions */
         .solutions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -196,11 +225,9 @@
             box-shadow: 0 12px 24px rgba(44, 76, 110, 0.09);
         }
         .solution-card.card-chu { border-top: 4px solid #059669; }
-        .solution-card-header { margin-bottom: 1.2rem; }
         .solution-badge { font-size: 0.72rem; font-weight: 800; color: var(--accent); text-transform: uppercase; }
-        .solution-title { font-size: 1.35rem; font-weight: 800; color: var(--primary); margin-top: 0.3rem; }
+        .solution-title { font-size: 1.35rem; font-weight: 800; color: var(--primary); margin: 0.3rem 0 1rem 0; }
         
-        /* Encarts Problème / Solution */
         .case-box {
             background: #f8fafc;
             border-radius: 10px;
@@ -210,8 +237,7 @@
             line-height: 1.55;
             border: 1px solid var(--border);
         }
-        .case-box-problem { border-left: 3px solid #e11d48; color: #475569; }
-        .case-box-solution { border-left: 3px solid #059669; color: #0f172a; font-weight: 500; }
+        .case-box-enjeu { border-left: 3px solid var(--accent); color: #334155; }
         .case-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 5px; }
 
         .solution-card-footer {
@@ -232,6 +258,46 @@
         }
         .tech-link:hover { text-decoration: underline; color: var(--accent); }
 
+        /* 🛠️ MODÈLE D'INTERVENTION */
+        .process-section {
+            margin: 4.5rem 0 2rem 0;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .process-header { text-align: center; margin-bottom: 2.5rem; }
+        .process-header h3 { font-size: 1.6rem; color: var(--primary); font-weight: 800; margin-bottom: 0.4rem; }
+        .process-header p { color: var(--text-muted); font-size: 0.95rem; }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .process-step-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.6rem;
+            position: relative;
+        }
+        .step-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 900;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            margin-bottom: 0.8rem;
+        }
+        .step-title { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
+        .step-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+
         /* Boutons */
         .btn {
             display: inline-block;
@@ -251,9 +317,8 @@
         .btn-primary:hover { background: var(--primary-hover); }
         .btn-outline { background: transparent; border: 1px solid var(--frame-border); color: var(--primary); }
         .btn-outline:hover { background: #f1f5f9; border-color: var(--primary); }
-        .btn-disabled { background: #e2e8f0; color: #94a3b8; cursor: not-allowed; }
 
-        /* ⚙️ PAGE 2 : LAB TECHNIQUE */
+        /* LAB TECHNIQUE */
         .lab-header { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; }
         .lab-header h2 { font-size: 2rem; color: var(--primary); font-weight: 900; margin-bottom: 0.6rem; }
         .lab-header p { color: var(--text-muted); font-size: 1.05rem; }
@@ -276,21 +341,138 @@
         .pillar-title { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
         .pillar-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
 
-        .tech-spec-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1.5rem;
-        }
-        .tech-card {
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
+        .tech-spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+        .tech-card { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
         .tech-card-title { font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; }
         .tech-tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
         .tech-pill { background: #f1f5f9; color: var(--primary); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid #e2e8f0; }
         .tech-card-features { font-size: 0.85rem; color: #334155; line-height: 1.5; padding-left: 1.2rem; }
+
+        /* 📸 MODALE & IFRAME LIVE EMBED */
+        .hidden { display: none !important; }
+        #modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
+        #modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); }
+        .modal-dialog { position: relative; background: #ffffff; width: 90%; max-width: 920px; max-height: 90vh; border-radius: 16px; padding: 2.4rem; overflow-y: auto; z-index: 1001; }
+        #modal-close-btn { position: absolute; top: 1.2rem; right: 1.4rem; background: transparent; border: none; font-size: 2rem; color: var(--text-muted); cursor: pointer; }
+        
+        .video-container { width: 100%; background: #000; border-radius: 10px; margin: 1.2rem 0; overflow: hidden; border: 1px solid var(--frame-border); }
+        .video-container video { width: 100%; display: block; max-height: 400px; }
+        .video-focus-box { background: #f8fafc; border-left: 4px solid var(--accent); padding: 0.85rem 1.1rem; font-size: 0.85rem; color: #334155; margin-top: -0.8rem; margin-bottom: 1.5rem; border-radius: 0 0 10px 10px; border: 1px solid var(--border); }
+        
+        .screenshots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.3rem; margin-top: 1rem; }
+        .screenshot-item { background: #f8fafc; border: 1px solid var(--frame-border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .screenshot-item img { width: 100%; height: 165px; object-fit: cover; cursor: pointer; border-bottom: 1px solid var(--border); background: #091a2b; transition: opacity 0.2s; }
+        .screenshot-item img:hover { opacity: 0.88; }
+        .screenshot-item figcaption { font-size: 0.8rem; color: #334155; padding: 0.75rem 0.9rem; background: #ffffff; flex-grow: 1; font-weight: 500; }
+
+        /* 🔲 Switcher de Vue dans la Modale pour Apps Live */
+        .modal-view-switcher {
+            display: flex;
+            background: #e2e8f0;
+            padding: 4px;
+            border-radius: 10px;
+            gap: 4px;
+            margin: 1.2rem 0;
+            width: fit-content;
+        }
+        .modal-view-tab {
+            border: none;
+            background: transparent;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .modal-view-tab.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Cadre Démo Live dans la modale */
+        .modal-iframe-container {
+            width: 100%;
+            height: 540px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--frame-border);
+            margin: 1rem 0;
+            background: #f8fafc;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .modal-iframe-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* 🔍 VISIONNEUSE LIGHTBOX PLEIN ÉCRAN */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2500;
+            background: rgba(10, 15, 26, 0.94);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        #lightbox-img-wrap {
+            max-width: 90vw;
+            max-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        #lightbox-img {
+            max-width: 100%;
+            max-height: 78vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        #lightbox-caption {
+            color: #f1f5f9;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            text-align: center;
+            max-width: 800px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        #lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 2.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .lightbox-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .lightbox-nav-btn:hover { background: var(--accent); color: #091a2b; }
+        #lightbox-prev { left: 25px; }
+        #lightbox-next { right: 25px; }
 
         /* 📖 GLOSSAIRE */
         .glossary-section { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
@@ -300,21 +482,6 @@
         .glossary-term { font-weight: 800; color: var(--primary); margin-bottom: 0.3rem; font-size: 0.95rem; }
         .glossary-def { font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; }
 
-        /* 📸 MODALE (Captures et Vidéos) */
-        .hidden { display: none !important; }
-        #modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
-        #modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); }
-        .modal-dialog { position: relative; background: #ffffff; width: 90%; max-width: 860px; max-height: 88vh; border-radius: 16px; padding: 2.2rem; overflow-y: auto; z-index: 1001; }
-        #modal-close-btn { position: absolute; top: 1.2rem; right: 1.4rem; background: transparent; border: none; font-size: 2rem; color: var(--text-muted); cursor: pointer; }
-        .video-container { width: 100%; background: #000; border-radius: 10px; margin: 1.2rem 0; overflow: hidden; border: 1px solid var(--frame-border); }
-        .video-container video { width: 100%; display: block; max-height: 400px; }
-        .video-focus-box { background: #f8fafc; border-left: 4px solid var(--accent); padding: 0.85rem 1.1rem; font-size: 0.85rem; color: #334155; margin-top: -0.8rem; margin-bottom: 1.5rem; border-radius: 0 0 10px 10px; border: 1px solid var(--border); }
-        
-        .screenshots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
-        .screenshot-item { background: #f8fafc; border: 1px solid var(--frame-border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
-        .screenshot-item img { width: 100%; height: 165px; object-fit: cover; cursor: zoom-in; border-bottom: 1px solid var(--border); }
-        .screenshot-item figcaption { font-size: 0.8rem; color: #334155; padding: 0.7rem 0.85rem; background: #ffffff; flex-grow: 1; font-weight: 500; }
-
         /* 📱 Boutons Flottants Contact & Partage */
         .whatsapp-btn, .email-btn, .share-btn { position: fixed; right: 25px; border-radius: 50%; width: 55px; height: 55px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; transition: transform 0.2s; border: none; cursor: pointer; }
         .whatsapp-btn { bottom: 25px; background: #25d366; }
@@ -323,7 +490,7 @@
         .whatsapp-btn:hover, .email-btn:hover, .share-btn:hover { transform: scale(1.1); }
         .whatsapp-btn svg, .email-btn svg, .share-btn svg { width: 26px; height: 26px; fill: white; }
 
-        #toast { visibility: hidden; min-width: 250px; background: #1f2937; color: #fff; text-align: center; border-radius: 8px; padding: 12px; position: fixed; z-index: 2000; left: 50%; bottom: 30px; transform: translateX(-50%); font-weight: 600; opacity: 0; transition: 0.3s; }
+        #toast { visibility: hidden; min-width: 250px; background: #1f2937; color: #fff; text-align: center; border-radius: 8px; padding: 12px; position: fixed; z-index: 3000; left: 50%; bottom: 30px; transform: translateX(-50%); font-weight: 600; opacity: 0; transition: 0.3s; }
         #toast.show { visibility: visible; opacity: 1; bottom: 50px; }
 
         /* 📌 Footer */
@@ -337,6 +504,16 @@
         <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" class="logo-hero">
         <p class="hero-subtitle">Conception d'applications métiers, d'outils de coordination et automatisation de processus.<br>De l'idée au déploiement.</p>
 
+        <!-- 🚀 ACTIONS RAPIDES DECIDEURS (RDV & PLAQUETTE) -->
+        <div class="header-cta-bar">
+            <a href="https://wa.me/590690051144?text=Bonjour,%20je%20souhaite%20planifier%20un%20échange%20de%2020%20minutes%20sur%20un%20projet%20logiciel." target="_blank" class="header-cta-btn btn-cta-rdv">
+                📅 Réserver un échange (20 min)
+            </a>
+            <a href="assets/documents/plaquette_dhamusoft.pdf" download="Plaquette_Dhamusoft.pdf" class="header-cta-btn btn-cta-pdf" onclick="alert('Astuce : Déposez votre plaquette sous assets/documents/plaquette_dhamusoft.pdf pour activer le téléchargement direct !')">
+                📄 Télécharger la Plaquette (PDF)
+            </a>
+        </div>
+
         <!-- 🔀 COMMUTATEUR DES DEUX UNIVERS (DUAL-HUB) -->
         <div class="hub-switcher-wrap">
             <div class="hub-switcher">
@@ -349,7 +526,7 @@
     <main class="container">
 
         <!-- ======================================================== -->
-        <!-- 💼 PAGE 1 : SHOWROOM SOLUTIONS (Cas Métiers / Décideurs) -->
+        <!-- 💼 PAGE 1 : SHOWROOM SOLUTIONS (Cas Métiers)             -->
         <!-- ======================================================== -->
         <section id="view-solutions" class="view-section active">
 
@@ -357,26 +534,26 @@
             <div class="themis-hero-card">
                 <span class="themis-badge-top">⭐ Flagship Business • Gestion Commerciale & ERP</span>
                 <h2 class="themis-title">THEMIS — Votre copilote commercial et contractuel complet</h2>
-                <p style="font-size: 1.1rem; opacity: 0.9; max-width: 800px;">
+                <p style="font-size: 1.1rem; opacity: 0.9; max-width: 820px;">
                     Unifiez toute votre chaîne de vente : devis sur-mesure, calcul automatique des acomptes, suivi du Chiffre d'Affaires en direct et assemblage de dossiers contractuels juridiques prêts à signer.
                 </p>
 
                 <div class="themis-grid">
                     <div class="themis-box">
-                        <strong style="color: var(--accent); display: block; margin-bottom: 4px;">🎯 Le Défi Métier :</strong>
-                        Rédiger des devis sous Word, calculer les acomptes à la main sous Excel et chercher les CGV éparpillées fait perdre des heures et masque la visibilité sur le CA réellement encaissé.
+                        <strong style="color: var(--accent); display: block; margin-bottom: 4px;">🎯 L'Enjeu / La Problématique :</strong>
+                        Lorsqu'on lance une jeune entreprise, la gestion administrative devient très vite un casse-tête : on fait ses devis sur un logiciel, ses factures sur un autre, et on suit l'argent gagné sur un tableur. Cela demande beaucoup d'énergie et provoque souvent des erreurs.
                     </div>
                     <div class="themis-box">
-                        <strong style="color: #6ee7b7; display: block; margin-bottom: 4px;">💡 L'Impact Dhamusoft :</strong>
-                        Tout est recalculé en temps réel lors de la saisie. En 1 clic, l'application génère un dossier contractuel complet prêt à signer (Cahier des charges, Devis, CGV, NDA).
+                        <strong style="color: #6ee7b7; display: block; margin-bottom: 4px;">💡 La Réponse THEMIS :</strong>
+                        En gérant l'argent, les acomptes et les contrats au même endroit, l'outil permet de libérer l'esprit du créateur pour qu'il se concentre sur son vrai métier, avec un dossier contractuel prêt en 1 clic.
                     </div>
                 </div>
 
                 <div class="themis-actions">
-                    <a href="https://themis-flet.onrender.com" target="_blank" class="btn btn-gold">
-                        🚀 Lancer l'application en direct (Live Demo)
-                    </a>
-                    <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="openProjectModal('themis')">
+                    <button class="btn btn-gold" onclick="openProjectModal('themis', 'demo')">
+                        🚀 Tester en direct (Démo interactive intégrée)
+                    </button>
+                    <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="openProjectModal('themis', 'media')">
                         📸 Consulter la vitrine visuelle détaillée
                     </button>
                     <button class="tech-link" style="color: #93c5fd; background: none; border: none; margin-left: 10px;" onclick="goToTechSpec('themis')">
@@ -395,6 +572,31 @@
 
             <!-- Grille des Fiches Solutions -->
             <div id="solutions-grid" class="solutions-grid"></div>
+
+            <!-- 🛠️ SECTION MODÈLE D'INTERVENTION DHAMUSOFT -->
+            <section class="process-section">
+                <div class="process-header">
+                    <h3>🤝 Comment travaillons-nous ensemble ?</h3>
+                    <p>Une démarche pragmatique, sans jargon, pensée pour sécuriser vos investissements de l'idée au déploiement.</p>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step-card">
+                        <span class="step-number">1</span>
+                        <div class="step-title">Diagnostic & Immersion Métier</div>
+                        <div class="step-desc">Nous analysons vos processus réels, vos pertes de temps et vos contraintes sur le terrain (sans aucun engagement) pour cadrer la solution idéale.</div>
+                    </div>
+                    <div class="process-step-card">
+                        <span class="step-number">2</span>
+                        <div class="step-title">Conception Agile & Sur-Mesure</div>
+                        <div class="step-desc">Développement rapide d'un premier prototype fonctionnel avec des bases locales sécurisées, garantissant zéro dépendance cloud et une réactivité totale.</div>
+                    </div>
+                    <div class="process-step-card">
+                        <span class="step-number">3</span>
+                        <div class="step-title">Déploiement & Suivi Continu</div>
+                        <div class="step-desc">Installation directe sur vos postes ou en ligne, formation bienveillante de vos équipes et maintenance réactive pour faire évoluer l'outil avec vous.</div>
+                    </div>
+                </div>
+            </section>
 
             <!-- 📖 GLOSSAIRE -->
             <section class="glossary-section">
@@ -421,8 +623,8 @@
                         <div class="glossary-def">Tableau visuel en colonnes permettant de faire avancer des dossiers étape par étape de manière très claire.</div>
                     </div>
                     <div class="glossary-card">
-                        <div class="glossary-term">Base de données locale</div>
-                        <div class="glossary-def">Système de stockage directement installé sur l'ordinateur de l'utilisateur, garantissant vitesse et confidentialité sans dépendre du cloud.</div>
+                        <div class="glossary-term">Bouclier RGPD</div>
+                        <div class="glossary-def">Système de sécurité scannant automatiquement les documents pour empêcher la publication accidentelle de données personnelles de patients.</div>
                     </div>
                 </div>
             </section>
@@ -502,6 +704,17 @@
         </div>
     </div>
 
+    <!-- 🔍 VISIONNEUSE LIGHTBOX PLEIN ÉCRAN -->
+    <div id="lightbox" class="hidden">
+        <button id="lightbox-close" aria-label="Fermer la vue plein écran">&times;</button>
+        <button id="lightbox-prev" class="lightbox-nav-btn" aria-label="Image précédente">&#8249;</button>
+        <button id="lightbox-next" class="lightbox-nav-btn" aria-label="Image suivante">&#8250;</button>
+        <div id="lightbox-img-wrap">
+            <img id="lightbox-img" src="" alt="Capture agrandie">
+        </div>
+        <div id="lightbox-caption"></div>
+    </div>
+
     <!-- Toast Notification -->
     <div id="toast">✅ Lien copié dans le presse-papier !</div>
 
@@ -519,71 +732,17 @@
     <!-- SCRIPT DU SITE -->
     <script>
     (function() {
-        // BASE DES PROJETS AVEC LES TEXTES PROBLÈME ➔ SOLUTION (GRAND PUBLIC)
-        const projectsData = [
-            {
-                "id": "themis",
-                "title": "THEMIS",
-                "category": "Flet",
-                "badge": "Web App / Gestion Commerciale & ERP (Flet)",
-                "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi du Chiffre d'Affaires (CA) et génération de dossiers contractuels complets.",
-                "problem": "Rédiger un devis sous Word, calculer les acomptes à la main sous Excel, retrouver les CGV et faire signer les contrats sur des feuilles volantes prend un temps fou et fait perdre la visibilité sur le CA réellement encaissé.",
-                "solution": "THEMIS regroupe tout dans un outil unique : Chiffre d'Affaires et acomptes recalculés sous vos yeux en direct, et assemblage en un clic d'un dossier contractuel complet prêt à signer (Cahier des charges, Devis, CGV, NDA).",
-                "tags": ["Python", "Flet", "Flutter Web", "CRM", "Facturation"],
-                "type": "web_standalone",
-                "preview_video": "assets/previews/themis.mp4",
-                "video_focus": "💼 Recalcul en direct des acomptes et impact immédiat sur le Chiffre d'Affaires (CA) global lors de l'édition, suivi des KPIs de facturation et rendu d'un contrat commercial PDF complet.",
-                "download_url": "https://themis-flet.onrender.com",
-                "features": [
-                    "Application bureautique et web développée sous le framework Flet (moteur Flutter, plus de 3 200 lignes de code)",
-                    "Tableau de bord financier interactif : suivi du Chiffre d'Affaires (CA), devis actifs, factures émises et encaissements",
-                    "Système de facturation complet : calcul automatisé des acomptes, des soldes et émission d'avoirs",
-                    "Moteur de rendu pour l'édition de dossiers contractuels légaux complets prêts à signer"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/themis_dashboard.png", "caption": "Tableau de bord de gestion commerciale et suivi du Chiffre d'Affaires" }
-                ]
-            },
-            {
-                "id": "praxis",
-                "title": "PRAXIS GOLD V108",
-                "category": "Tkinter",
-                "badge": "Desktop / Suite eCRF & Greffe Rénale",
-                "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
-                "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux.",
-                "problem": "Suivre des patients greffés du rein sur plusieurs décennies (jusqu'à 30 ans) représente des milliers de bilans. Noter cela sur papier ou tableur expose à de graves erreurs de dates, de constantes et de traçabilité médico-légale.",
-                "solution": "Un dossier médical ultra-sécurisé : un 'Douanier' virtuel bloque net les dates impossibles, des alertes de couleur signalent immédiatement une constante vitale anormale, et un journal de bord infalsifiable enregistre chaque modification.",
-                "tags": ["Python", "Tkinter", "SQLite", "Santé / CHU", "Audit Trail", "eCRF"],
-                "type": "desktop",
-                "preview_video": "assets/previews/praxis.mp4",
-                "video_focus": "⚡ Flashs colorimétriques en direct (vert/rouge) sur les bornes physiologiques, blocage strict d'une date impossible par le 'Douanier' et navigation interactive dans la matrice sur 30 ans.",
-                "download_url": "#",
-                "features": [
-                    "Moteur universel d'eCRF dynamique piloté par JSON (Socle J0 et suivis longitudinaux M3 à Y30)",
-                    "Système expert de validation clinique : contrôle des bornes physiologiques en direct et calcul automatique (clairance, ischémie)",
-                    "Console de Pilotage Global : Matrice des jalons dynamique (recul 30 ans) et Kanban de production",
-                    "Audit Trail médico-légal strict horodaté traçant chaque champ modifié [Valeur antérieure ➔ Nouvelle]"
-                ],
-                "screenshots": [
-                    { "url": "assets/images/praxis_1_matrice.png", "caption": "Console globale : Matrice dynamique des jalons de suivi longitudinal sur 30 ans" },
-                    { "url": "assets/images/praxis_2_douanier.png", "caption": "Contrôle expert en direct : Douanier chronologique et bornes physiologiques" },
-                    { "url": "assets/images/praxis_3_audittrail.png", "caption": "Audit Trail médico-légal strict traçant chaque modification [Valeur antérieure ➔ Nouvelle]" },
-                    { "url": "assets/images/praxis_4_rapport.png", "caption": "Générateur autonome de bilans cliniques print-ready et archivage ZIP" }
-                ]
-            },
+        let projectsData = [
             {
                 "id": "axios",
                 "title": "AXIOS Extracteur Hospitalier",
                 "category": "Tkinter",
                 "badge": "Desktop / Automatisation & Extraction SIH",
-                "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
-                "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers et passerelle d'injection vers la suite PRAXIS.",
-                "problem": "Le personnel médical perd des heures à lire des résultats d'analyses sanguines sur des écrans d'hôpitaux ou des PDF pour les recopier à la main, avec un risque permanent d'erreur de frappe sur un dosage.",
-                "solution": "Un robot intelligent qui va chercher automatiquement les analyses dans les logiciels de l'hôpital, affiche les données avec des voyants de confiance (vert/orange/rouge) et les injecte directement dans le dossier du patient.",
-                "tags": ["Python", "Tkinter", "Selenium", "RPA", "Santé / CHU", "Extraction PDF"],
+                "hospital": "Déploiement en milieu hospitalier",
+                "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers (EASILY, TD WEB, CYBERLAB) et passerelle d'injection vers la suite PRAXIS.",
+                "enjeu": "Face à des méthodes de saisie manuelles très longues, le service a fini par accumuler un retard important dans le traitement des dossiers patients. L'enjeu d'AXIOS est d'apporter une vraie modernisation pour rattraper tout ce retard. En automatisant la récupération des données directement dans les logiciels de l'hôpital pour les envoyer au bon endroit, ce projet offre un gain de temps énorme.",
+                "tags": ["Python", "Tkinter", "Selenium", "RPA", "Santé", "Extraction PDF"],
                 "type": "desktop",
-                "preview_video": "assets/previews/axios.mp4",
-                "video_focus": "🤖 Remplissage automatique des grilles depuis un PDF médical, badges de confiance colorés s'allumant en temps réel et validation assistée anti-aberrations.",
                 "download_url": "#",
                 "features": [
                     "Connecteur multi-sources SIH : extraction automatisée depuis EASILY, TD WEB et CYBERLAB",
@@ -591,11 +750,17 @@
                     "Contrôle des bornes physiologiques interdisant les aberrations lors des corrections manuelles",
                     "Passerelle d'exportation technique JSON avec horodatage d'audit pour injection directe eCRF"
                 ],
+                "videos": [
+                    {
+                        "url": "assets/previews/axios.mp4",
+                        "focus": "🤖 Remplissage automatique des grilles depuis un PDF médical, badges de confiance colorés s'allumant en temps réel et validation assistée anti-aberrations."
+                    }
+                ],
                 "screenshots": [
-                    { "url": "assets/images/axios_1_sas.png", "caption": "SAS de contrôle qualité avec scoring de fiabilité (indices de confiance vert/orange/rouge)" },
-                    { "url": "assets/images/axios_2_extraction.png", "caption": "Connecteur multi-sources : Extraction automatisée depuis EASILY, TD WEB et CYBERLAB" },
-                    { "url": "assets/images/axios_3_bornes.png", "caption": "Garde-fou physiologique interdisant les valeurs aberrantes lors des corrections manuelles" },
-                    { "url": "assets/images/axios_4_export.png", "caption": "Passerelle d'exportation technique JSON normalisée pour injection directe eCRF" }
+                    { "url": "assets/images/axios_sas.png", "caption": "SAS de contrôle qualité et indices de confiance de l'extraction" }
+                ],
+                "roadmap": [
+                    { "title": "Pont bidirectionnel PRAXIS-AXIOS", "desc": "Lecture automatique du patient actif dans CLINIQUE.db pour pré-remplir le pivot d'identité.", "status": "in_progress" }
                 ]
             },
             {
@@ -603,14 +768,11 @@
                 "title": "IKNOS v1.1",
                 "category": "PySide6",
                 "badge": "Desktop / Coordination Pré-Greffe Rénale",
-                "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
-                "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM et contrôle des péremptions.",
-                "problem": "Avant une greffe, le patient doit faire des dizaines d'examens obligatoires. Si l'un d'eux expire en silence dans le dossier, l'inscription officielle sur liste de greffe est retardée, diminuant les chances du patient.",
-                "solution": "Un tableau de suivi très visuel en colonnes qui fait avancer la fiche du patient dès qu'un examen est validé, prévient par alerte visuelle avant toute péremption, et compile le dossier officiel pour l'Agence de la Biomédecine.",
-                "tags": ["Python", "PySide6", "Qt6", "SQLite", "Santé / CHU", "RGPD"],
+                "hospital": "Déploiement en milieu hospitalier",
+                "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM, score psychosocial SMPG, contrôle des péremptions et conformité RGPD avancée.",
+                "enjeu": "Le parcours d'un patient avant qu'il ne puisse être inscrit sur liste d'attente est très long. Il demande de coordonner de nombreux examens qui ont tous des dates d'expiration strictes. Face au risque de voir un dossier bloqué simplement à cause d'un examen périmé, l'enjeu était de créer un outil visuel simple alertant l'équipe avant péremption.",
+                "tags": ["Python", "PySide6", "Qt6", "SQLite", "Santé", "RGPD"],
                 "type": "desktop",
-                "preview_video": "assets/previews/iknos.mp4",
-                "video_focus": "🗂️ Progression automatisée des cartes sur le Kanban 5 stades selon les jalons cliniques validés, alertes visuelles pulsantes sur examens périmés et compilation PDF instantanée.",
                 "download_url": "#",
                 "features": [
                     "Pipeline clinique Kanban en 5 stades avec transition automatisée des patients selon l'avancement effectif du dossier",
@@ -618,11 +780,15 @@
                     "Module d'évaluation psychosociale avec calcul du score SMPG sur 100 points et orientation ETP",
                     "Studio de courriers médicaux et convocations avec fusion de balises dynamiques et export PDF"
                 ],
+                "videos": [
+                    {
+                        "url": "assets/previews/iknos.mp4",
+                        "focus": "🗂️ Progression automatisée des cartes sur le Kanban 5 stades selon les jalons cliniques validés, alertes visuelles pulsantes sur examens périmés et compilation PDF instantanée."
+                    }
+                ],
                 "screenshots": [
-                    { "url": "assets/images/iknos_1_kanban.png", "caption": "Pipeline clinique Kanban en 5 stades avec transition automatisée selon l'avancement effectif" },
-                    { "url": "assets/images/iknos_2_peremptions.png", "caption": "Contrôle dynamique des péremptions d'examens médicaux avec alertes colorimétriques" },
-                    { "url": "assets/images/iknos_3_smpg.png", "caption": "Module psychosocial d'évaluation globale (Score SMPG sur 100 points et orientation ETP)" },
-                    { "url": "assets/images/iknos_4_dossier.png", "caption": "Studio de courriers médicaux et génération vectorielle du dossier patient officiel en PDF" }
+                    { "url": "assets/images/iknos_kanban.png", "caption": "Pipeline Kanban de coordination pré-greffe" },
+                    { "url": "assets/images/iknos_smpg.png", "caption": "Calculateur d'évaluation psychosociale SMPG" }
                 ]
             },
             {
@@ -630,26 +796,27 @@
                 "title": "DELPHI V5.6",
                 "category": "Tkinter",
                 "badge": "Desktop / Décisionnel & Épidémiologie Greffe",
-                "hospital": "CHU de Guadeloupe — Pôle Greffe Rénale",
-                "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL.",
-                "problem": "Rapprocher les fichiers nationaux de greffe avec les listes des centres de dialyse est un casse-tête à cause des changements de noms (jeune fille/épouse), des doublons et du manque d'outils pour mesurer les délais d'attente réels.",
-                "solution": "Un programme capable d'identifier les patients malgré les fautes d'orthographe ou noms d'épouse. Il génère automatiquement des graphiques clairs et des classeurs Excel prêts à être présentés à la direction de l'hôpital.",
-                "tags": ["Python", "Tkinter", "Pandas", "OpenPyXL", "Matplotlib", "Santé / CHU", "CRISTAL"],
+                "hospital": "Déploiement en milieu hospitalier",
+                "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL (Agence de la Biomédecine). Analyse croisée des listes d'attente, des délais d'accès et reporting Excel/PDF automatisé.",
+                "enjeu": "Utiliser des fichiers de statistiques nationales est souvent un calvaire : les données sont brutes, difficiles à lire, et remplies de petites erreurs d'identités (fautes de frappe, changement de nom après mariage). L'enjeu de DELPHI était de concevoir un moteur intelligent capable de nettoyer et de corriger automatiquement ces erreurs pour les transformer en graphiques clairs.",
+                "tags": ["Python", "Tkinter", "Pandas", "OpenPyXL", "Matplotlib", "Santé", "CRISTAL"],
                 "type": "desktop",
-                "preview_video": "assets/previews/delphi.mp4",
-                "video_focus": "📊 Rapprochement flou d'identités en temps réel, génération dynamique d'histogrammes et camemberts interactifs, puis ouverture d'un classeur Excel avec graphiques natifs.",
                 "download_url": "#",
                 "features": [
                     "Moteur d'analyse bicéphale : Mode réconciliation 'Liste d'attente' et Mode enrichissement 'Cohorte des greffés'",
                     "Algorithme de réconciliation flou : matching NEFG et dédoublonnage phonétique des patronymes",
                     "Analyses épidémiologiques avancées : délais d'attente, fardeau de la dialyse avant greffe, néphropathies et survie",
-                    "Module de reporting automatique : génération de rapports PDF et classeurs Excel avec graphiques natifs (OpenPyXL)"
+                    "Module de reporting bureautique automatique : rapports vectoriels multipages PDF et classeurs Excel avec graphiques natifs"
+                ],
+                "videos": [
+                    {
+                        "url": "assets/previews/delphi.mp4",
+                        "focus": "📊 Rapprochement flou d'identités en temps réel, génération dynamique d'histogrammes et camemberts interactifs, puis ouverture d'un classeur Excel avec graphiques natifs."
+                    }
                 ],
                 "screenshots": [
-                    { "url": "assets/images/delphi_1_reconciliation.png", "caption": "Algorithme de réconciliation d'identités (NEFG, noms maritaux et dates de naissance)" },
-                    { "url": "assets/images/delphi_2_dashboard.png", "caption": "Tableau de bord statistique interactif Tkinter & Matplotlib (profils ABO, âges et survie)" },
-                    { "url": "assets/images/delphi_3_centres.png", "caption": "Analyse territoriale et répartition des patients par centre de dialyse d'origine" },
-                    { "url": "assets/images/delphi_4_excel.png", "caption": "Classeur Excel automatisé multi-onglets avec graphiques natifs intégrés prêts à l'impression" }
+                    { "url": "assets/images/delphi_dashboard.png", "caption": "Tableau de bord statistique interactif Tkinter & Matplotlib" },
+                    { "url": "assets/images/delphi_excel.png", "caption": "Export Excel automatisé avec graphiques natifs OpenPyXL" }
                 ]
             },
             {
@@ -657,13 +824,10 @@
                 "title": "Coachmaster V6.0",
                 "category": "HTML",
                 "badge": "Web App PWA / Sport & Pédagogie",
-                "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif et rotations équitables.",
-                "problem": "Au milieu d'un terrain de football sans internet, préparer des entraînements de 90 minutes adaptés aux enfants, calculer équitablement les remplaçants et gérer les présences sous la pluie avec du papier est un calvaire.",
-                "solution": "Une application mobile utilisable partout, même sans aucun réseau : générateur de séances pédagogiques officielles (FFF), tableau tactile pour tracer les tactiques avec les doigts et calcul automatique des temps de jeu équitables.",
+                "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif, rotations de plateaux et suivi d'assiduité hors-ligne.",
+                "enjeu": "Dans le football amateur, l'encadrement des jeunes repose beaucoup sur des bénévoles qui manquent parfois de repères pour organiser les entraînements. L'enjeu de Coachmaster est de leur offrir un assistant simple et clé en main fonctionnant sur le bord du terrain, même sans connexion internet.",
                 "tags": ["HTML5", "JavaScript", "IndexedDB", "Dexie.js", "PWA", "Sport Tech"],
                 "type": "web_standalone",
-                "preview_video": "assets/previews/coachmaster.mp4",
-                "video_focus": "⚽ Dessin vectoriel tactile en direct (flèches, passes, courses), manipulation fluide des joueurs sur le terrain et chronomètre d'entraînement haptique animé.",
                 "download_url": "apps/coachmaster/index.html",
                 "features": [
                     "Architecture PWA 100% hors-ligne avec base locale IndexedDB (Dexie.js)",
@@ -671,8 +835,14 @@
                     "Double tableau tactique Canvas interactif : mode création statique et tableau blanc animé",
                     "Chronomètre d'entraînement avec alerte haptique (vibreur) et sifflet multi-tons haute fréquence"
                 ],
+                "videos": [
+                    {
+                        "url": "assets/previews/coachmaster.mp4",
+                        "focus": "⚽ Dessin vectoriel tactile en direct (flèches, passes, courses), manipulation fluide des joueurs sur le terrain et chronomètre d'entraînement haptique animé."
+                    }
+                ],
                 "screenshots": [
-                    { "url": "assets/images/coachmaster_cover.png", "caption": "Interface d'entraînement et tableau tactique Canvas interactif" }
+                    { "url": "assets/images/coachmaster_cover.png", "caption": "Interface d'entraînement et tableau tactique Canvas" }
                 ]
             },
             {
@@ -680,13 +850,10 @@
                 "title": "OptiTime V13.6",
                 "category": "Flet",
                 "badge": "Web App & UI / Flet & Gamification",
-                "description": "Assistant de gestion du temps gamifié intégrant un compagnon virtuel (Optigotchi), un suivi d'activité et des micro-pauses ergonomiques.",
-                "problem": "Rester assis des heures devant un écran fatigue le corps et l'esprit. Les logiciels de suivi habituels ressemblent à des pointeuses d'usine : froids, stressants et n'aidant pas à prendre soin de sa santé.",
-                "solution": "Un compagnon virtuel bienveillant sur votre écran (comme un petit Tamagotchi professionnel) : il vous encourage à faire des micro-pauses guidées (respiration, étirements) et vous récompense par des points tout au long de la journée.",
+                "description": "Assistant de gestion du temps gamifié intégrant un compagnon virtuel (Optigotchi), un suivi d'activité et des micro-pauses ergonomiques pour la santé au travail.",
+                "enjeu": "Rester devant un écran toute la journée finit toujours par créer de la fatigue, des douleurs physiques et une perte de concentration. OptiTime transforme la santé au travail en un jeu positif en motivant l'utilisateur à prendre de vraies pauses grâce à l'évolution d'un petit compagnon virtuel.",
                 "tags": ["Python", "Flet", "Flutter Web", "Gamification", "SQLite"],
                 "type": "web_standalone",
-                "preview_video": "assets/previews/optitime.mp4",
-                "video_focus": "✨ Onde ECG pulsante et auras néomorphiques animées en pur CSS, prise de niveau de l'Optigotchi avec effets visuels et bascule de thème UI en direct.",
                 "download_url": "https://optitime.onrender.com",
                 "features": [
                     "Architecture réactive Flet (moteur Flutter Web) avec interface sombre néomorphe ultra-fluide",
@@ -694,8 +861,41 @@
                     "Moteur de gamification (Optigotchi) : gain d'XP, système de trophées et inventaire",
                     "Catalogue de pauses actives (cohérence cardiaque, ergonomie) récompensées en énergie virtuelle"
                 ],
+                "videos": [
+                    {
+                        "url": "assets/previews/optitime.mp4",
+                        "focus": "✨ Onde ECG pulsante et auras néomorphiques animées en pur CSS, prise de niveau de l'Optigotchi avec effets visuels et bascule de thème UI en direct."
+                    }
+                ],
                 "screenshots": [
-                    { "url": "assets/images/optitime_main.png", "caption": "Chronomètre animé et tableau de bord de santé au travail Optigotchi" }
+                    { "url": "assets/images/optitime_main.png", "caption": "Chronomètre animé et tableau de bord Optigotchi" }
+                ]
+            },
+            {
+                "id": "themis",
+                "title": "THEMIS",
+                "category": "Flet",
+                "badge": "Web App / Gestion Commerciale & ERP (Flet)",
+                "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi du Chiffre d'Affaires (CA) et génération de dossiers contractuels complets.",
+                "enjeu": "Lorsqu'on lance une entreprise, la gestion administrative devient vite un casse-tête entre différents logiciels. L'enjeu de THEMIS est de regrouper toute la gestion commerciale dans un seul et même outil simple (devis, acomptes, factures, contrats prêts à signer).",
+                "tags": ["Python", "Flet", "Flutter Web", "CRM", "Facturation"],
+                "type": "web_standalone",
+                "download_url": "https://themis-flet.onrender.com",
+                "features": [
+                    "Application bureautique lourde développée avec le framework Flet (plus de 3 200 lignes de code)",
+                    "Tableau de bord financier interactif : suivi du Chiffre d'Affaires (CA), devis actifs, factures émises et encaissements",
+                    "Éditeur de devis sur-mesure intégrant la rédaction dynamique du cahier des charges fonctionnel",
+                    "Système de facturation complet : calcul automatisé des acomptes, des soldes et émission d'avoirs",
+                    "Moteur de rendu pour l'édition de documents légaux prêts à l'impression"
+                ],
+                "videos": [
+                    {
+                        "url": "assets/previews/themis.mp4",
+                        "focus": "💼 Recalcul en direct des acomptes et impact immédiat sur le Chiffre d'Affaires (CA) global lors de l'édition, suivi des KPIs et rendu WYSIWYG d'un contrat commercial PDF complet."
+                    }
+                ],
+                "screenshots": [
+                    { "url": "assets/images/themis_dashboard.png", "caption": "Tableau de bord de gestion commerciale et suivi du Chiffre d'Affaires" }
                 ]
             },
             {
@@ -703,13 +903,10 @@
                 "title": "EPHOR Superviseur",
                 "category": "CustomTkinter",
                 "badge": "Desktop / DevOps & Versioning",
-                "description": "Interface graphique de supervision Git et de sauvegarde de code automatisée avec mode 'fantôme' (auto-commit).",
-                "problem": "Lors de sessions de développement intensives, oublier de sauvegarder régulièrement son travail peut faire perdre des heures de code en cas de plantage ou de fausse manipulation sans possibilité d'annuler.",
-                "solution": "Une sentinelle silencieuse qui surveille le projet : après 30 secondes sans frappe au clavier, elle prend une 'photo' automatique du code. En cas de bogue, un simple bouton permet d'annuler l'erreur et de restaurer le travail intact.",
+                "description": "Interface graphique de supervision Git et de sauvegarde de code automatisée avec mode 'fantôme' (auto-commit) et gestion visuelle des rollbacks.",
+                "enjeu": "Créer des logiciels avec l'aide de l'IA permet d'aller beaucoup plus vite, mais expose au risque de casser du code fonctionnel. L'enjeu d'EPHOR est d'offrir un vrai filet de sécurité en sauvegardant automatiquement le code après 30s d'inactivité, avec retour en arrière immédiat en un clic.",
                 "tags": ["Python", "CustomTkinter", "Git", "DevOps", "Threading"],
                 "type": "desktop",
-                "preview_video": "assets/previews/ephor.mp4",
-                "video_focus": "🛡️ Visionneuse de Diff bicolore (ajouts verts / suppressions rouges), compte à rebours du Mode Fantôme et exécution spectaculaire d'un Rollback Git destructif.",
                 "download_url": "#",
                 "features": [
                     "Moteur Git intégré avec initialisation automatique de dépôts et .gitignore préconfigurés",
@@ -717,35 +914,78 @@
                     "Studio d'Audit visuel : visionneuse de Diff avec coloration syntaxique des ajouts/suppressions",
                     "Système de Rollback destructif sécurisé pour annuler instantanément des développements instables"
                 ],
+                "videos": [
+                    {
+                        "url": "assets/previews/ephor.mp4",
+                        "focus": "🛡️ Visionneuse de Diff bicolore (ajouts verts / suppressions rouges), compte à rebours du Mode Fantôme et exécution spectaculaire d'un Rollback Git destructif."
+                    }
+                ],
                 "screenshots": [
-                    { "url": "assets/images/ephor_1_console.png", "caption": "Console de supervision Git CustomTkinter avec détection automatique des dépôts locaux" },
-                    { "url": "assets/images/ephor_2_diff.png", "caption": "Studio d'Audit visuel : Visionneuse de Diff avec coloration syntaxique des modifications" },
-                    { "url": "assets/images/ephor_3_watchdog.png", "caption": "Mode Fantôme (Watchdog asynchrone) créant des snapshots automatiques après 30s d'inactivité" },
-                    { "url": "assets/images/ephor_4_rollback.png", "caption": "Module de Rollback destructif sécurisé pour annulation instantanée de développements instables" }
+                    { "url": "assets/images/ephor_dark.png", "caption": "Console DevOps sombre avec visualiseur de Diff Git" }
+                ]
+            },
+            {
+                "id": "praxis",
+                "title": "PRAXIS GOLD V108",
+                "category": "Tkinter",
+                "badge": "Desktop / Suite eCRF & Greffe Rénale",
+                "hospital": "Déploiement en milieu hospitalier",
+                "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux (eCRF, audit trail, matrice sur 30 ans et passerelle CRISTAL).",
+                "enjeu": "Lors du parcours d'une greffe, les informations du patient (avant, pendant et après l'opération, bilans biologiques) sont éparpillées sur de multiples dossiers et logiciels. L'enjeu majeur de PRAXIS était d'harmoniser toutes ces données sur une seule interface sécurisée avant leur saisie officielle, avec des verrous automatiques interdisant les erreurs humaines.",
+                "tags": ["Python", "Tkinter", "SQLite", "Santé", "Audit Trail", "eCRF"],
+                "type": "desktop",
+                "download_url": "#",
+                "features": [
+                    "Moteur universel d'eCRF dynamique piloté par JSON (Socle J0 et suivis longitudinaux M3 à Y30)",
+                    "Système expert de validation clinique : contrôle des bornes physiologiques en direct et calcul automatique (clairance, ischémie)",
+                    "Console de Pilotage Global : Matrice des jalons dynamique (recul 30 ans) et Kanban de production",
+                    "Audit Trail médico-légal strict horodaté traçant chaque champ modifié [Valeur antérieure ➔ Nouvelle]",
+                    "Générateur de rapports HTML print-ready autonomes et coffre-fort d'archivage physique ZIP mensuel"
+                ],
+                "videos": [
+                    {
+                        "url": "assets/previews/Borne Bio Praxis.mp4",
+                        "focus": "⚡ Contrôle dynamique des bornes physiologiques en direct : alertes colorimétriques vert/orange/rouge."
+                    },
+                    {
+                        "url": "assets/previews/Douanier Date Praxis.mp4",
+                        "focus": "🛡️ Douanier Chronologique : blocage strict et immédiat des incohérences de dates de suivi."
+                    }
+                ],
+                "screenshots": [
+                    { "url": "assets/images/Dashboard_PRAXIS.png", "caption": "Tableau de bord général de la suite clinique PRAXIS et suivi d'activité." },
+                    { "url": "assets/images/Fiche patient_PRAXIS.png", "caption": "Interface de consultation d'un dossier clinique patient comprenant l'historique des événements et mémo clinique." },
+                    { "url": "assets/images/Formulaire Socle_PRAXIS.png", "caption": "Interface du module de consultation pour l'identification d'un patient dans l'application de suivi de greffe." },
+                    { "url": "assets/images/rapport HTML_PRAXIS.png", "caption": "Fenêtre du centre d'impression et de génération des rapports cliniques autonomes." },
+                    { "url": "assets/images/Vue_Pilotage_PRAXIS.png", "caption": "Tableau de bord de gestion et de suivi des dossiers de transplantation par patient." },
+                    { "url": "assets/images/Pilotage global_PRAXIS.png", "caption": "Tableau de bord de suivi d'activité présentant les indicateurs globaux de saisie et de conformité." },
+                    { "url": "assets/images/import Backlog_PRAXIS.png", "caption": "Interface d'importation et de traitement des données patients depuis un fichier Excel vers la base SQLite." },
+                    { "url": "assets/images/requete_PRAXIS.png", "caption": "Requêteur d'extraction multicritère de cohortes pour la recherche clinique." },
+                    { "url": "assets/images/Mode admin_PRAXIS.png", "caption": "Console d'administration : Paramétrage des métadonnées et sécurité des accès." },
+                    { "url": "assets/images/stats_PRAXIS.png", "caption": "Module de statistiques avancées et indicateurs cliniques transversaux." },
+                    { "url": "assets/images/Jalons_PRAXIS.png", "caption": "Matrice temporelle des jalons de suivi greffé (recul longitudinal jusqu'à 30 ans)." }
                 ]
             },
             {
                 "id": "taxis",
-                "title": "TAXIS Automate",
+                "title": "TAXIS Studio Médias",
                 "category": "CustomTkinter",
-                "badge": "Desktop / Automatisation & Maintenance",
-                "description": "Robot d'arrière-plan pour la synchronisation, la maintenance et la mise à jour automatisée de données de catalogues.",
-                "problem": "Mettre à jour des informations ou des catalogues sur un site web demande d'éditer du code à la main, de tester chaque page et de faire des manipulations répétitives propices aux oublis.",
-                "solution": "Un automate qui travaille en coulisses : il surveille vos données, vérifie leur intégrité et les injecte automatiquement dans votre site ou vos outils, sans que vous n'ayez jamais besoin d'ouvrir une seule ligne de code technique.",
-                "tags": ["Python", "CustomTkinter", "Automatisation", "DevOps", "JSON"],
+                "badge": "Desktop / Outil Interne & Sécurité",
+                "description": "Application de gestion de contenu avec interface Drag & Drop, intégrant un bouclier RGPD (OCR Tesseract) et un assistant IA (Gemini) pour la détection de données sensibles et la génération de légendes.",
+                "enjeu": "Gérer les captures d'écran de logiciels médicaux comporte un risque majeur : publier accidentellement la donnée d'un vrai patient (violation RGPD). L'enjeu de TAXIS Studio était de concevoir un outil ultra-sécurisé bloquant automatiquement toute publication de données à caractère personnel grâce à une double barrière OCR et IA.",
+                "tags": ["Python", "CustomTkinter", "Gemini IA", "OCR Tesseract", "RGPD", "JSON"],
                 "type": "desktop",
-                "preview_video": "assets/previews/taxis.mp4",
-                "video_focus": "🤖 Déclenchement silencieux de la synchronisation des catalogues et mise à jour dynamique des données sans interruption de service.",
                 "download_url": "#",
                 "features": [
-                    "Robot de synchronisation asynchrone automatisant les tâches de maintenance récurrentes",
-                    "Contrôle d'intégrité des données avant injection dans les plateformes de production",
-                    "Journalisation d'audit des transferts et surveillance des fichiers sources",
-                    "Interface CustomTkinter de monitoring avec logs d'exécution en temps réel"
+                    "Interface graphique Drag & Drop moderne développée avec CustomTkinter et TkinterDnD",
+                    "Bouclier RGPD local par reconnaissance optique de caractères (Tesseract OCR : NIR, IPP, Noms...)",
+                    "Analyse de sécurité sémantique par Intelligence Artificielle (API Google Gemini)",
+                    "Générateur automatique de légendes d'images contextuelles assisté par IA",
+                    "Moteur d'exportation en temps réel de la base de données portfolio (JSON)"
                 ],
-                "screenshots": [
-                    { "url": "assets/images/taxis_console.png", "caption": "Console de surveillance et d'automatisation des flux de données" }
-                ]
+                "videos": [],
+                "screenshots": [],
+                "roadmap": []
             }
         ];
 
@@ -783,23 +1023,23 @@
             }, 300);
         };
 
-        // RENDU DU SHOWROOM SOLUTIONS (GRILLE DES FICHES PROBLÈME ➔ SOLUTION)
+        // RENDU DU SHOWROOM SOLUTIONS
         const solutionsGrid = document.querySelector('#solutions-grid');
         const filterBtns = document.querySelectorAll('.filter-btn');
         let currentFilter = 'all';
 
         function renderShowroom(projects) {
             if (!solutionsGrid) return;
-            // On exclut THEMIS de la grille car il est déjà en vedette dans le grand Hero en haut
             const otherProjects = projects.filter(p => p.id !== 'themis');
 
             solutionsGrid.innerHTML = otherProjects.map(p => {
                 const isChu = !!p.hospital;
                 const isLive = (p.id === 'coachmaster' || p.category === 'Flet' || p.type === 'web_standalone') && p.download_url && p.download_url !== '#';
                 
+                // Pour OptiTime et Coachmaster : bouton "Lancer la démo en direct"
                 const actionBtn = isLive 
-                    ? `<a href="${p.download_url}" target="_blank" class="btn btn-primary">🚀 Lancer la démo en direct</a>`
-                    : `<button class="btn btn-outline" onclick="openProjectModal('${p.id}')">📸 Explorer la vitrine visuelle</button>`;
+                    ? `<button class="btn btn-primary" onclick="openProjectModal('${p.id}', 'demo')">🚀 Lancer la démo interactive</button>`
+                    : `<button class="btn btn-outline" onclick="openProjectModal('${p.id}', 'media')">📸 Explorer la vitrine visuelle</button>`;
 
                 return `
                     <div class="solution-card ${isChu ? 'card-chu' : ''}">
@@ -808,15 +1048,16 @@
                             <h3 class="solution-title">${p.title}</h3>
                         </div>
 
-                        <div class="case-box case-box-problem">
-                            <div class="case-label" style="color: #e11d48;">🎯 Le Défi Métier :</div>
-                            ${p.problem}
+                        ${p.enjeu ? `
+                        <div class="case-box case-box-enjeu">
+                            <div class="case-label" style="color: var(--accent);">🎯 L'Enjeu / La Problématique :</div>
+                            ${p.enjeu}
                         </div>
+                        ` : ''}
 
-                        <div class="case-box case-box-solution">
-                            <div class="case-label" style="color: #059669;">💡 La Solution Dhamusoft :</div>
-                            ${p.solution}
-                        </div>
+                        <p style="font-size: 0.88rem; color: #475569; margin-bottom: 1rem; line-height: 1.5;">
+                            ${p.description}
+                        </p>
 
                         <div class="solution-card-footer">
                             ${actionBtn}
@@ -850,7 +1091,7 @@
             });
         });
 
-        // RENDU DU LAB TECHNIQUE (SPÉCIFICATIONS DÉTAILLÉES)
+        // RENDU DU LAB TECHNIQUE
         const techSpecGrid = document.querySelector('#tech-spec-grid');
         function renderLabTech(projects) {
             if (!techSpecGrid) return;
@@ -871,41 +1112,103 @@
             `).join('');
         }
 
-        // GESTION DE LA MODALE D'IMMERSION (CAPTURES D'ÉCRAN & VIDÉOS)
+        // 🔍 GESTION DE LA VISIONNEUSE LIGHTBOX PLEIN ÉCRAN
+        let currentGalleryImages = [];
+        let currentLightboxIndex = 0;
+        const lightbox = document.querySelector('#lightbox');
+        const lightboxImg = document.querySelector('#lightbox-img');
+        const lightboxCaption = document.querySelector('#lightbox-caption');
+        const lightboxClose = document.querySelector('#lightbox-close');
+        const lightboxPrev = document.querySelector('#lightbox-prev');
+        const lightboxNext = document.querySelector('#lightbox-next');
+
+        function updateLightboxView() {
+            if (!currentGalleryImages || currentGalleryImages.length === 0) return;
+            const cur = currentGalleryImages[currentLightboxIndex];
+            lightboxImg.src = encodeURI(cur.url);
+            lightboxCaption.textContent = `${cur.caption} (${currentLightboxIndex + 1} / ${currentGalleryImages.length})`;
+        }
+
+        window.openLightbox = function(index, projectId) {
+            const project = projectsData.find(item => item.id === projectId);
+            if (!project || !project.screenshots) return;
+            currentGalleryImages = project.screenshots;
+            currentLightboxIndex = index;
+            updateLightboxView();
+            lightbox.classList.remove('hidden');
+        };
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightboxImg.src = '';
+        }
+
+        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+        if (lightboxPrev) lightboxPrev.addEventListener('click', () => {
+            currentLightboxIndex = (currentLightboxIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+            updateLightboxView();
+        });
+        if (lightboxNext) lightboxNext.addEventListener('click', () => {
+            currentLightboxIndex = (currentLightboxIndex + 1) % currentGalleryImages.length;
+            updateLightboxView();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') lightboxPrev.click();
+                if (e.key === 'ArrowRight') lightboxNext.click();
+            }
+        });
+
+        // GESTION DE LA MODALE & RENDU DES MÉDIAS
         const modal = document.querySelector('#modal');
         const modalBody = document.querySelector('#modal-body');
         const closeBtn = document.querySelector('#modal-close-btn');
         const overlay = document.querySelector('#modal-overlay');
 
-        function renderScreenshots(screenshots) {
+        function renderScreenshots(screenshots, projectId) {
             if (!screenshots || !Array.isArray(screenshots) || screenshots.length === 0) return '';
-            const items = screenshots.map(img => `
+            const items = screenshots.map((img, idx) => `
                 <figure class="screenshot-item">
-                    <a href="${img.url}" target="_blank" title="Cliquez pour agrandir">
-                        <img src="${img.url}" alt="${img.caption}" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
-                    </a>
+                    <img src="${encodeURI(img.url)}" alt="${img.caption}" loading="lazy" onclick="openLightbox(${idx}, '${projectId}')" title="Cliquez pour agrandir en plein écran" onerror="console.warn('Image non trouvée :', '${img.url}'); this.parentElement.style.display='none'">
                     <figcaption>${img.caption}</figcaption>
                 </figure>
             `).join('');
             return `
                 <div style="margin-top: 1.8rem;">
-                    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem;">📸 Captures d'interfaces & Vues fonctionnelles</h3>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem;">📸 Captures d'interfaces & Vues fonctionnelles (Cliquez pour agrandir)</h3>
                     <div class="screenshots-grid">${items}</div>
                 </div>
             `;
         }
 
         function renderVideos(project) {
+            if (project.videos && Array.isArray(project.videos) && project.videos.length > 0) {
+                return project.videos.map(vid => `
+                    <div class="video-container">
+                        <video controls autoplay muted loop playsinline style="width: 100%; display: block;">
+                            <source src="${encodeURI(vid.url)}" type="video/mp4">
+                        </video>
+                    </div>
+                    ${vid.focus ? `
+                        <div class="video-focus-box">
+                            <strong>🎯 Focus :</strong> ${vid.focus}
+                        </div>
+                    ` : ''}
+                `).join('');
+            }
+            
             if (project.preview_video) {
                 return `
                     <div class="video-container">
                         <video controls autoplay muted loop playsinline style="width: 100%; display: block;">
-                            <source src="${project.preview_video}" type="video/mp4">
+                            <source src="${encodeURI(project.preview_video)}" type="video/mp4">
                         </video>
                     </div>
                     ${project.video_focus ? `
                         <div class="video-focus-box">
-                            <strong>🎯 Focus de la démonstration :</strong> ${project.video_focus}
+                            <strong>🎯 Focus :</strong> ${project.video_focus}
                         </div>
                     ` : ''}
                 `;
@@ -913,13 +1216,56 @@
             return '';
         }
 
-        window.openProjectModal = function(projectId) {
+        // OUVERTURE DE LA MODALE AVEC COMMUTATEUR DÉMO LIVE / MÉDIAS POUR OPTITIME, THEMIS & COACHMASTER
+        window.openProjectModal = function(projectId, initialView = 'media') {
             const project = projectsData.find(item => item.id === projectId);
             if (!project) return;
 
             const isLive = (project.id === 'coachmaster' || project.category === 'Flet' || project.type === 'web_standalone') && project.download_url && project.download_url !== '#';
+
+            let modeSwitcherHtml = '';
+            if (isLive) {
+                modeSwitcherHtml = `
+                    <div class="modal-view-switcher">
+                        <button class="modal-view-tab ${initialView === 'demo' ? 'active' : ''}" id="tab-modal-demo" onclick="switchModalView('demo')">
+                            🚀 Démo en direct (Interactive)
+                        </button>
+                        <button class="modal-view-tab ${initialView === 'media' ? 'active' : ''}" id="tab-modal-media" onclick="switchModalView('media')">
+                            📸 Captures & Vidéo Démo
+                        </button>
+                    </div>
+                `;
+            }
+
+            let liveFrameHtml = '';
+            if (isLive) {
+                const renderNote = project.download_url.includes('onrender.com') 
+                    ? `<p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">💡 <em>Application hébergée sur Render (prévoir ~30s au premier lancement si le serveur s'était mis en veille).</em></p>` 
+                    : '';
+
+                liveFrameHtml = `
+                    <div id="modal-view-demo-content" style="${initialView === 'demo' ? 'display: block;' : 'display: none;'} margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">Application active en temps réel :</span>
+                            <a href="${project.download_url}" target="_blank" style="font-size: 0.82rem; color: var(--accent); font-weight: 700; text-decoration: underline;">Ouvrir en plein écran ↗</a>
+                        </div>
+                        <div class="modal-iframe-container">
+                            <iframe src="${project.download_url}" allow="fullscreen"></iframe>
+                        </div>
+                        ${renderNote}
+                    </div>
+                `;
+            }
+
+            const mediaContentHtml = `
+                <div id="modal-view-media-content" style="${(!isLive || initialView === 'media') ? 'display: block;' : 'display: none;'}">
+                    ${renderVideos(project)}
+                    ${renderScreenshots(project.screenshots, project.id)}
+                </div>
+            `;
+
             const actionBtn = isLive 
-                ? `<a href="${project.download_url}" target="_blank" class="btn btn-primary">🚀 Lancer l'application en direct (Live Demo)</a>`
+                ? `<a href="${project.download_url}" target="_blank" class="btn btn-primary">🚀 Ouvrir en grand (Nouvel onglet)</a>`
                 : `<div class="action-notice" style="background: #f8fafc; border: 1px solid var(--border); padding: 0.65rem 1.1rem; border-radius: 8px; font-size: 0.88rem; color: #475569;">🔒 Logiciel Privé / Démonstration encadrée sur demande</div>`;
 
             modalBody.innerHTML = `
@@ -928,19 +1274,20 @@
                     <h2 style="font-size: 1.8rem; font-weight: 900; color: var(--primary); margin-top: 0.3rem;">${project.title}</h2>
                 </div>
 
-                ${renderVideos(project)}
+                ${modeSwitcherHtml}
+                ${liveFrameHtml}
+                ${mediaContentHtml}
 
-                <div class="case-box case-box-problem" style="margin-top: 1.2rem;">
-                    <div class="case-label" style="color: #e11d48;">🎯 Le Défi Métier :</div>
-                    ${project.problem}
+                ${project.enjeu ? `
+                <div class="case-box case-box-enjeu" style="margin-top: 1.5rem;">
+                    <div class="case-label" style="color: var(--accent);">🎯 L'Enjeu / La Problématique :</div>
+                    ${project.enjeu}
                 </div>
+                ` : ''}
 
-                <div class="case-box case-box-solution">
-                    <div class="case-label" style="color: #059669;">💡 La Solution Dhamusoft :</div>
-                    ${project.solution}
-                </div>
-
-                ${renderScreenshots(project.screenshots)}
+                <p style="font-size: 0.95rem; color: #334155; line-height: 1.6; margin-bottom: 1.2rem;">
+                    ${project.description}
+                </p>
 
                 <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
                     ${actionBtn}
@@ -949,6 +1296,25 @@
 
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+        };
+
+        window.switchModalView = function(view) {
+            const demoContent = document.getElementById('modal-view-demo-content');
+            const mediaContent = document.getElementById('modal-view-media-content');
+            const tabDemo = document.getElementById('tab-modal-demo');
+            const tabMedia = document.getElementById('tab-modal-media');
+
+            if (view === 'demo') {
+                if (demoContent) demoContent.style.display = 'block';
+                if (mediaContent) mediaContent.style.display = 'none';
+                if (tabDemo) tabDemo.classList.add('active');
+                if (tabMedia) tabMedia.classList.remove('active');
+            } else {
+                if (demoContent) demoContent.style.display = 'none';
+                if (mediaContent) mediaContent.style.display = 'block';
+                if (tabDemo) tabDemo.classList.remove('active');
+                if (tabMedia) tabMedia.classList.add('active');
+            }
         };
 
         function closeModal() {
@@ -960,25 +1326,12 @@
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
         if (overlay) overlay.addEventListener('click', closeModal);
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+            if (e.key === 'Escape' && !modal.classList.contains('hidden') && lightbox.classList.contains('hidden')) closeModal();
         });
 
-        // NOTIFICATION TOAST PARTAGE
-        const shareBtn = document.querySelector('#btn-partager');
-        if (shareBtn) {
-            shareBtn.addEventListener('click', () => {
-                const url = window.location.href;
-                if (navigator.share) {
-                    navigator.share({ title: 'Dhamusoft - Portfolio', text: "Découvrez les solutions logicielles développées par Dhamusoft.", url: url }).catch(console.error);
-                } else {
-                    navigator.clipboard.writeText(url).then(() => {
-                        const toast = document.getElementById("toast");
-                        toast.className = "show";
-                        setTimeout(() => toast.className = toast.className.replace("show", ""), 3000);
-                    });
-                }
-            });
-        }
+        // INITIALISATION
+        renderShowroom(projectsData);
+        renderLabTech(projectsData);
 
         // MENTIONS LÉGALES MODALE
         const btnMentions = document.querySelector('#link-mentions');
@@ -1001,9 +1354,22 @@
             });
         }
 
-        // INITIALISATION
-        renderShowroom(projectsData);
-        renderLabTech(projectsData);
+        // BOUTON PARTAGE
+        const shareBtn = document.querySelector('#btn-partager');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                const url = window.location.href;
+                if (navigator.share) {
+                    navigator.share({ title: 'Dhamusoft - Portfolio', text: "Découvrez les solutions logicielles développées par Dhamusoft.", url: url }).catch(console.error);
+                } else {
+                    navigator.clipboard.writeText(url).then(() => {
+                        const toast = document.getElementById("toast");
+                        toast.className = "show";
+                        setTimeout(() => toast.className = toast.className.replace("show", ""), 3000);
+                    });
+                }
+            });
+        }
 
     })();
     </script>
