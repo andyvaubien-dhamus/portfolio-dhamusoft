@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/"> 
     <meta property="og:title" content="Dhamusoft - Logiciels, Automatisation & Applications">
-    <meta property="og:description" content="Découvrez le portfolio Dhamusoft : Solutions logicielles concrètes et architectures d'ingénierie.">
+    <meta property="og:description" content="Découvrez le portfolio Dhamusoft : Solutions logicielles concrètes et simulateur Chèque TIC Région Guadeloupe.">
     <meta property="og:image" content="https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/assets/images/logo_dhamusoft.png">
 
     <title>Dhamusoft - Logiciels, Automatisation & Applications</title>
@@ -104,7 +104,7 @@
         }
         .btn-cta-pdf:hover { border-color: var(--primary); transform: translateY(-2px); }
 
-        /* 🔀 COMMUTATEUR À 3 ONGLETS (SHOWROOM / MÉTHODE / LAB) */
+        /* 🔀 COMMUTATEUR DUAL-HUB À 4 ONGLETS */
         .hub-switcher-wrap {
             display: flex;
             justify-content: center;
@@ -122,8 +122,8 @@
         .hub-btn {
             border: none;
             background: transparent;
-            padding: 0.65rem 1.4rem;
-            font-size: 0.92rem;
+            padding: 0.65rem 1.3rem;
+            font-size: 0.90rem;
             font-weight: 700;
             color: var(--text-muted);
             border-radius: 25px;
@@ -134,6 +134,14 @@
             background: var(--primary);
             color: #ffffff;
             box-shadow: 0 4px 12px rgba(44, 76, 110, 0.25);
+        }
+        .hub-btn-tic {
+            color: #065f46;
+        }
+        .hub-btn-tic.active {
+            background: #059669;
+            color: white;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
         }
 
         .view-section { display: none; }
@@ -260,21 +268,13 @@
         }
         .tech-link:hover { text-decoration: underline; color: var(--accent); }
 
-        /* 🤝 SECTION DÉDIÉE : COMMENT TRAVAILLONS-NOUS ? (ONGLET 2) */
-        .process-page-wrap {
-            max-width: 950px;
-            margin: 0 auto;
-        }
+        /* 🤝 SECTION DÉDIÉE : COMMENT TRAVAILLONS-NOUS ? */
+        .process-page-wrap { max-width: 950px; margin: 0 auto; }
         .process-header { text-align: center; margin-bottom: 3rem; }
         .process-header h2 { font-size: 2.2rem; color: var(--primary); font-weight: 900; margin-bottom: 0.8rem; }
         .process-header p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
         
-        .process-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-bottom: 3.5rem;
-        }
+        .process-timeline { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3.5rem; }
         .timeline-card {
             background: #ffffff;
             border: 1px solid var(--border);
@@ -311,7 +311,6 @@
             border-radius: 6px;
             border: 1px solid #a7f3d0;
         }
-
         .guarantee-box {
             background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
             border: 1px solid var(--frame-border);
@@ -320,6 +319,155 @@
             text-align: center;
             margin-top: 2rem;
         }
+
+        /* 💰 SECTION CHÈQUE TIC (SIMULATEUR & ALGORITHME) */
+        .tic-wrap { max-width: 1000px; margin: 0 auto; }
+        .tic-hero {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+            color: white;
+            border-radius: 18px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(6, 78, 59, 0.2);
+            border: 1px solid rgba(167, 243, 208, 0.3);
+        }
+        .tic-hero h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 0.8rem; }
+        .tic-hero p { font-size: 1.05rem; opacity: 0.95; line-height: 1.6; max-width: 820px; }
+
+        .simulator-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+        }
+        .sim-section-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .eligibility-checks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: #f8fafc;
+            padding: 1.4rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .check-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+        }
+        .check-label input { width: 18px; height: 18px; margin-top: 2px; cursor: pointer; }
+
+        .budget-inputs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .budget-input-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .budget-input-box h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        .budget-rate-badge {
+            align-self: flex-start;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            margin-bottom: 0.8rem;
+        }
+        .badge-80 { background: #dcfce7; color: #15803d; }
+        .badge-40 { background: #e0f2fe; color: #0369a1; }
+        .budget-input-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; flex-grow: 1; }
+        .currency-input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1.5px solid var(--frame-border);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .currency-input:focus { border-color: var(--primary); }
+
+        /* Panneau de Résultat Algorithmique */
+        .sim-results-panel {
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            border: 2px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .result-metric h5 { font-size: 0.82rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; font-weight: 700; }
+        .result-metric .value { font-size: 1.8rem; font-weight: 900; }
+        .val-total { color: var(--primary); }
+        .val-subvention { color: #059669; }
+        .val-reste { color: var(--accent); }
+
+        .disclaimer-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 0.85rem 1.2rem;
+            font-size: 0.82rem;
+            color: #92400e;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.5;
+        }
+
+        .accompagnement-box {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .accompagnement-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .acc-step {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 1.2rem;
+            border: 1px solid var(--border);
+        }
+        .acc-step strong { color: var(--primary); display: block; margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .acc-step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0; }
 
         /* Boutons */
         .btn {
@@ -395,6 +543,52 @@
         .modal-iframe-container { width: 100%; height: 540px; border-radius: 12px; overflow: hidden; border: 1px solid var(--frame-border); margin: 1rem 0; background: #f8fafc; }
         .modal-iframe-container iframe { width: 100%; height: 100%; border: none; }
 
+        /* 📜 STYLE TRIPTYQUE PANORAMIQUE (3 VOLETS) */
+        .triptyque-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            margin: 1rem 0;
+            position: relative;
+        }
+        @media (max-width: 850px) {
+            .triptyque-container { grid-template-columns: 1fr; }
+        }
+        .triptyque-volet {
+            display: flex;
+            flex-direction: column;
+            padding: 0 0.8rem;
+            position: relative;
+        }
+        .triptyque-volet:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -0.75rem;
+            top: 5%;
+            height: 90%;
+            border-right: 1px dashed #cbd5e1;
+        }
+        @media (max-width: 850px) {
+            .triptyque-volet:not(:last-child)::after { display: none; }
+        }
+        .volet-header {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .volet-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         /* 🔍 LIGHTBOX PLEIN ÉCRAN */
         #lightbox { position: fixed; inset: 0; z-index: 2500; background: rgba(10, 15, 26, 0.94); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; }
         #lightbox-img-wrap { max-width: 90vw; max-height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; }
@@ -429,13 +623,23 @@
         .site-footer { background: var(--primary); color: #f8fafc; text-align: center; padding: 2.2rem 1rem; margin-top: 4rem; }
         .footer-link { color: var(--accent); text-decoration: underline; cursor: pointer; margin-left: 8px; }
 
-        /* 🖨️ CSS SPÉCIFIQUE IMPRESSION / EXPORT PDF */
+        /* 🖨️ Calibrage Impression A4 Paysage pour le Triptyque */
         @media print {
-            body { background: white !important; color: black !important; }
-            .hub-switcher-wrap, .header-cta-bar, .whatsapp-btn, .email-btn, .share-btn, #toast, .site-footer, #modal-close-btn, .btn { display: none !important; }
+            @page { size: A4 landscape; margin: 6mm; }
+            body { background: white !important; }
+            .hub-switcher-wrap, .header-cta-bar, .whatsapp-btn, .email-btn, .share-btn, #toast, .site-footer, #modal-close-btn, .btn, .themis-hero-card, .filter-bar, #solutions-grid, .glossary-section, #view-method, #view-lab, #view-chequetic { 
+                display: none !important; 
+            }
             #modal { position: static !important; display: block !important; }
             #modal-overlay { display: none !important; }
             .modal-dialog { width: 100% !important; max-width: 100% !important; box-shadow: none !important; border: none !important; padding: 0 !important; }
+            .triptyque-container {
+                box-shadow: none !important;
+                border: 1px solid #94a3b8 !important;
+                grid-template-columns: 1fr 1fr 1fr !important;
+                padding: 8mm !important;
+                height: 190mm !important;
+            }
         }
     </style>
 </head>
@@ -445,7 +649,7 @@
         <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" class="logo-hero">
         <p class="hero-subtitle">Conception d'applications métiers, d'outils de coordination et automatisation de processus.<br>De l'idée au déploiement.</p>
 
-        <!-- 🚀 ACTIONS RAPIDES DECIDEURS (CALENDLY 15 MIN & PLAQUETTE PDF) -->
+        <!-- 🚀 ACTIONS RAPIDES DECIDEURS (CALENDLY 15 MIN & PLAQUETTE TRIPTYQUE) -->
         <div class="header-cta-bar">
             <button class="header-cta-btn btn-cta-rdv" onclick="openCalendlyModal()">
                 📅 Réserver un échange (15 min)
@@ -455,11 +659,12 @@
             </button>
         </div>
 
-        <!-- 🔀 COMMUTATEUR DUAL-HUB À 3 UNIVERS -->
+        <!-- 🔀 COMMUTATEUR DUAL-HUB À 4 UNIVERS -->
         <div class="hub-switcher-wrap">
             <div class="hub-switcher">
                 <button id="btn-show-solutions" class="hub-btn active">💼 Showroom Solutions</button>
                 <button id="btn-show-method" class="hub-btn">🤝 Comment travaillons-nous ?</button>
+                <button id="btn-show-chequetic" class="hub-btn hub-btn-tic">💰 Chèque TIC (Financement)</button>
                 <button id="btn-show-lab" class="hub-btn">⚙️ Lab Technique</button>
             </div>
         </div>
@@ -600,7 +805,132 @@
 
 
         <!-- ======================================================== -->
-        <!-- ⚙️ ONGLET 3 : LAB D'INGÉNIERIE & ARCHITECTURE TECHNIQUE  -->
+        <!-- 💰 ONGLET 3 : CHÈQUE TIC (SIMULATEUR & ACCOMPAGNEMENT)   -->
+        <!-- ======================================================== -->
+        <section id="view-chequetic" class="view-section">
+            <div class="tic-wrap">
+                
+                <div class="tic-hero">
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">Aide Région Guadeloupe & FEDER</span>
+                    <h2>Financez jusqu'à 80% de votre projet numérique</h2>
+                    <p>Le dispositif <strong>Chèque TIC</strong> soutient les TPE, PME et micro-entreprises guadeloupéennes dans leur modernisation digitale avec une subvention pouvant atteindre <strong>jusqu'à 10 000 €</strong>.</p>
+                </div>
+
+                <!-- SIMULATEUR INTERACTIF (ALGORITHME) -->
+                <div class="simulator-card">
+                    <div class="sim-section-title">
+                        <span>1️⃣ Testez votre éligibilité en 3 critères</span>
+                    </div>
+
+                    <div class="eligibility-checks">
+                        <label class="check-label">
+                            <input type="checkbox" id="check-loc" checked onchange="calculerChequeTic()">
+                            <span>Entreprise implantée en Guadeloupe</span>
+                        </label>
+                        <label class="check-label">
+                            <input type="checkbox" id="check-age" checked onchange="calculerChequeTic()">
+                            <span>Activité enregistrée depuis au moins 1 an</span>
+                        </label>
+                        <label class="check-label">
+                            <input type="checkbox" id="check-fisc" checked onchange="calculerChequeTic()">
+                            <span>Situation fiscale et sociale à jour</span>
+                        </label>
+                    </div>
+
+                    <div class="sim-section-title">
+                        <span>2️⃣ Estimez votre budget par volet de dépenses (HT)</span>
+                    </div>
+
+                    <div class="budget-inputs-grid">
+                        <!-- Volet 1 -->
+                        <div class="budget-input-box">
+                            <h4>🌐 Présence Web & E-commerce</h4>
+                            <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
+                            <p>Développement de site vitrine, boutique en ligne, hébergement sécurisé, certificat SSL et sauvegardes automatiques sur 1 an.</p>
+                            <input type="number" id="input-web" class="currency-input" placeholder="0 €" value="2500" min="0" oninput="calculerChequeTic()">
+                        </div>
+
+                        <!-- Volet 2 -->
+                        <div class="budget-input-box">
+                            <h4>🛡️ Sécurité & Sauvegardes</h4>
+                            <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
+                            <p>Audits de sécurité, antivirus professionnels, pare-feu, formation cybersécurité et solutions de backup externalisées.</p>
+                            <input type="number" id="input-secu" class="currency-input" placeholder="0 €" value="1500" min="0" oninput="calculerChequeTic()">
+                        </div>
+
+                        <!-- Volet 3 -->
+                        <div class="budget-input-box">
+                            <h4>💻 Logiciels Métiers & Équipements</h4>
+                            <span class="budget-rate-badge badge-40">Pris en charge à 40%</span>
+                            <p>Logiciels de gestion sur-mesure (THEMIS), pack bureautique, poste de travail PC/Mac, imprimante/scanner laser A4, et formation de prise en main.</p>
+                            <input type="number" id="input-trans" class="currency-input" placeholder="0 €" value="5000" min="0" oninput="calculerChequeTic()">
+                        </div>
+                    </div>
+
+                    <!-- Résultat Algorithmique -->
+                    <div class="sim-results-panel">
+                        <div class="results-grid">
+                            <div class="result-metric">
+                                <h5>Budget Total du Projet</h5>
+                                <div class="value val-total" id="res-total">9 000 € HT</div>
+                            </div>
+                            <div class="result-metric">
+                                <h5>Subvention Chèque TIC Estimée</h5>
+                                <div class="value val-subvention" id="res-aide">5 200 €</div>
+                            </div>
+                            <div class="result-metric">
+                                <h5>Reste à Charge Entreprise</h5>
+                                <div class="value val-reste" id="res-reste">3 800 € HT</div>
+                            </div>
+                        </div>
+
+                        <div id="eligibility-alert" style="display: none; background: #fee2e2; border-left: 4px solid #ef4444; padding: 0.8rem 1.1rem; border-radius: 6px; font-size: 0.88rem; color: #991b1b; margin-bottom: 1rem;">
+                            ⚠️ <strong>Attention :</strong> Pour être éligible au Chèque TIC, l'entreprise doit cocher l'ensemble des 3 conditions réglementaires ci-dessus.
+                        </div>
+
+                        <div class="disclaimer-box">
+                            ℹ️ <strong>Mention légale d'information :</strong> Ce simulateur algorithmique est fourni par Dhamusoft à titre <strong>strictement indicatif</strong> sur la base de la Délibération régionale n°CR-19-175. L'octroi définitif de l'aide et son montant officiel restent soumis à l'instruction et à la décision exclusive de la Région Guadeloupe et de l'ASP.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACCOMPAGNEMENT DHAMUSOFT -->
+                <div class="accompagnement-box">
+                    <h3 style="color: var(--primary); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">
+                        🤝 Comment Dhamusoft vous accompagne pour monter votre dossier ?
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Monter un dossier de subvention régionale demande de la rigueur documentaire. Nous vous accompagnons pas à pas pour maximiser vos chances d'obtention :
+                    </p>
+
+                    <div class="accompagnement-steps">
+                        <div class="acc-step">
+                            <strong>1. Devis détaillés conformes</strong>
+                            <p>Nous calibrons les devis de vos logiciels métiers (THEMIS, applications sur-mesure) pour respecter scrupuleusement la nomenclature éligible Chèque TIC.</p>
+                        </div>
+                        <div class="acc-step">
+                            <strong>2. Rédaction de la note d'impact (3 p.)</strong>
+                            <p>Nous vous aidons à structurer la note de présentation démontrant comment l'outil améliore concrètement la compétitivité et la sécurité de votre entreprise.</p>
+                        </div>
+                        <div class="acc-step">
+                            <strong>3. Contrôle des pièces justificatives</strong>
+                            <p>Vérification méthodique de vos documents (Kbis, attestations sociales/fiscales, lettre au Président de Région) avant dépôt sur le portail régional.</p>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn btn-primary" onclick="openCalendlyModal()">
+                            📅 Planifier un échange de 15 min pour votre projet Chèque TIC
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ======================================================== -->
+        <!-- ⚙️ ONGLET 4 : LAB D'INGÉNIERIE & ARCHITECTURE TECHNIQUE  -->
         <!-- ======================================================== -->
         <section id="view-lab" class="view-section">
             
@@ -699,8 +1029,7 @@
     <!-- SCRIPT DU SITE -->
     <script>
     (function() {
-        // 👉 RENSEIGNEZ VOTRE LIEN CALENDLY ICI :
-        const CALENDLY_LINK = "https://cal.com/andy-vaubien-4rxyqe"
+        const CALENDLY_LINK = "https://cal.com/andy-vaubien-4rxyqe";
 
         let projectsData = [
             {
@@ -959,18 +1288,20 @@
             }
         ];
 
-        // 🔀 GESTION DU COMMUTATEUR À 3 ONGLETS (SHOWROOM / MÉTHODE / LAB)
+        // 🔀 COMMUTATEUR DUAL-HUB À 4 ONGLETS
         const btnShowSolutions = document.querySelector('#btn-show-solutions');
         const btnShowMethod = document.querySelector('#btn-show-method');
+        const btnShowChequetic = document.querySelector('#btn-show-chequetic');
         const btnShowLab = document.querySelector('#btn-show-lab');
         
         const viewSolutions = document.querySelector('#view-solutions');
         const viewMethod = document.querySelector('#view-method');
+        const viewChequetic = document.querySelector('#view-chequetic');
         const viewLab = document.querySelector('#view-lab');
 
         function switchHub(tab) {
-            [btnShowSolutions, btnShowMethod, btnShowLab].forEach(b => b.classList.remove('active'));
-            [viewSolutions, viewMethod, viewLab].forEach(v => v.classList.remove('active'));
+            [btnShowSolutions, btnShowMethod, btnShowChequetic, btnShowLab].forEach(b => b.classList.remove('active'));
+            [viewSolutions, viewMethod, viewChequetic, viewLab].forEach(v => v.classList.remove('active'));
 
             if (tab === 'solutions') {
                 btnShowSolutions.classList.add('active');
@@ -978,6 +1309,10 @@
             } else if (tab === 'method') {
                 btnShowMethod.classList.add('active');
                 viewMethod.classList.add('active');
+            } else if (tab === 'chequetic') {
+                btnShowChequetic.classList.add('active');
+                viewChequetic.classList.add('active');
+                calculerChequeTic(); // Calcul immédiat à l'affichage
             } else if (tab === 'lab') {
                 btnShowLab.classList.add('active');
                 viewLab.classList.add('active');
@@ -987,6 +1322,7 @@
 
         btnShowSolutions.addEventListener('click', () => switchHub('solutions'));
         btnShowMethod.addEventListener('click', () => switchHub('method'));
+        btnShowChequetic.addEventListener('click', () => switchHub('chequetic'));
         btnShowLab.addEventListener('click', () => switchHub('lab'));
 
         window.goToTechSpec = function(projectId) {
@@ -999,6 +1335,39 @@
                     setTimeout(() => target.style.borderColor = 'var(--border)', 2000);
                 }
             }, 300);
+        };
+
+        // 🧮 ALGORITHME SIMULATEUR DU CHÈQUE TIC RÉGION GUADELOUPE
+        window.calculerChequeTic = function() {
+            const checkLoc = document.getElementById('check-loc').checked;
+            const checkAge = document.getElementById('check-age').checked;
+            const checkFisc = document.getElementById('check-fisc').checked;
+            const alertBox = document.getElementById('eligibility-alert');
+
+            const isEligible = checkLoc && checkAge && checkFisc;
+            if (alertBox) alertBox.style.display = isEligible ? 'none' : 'block';
+
+            const budgetWeb = Math.max(0, parseFloat(document.getElementById('input-web').value) || 0);
+            const budgetSecu = Math.max(0, parseFloat(document.getElementById('input-secu').value) || 0);
+            const budgetTrans = Math.max(0, parseFloat(document.getElementById('input-trans').value) || 0);
+
+            const totalHT = budgetWeb + budgetSecu + budgetTrans;
+
+            let subventionEstimee = 0;
+            if (isEligible) {
+                const subWeb = budgetWeb * 0.80;
+                const subSecu = budgetSecu * 0.80;
+                const subTrans = budgetTrans * 0.40;
+                subventionEstimee = Math.min(10000, subWeb + subSecu + subTrans); // Plafond maximal de 10 000 €
+            }
+
+            const resteACharge = Math.max(0, totalHT - subventionEstimee);
+
+            const formatEuro = (val) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(val);
+
+            document.getElementById('res-total').textContent = formatEuro(totalHT) + ' HT';
+            document.getElementById('res-aide').textContent = isEligible ? formatEuro(subventionEstimee) : '0 € (Inéligible)';
+            document.getElementById('res-reste').textContent = formatEuro(resteACharge) + ' HT';
         };
 
         // RENDU DU SHOWROOM SOLUTIONS
@@ -1293,7 +1662,7 @@
             }
         };
 
-        // 📅 MODALE CALENDLY (15 MINUTES)
+        // 📅 MODALE CAL.COM (15 MINUTES)
         window.openCalendlyModal = function() {
             modalBody.innerHTML = `
                 <div style="margin-bottom: 1rem;">
@@ -1310,7 +1679,7 @@
 
                 <div style="text-align: right; margin-top: 1rem;">
                     <a href="${CALENDLY_LINK}" target="_blank" style="font-size: 0.85rem; color: var(--accent); font-weight: 700; text-decoration: underline;">
-                        Ouvrir Calendly en plein écran si l'affichage est réduit ↗
+                        Ouvrir le calendrier en plein écran si l'affichage est réduit ↗
                     </a>
                 </div>
             `;
@@ -1318,41 +1687,95 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // 📄 MODALE PLAQUETTE COMMERCIALE (PRINT-READY PDF)
+        // 📄 MODALE TRIPTYQUE 3 VOLETS (FORMAT DÉPLIANT PRESTIGE A4 PAYSAGE)
         window.openPlaquetteModal = function() {
             modalBody.innerHTML = `
-                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
                     <div>
-                        <h2 style="font-size: 1.8rem; font-weight: 900; color: var(--primary); margin: 0;">Dhamusoft</h2>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 2px 0 0 0;">Ingénierie Logicielle, Outils Métiers & Automatisation</p>
+                        <span style="font-size: 0.75rem; font-weight: 900; color: var(--accent); text-transform: uppercase;">Plaquette Corporate • Dépliant 3 Volets</span>
+                        <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--primary); margin: 2px 0 0 0;">Dhamusoft — Solutions & Ingénierie Logicielle</h2>
                     </div>
                     <button class="btn btn-primary" onclick="window.print()">
-                        🖨️ Enregistrer en PDF / Imprimer
+                        🖨️ Enregistrer en PDF (A4 Paysage)
                     </button>
                 </div>
 
-                <div style="font-size: 0.92rem; color: #334155; line-height: 1.6;">
-                    <div style="background: #f8fafc; border-left: 4px solid var(--accent); padding: 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;">
-                        <strong>Notre Mission :</strong> Concevoir des solutions informatiques souveraines, sur-mesure et sécurisées, éliminant les tâches manuelles répétitives et protégeant l'intégrité de vos données sensibles.
+                <div class="triptyque-container">
+                    
+                    <!-- 📖 VOLET 1 : IDENTITÉ, MISSION & MÉTHODE -->
+                    <div class="triptyque-volet">
+                        <div class="volet-header">
+                            <span class="volet-title">1. Vision & Méthode</span>
+                        </div>
+                        <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 190px; margin-bottom: 0.8rem;">
+                        <p style="font-size: 0.82rem; color: #334155; line-height: 1.5; margin-bottom: 1rem;">
+                            <strong>Notre Philosophie :</strong> Concevoir des outils numériques sur-mesure, souverains et ultra-sécurisés qui libèrent les équipes des tâches répétitives et protègent leurs données sensibles.
+                        </p>
+                        
+                        <div style="background: #f8fafc; border-left: 3px solid var(--primary); padding: 0.6rem 0.8rem; border-radius: 0 6px 6px 0; margin-bottom: 0.8rem;">
+                            <strong style="font-size: 0.8rem; color: var(--primary); display: block;">1. Diagnostic Métier</strong>
+                            <span style="font-size: 0.75rem; color: #64748b;">Analyse sans engagement de vos pertes de temps et de vos processus réels.</span>
+                        </div>
+                        <div style="background: #f8fafc; border-left: 3px solid var(--accent); padding: 0.6rem 0.8rem; border-radius: 0 6px 6px 0; margin-bottom: 0.8rem;">
+                            <strong style="font-size: 0.8rem; color: var(--accent); display: block;">2. Prototypage Rapide</strong>
+                            <span style="font-size: 0.75rem; color: #64748b;">Développement itératif avec des bases de données locales souveraines.</span>
+                        </div>
+                        <div style="background: #f8fafc; border-left: 3px solid #059669; padding: 0.6rem 0.8rem; border-radius: 0 6px 6px 0;">
+                            <strong style="font-size: 0.8rem; color: #059669; display: block;">3. Déploiement & Suivi</strong>
+                            <span style="font-size: 0.75rem; color: #64748b;">Installation locale, formation bienveillante et support continu en Guadeloupe.</span>
+                        </div>
                     </div>
 
-                    <h3 style="color: var(--primary); font-size: 1.15rem; font-weight: 800; margin: 1.2rem 0 0.5rem 0;">💼 Pôle Entreprise : THEMIS (ERP & Facturation)</h3>
-                    <p>Unification complète du cycle de vente : édition de devis sur-mesure, calcul automatisé des acomptes et génération en 1 clic de dossiers contractuels complets prêts à signer (Cahier des charges, Devis, CGV, NDA).</p>
+                    <!-- 🏥 VOLET 2 : LE PÔLE SANTÉ & APPLICATIONS MÉTIERS -->
+                    <div class="triptyque-volet">
+                        <div class="volet-header">
+                            <span class="volet-title">2. Nos Réalisations</span>
+                        </div>
+                        <strong style="font-size: 0.85rem; color: #065f46; display: block; margin-bottom: 0.4rem;">🏥 Pôle Santé & Hôpital (CHU)</strong>
+                        <ul style="font-size: 0.78rem; color: #334155; line-height: 1.45; padding-left: 1.1rem; margin-bottom: 1rem;">
+                            <li><strong>PRAXIS GOLD :</strong> Suite clinique eCRF avec Douanier Chronologique et recul sur 30 ans.</li>
+                            <li><strong>IKNOS v1.1 :</strong> Tour de contrôle de coordination pré-greffe et alertes péremption.</li>
+                            <li><strong>DELPHI v5.6 :</strong> Rapprochement de données CRISTAL et statistiques territoriales.</li>
+                            <li><strong>AXIOS :</strong> Robot RPA d'extraction automatisée des bilans biologiques multi-SIH.</li>
+                        </ul>
 
-                    <h3 style="color: #065f46; font-size: 1.15rem; font-weight: 800; margin: 1.2rem 0 0.5rem 0;">🏥 Pôle Santé & Milieu Hospitalier (CHU de Guadeloupe)</h3>
-                    <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
-                        <li><strong>PRAXIS GOLD :</strong> Suite clinique eCRF avec Douanier Chronologique et matrice sur 30 ans.</li>
-                        <li><strong>IKNOS :</strong> Tour de contrôle de coordination pré-greffe avec surveillance des péremptions.</li>
-                        <li><strong>DELPHI :</strong> Algorithme de réconciliation des données CRISTAL et cartographie territoriale.</li>
-                        <li><strong>AXIOS :</strong> Robot RPA d'extraction automatisée des bilans biologiques multi-SIH.</li>
-                    </ul>
-
-                    <h3 style="color: var(--primary); font-size: 1.15rem; font-weight: 800; margin: 1.2rem 0 0.5rem 0;">🤝 Notre Modèle d'Intervention</h3>
-                    <p><strong>1. Diagnostic gratuit</strong> de vos processus ➔ <strong>2. Prototypage agile</strong> en bases locales (zéro dépendance cloud) ➔ <strong>3. Déploiement & Support continu</strong> en Guadeloupe.</p>
-
-                    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: #64748b;">
-                        <strong>Contact :</strong> Andy VAUBIEN | dhamusoft@gmail.com | +590 690 05 11 44 | Capesterre-Belle-Eau, Guadeloupe
+                        <strong style="font-size: 0.85rem; color: var(--primary); display: block; margin-bottom: 0.4rem;">⚡ Pôle Mobilité & DevOps</strong>
+                        <ul style="font-size: 0.78rem; color: #334155; line-height: 1.45; padding-left: 1.1rem;">
+                            <li><strong>Coachmaster :</strong> PWA sportive 100% hors-ligne (tactique & temps de jeu équitable).</li>
+                            <li><strong>OptiTime :</strong> Compagnon de travail gamifié et santé ergonomique sur écran.</li>
+                            <li><strong>EPHOR & TAXIS :</strong> Sécurité Git en arrière-plan et bouclier de conformité RGPD.</li>
+                        </ul>
                     </div>
+
+                    <!-- 💼 VOLET 3 : LE FLAGSHIP THEMIS & CONTACT -->
+                    <div class="triptyque-volet">
+                        <div class="volet-header">
+                            <span class="volet-title">3. Flagship & Contact</span>
+                        </div>
+                        
+                        <div style="background: #091a2b; color: white; padding: 0.9rem; border-radius: 8px; border: 1px solid rgba(197, 155, 67, 0.4); margin-bottom: 1rem;">
+                            <span style="font-size: 0.68rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">⭐ Solution Entreprise</span>
+                            <h4 style="font-size: 1.05rem; margin: 3px 0 6px 0; color: white;">THEMIS (ERP & Devis)</h4>
+                            <p style="font-size: 0.76rem; color: #cbd5e1; line-height: 1.4; margin: 0;">
+                                Unifiez devis, acomptes et Chiffre d'Affaires en temps réel, avec génération automatique de contrats complets prêts à signer.
+                            </p>
+                        </div>
+
+                        <div style="font-size: 0.78rem; color: #334155; line-height: 1.5; margin-bottom: 1rem;">
+                            <strong>Garanties Dhamusoft :</strong><br>
+                            ✓ Données 100% locales (Bases SQLite privées)<br>
+                            ✓ Zéro dépendance aux serveurs étrangers<br>
+                            ✓ Respect strict des normes RGPD
+                        </div>
+
+                        <div style="margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border); font-size: 0.78rem; color: #1e293b; background: #f8fafc; padding: 0.6rem; border-radius: 6px;">
+                            <strong>Andy VAUBIEN</strong> • Dhamusoft<br>
+                            ✉️ dhamusoft@gmail.com<br>
+                            📞 +590 690 05 11 44<br>
+                            📍 Capesterre-Belle-Eau, Guadeloupe
+                        </div>
+                    </div>
+
                 </div>
             `;
             modal.classList.remove('hidden');
