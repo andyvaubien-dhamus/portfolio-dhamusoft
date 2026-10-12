@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- 🌐 Réseaux Sociaux & Métadonnées -->
     <meta name="description" content="Dhamusoft : Conception d'applications métiers, d'outils de coordination et automatisation de processus. De l'idée au déploiement.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/"> 
@@ -69,7 +70,7 @@
             font-weight: 500;
         }
 
-        /* 🚀 Barre d'action rapide Header (RDV & Plaquette) */
+        /* 🚀 Barre d'action rapide Header (RDV 15 min & Plaquette) */
         .header-cta-bar {
             display: flex;
             justify-content: center;
@@ -103,7 +104,7 @@
         }
         .btn-cta-pdf:hover { border-color: var(--primary); transform: translateY(-2px); }
 
-        /* 🔀 COMMUTATEUR DUAL-HUB (SHOWROOM VS LAB) */
+        /* 🔀 COMMUTATEUR À 3 ONGLETS (SHOWROOM / MÉTHODE / LAB) */
         .hub-switcher-wrap {
             display: flex;
             justify-content: center;
@@ -114,14 +115,15 @@
             padding: 5px;
             border-radius: 30px;
             display: flex;
+            flex-wrap: wrap;
             gap: 6px;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
         }
         .hub-btn {
             border: none;
             background: transparent;
-            padding: 0.65rem 1.6rem;
-            font-size: 0.95rem;
+            padding: 0.65rem 1.4rem;
+            font-size: 0.92rem;
             font-weight: 700;
             color: var(--text-muted);
             border-radius: 25px;
@@ -258,45 +260,66 @@
         }
         .tech-link:hover { text-decoration: underline; color: var(--accent); }
 
-        /* 🛠️ MODÈLE D'INTERVENTION */
-        .process-section {
-            margin: 4.5rem 0 2rem 0;
+        /* 🤝 SECTION DÉDIÉE : COMMENT TRAVAILLONS-NOUS ? (ONGLET 2) */
+        .process-page-wrap {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .process-header { text-align: center; margin-bottom: 3rem; }
+        .process-header h2 { font-size: 2.2rem; color: var(--primary); font-weight: 900; margin-bottom: 0.8rem; }
+        .process-header p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
+        
+        .process-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+        .timeline-card {
             background: #ffffff;
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 2.5rem 2rem;
+            padding: 2rem;
+            display: flex;
+            gap: 1.8rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-left: 6px solid var(--primary);
         }
-        .process-header { text-align: center; margin-bottom: 2.5rem; }
-        .process-header h3 { font-size: 1.6rem; color: var(--primary); font-weight: 800; margin-bottom: 0.4rem; }
-        .process-header p { color: var(--text-muted); font-size: 0.95rem; }
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        .process-step-card {
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.6rem;
-            position: relative;
-        }
-        .step-number {
-            display: inline-block;
+        .timeline-number {
             background: var(--primary);
             color: white;
-            font-size: 0.85rem;
+            font-size: 1.3rem;
             font-weight: 900;
-            width: 32px;
-            height: 32px;
-            line-height: 32px;
-            text-align: center;
+            min-width: 50px;
+            height: 50px;
             border-radius: 50%;
-            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(44, 76, 110, 0.25);
         }
-        .step-title { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
-        .step-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+        .timeline-content h3 { font-size: 1.3rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; }
+        .timeline-content p { color: #334155; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.8rem; }
+        .timeline-highlight {
+            display: inline-block;
+            background: #ecfdf5;
+            color: #065f46;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #a7f3d0;
+        }
+
+        .guarantee-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            border: 1px solid var(--frame-border);
+            border-radius: 16px;
+            padding: 2.2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
 
         /* Boutons */
         .btn {
@@ -348,7 +371,7 @@
         .tech-pill { background: #f1f5f9; color: var(--primary); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid #e2e8f0; }
         .tech-card-features { font-size: 0.85rem; color: #334155; line-height: 1.5; padding-left: 1.2rem; }
 
-        /* 📸 MODALE & IFRAME LIVE EMBED */
+        /* 📸 MODALE GLOBALE & CALENDLY IFRAME */
         .hidden { display: none !important; }
         #modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
         #modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); }
@@ -365,111 +388,20 @@
         .screenshot-item img:hover { opacity: 0.88; }
         .screenshot-item figcaption { font-size: 0.8rem; color: #334155; padding: 0.75rem 0.9rem; background: #ffffff; flex-grow: 1; font-weight: 500; }
 
-        /* 🔲 Switcher de Vue dans la Modale pour Apps Live */
-        .modal-view-switcher {
-            display: flex;
-            background: #e2e8f0;
-            padding: 4px;
-            border-radius: 10px;
-            gap: 4px;
-            margin: 1.2rem 0;
-            width: fit-content;
-        }
-        .modal-view-tab {
-            border: none;
-            background: transparent;
-            padding: 0.5rem 1.2rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .modal-view-tab.active {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        /* Cadre Démo Live dans la modale */
-        .modal-iframe-container {
-            width: 100%;
-            height: 540px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--frame-border);
-            margin: 1rem 0;
-            background: #f8fafc;
-            box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
-        }
+        /* Switcher Modale Live */
+        .modal-view-switcher { display: flex; background: #e2e8f0; padding: 4px; border-radius: 10px; gap: 4px; margin: 1.2rem 0; width: fit-content; }
+        .modal-view-tab { border: none; background: transparent; padding: 0.5rem 1.2rem; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .modal-view-tab.active { background: var(--primary); color: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        .modal-iframe-container { width: 100%; height: 540px; border-radius: 12px; overflow: hidden; border: 1px solid var(--frame-border); margin: 1rem 0; background: #f8fafc; }
         .modal-iframe-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* 🔍 VISIONNEUSE LIGHTBOX PLEIN ÉCRAN */
-        #lightbox {
-            position: fixed;
-            inset: 0;
-            z-index: 2500;
-            background: rgba(10, 15, 26, 0.94);
-            backdrop-filter: blur(8px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-        #lightbox-img-wrap {
-            max-width: 90vw;
-            max-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        #lightbox-img {
-            max-width: 100%;
-            max-height: 78vh;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.15);
-        }
-        #lightbox-caption {
-            color: #f1f5f9;
-            font-size: 0.95rem;
-            margin-top: 1rem;
-            text-align: center;
-            max-width: 800px;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-        #lightbox-close {
-            position: absolute;
-            top: 25px;
-            right: 35px;
-            color: white;
-            font-size: 2.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            line-height: 1;
-        }
-        .lightbox-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.12);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
+        /* 🔍 LIGHTBOX PLEIN ÉCRAN */
+        #lightbox { position: fixed; inset: 0; z-index: 2500; background: rgba(10, 15, 26, 0.94); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; }
+        #lightbox-img-wrap { max-width: 90vw; max-height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; }
+        #lightbox-img { max-width: 100%; max-height: 78vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); }
+        #lightbox-caption { color: #f1f5f9; font-size: 0.95rem; margin-top: 1rem; text-align: center; max-width: 800px; font-weight: 500; }
+        #lightbox-close { position: absolute; top: 25px; right: 35px; color: white; font-size: 2.5rem; background: none; border: none; cursor: pointer; }
+        .lightbox-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.12); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.8rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
         .lightbox-nav-btn:hover { background: var(--accent); color: #091a2b; }
         #lightbox-prev { left: 25px; }
         #lightbox-next { right: 25px; }
@@ -496,6 +428,15 @@
         /* 📌 Footer */
         .site-footer { background: var(--primary); color: #f8fafc; text-align: center; padding: 2.2rem 1rem; margin-top: 4rem; }
         .footer-link { color: var(--accent); text-decoration: underline; cursor: pointer; margin-left: 8px; }
+
+        /* 🖨️ CSS SPÉCIFIQUE IMPRESSION / EXPORT PDF */
+        @media print {
+            body { background: white !important; color: black !important; }
+            .hub-switcher-wrap, .header-cta-bar, .whatsapp-btn, .email-btn, .share-btn, #toast, .site-footer, #modal-close-btn, .btn { display: none !important; }
+            #modal { position: static !important; display: block !important; }
+            #modal-overlay { display: none !important; }
+            .modal-dialog { width: 100% !important; max-width: 100% !important; box-shadow: none !important; border: none !important; padding: 0 !important; }
+        }
     </style>
 </head>
 <body>
@@ -504,21 +445,22 @@
         <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" class="logo-hero">
         <p class="hero-subtitle">Conception d'applications métiers, d'outils de coordination et automatisation de processus.<br>De l'idée au déploiement.</p>
 
-        <!-- 🚀 ACTIONS RAPIDES DECIDEURS (RDV & PLAQUETTE) -->
+        <!-- 🚀 ACTIONS RAPIDES DECIDEURS (CALENDLY 15 MIN & PLAQUETTE PDF) -->
         <div class="header-cta-bar">
-            <a href="https://wa.me/590690051144?text=Bonjour,%20je%20souhaite%20planifier%20un%20échange%20de%2020%20minutes%20sur%20un%20projet%20logiciel." target="_blank" class="header-cta-btn btn-cta-rdv">
-                📅 Réserver un échange (20 min)
-            </a>
-            <a href="assets/documents/plaquette_dhamusoft.pdf" download="Plaquette_Dhamusoft.pdf" class="header-cta-btn btn-cta-pdf" onclick="alert('Astuce : Déposez votre plaquette sous assets/documents/plaquette_dhamusoft.pdf pour activer le téléchargement direct !')">
+            <button class="header-cta-btn btn-cta-rdv" onclick="openCalendlyModal()">
+                📅 Réserver un échange (15 min)
+            </button>
+            <button class="header-cta-btn btn-cta-pdf" onclick="openPlaquetteModal()">
                 📄 Télécharger la Plaquette (PDF)
-            </a>
+            </button>
         </div>
 
-        <!-- 🔀 COMMUTATEUR DES DEUX UNIVERS (DUAL-HUB) -->
+        <!-- 🔀 COMMUTATEUR DUAL-HUB À 3 UNIVERS -->
         <div class="hub-switcher-wrap">
             <div class="hub-switcher">
-                <button id="btn-show-solutions" class="hub-btn active">💼 Showroom Solutions (Cas Métiers)</button>
-                <button id="btn-show-lab" class="hub-btn">⚙️ Lab Technique & Architecture</button>
+                <button id="btn-show-solutions" class="hub-btn active">💼 Showroom Solutions</button>
+                <button id="btn-show-method" class="hub-btn">🤝 Comment travaillons-nous ?</button>
+                <button id="btn-show-lab" class="hub-btn">⚙️ Lab Technique</button>
             </div>
         </div>
     </header>
@@ -526,7 +468,7 @@
     <main class="container">
 
         <!-- ======================================================== -->
-        <!-- 💼 PAGE 1 : SHOWROOM SOLUTIONS (Cas Métiers)             -->
+        <!-- 💼 ONGLET 1 : SHOWROOM SOLUTIONS (Cas Métiers)           -->
         <!-- ======================================================== -->
         <section id="view-solutions" class="view-section active">
 
@@ -573,31 +515,6 @@
             <!-- Grille des Fiches Solutions -->
             <div id="solutions-grid" class="solutions-grid"></div>
 
-            <!-- 🛠️ SECTION MODÈLE D'INTERVENTION DHAMUSOFT -->
-            <section class="process-section">
-                <div class="process-header">
-                    <h3>🤝 Comment travaillons-nous ensemble ?</h3>
-                    <p>Une démarche pragmatique, sans jargon, pensée pour sécuriser vos investissements de l'idée au déploiement.</p>
-                </div>
-                <div class="process-steps">
-                    <div class="process-step-card">
-                        <span class="step-number">1</span>
-                        <div class="step-title">Diagnostic & Immersion Métier</div>
-                        <div class="step-desc">Nous analysons vos processus réels, vos pertes de temps et vos contraintes sur le terrain (sans aucun engagement) pour cadrer la solution idéale.</div>
-                    </div>
-                    <div class="process-step-card">
-                        <span class="step-number">2</span>
-                        <div class="step-title">Conception Agile & Sur-Mesure</div>
-                        <div class="step-desc">Développement rapide d'un premier prototype fonctionnel avec des bases locales sécurisées, garantissant zéro dépendance cloud et une réactivité totale.</div>
-                    </div>
-                    <div class="process-step-card">
-                        <span class="step-number">3</span>
-                        <div class="step-title">Déploiement & Suivi Continu</div>
-                        <div class="step-desc">Installation directe sur vos postes ou en ligne, formation bienveillante de vos équipes et maintenance réactive pour faire évoluer l'outil avec vous.</div>
-                    </div>
-                </div>
-            </section>
-
             <!-- 📖 GLOSSAIRE -->
             <section class="glossary-section">
                 <h3 class="glossary-title">📖 Glossaire : Comprendre les termes en toute simplicité</h3>
@@ -633,7 +550,57 @@
 
 
         <!-- ======================================================== -->
-        <!-- ⚙️ PAGE 2 : LAB D'INGÉNIERIE & ARCHITECTURE TECHNIQUE    -->
+        <!-- 🤝 ONGLET 2 : COMMENT TRAVAILLONS-NOUS ? (Notre Méthode) -->
+        <!-- ======================================================== -->
+        <section id="view-method" class="view-section">
+            <div class="process-page-wrap">
+                <div class="process-header">
+                    <h2>Comment travaillons-nous ensemble ?</h2>
+                    <p>Une démarche partenariale pragmatique et transparente, pensée pour vous libérer du temps et sécuriser vos processus sans jargon informatique intimidant.</p>
+                </div>
+
+                <div class="process-timeline">
+                    <div class="timeline-card">
+                        <div class="timeline-number">1</div>
+                        <div class="timeline-content">
+                            <h3>Diagnostic & Immersion Métier (Sans engagement)</h3>
+                            <p>Nous débutons par un échange de 15 à 30 minutes pour comprendre votre quotidien : où se situent vos pertes de temps ? Quelles sont les tâches manuelles répétitives ? Quels sont vos impératifs de confidentialité ? Nous formalisons ensemble un besoin clair et réaliste.</p>
+                            <span class="timeline-highlight">✓ Diagnostic offert • Zéro engagement</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-number">2</div>
+                        <div class="timeline-content">
+                            <h3>Conception Agile & Prototype Rapide</h3>
+                            <p>Pas d'attente interminable : nous concevons rapidement un premier prototype fonctionnel que vous pouvez tester sur vos vraies données. Nous privilégions des bases de données locales souveraines (SQLite), garantissant une vitesse instantanée et zéro fuite dans le Cloud.</p>
+                            <span class="timeline-highlight">✓ Prototypage itératif • Données 100% locales</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-number">3</div>
+                        <div class="timeline-content">
+                            <h3>Déploiement, Formation & Suivi Personnalisé</h3>
+                            <p>L'outil est installé directement sur vos postes de travail ou déployé en toute sécurité. Nous formons vos équipes avec bienveillance et assurons un accompagnement réactif pour adapter l'application au fur et à mesure de votre croissance.</p>
+                            <span class="timeline-highlight">✓ Prise en main immédiate • Support continu en Guadeloupe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guarantee-box">
+                    <h3 style="color: var(--primary); font-size: 1.35rem; font-weight: 800; margin-bottom: 0.6rem;">Prêt à moderniser vos processus métiers ?</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Échangeons 15 minutes sur votre projet et vos besoins en logiciels sur-mesure.</p>
+                    <button class="btn btn-primary" onclick="openCalendlyModal()">
+                        📅 Réserver un créneau de 15 minutes dès maintenant
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================== -->
+        <!-- ⚙️ ONGLET 3 : LAB D'INGÉNIERIE & ARCHITECTURE TECHNIQUE  -->
         <!-- ======================================================== -->
         <section id="view-lab" class="view-section">
             
@@ -704,7 +671,7 @@
         </div>
     </div>
 
-    <!-- 🔍 VISIONNEUSE LIGHTBOX PLEIN ÉCRAN -->
+    <!-- 🔍 LIGHTBOX PLEIN ÉCRAN -->
     <div id="lightbox" class="hidden">
         <button id="lightbox-close" aria-label="Fermer la vue plein écran">&times;</button>
         <button id="lightbox-prev" class="lightbox-nav-btn" aria-label="Image précédente">&#8249;</button>
@@ -732,6 +699,9 @@
     <!-- SCRIPT DU SITE -->
     <script>
     (function() {
+        // 👉 RENSEIGNEZ VOTRE LIEN CALENDLY ICI :
+        const CALENDLY_LINK = "https://cal.com/andy-vaubien-4rxyqe"
+
         let projectsData = [
             {
                 "id": "axios",
@@ -989,30 +959,38 @@
             }
         ];
 
-        // GESTION DU COMMUTATEUR D'UNIVERS (SHOWROOM VS LAB)
+        // 🔀 GESTION DU COMMUTATEUR À 3 ONGLETS (SHOWROOM / MÉTHODE / LAB)
         const btnShowSolutions = document.querySelector('#btn-show-solutions');
+        const btnShowMethod = document.querySelector('#btn-show-method');
         const btnShowLab = document.querySelector('#btn-show-lab');
+        
         const viewSolutions = document.querySelector('#view-solutions');
+        const viewMethod = document.querySelector('#view-method');
         const viewLab = document.querySelector('#view-lab');
 
-        btnShowSolutions.addEventListener('click', () => {
-            btnShowSolutions.classList.add('active');
-            btnShowLab.classList.remove('active');
-            viewSolutions.classList.add('active');
-            viewLab.classList.remove('active');
-            window.scrollTo({ top: 300, behavior: 'smooth' });
-        });
+        function switchHub(tab) {
+            [btnShowSolutions, btnShowMethod, btnShowLab].forEach(b => b.classList.remove('active'));
+            [viewSolutions, viewMethod, viewLab].forEach(v => v.classList.remove('active'));
 
-        btnShowLab.addEventListener('click', () => {
-            btnShowLab.classList.add('active');
-            btnShowSolutions.classList.remove('active');
-            viewLab.classList.add('active');
-            viewSolutions.classList.remove('active');
-            window.scrollTo({ top: 300, behavior: 'smooth' });
-        });
+            if (tab === 'solutions') {
+                btnShowSolutions.classList.add('active');
+                viewSolutions.classList.add('active');
+            } else if (tab === 'method') {
+                btnShowMethod.classList.add('active');
+                viewMethod.classList.add('active');
+            } else if (tab === 'lab') {
+                btnShowLab.classList.add('active');
+                viewLab.classList.add('active');
+            }
+            window.scrollTo({ top: 320, behavior: 'smooth' });
+        }
+
+        btnShowSolutions.addEventListener('click', () => switchHub('solutions'));
+        btnShowMethod.addEventListener('click', () => switchHub('method'));
+        btnShowLab.addEventListener('click', () => switchHub('lab'));
 
         window.goToTechSpec = function(projectId) {
-            btnShowLab.click();
+            switchHub('lab');
             setTimeout(() => {
                 const target = document.getElementById('tech-card-' + projectId);
                 if (target) {
@@ -1036,7 +1014,6 @@
                 const isChu = !!p.hospital;
                 const isLive = (p.id === 'coachmaster' || p.category === 'Flet' || p.type === 'web_standalone') && p.download_url && p.download_url !== '#';
                 
-                // Pour OptiTime et Coachmaster : bouton "Lancer la démo en direct"
                 const actionBtn = isLive 
                     ? `<button class="btn btn-primary" onclick="openProjectModal('${p.id}', 'demo')">🚀 Lancer la démo interactive</button>`
                     : `<button class="btn btn-outline" onclick="openProjectModal('${p.id}', 'media')">📸 Explorer la vitrine visuelle</button>`;
@@ -1112,7 +1089,7 @@
             `).join('');
         }
 
-        // 🔍 GESTION DE LA VISIONNEUSE LIGHTBOX PLEIN ÉCRAN
+        // 🔍 LIGHTBOX PLEIN ÉCRAN
         let currentGalleryImages = [];
         let currentLightboxIndex = 0;
         const lightbox = document.querySelector('#lightbox');
@@ -1216,7 +1193,6 @@
             return '';
         }
 
-        // OUVERTURE DE LA MODALE AVEC COMMUTATEUR DÉMO LIVE / MÉDIAS POUR OPTITIME, THEMIS & COACHMASTER
         window.openProjectModal = function(projectId, initialView = 'media') {
             const project = projectsData.find(item => item.id === projectId);
             if (!project) return;
@@ -1315,6 +1291,72 @@
                 if (tabDemo) tabDemo.classList.remove('active');
                 if (tabMedia) tabMedia.classList.add('active');
             }
+        };
+
+        // 📅 MODALE CALENDLY (15 MINUTES)
+        window.openCalendlyModal = function() {
+            modalBody.innerHTML = `
+                <div style="margin-bottom: 1rem;">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">Prise de Contact Directe</span>
+                    <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--primary); margin-top: 0.3rem;">📅 Réserver un échange (15 min)</h2>
+                    <p style="font-size: 0.95rem; color: #475569; margin-top: 0.5rem;">
+                        Choisissez le créneau de votre choix avec Andy VAUBIEN (Dhamusoft) pour échanger sur vos besoins logiciels.
+                    </p>
+                </div>
+
+                <div class="modal-iframe-container" style="height: 580px;">
+                    <iframe src="${CALENDLY_LINK}"></iframe>
+                </div>
+
+                <div style="text-align: right; margin-top: 1rem;">
+                    <a href="${CALENDLY_LINK}" target="_blank" style="font-size: 0.85rem; color: var(--accent); font-weight: 700; text-decoration: underline;">
+                        Ouvrir Calendly en plein écran si l'affichage est réduit ↗
+                    </a>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        };
+
+        // 📄 MODALE PLAQUETTE COMMERCIALE (PRINT-READY PDF)
+        window.openPlaquetteModal = function() {
+            modalBody.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2 style="font-size: 1.8rem; font-weight: 900; color: var(--primary); margin: 0;">Dhamusoft</h2>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 2px 0 0 0;">Ingénierie Logicielle, Outils Métiers & Automatisation</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="window.print()">
+                        🖨️ Enregistrer en PDF / Imprimer
+                    </button>
+                </div>
+
+                <div style="font-size: 0.92rem; color: #334155; line-height: 1.6;">
+                    <div style="background: #f8fafc; border-left: 4px solid var(--accent); padding: 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;">
+                        <strong>Notre Mission :</strong> Concevoir des solutions informatiques souveraines, sur-mesure et sécurisées, éliminant les tâches manuelles répétitives et protégeant l'intégrité de vos données sensibles.
+                    </div>
+
+                    <h3 style="color: var(--primary); font-size: 1.15rem; font-weight: 800; margin: 1.2rem 0 0.5rem 0;">💼 Pôle Entreprise : THEMIS (ERP & Facturation)</h3>
+                    <p>Unification complète du cycle de vente : édition de devis sur-mesure, calcul automatisé des acomptes et génération en 1 clic de dossiers contractuels complets prêts à signer (Cahier des charges, Devis, CGV, NDA).</p>
+
+                    <h3 style="color: #065f46; font-size: 1.15rem; font-weight: 800; margin: 1.2rem 0 0.5rem 0;">🏥 Pôle Santé & Milieu Hospitalier (CHU de Guadeloupe)</h3>
+                    <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+                        <li><strong>PRAXIS GOLD :</strong> Suite clinique eCRF avec Douanier Chronologique et matrice sur 30 ans.</li>
+                        <li><strong>IKNOS :</strong> Tour de contrôle de coordination pré-greffe avec surveillance des péremptions.</li>
+                        <li><strong>DELPHI :</strong> Algorithme de réconciliation des données CRISTAL et cartographie territoriale.</li>
+                        <li><strong>AXIOS :</strong> Robot RPA d'extraction automatisée des bilans biologiques multi-SIH.</li>
+                    </ul>
+
+                    <h3 style="color: var(--primary); font-size: 1.15rem; font-weight: 800; margin: 1.2rem 0 0.5rem 0;">🤝 Notre Modèle d'Intervention</h3>
+                    <p><strong>1. Diagnostic gratuit</strong> de vos processus ➔ <strong>2. Prototypage agile</strong> en bases locales (zéro dépendance cloud) ➔ <strong>3. Déploiement & Support continu</strong> en Guadeloupe.</p>
+
+                    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: #64748b;">
+                        <strong>Contact :</strong> Andy VAUBIEN | dhamusoft@gmail.com | +590 690 05 11 44 | Capesterre-Belle-Eau, Guadeloupe
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         };
 
         function closeModal() {
