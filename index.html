@@ -517,7 +517,7 @@
             margin: 1rem 0;
         }
 
-        /* ✍️ Pavé de Signature Tactile (Canvas) */
+        /* ✍️ Pavé de Signature Tactile */
         .signature-box-wrap {
             background: #ffffff;
             border: 1.5px dashed var(--primary);
@@ -538,11 +538,121 @@
             width: 100%;
             height: 130px;
             background: #ffffff;
-            touch-action: none; /* Empêche le scroll sur écran tactile */
+            touch-action: none;
             cursor: crosshair;
         }
 
-        /* Boutons */
+        /* 📜 STYLE TRIPTYQUE PRESTIGE (3 VOLETS HAUTE DÉFINITION) */
+        .triptyque-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.8rem;
+            background: #ffffff;
+            border: 1.5px solid var(--frame-border);
+            border-radius: 14px;
+            padding: 2rem 1.6rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 1rem 0;
+            position: relative;
+        }
+        @media (max-width: 880px) { .triptyque-container { grid-template-columns: 1fr; gap: 2rem; } }
+        
+        .triptyque-volet {
+            display: flex;
+            flex-direction: column;
+            padding: 0 0.8rem;
+            position: relative;
+        }
+        /* Lignes de pliage en pointillés élégants */
+        .triptyque-volet:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -0.9rem;
+            top: 2%;
+            height: 96%;
+            border-right: 1.5px dashed #cbd5e1;
+        }
+        @media (max-width: 880px) { .triptyque-volet:not(:last-child)::after { display: none; } }
+        
+        .volet-header-banner {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            margin-bottom: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .volet-header-title {
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 0;
+        }
+        .volet-header-tag {
+            background: var(--accent);
+            color: #091a2b;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .volet-card-inner {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+        .volet-card-title {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .volet-card-desc {
+            font-size: 0.75rem;
+            color: #475569;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        /* 🖨️ Calibrage Impression A4 Paysage pour le Triptyque */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 6mm;
+            }
+            body { background: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .hub-switcher-wrap, .header-cta-bar, .whatsapp-btn, .email-btn, .share-btn, #toast, .site-footer, #modal-close-btn, .btn, .themis-hero-card, .filter-bar, #solutions-grid, .glossary-section, #view-method, #view-lab, #view-chequetic { 
+                display: none !important; 
+            }
+            #modal { position: static !important; display: block !important; }
+            #modal-overlay { display: none !important; }
+            .modal-dialog { 
+                width: 100% !important; 
+                max-width: 100% !important; 
+                box-shadow: none !important; 
+                border: none !important; 
+                padding: 0 !important; 
+            }
+            .triptyque-container {
+                box-shadow: none !important;
+                border: 1px solid #94a3b8 !important;
+                grid-template-columns: 1fr 1fr 1fr !important;
+                padding: 6mm !important;
+                height: 195mm !important;
+            }
+        }
+
+        /* Boutons standards */
         .btn {
             display: inline-block;
             padding: 0.7rem 1.3rem;
@@ -566,25 +676,11 @@
         .lab-header { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; }
         .lab-header h2 { font-size: 2rem; color: var(--primary); font-weight: 900; margin-bottom: 0.6rem; }
         .lab-header p { color: var(--text-muted); font-size: 1.05rem; }
-
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
-        }
-        .pillar-card {
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            border-top: 4px solid var(--primary);
-        }
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem; }
+        .pillar-card { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border-top: 4px solid var(--primary); }
         .pillar-icon { font-size: 2rem; margin-bottom: 0.8rem; }
         .pillar-title { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
         .pillar-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
-
         .tech-spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
         .tech-card { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
         .tech-card-title { font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; }
@@ -596,7 +692,7 @@
         .hidden { display: none !important; }
         #modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
         #modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); }
-        .modal-dialog { position: relative; background: #ffffff; width: 90%; max-width: 920px; max-height: 90vh; border-radius: 16px; padding: 2.4rem; overflow-y: auto; z-index: 1001; }
+        .modal-dialog { position: relative; background: #ffffff; width: 90%; max-width: 960px; max-height: 92vh; border-radius: 16px; padding: 2.4rem; overflow-y: auto; z-index: 1001; }
         #modal-close-btn { position: absolute; top: 1.2rem; right: 1.4rem; background: transparent; border: none; font-size: 2rem; color: var(--text-muted); cursor: pointer; }
         
         .video-container { width: 100%; background: #000; border-radius: 10px; margin: 1.2rem 0; overflow: hidden; border: 1px solid var(--frame-border); }
@@ -609,34 +705,11 @@
         .screenshot-item img:hover { opacity: 0.88; }
         .screenshot-item figcaption { font-size: 0.8rem; color: #334155; padding: 0.75rem 0.9rem; background: #ffffff; flex-grow: 1; font-weight: 500; }
 
-        /* Switcher Modale Live */
         .modal-view-switcher { display: flex; background: #e2e8f0; padding: 4px; border-radius: 10px; gap: 4px; margin: 1.2rem 0; width: fit-content; }
         .modal-view-tab { border: none; background: transparent; padding: 0.5rem 1.2rem; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
         .modal-view-tab.active { background: var(--primary); color: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
         .modal-iframe-container { width: 100%; height: 540px; border-radius: 12px; overflow: hidden; border: 1px solid var(--frame-border); margin: 1rem 0; background: #f8fafc; }
         .modal-iframe-container iframe { width: 100%; height: 100%; border: none; }
-
-        /* 📜 STYLE TRIPTYQUE PANORAMIQUE (3 VOLETS) */
-        .triptyque-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.5rem;
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.8rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            margin: 1rem 0;
-            position: relative;
-        }
-        @media (max-width: 850px) { .triptyque-container { grid-template-columns: 1fr; } }
-        .triptyque-volet { display: flex; flex-direction: column; padding: 0 0.8rem; position: relative; }
-        .triptyque-volet:not(:last-child)::after {
-            content: ""; position: absolute; right: -0.75rem; top: 5%; height: 90%; border-right: 1px dashed #cbd5e1;
-        }
-        @media (max-width: 850px) { .triptyque-volet:not(:last-child)::after { display: none; } }
-        .volet-header { border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1rem; }
-        .volet-title { font-size: 1.05rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* 🔍 LIGHTBOX PLEIN ÉCRAN */
         #lightbox { position: fixed; inset: 0; z-index: 2500; background: rgba(10, 15, 26, 0.94); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; }
@@ -671,17 +744,6 @@
         /* 📌 Footer */
         .site-footer { background: var(--primary); color: #f8fafc; text-align: center; padding: 2.2rem 1rem; margin-top: 4rem; }
         .footer-link { color: var(--accent); text-decoration: underline; cursor: pointer; margin-left: 8px; }
-
-        /* 🖨️ Calibrage Impression A4 Paysage */
-        @media print {
-            @page { size: A4 landscape; margin: 6mm; }
-            body { background: white !important; }
-            .hub-switcher-wrap, .header-cta-bar, .whatsapp-btn, .email-btn, .share-btn, #toast, .site-footer, #modal-close-btn, .btn, .themis-hero-card, .filter-bar, #solutions-grid, .glossary-section, #view-method, #view-lab, #view-chequetic { display: none !important; }
-            #modal { position: static !important; display: block !important; }
-            #modal-overlay { display: none !important; }
-            .modal-dialog { width: 100% !important; max-width: 100% !important; box-shadow: none !important; border: none !important; padding: 0 !important; }
-            .triptyque-container { box-shadow: none !important; border: 1px solid #94a3b8 !important; grid-template-columns: 1fr 1fr 1fr !important; padding: 8mm !important; height: 190mm !important; }
-        }
     </style>
 </head>
 <body>
@@ -1071,7 +1133,6 @@
     <!-- SCRIPT DU SITE -->
     <script>
     (function() {
-        // 👉 VOTRE LIEN CAL.COM OFFICIEL
         const CALENDLY_LINK = "https://cal.com/andy-vaubien-4rxyqe";
 
         let projectsData = [
@@ -1729,7 +1790,7 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // 📄 MODALE TRIPTYQUE 3 VOLETS (A4 PAYSAGE)
+        // 📄 MODALE TRIPTYQUE 3 VOLETS ENRICHI (FORMAT DÉPLIANT PRESTIGE A4 PAYSAGE)
         window.openPlaquetteModal = function() {
             modalBody.innerHTML = `
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
@@ -1744,73 +1805,95 @@
 
                 <div class="triptyque-container">
                     
-                    <!-- 📖 VOLET 1 : IDENTITÉ, MISSION & MÉTHODE -->
+                    <!-- 📖 VOLET 1 : IDENTITÉ, POSITIONNEMENT & MÉTHODE -->
                     <div class="triptyque-volet">
-                        <div class="volet-header">
-                            <span class="volet-title">1. Vision & Méthode</span>
+                        <div class="volet-header-banner">
+                            <span class="volet-header-title">1. Vision & Méthode</span>
+                            <span class="volet-header-tag">Guadeloupe</span>
                         </div>
-                        <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 190px; margin-bottom: 0.8rem;">
-                        <p style="font-size: 0.82rem; color: #334155; line-height: 1.5; margin-bottom: 1rem;">
-                            <strong>Notre Philosophie :</strong> Concevoir des outils numériques sur-mesure, souverains et ultra-sécurisés qui libèrent les équipes des tâches répétitives et protègent leurs données sensibles.
+                        
+                        <div style="text-align: center; margin-bottom: 0.8rem;">
+                            <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 170px;">
+                        </div>
+
+                        <p style="font-size: 0.78rem; color: #334155; line-height: 1.45; margin-bottom: 0.8rem;">
+                            <strong>Notre Mission :</strong> Concevoir des solutions logicielles souveraines et sur-mesure qui libèrent les équipes des saisies manuelles et fiabilisent leurs données critiques.
                         </p>
-                        
-                        <div style="background: #f8fafc; border-left: 3px solid var(--primary); padding: 0.6rem 0.8rem; border-radius: 0 6px 6px 0; margin-bottom: 0.8rem;">
-                            <strong style="font-size: 0.8rem; color: var(--primary); display: block;">1. Diagnostic Métier</strong>
-                            <span style="font-size: 0.75rem; color: #64748b;">Analyse sans engagement de vos pertes de temps et de vos processus réels.</span>
+
+                        <div class="volet-card-inner">
+                            <div class="volet-card-title">1. Diagnostic Métier</div>
+                            <p class="volet-card-desc">Analyse sans engagement de vos pertes de temps et cartographie de vos processus réels.</p>
                         </div>
-                        <div style="background: #f8fafc; border-left: 3px solid var(--accent); padding: 0.6rem 0.8rem; border-radius: 0 6px 6px 0; margin-bottom: 0.8rem;">
-                            <strong style="font-size: 0.8rem; color: var(--accent); display: block;">2. Prototypage Rapide</strong>
-                            <span style="font-size: 0.75rem; color: #64748b;">Développement itératif avec des bases de données locales souveraines.</span>
+
+                        <div class="volet-card-inner">
+                            <div class="volet-card-title">2. Prototypage Souverain</div>
+                            <p class="volet-card-desc">Conception rapide avec bases locales (SQLite), garantissant vitesse et confidentialité.</p>
                         </div>
-                        <div style="background: #f8fafc; border-left: 3px solid #059669; padding: 0.6rem 0.8rem; border-radius: 0 6px 6px 0;">
-                            <strong style="font-size: 0.8rem; color: #059669; display: block;">3. Déploiement & Suivi</strong>
-                            <span style="font-size: 0.75rem; color: #64748b;">Installation locale, formation bienveillante et support continu en Guadeloupe.</span>
+
+                        <div class="volet-card-inner">
+                            <div class="volet-card-title">3. Déploiement & Suivi</div>
+                            <p class="volet-card-desc">Installation locale, formation bienveillante et support réactif continu en Guadeloupe.</p>
+                        </div>
+
+                        <div style="margin-top: auto; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.5rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.72rem; color: #065f46; font-weight: 800;">✓ 100% Données Locales • Zéro Cloud imposé</span>
                         </div>
                     </div>
 
-                    <!-- 🏥 VOLET 2 : LE PÔLE SANTÉ & APPLICATIONS MÉTIERS -->
+                    <!-- 🏥 VOLET 2 : RÉALISATIONS SANTÉ CHU & MOBILITÉ -->
                     <div class="triptyque-volet">
-                        <div class="volet-header">
-                            <span class="volet-title">2. Nos Réalisations</span>
-                        </div>
-                        <strong style="font-size: 0.85rem; color: #065f46; display: block; margin-bottom: 0.4rem;">🏥 Pôle Santé & Hôpital (CHU)</strong>
-                        <ul style="font-size: 0.78rem; color: #334155; line-height: 1.45; padding-left: 1.1rem; margin-bottom: 1rem;">
-                            <li><strong>PRAXIS GOLD :</strong> Suite clinique eCRF avec Douanier Chronologique et recul sur 30 ans.</li>
-                            <li><strong>IKNOS v1.1 :</strong> Tour de contrôle de coordination pré-greffe et alertes péremption.</li>
-                            <li><strong>DELPHI v5.6 :</strong> Rapprochement de données CRISTAL et statistiques territoriales.</li>
-                            <li><strong>AXIOS :</strong> Robot RPA d'extraction automatisée des bilans biologiques multi-SIH.</li>
-                        </ul>
-
-                        <strong style="font-size: 0.85rem; color: var(--primary); display: block; margin-bottom: 0.4rem;">⚡ Pôle Mobilité & DevOps</strong>
-                        <ul style="font-size: 0.78rem; color: #334155; line-height: 1.45; padding-left: 1.1rem;">
-                            <li><strong>Coachmaster :</strong> PWA sportive 100% hors-ligne (tactique & temps de jeu équitable).</li>
-                            <li><strong>OptiTime :</strong> Compagnon de travail gamifié et santé ergonomique sur écran.</li>
-                            <li><strong>EPHOR & TAXIS :</strong> Sécurité Git en arrière-plan et bouclier de conformité RGPD.</li>
-                        </ul>
-                    </div>
-
-                    <!-- 💼 VOLET 3 : LE FLAGSHIP THEMIS & CONTACT -->
-                    <div class="triptyque-volet">
-                        <div class="volet-header">
-                            <span class="volet-title">3. Flagship & Contact</span>
+                        <div class="volet-header-banner" style="background: #065f46;">
+                            <span class="volet-header-title">2. Nos Réalisations</span>
+                            <span class="volet-header-tag" style="background: #a7f3d0; color: #065f46;">Excellence</span>
                         </div>
                         
-                        <div style="background: #091a2b; color: white; padding: 0.9rem; border-radius: 8px; border: 1px solid rgba(197, 155, 67, 0.4); margin-bottom: 1rem;">
+                        <strong style="font-size: 0.82rem; color: #065f46; display: block; margin-bottom: 0.4rem;">🏥 Pôle Santé & Hôpital (CHU de Guadeloupe)</strong>
+                        
+                        <div class="volet-card-inner" style="border-left: 3px solid #059669;">
+                            <div class="volet-card-title">PRAXIS GOLD V108 (eCRF)</div>
+                            <p class="volet-card-desc">Suite clinique avec Douanier Chronologique bloquant les erreurs et suivi sur 30 ans.</p>
+                        </div>
+
+                        <div class="volet-card-inner" style="border-left: 3px solid #059669;">
+                            <div class="volet-card-title">IKNOS v1.1 (Pré-Greffe)</div>
+                            <p class="volet-card-desc">Tableau Kanban automatisé et sentinelle évitant la péremption d'examens médicaux.</p>
+                        </div>
+
+                        <div class="volet-card-inner" style="border-left: 3px solid #059669;">
+                            <div class="volet-card-title">DELPHI v5.6 & AXIOS</div>
+                            <p class="volet-card-desc">Réconciliation floue des registres CRISTAL et robot RPA d'extraction d'analyses sans ressaisie.</p>
+                        </div>
+
+                        <strong style="font-size: 0.82rem; color: var(--primary); display: block; margin: 0.6rem 0 0.3rem 0;">⚡ Pôle Mobilité & Outils</strong>
+                        <div class="volet-card-inner" style="border-left: 3px solid var(--primary);">
+                            <div class="volet-card-title">Coachmaster, OptiTime & EPHOR</div>
+                            <p class="volet-card-desc">PWA 100% hors-ligne pour éducateurs FFF, time-tracking ergonomique et sécurité Git.</p>
+                        </div>
+                    </div>
+
+                    <!-- 💼 VOLET 3 : LE FLAGSHIP THEMIS, FINANCEMENT & CONTACT -->
+                    <div class="triptyque-volet">
+                        <div class="volet-header-banner" style="background: #091a2b; border: 1px solid rgba(197, 155, 67, 0.4);">
+                            <span class="volet-header-title">3. Flagship & Financement</span>
+                            <span class="volet-header-tag">THEMIS</span>
+                        </div>
+                        
+                        <div style="background: #091a2b; color: white; padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(197, 155, 67, 0.4); margin-bottom: 0.75rem;">
                             <span style="font-size: 0.68rem; color: var(--accent); font-weight: 800; text-transform: uppercase;">⭐ Solution Entreprise</span>
-                            <h4 style="font-size: 1.05rem; margin: 3px 0 6px 0; color: white;">THEMIS (ERP & Devis)</h4>
-                            <p style="font-size: 0.76rem; color: #cbd5e1; line-height: 1.4; margin: 0;">
+                            <h4 style="font-size: 1rem; margin: 2px 0 4px 0; color: white;">THEMIS (ERP & Devis)</h4>
+                            <p style="font-size: 0.74rem; color: #cbd5e1; line-height: 1.4; margin: 0;">
                                 Unifiez devis, acomptes et Chiffre d'Affaires en temps réel, avec génération automatique de contrats complets prêts à signer.
                             </p>
                         </div>
 
-                        <div style="font-size: 0.78rem; color: #334155; line-height: 1.5; margin-bottom: 1rem;">
-                            <strong>Garanties Dhamusoft :</strong><br>
-                            ✓ Données 100% locales (Bases SQLite privées)<br>
-                            ✓ Zéro dépendance aux serveurs étrangers<br>
-                            ✓ Respect strict des normes RGPD
+                        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.75rem;">
+                            <strong style="font-size: 0.8rem; color: #065f46; display: block; margin-bottom: 2px;">💰 Financement Région Guadeloupe (FEDER)</strong>
+                            <p style="font-size: 0.72rem; color: #047857; margin: 0; line-height: 1.4;">
+                                Financez jusqu'à <strong>80 % de votre logiciel</strong> (jusqu'à 10 000 €). Dhamusoft monte et dépose votre dossier sous mandat.
+                            </p>
                         </div>
 
-                        <div style="margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border); font-size: 0.78rem; color: #1e293b; background: #f8fafc; padding: 0.6rem; border-radius: 6px;">
+                        <div style="margin-top: auto; padding-top: 0.6rem; border-top: 1px solid var(--border); font-size: 0.76rem; color: #1e293b; background: #f8fafc; padding: 0.6rem; border-radius: 6px;">
                             <strong>Andy VAUBIEN</strong> • Dhamusoft<br>
                             ✉️ dhamusoft@gmail.com<br>
                             📞 +590 690 05 11 44<br>
@@ -1907,7 +1990,7 @@
                     </div>
 
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-                        <button type="button" class="btn btn-outline" onclick="imprimerMandatPapier()">
+                        <button type="button" class="btn btn-outline" onclick="window.print()">
                             📄 Imprimer un exemplaire papier (Signature au stylo)
                         </button>
                         <button type="submit" id="btn-submit-mandat" class="btn btn-gold" style="padding: 0.8rem 1.6rem;">
@@ -1919,7 +2002,6 @@
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
 
-            // Initialisation immédiate du moteur de dessin de signature
             setTimeout(initSignaturePad, 100);
         };
 
@@ -1933,13 +2015,12 @@
             signaturePadCanvas = document.getElementById('signature-pad');
             if (!signaturePadCanvas) return;
 
-            // Ajustement de la résolution du canvas
             const rect = signaturePadCanvas.getBoundingClientRect();
             signaturePadCanvas.width = rect.width;
             signaturePadCanvas.height = rect.height;
 
             signatureCtx = signaturePadCanvas.getContext('2d');
-            signatureCtx.strokeStyle = "#0f172a"; // Encre bleu nuit foncée
+            signatureCtx.strokeStyle = "#0f172a";
             signatureCtx.lineWidth = 2.5;
             signatureCtx.lineCap = "round";
             signatureCtx.lineJoin = "round";
@@ -1974,12 +2055,10 @@
                 isDrawingSignature = false;
             }
 
-            // Événements Souris
             signaturePadCanvas.addEventListener('mousedown', startDraw);
             signaturePadCanvas.addEventListener('mousemove', draw);
             window.addEventListener('mouseup', stopDraw);
 
-            // Événements Tactiles (Smartphone / Tablette)
             signaturePadCanvas.addEventListener('touchstart', startDraw, { passive: false });
             signaturePadCanvas.addEventListener('touchmove', draw, { passive: false });
             window.addEventListener('touchend', stopDraw);
@@ -2004,9 +2083,6 @@
             const submitBtn = document.getElementById('btn-submit-mandat');
             submitBtn.disabled = true;
             submitBtn.textContent = "⏳ Transmission sécurisée du mandat...";
-
-            // Exportation du tracé de la signature en image PNG Base64
-            const signatureImageBase64 = signaturePadCanvas.toDataURL('image/png');
 
             const formData = {
                 entreprise: document.getElementById('m-ste').value,
@@ -2061,10 +2137,6 @@
                 window.location.href = `mailto:dhamusoft@gmail.com?subject=MANDAT_CHEQUE_TIC_${encodeURIComponent(formData.entreprise)}&body=${mailBody}`;
                 closeModal();
             }
-        };
-
-        window.imprimerMandatPapier = function() {
-            window.print();
         };
 
         function closeModal() {
