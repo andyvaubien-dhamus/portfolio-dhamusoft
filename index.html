@@ -70,7 +70,7 @@
             font-weight: 500;
         }
 
-        /* 🚀 Barre d'action rapide Header */
+        /* 🚀 Barre d'action Header */
         .header-cta-bar {
             display: flex;
             justify-content: center;
@@ -104,7 +104,7 @@
         }
         .btn-cta-pdf:hover { border-color: var(--primary); transform: translateY(-2px); }
 
-        /* 🔀 COMMUTATEUR DUAL-HUB À 4 ONGLETS */
+        /* 🔀 COMMUTATEUR À 4 ONGLETS */
         .hub-switcher-wrap {
             display: flex;
             justify-content: center;
@@ -539,7 +539,7 @@
             cursor: crosshair;
         }
 
-        /* 📜 STYLE TRIPTYQUE RECTO / VERSO (CALIBRÉ POUR L'IMPRESSION PRO) */
+        /* 📜 STYLE TRIPTYQUE RECTO / VERSO (2 FEUILLES PAYSAGE CALIBRÉES) */
         .triptyque-sheet {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -547,7 +547,7 @@
             background: #ffffff;
             border: 1.5px solid var(--frame-border);
             border-radius: 12px;
-            padding: 1.6rem 1.2rem;
+            padding: 1.5rem 1.2rem;
             box-shadow: 0 8px 25px rgba(0,0,0,0.06);
             margin: 1rem 0 2rem 0;
             position: relative;
@@ -560,7 +560,7 @@
             padding: 0 0.6rem;
             position: relative;
         }
-        /* Rainures de pliage */
+        /* Lignes de pliage en pointillés */
         .triptyque-volet:not(:last-child)::after {
             content: "";
             position: absolute;
@@ -618,7 +618,7 @@
         .volet-case-defi { color: #e11d48; font-weight: 600; }
         .volet-case-sol { color: #047857; font-weight: 600; }
 
-        /* 🖨️ IMPRESSION PARFAITE RECTO-VERSO (2 FEUILLES PAYSAGE NETTES) */
+        /* 🖨️ IMPRESSION PARFAITE RECTO-VERSO (2 FEUILLES PAYSAGE SANS COUPURE) */
         @media print {
             @page {
                 size: A4 landscape;
@@ -629,9 +629,12 @@
                 margin: 0 !important;
                 padding: 0 !important;
                 background: white !important;
+                overflow: visible !important;
+                height: auto !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
+            /* Masquer absolument tout le site web */
             header, main, footer, .whatsapp-btn, .email-btn, .share-btn, #toast, #lightbox, #modal-overlay, #modal-close-btn, .btn, .plaquette-no-print {
                 display: none !important;
             }
@@ -641,6 +644,8 @@
                 background: white !important;
                 padding: 0 !important;
                 margin: 0 !important;
+                overflow: visible !important;
+                height: auto !important;
             }
             .modal-dialog {
                 width: 100% !important;
@@ -650,6 +655,9 @@
                 padding: 0 !important;
                 margin: 0 !important;
                 border-radius: 0 !important;
+                overflow: visible !important;
+                height: auto !important;
+                max-height: none !important;
             }
             .triptyque-sheet {
                 box-shadow: none !important;
@@ -657,10 +665,10 @@
                 border-radius: 6px !important;
                 grid-template-columns: 1fr 1fr 1fr !important;
                 padding: 5mm 6mm !important;
-                margin: 0 auto !important;
+                margin: 0 auto 0 auto !important;
                 height: 198mm !important;
                 gap: 5mm !important;
-                page-break-after: always !important; /* Coupe la page 1 et passe en page 2 */
+                page-break-after: always !important; /* Coupe nette de la Page 1 */
                 break-after: page !important;
             }
             .triptyque-sheet:last-child {
@@ -832,7 +840,7 @@
             <!-- Filtres par Pôle -->
             <div class="filter-bar">
                 <button class="filter-btn active" data-filter="all">Tous les projets</button>
-                <button class="filter-btn chu-filter" data-filter="chu">🏥 Santé & Institutionnel</button>
+                <button class="filter-btn chu-filter" data-filter="chu">🏥 Santé Publique</button>
                 <button class="filter-btn" data-filter="web">Web & PWA</button>
                 <button class="filter-btn" data-filter="devops">DevOps & Outils</button>
             </div>
@@ -1245,7 +1253,7 @@
                 "category": "HTML",
                 "badge": "Web App PWA / Sport & Pédagogie",
                 "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif, rotations de plateaux et suivi d'assiduité hors-ligne.",
-                "enjeu": "Dans le football amateur, l'encadrement des jeunes repose beaucoup sur des bénévoles qui manquent parfois de repères pour organiser les entraînements. L'enjeu de Coachmaster est de leur offrir un assistant simple et clé en main fonctionnant sur le bord du terrain, même sans connexion internet.",
+                "enjeu": "Dans le football amateur, l'encadrement des jeunes repose sur des éducateurs bénévoles dévoués mais souvent sans formation officielle, qui doivent pallier les absences ou changements de coachs en cours de saison. L'enjeu de Coachmaster est d'offrir un assistant clé en main avec séances FFF prêtes à l'emploi permettant à n'importe quel parent d'animer une séance structurée et équitable au pied levé.",
                 "tags": ["HTML5", "JavaScript", "IndexedDB", "Dexie.js", "PWA", "Sport Tech"],
                 "type": "web_standalone",
                 "download_url": "apps/coachmaster/index.html",
@@ -1705,7 +1713,7 @@
             let liveFrameHtml = '';
             if (isLive) {
                 const renderNote = project.download_url.includes('onrender.com') 
-                    ? `<p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">💡 <em>Application hébergée sur Render (prévoir ~30s au premier lancement si le serveur s'était mis en veille).</em></p>` 
+                    ? `<p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">💡 <em>Application en ligne accessible instantanément.</em></p>` 
                     : '';
 
                 liveFrameHtml = `
@@ -1807,7 +1815,7 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // 📄 MODALE TRIPTYQUE RECTO / VERSO (2 FEUILLES PAYSAGE PARFAITEMENT CALIBRÉES)
+        // 📄 MODALE TRIPTYQUE RECTO / VERSO (2 PAGES PAYSAGE IMPRIMÉES PARFAITEMENT SANS COUPURE)
         window.openPlaquetteModal = function() {
             modalBody.innerHTML = `
                 <div class="plaquette-no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.6rem;">
@@ -1825,89 +1833,89 @@
                 <!-- ========================================== -->
                 <div class="triptyque-sheet">
                     
-                    <!-- 1. RABAT INTÉRIEUR (GAUCHE) : ENGAGEMENTS DE SOUVERAINETÉ -->
+                    <!-- 1. RABAT INTÉRIEUR (GAUCHE) : ARCHITECTURE HYBRIDE -->
                     <div class="triptyque-volet">
                         <div class="volet-header-banner">
-                            <span class="volet-header-title">1. Nos Engagements</span>
+                            <span class="volet-header-title">1. Architecture Hybride</span>
                             <span class="volet-header-tag">Souverain</span>
                         </div>
 
                         <div class="volet-card-inner" style="border-left: 3px solid var(--primary);">
-                            <div class="volet-card-title">🔒 Données 100% Locales</div>
+                            <div class="volet-card-title">☁️ Cloud Européen Sécurisé (OVH)</div>
                             <p style="font-size: 0.72rem; color: #475569; line-height: 1.4; margin: 0;">
-                                Vos informations sensibles restent physiquement sur vos machines (bases de données locales SQLite). Zéro fuite et zéro abonnement Cloud forcé.
+                                Vos applications web sont hébergées sur des serveurs français sécurisés et conformes au RGPD, sans dépendance aux acteurs cloud opaques.
                             </p>
                         </div>
 
                         <div class="volet-card-inner" style="border-left: 3px solid var(--accent);">
-                            <div class="volet-card-title">⚡ Disponibilité Hors-Ligne</div>
+                            <div class="volet-card-title">🔒 Données Physiquement chez Vous</div>
                             <p style="font-size: 0.72rem; color: #475569; line-height: 1.4; margin: 0;">
-                                Nos logiciels fonctionnent en permanence sur le terrain, même en cas de coupure de réseau ou en zone blanche.
+                                L'application peut tourner dans le Cloud pour un accès universel, pendant que votre base de données sensible reste chez vous en local.
                             </p>
                         </div>
 
                         <div class="volet-card-inner" style="border-left: 3px solid #059669;">
-                            <div class="volet-card-title">🛡️ Rigueur Institutionnelle</div>
+                            <div class="volet-card-title">⚡ Connecté ou Hors-Ligne</div>
                             <p style="font-size: 0.72rem; color: #475569; line-height: 1.4; margin: 0;">
-                                Traçabilité médico-légale inviolable (Audit Trail), verrous de sécurité et conformité totale aux exigences RGPD.
+                                Connecté pour piloter vos flux et robots d'automatisation en direct, ou 100% autonome hors-ligne sur le terrain sans internet.
                             </p>
                         </div>
 
-                        <div style="margin-top: auto; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.5rem; border-radius: 6px; text-align: center;">
-                            <span style="font-size: 0.70rem; color: #065f46; font-weight: 800;">Solutions éprouvées en milieu hospitalier et en entreprise</span>
+                        <div style="margin-top: auto; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.45rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.68rem; color: #065f46; font-weight: 800;">✓ Flexibilité totale • Zéro fuite de données</span>
                         </div>
                     </div>
 
-                    <!-- 2. DOS DU DÉPLIANT (CENTRE) : NOTRE MÉTHODE EN 3 ÉTAPES -->
+                    <!-- 2. DOS DU DÉPLIANT (CENTRE) : DÉMARCHE EN 3 ÉTAPES -->
                     <div class="triptyque-volet">
                         <div class="volet-header-banner" style="background: var(--primary);">
                             <span class="volet-header-title" style="margin: 0 auto;">2. Notre Démarche</span>
                         </div>
 
-                        <p style="font-size: 0.78rem; color: #334155; line-height: 1.4; text-align: center; margin-bottom: 0.8rem;">
+                        <p style="font-size: 0.75rem; color: #334155; line-height: 1.35; text-align: center; margin-bottom: 0.6rem;">
                             Un accompagnement pragmatique et transparent, sans jargon informatique intimidant :
                         </p>
 
                         <div class="volet-card-inner">
-                            <strong style="font-size: 0.76rem; color: var(--primary); display: block;">1. Diagnostic Métier Offert</strong>
-                            <span style="font-size: 0.70rem; color: #475569;">Échange gratuit de 15 minutes pour cibler vos pertes de temps et vos blocages réels.</span>
+                            <strong style="font-size: 0.75rem; color: var(--primary); display: block;">1. Diagnostic Métier Offert</strong>
+                            <span style="font-size: 0.68rem; color: #475569;">Échange gratuit de 15 minutes pour cibler vos pertes de temps et vos blocages réels.</span>
                         </div>
 
                         <div class="volet-card-inner">
-                            <strong style="font-size: 0.76rem; color: var(--accent); display: block;">2. Prototypage Rapide</strong>
-                            <span style="font-size: 0.70rem; color: #475569;">Conception agile d'une première version testée directement sur vos données d'entreprise.</span>
+                            <strong style="font-size: 0.75rem; color: var(--accent); display: block;">2. Prototypage Agile</strong>
+                            <span style="font-size: 0.68rem; color: #475569;">Conception rapide d'une première version testée directement sur vos données d'entreprise.</span>
                         </div>
 
                         <div class="volet-card-inner">
-                            <strong style="font-size: 0.76rem; color: #059669; display: block;">3. Déploiement & Suivi</strong>
-                            <span style="font-size: 0.70rem; color: #475569;">Installation locale sur vos postes, formation de vos équipes et assistance continue.</span>
+                            <strong style="font-size: 0.75rem; color: #059669; display: block;">3. Déploiement & Suivi</strong>
+                            <span style="font-size: 0.68rem; color: #475569;">Installation locale sur vos postes, formation de vos équipes et assistance continue.</span>
                         </div>
 
-                        <div style="margin-top: auto; background: #f8fafc; border: 1px solid var(--border); padding: 0.6rem; border-radius: 6px; text-align: center;">
-                            <strong style="font-size: 0.75rem; color: var(--primary); display: block;">Une question ? Un projet ?</strong>
-                            <span style="font-size: 0.70rem; color: #64748b;">Andy VAUBIEN • dhamusoft@gmail.com • +590 690 05 11 44</span>
+                        <div style="margin-top: auto; background: #f8fafc; border: 1px solid var(--border); padding: 0.5rem; border-radius: 6px; text-align: center;">
+                            <strong style="font-size: 0.74rem; color: var(--primary); display: block;">Échangeons sur votre projet :</strong>
+                            <span style="font-size: 0.68rem; color: #64748b;">Andy VAUBIEN • dhamusoft@gmail.com • +590 690 05 11 44</span>
                         </div>
                     </div>
 
                     <!-- 3. PAGE DE COUVERTURE (DROITE) : LOGO ET VOCATION DHAMUSOFT -->
                     <div class="triptyque-volet" style="text-align: center; justify-content: center;">
-                        <div style="margin: 1.5rem 0 1rem 0;">
-                            <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 220px; margin: 0 auto; display: block;">
+                        <div style="margin: 1.2rem 0 0.8rem 0;">
+                            <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 210px; margin: 0 auto; display: block;">
                         </div>
 
-                        <h3 style="font-size: 0.95rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem; line-height: 1.35;">
+                        <h3 style="font-size: 0.90rem; font-weight: 900; color: var(--primary); margin-bottom: 0.4rem; line-height: 1.3;">
                             De l'idée au déploiement de vos outils numériques sur-mesure.
                         </h3>
 
-                        <p style="font-size: 0.75rem; color: #475569; line-height: 1.5; margin: 0 0 1.5rem 0;">
+                        <p style="font-size: 0.73rem; color: #475569; line-height: 1.45; margin: 0 0 1.2rem 0;">
                             Conception d'applications métiers, d'outils de coordination et automatisation de processus pour professionnels et institutions en Guadeloupe.
                         </p>
 
-                        <div style="margin-top: auto; background: #091a2b; color: white; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(197, 155, 67, 0.4); text-align: center;">
-                            <strong style="font-size: 0.8rem; color: var(--accent); display: block; margin-bottom: 2px;">Andy VAUBIEN</strong>
-                            <span style="font-size: 0.72rem; color: #cbd5e1; display: block;">Fondateur & Concepteur Logiciel</span>
-                            <span style="font-size: 0.72rem; color: #cbd5e1; display: block;">📞 +590 690 05 11 44</span>
-                            <span style="font-size: 0.70rem; color: #94a3b8; display: block; margin-top: 3px;">📍 Capesterre-Belle-Eau, Guadeloupe</span>
+                        <div style="margin-top: auto; background: #091a2b; color: white; padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(197, 155, 67, 0.4); text-align: center;">
+                            <strong style="font-size: 0.78rem; color: var(--accent); display: block; margin-bottom: 2px;">Andy VAUBIEN</strong>
+                            <span style="font-size: 0.70rem; color: #cbd5e1; display: block;">Fondateur & Concepteur Logiciel</span>
+                            <span style="font-size: 0.70rem; color: #cbd5e1; display: block;">📞 +590 690 05 11 44</span>
+                            <span style="font-size: 0.68rem; color: #94a3b8; display: block; margin-top: 2px;">📍 Capesterre-Belle-Eau, Guadeloupe</span>
                         </div>
                     </div>
 
@@ -1919,7 +1927,7 @@
                 <!-- ========================================== -->
                 <div class="triptyque-sheet">
                     
-                    <!-- 4. VOLET INTÉRIEUR GAUCHE : PÔLE SANTÉ PUBLIQUE & INSTITUTIONS -->
+                    <!-- 4. VOLET INTÉRIEUR GAUCHE : SANTÉ PUBLIQUE (STRICT DÉFI / SOLUTION) -->
                     <div class="triptyque-volet">
                         <div class="volet-header-banner" style="background: #065f46;">
                             <span class="volet-header-title">Santé Publique</span>
@@ -1929,8 +1937,8 @@
                         <!-- PRAXIS GOLD -->
                         <div class="volet-card-inner" style="border-left: 3px solid #059669;">
                             <div class="volet-card-title">PRAXIS GOLD (Dossier Clinique)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Risque d'erreurs de saisie sur des décennies de suivi médical de patients greffés.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Un "Douanier" virtuel bloque les dates impossibles, signale les constantes anormales et sécurise l'historique sur 30 ans.</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Risque d'erreur de saisie de constantes vitales sur 30 ans de suivi médical.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Un « Douanier » virtuel bloque les dates impossibles, signale les constantes anormales et sécurise l'historique sur 30 ans.</div>
                         </div>
 
                         <!-- IKNOS -->
@@ -1943,37 +1951,37 @@
                         <!-- AXIOS -->
                         <div class="volet-card-inner" style="border-left: 3px solid #059669;">
                             <div class="volet-card-title">AXIOS (Robot d'Analyses)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Des heures perdues à recopier à la main des résultats biologiques depuis des PDF.</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Des heures perdues à recopier manuellement des bilans biologiques depuis des PDF.</div>
                             <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Robot d'extraction avec voyants de confiance (vert/rouge) injectant les bilans sans saisie manuelle.</div>
                         </div>
                     </div>
 
-                    <!-- 5. VOLET INTÉRIEUR CENTRE : ENTREPRISES & MOBILITÉ -->
+                    <!-- 5. VOLET INTÉRIEUR CENTRE : ENTREPRISES & TERRAIN (THEMIS / COACHMASTER) -->
                     <div class="triptyque-volet">
                         <div class="volet-header-banner">
                             <span class="volet-header-title">Entreprises & Terrain</span>
-                            <span class="volet-header-tag">Gestion & Mobile</span>
+                            <span class="volet-header-tag">Solutions</span>
                         </div>
 
                         <!-- THEMIS -->
                         <div class="volet-card-inner" style="border-left: 3px solid var(--accent); background: #fffdf5;">
                             <div class="volet-card-title" style="color: #b45309;">THEMIS (ERP & Facturation)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Devis éparpillés, calculs d'acomptes incertains et contrats non signés.</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Devis manuels éparpillés, erreurs d'acomptes et absence de contrats signés.</div>
                             <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Recalcul du CA en direct lors de la saisie et assemblage en 1 clic d'un dossier contractuel complet prêt à signer.</div>
                         </div>
 
-                        <!-- COACHMASTER -->
+                        <!-- COACHMASTER (AVEC VOTRE VRAI DÉFI SPORTIF BÉNÉVOLES) -->
                         <div class="volet-card-inner" style="border-left: 3px solid var(--primary);">
-                            <div class="volet-card-title">Coachmaster (PWA Terrain)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Préparer des séances sportives et gérer les présences sous la pluie sans réseau.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Application 100% hors-ligne avec tableau tactile pour dessiner les tactiques au doigt.</div>
+                            <div class="volet-card-title">Coachmaster (PWA Foot)</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Encadrer une équipe de jeunes sans formation d'entraîneur, avec des bénévoles qui manquent ou changent en cours de saison.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Assistant clé en main avec séances officielles de 90 min (FFF) et rotations automatiques : n'importe quel parent peut animer un entraînement structuré au pied levé.</div>
                         </div>
 
-                        <!-- OPTITIME -->
-                        <div class="volet-card-inner" style="border-left: 3px solid #0284c7;">
-                            <div class="volet-card-title">OptiTime (Ergonomie & Temps)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Fatigue physique et surmenage liés au travail prolongé sur écran.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Compagnon interactif motivant aux pauses actives guidées (respiration, étirements).</div>
+                        <!-- TAXIS (BOUCLIER RGPD) -->
+                        <div class="volet-card-inner" style="border-left: 3px solid #7c3aed;">
+                            <div class="volet-card-title" style="color: #6d28d9;">TAXIS (Sécurité & Bouclier RGPD)</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Risque de publier accidentellement des captures contenant de vraies données de patients ou clients.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Double bouclier automatique (lecture optique OCR + IA) scannant les images pour bloquer toute donnée confidentielle avant diffusion.</div>
                         </div>
                     </div>
 
@@ -1985,14 +1993,14 @@
                         </div>
 
                         <!-- EXEMPLE CONCRET -->
-                        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 0.65rem 0.8rem; margin-bottom: 0.6rem;">
-                            <strong style="font-size: 0.76rem; color: #065f46; display: block; margin-bottom: 2px;">💡 Exemple Concret Chèque TIC :</strong>
-                            <p style="font-size: 0.71rem; color: #047857; line-height: 1.4; margin: 0;">
+                        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 0.65rem 0.75rem; margin-bottom: 0.55rem;">
+                            <strong style="font-size: 0.75rem; color: #065f46; display: block; margin-bottom: 2px;">💡 Exemple Concret Chèque TIC :</strong>
+                            <p style="font-size: 0.70rem; color: #047857; line-height: 1.35; margin: 0;">
                                 • Projet Logiciel ou Site : <strong>5 000 € HT</strong><br>
                                 • Prise en charge Région / FEDER (80%) : <strong>- 4 000 €</strong><br>
-                                • <strong style="color: #064e3b; font-size: 0.75rem;">👉 Votre Reste à Charge : 1 000 € HT seulement !</strong>
+                                • <strong style="color: #064e3b; font-size: 0.74rem;">👉 Votre Reste à Charge : 1 000 € HT seulement !</strong>
                             </p>
-                            <small style="font-size: 0.66rem; color: #065f46; display: block; margin-top: 2px;">(Plafond maximum de subvention : 10 000 €)</small>
+                            <small style="font-size: 0.65rem; color: #065f46; display: block; margin-top: 2px;">(Plafond maximum de subvention : 10 000 €)</small>
                         </div>
 
                         <!-- NOS 2 FORMULES SOUS MANDAT -->
@@ -2000,15 +2008,15 @@
                         
                         <div class="volet-card-inner" style="border-left: 3px solid var(--accent); background: #fffbeb;">
                             <div class="volet-card-title" style="color: #b45309;">🎁 Projet Dhamusoft (Montage OFFERT)</div>
-                            <p class="volet-card-desc" style="font-size: 0.69rem;">Vous développez votre solution avec nous ? Le montage du dossier, la note d'impact (3 p.) et le dépôt administratif sont <strong>100% OFFERTS</strong> !</p>
+                            <p class="volet-card-desc" style="font-size: 0.68rem;">Vous développez votre solution avec nous ? Le montage du dossier, la note d'impact (3 p.) et le dépôt administratif sont <strong>100% OFFERTS</strong> !</p>
                         </div>
 
                         <div class="volet-card-inner" style="border-left: 3px solid var(--primary);">
                             <div class="volet-card-title">📋 Mandat d'Assistance Seul (Payant)</div>
-                            <p class="volet-card-desc" style="font-size: 0.69rem;">Vous avez déjà vos devis ? Nous rédigeons votre note d'impact et gérons le dépôt sous mandat officiel.</p>
+                            <p class="volet-card-desc" style="font-size: 0.68rem;">Vous avez déjà vos devis ? Nous rédigeons votre note d'impact et gérons le dépôt sous mandat officiel.</p>
                         </div>
 
-                        <div style="margin-top: auto; background: #f8fafc; border: 1px solid var(--border); padding: 0.4rem; border-radius: 6px; font-size: 0.67rem; color: #64748b; line-height: 1.3; text-align: center;">
+                        <div style="margin-top: auto; background: #f8fafc; border: 1px solid var(--border); padding: 0.35rem; border-radius: 6px; font-size: 0.66rem; color: #64748b; line-height: 1.25; text-align: center;">
                             <em>La subvention régionale reste versée directement sur le RIB de votre entreprise.</em>
                         </div>
                     </div>
@@ -2019,7 +2027,7 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // ✍️ MODALE FORMULAIRE DU MANDAT DE REPRÉSENTATION (AVEC SIGNATURE TACTILE)
+        // ✍️ MODALE DU MANDAT DE REPRÉSENTATION (AVEC SIGNATURE TACTILE)
         window.openMandatModal = function() {
             modalBody.innerHTML = `
                 <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
@@ -2178,7 +2186,7 @@
             }
         };
 
-        // 🤖 TRANSMISSION AUTOMATIQUE DU MANDAT SIGNÉ VERS DHAMUSOFT
+        // 🤖 TRANSMISSION DU MANDAT VERS DHAMUSOFT
         window.envoyerMandatAutomatique = async function(e) {
             e.preventDefault();
 
