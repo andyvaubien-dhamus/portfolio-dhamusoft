@@ -875,47 +875,54 @@
                         Tout est géré au même endroit : les acomptes se recalculent en direct et l'outil assemble en 1 clic un dossier contractuel complet prêt à signer (Cahier des charges, Devis, CGV, NDA).
                     </div>
                 </div>
-<!-- ANIMATION 1 : COMPARATEUR INTERACTIF THEMIS -->
-                <div class="themis-comparison-wrap" style="margin: 2rem 0; background: #071524; border: 1px solid rgba(197, 155, 67, 0.4); border-radius: 14px; overflow: hidden; position: relative;">
-                    <div style="padding: 0.8rem 1.2rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center;">
+<!-- ANIMATION 1 : COMPARATEUR INTERACTIF THEMIS (MASQUAGE PARFAIT & SANS COUPURE) -->
+                <div class="themis-comparison-wrap" style="margin: 2rem 0; background: #071524; border: 1.5px solid rgba(197, 155, 67, 0.45); border-radius: 14px; overflow: hidden; position: relative;">
+                    
+                    <div style="padding: 0.8rem 1.4rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
                         <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">⚡ Comparateur d'Efficacité Opérationnelle</span>
-                        <span style="font-size: 0.72rem; color: #94a3b8;">Glissez le curseur pour comparer ⟷</span>
+                        <div style="display: flex; gap: 8px;">
+                            <button type="button" onclick="setSliderPercent(10)" style="background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #fecaca; font-size: 0.70rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; cursor: pointer;">Voir l'Ancien Système</button>
+                            <button type="button" onclick="setSliderPercent(90)" style="background: rgba(4,120,87,0.3); border: 1px solid #10b981; color: #a7f3d0; font-size: 0.70rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; cursor: pointer;">Voir avec THEMIS ERP</button>
+                        </div>
                     </div>
 
-                    <div class="comparison-container" id="themis-slider-box" style="position: relative; height: 260px; user-select: none; overflow: hidden;">
-                        <!-- FACE DROITE (THEMIS : 2 MIN 30) -->
-                        <div class="comp-side comp-after" style="position: absolute; inset: 0; background: linear-gradient(135deg, #05231a 0%, #0b382a 100%); color: white; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center;">
-                            <div style="display: inline-block; background: #047857; color: #a7f3d0; font-size: 0.70rem; font-weight: 900; padding: 0.2rem 0.6rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">AVEC THEMIS ERP • CONFORME 2026</div>
-                            <h4 style="font-size: 1.6rem; font-weight: 900; color: #ffffff; margin-bottom: 0.3rem;">⏱️ 2 minutes 30 chrono</h4>
-                            <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.45; margin-bottom: 0.8rem;">
-                                Devis multi-lignes calculé au centime près, acompte ajusté en direct et dossier contractuel officiel (7 pages avec CGV, SLA et RGPD) scellé en un clic.
+                    <div class="comparison-container" id="themis-slider-box" style="position: relative; min-height: 310px; user-select: none; overflow: hidden; cursor: ew-resize;">
+                        
+                        <!-- 1. FACE DROITE (THEMIS : SÉRÉNITÉ & VITESSE) -->
+                        <div class="comp-side comp-after" style="width: 100%; height: 100%; background: linear-gradient(135deg, #05231a 0%, #0b382a 100%); color: white; padding: 2rem; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
+                            <div style="display: inline-block; background: #047857; color: #a7f3d0; font-size: 0.72rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">AVEC THEMIS ERP • CONFORME 2026</div>
+                            <h4 style="font-size: 1.8rem; font-weight: 900; color: #ffffff; margin-bottom: 0.4rem; line-height: 1.2;">⏱️ 2 minutes 30 chrono par dossier</h4>
+                            <p style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 1rem; max-width: 650px;">
+                                Devis multi-lignes chiffré immédiatement, acomptes recalculés en direct et dossier contractuel officiel complet (7 pages incluant CGV, SLA et RGPD) assemblé et scellé en un clic.
                             </p>
                             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                <span style="background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700;">✓ Factur-X 2026</span>
-                                <span style="background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700;">✓ Inaltérabilité Art. 286 CGI</span>
-                                <span style="background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700;">✓ Radar Trésorerie</span>
+                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Conforme Factur-X 2026 (XML)</span>
+                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Inaltérabilité Art. 286 CGI (SHA-256)</span>
+                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Radar de Trésorerie & Relances Auto</span>
                             </div>
                         </div>
 
-                        <!-- FACE GAUCHE (LE PAPIER : 45 MIN) -->
-                        <div class="comp-side comp-before" id="themis-before-layer" style="position: absolute; top:0; left:0; bottom:0; width: 50%; background: linear-gradient(135deg, #1e1b18 0%, #2e1015 100%); color: white; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; border-right: 3px solid var(--accent); overflow: hidden;">
-                            <div style="min-width: 300px;">
-                                <div style="display: inline-block; background: #991b1b; color: #fecaca; font-size: 0.70rem; font-weight: 900; padding: 0.2rem 0.6rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">MÉTHODE TRADITIONNELLE (PAPIER / EXCEL)</div>
-                                <h4 style="font-size: 1.6rem; font-weight: 900; color: #f87171; margin-bottom: 0.3rem;">⏳ 45 minutes par devis</h4>
-                                <p style="font-size: 0.82rem; color: #e2e8f0; line-height: 1.45; margin-bottom: 0.8rem;">
-                                    Calculs d'acomptes manuels, CGV éparpillées, oublis de relances d'impayés et risque de redressement fiscal sur l'inaltérabilité.
+                        <!-- 2. FACE GAUCHE (LE CHAOS PAPIER : MASQUÉ PAR CLIP-PATH PARFAIT) -->
+                        <div class="comp-side comp-before" id="themis-before-layer" style="position: absolute; top:0; left:0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e1b18 0%, #2e1015 100%); color: white; padding: 2rem; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+                            <div style="max-width: 650px;">
+                                <div style="display: inline-block; background: #991b1b; color: #fecaca; font-size: 0.72rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">MÉTHODE TRADITIONNELLE (PAPIER / EXCEL)</div>
+                                <h4 style="font-size: 1.8rem; font-weight: 900; color: #f87171; margin-bottom: 0.4rem; line-height: 1.2;">⏳ 45 minutes de galère par devis</h4>
+                                <p style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.5; margin-bottom: 1rem;">
+                                    Ressaisie manuelle sous Word, calculs d'acomptes à la main sous Excel, conditions générales éparpillées, oublis fréquents de relance des factures impayées et insécurité fiscale.
                                 </p>
                                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                    <span style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700; color: #fca5a5;">❌ Soirées perdues</span>
-                                    <span style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700; color: #fca5a5;">❌ Litiges clients</span>
+                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Soirées et week-ends perdus</span>
+                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Risque de litiges et impayés</span>
+                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Non-conformité légale</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Curseur Mobile -->
-                        <div class="comp-handle" id="themis-slider-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: var(--accent); cursor: ew-resize; display: flex; align-items: center; justify-content: center; transform: translateX(-50%);">
-                            <div style="width: 32px; height: 32px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 12px rgba(0,0,0,0.5); font-weight: 900; color: #091a2b; font-size: 12px;">⟷</div>
+                        <!-- 3. CURSEUR DE SÉPARATION GLISSANT -->
+                        <div class="comp-handle" id="themis-slider-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: var(--accent); display: flex; align-items: center; justify-content: center; transform: translateX(-50%); box-shadow: 0 0 14px rgba(0,0,0,0.6);">
+                            <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5); font-weight: 900; color: #091a2b; font-size: 14px;">⟷</div>
                         </div>
+
                     </div>
                 </div>
                 <div class="themis-actions">
@@ -1085,7 +1092,62 @@
                     <h2>Financez jusqu'à 80% de votre projet numérique</h2>
                     <p>Le dispositif <strong>Chèque TIC</strong> soutient les TPE, PME et micro-entreprises guadeloupéennes dans leur modernisation digitale avec une subvention pouvant atteindre <strong>jusqu'à 10 000 €</strong>.</p>
                 </div>
+<!-- ANIMATION 2 : SCANNER D'INVESTISSEMENTS RÉCENTS CHÈQUE TIC -->
+                <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; margin-bottom: 2.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.2rem;">
+                        <div>
+                            <span style="background: #ecfdf5; color: #047857; font-size: 0.72rem; font-weight: 800; padding: 3px 8px; border-radius: 5px; text-transform: uppercase; border: 1px solid #a7f3d0;">ACTIVATION RÉTROACTIVE</span>
+                            <h3 style="font-size: 1.4rem; font-weight: 900; color: var(--primary); margin: 4px 0 2px 0;">Vous avez investi récemment ? Récupérez jusqu'à 80 %</h3>
+                            <p style="font-size: 0.85rem; color: #64748b; margin: 0;">Sélectionnez vos dépenses informatiques récentes pour calculer votre remboursement :</p>
+                        </div>
+                        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.5rem 0.8rem; font-size: 0.75rem; color: #334155;">
+                            <strong>CRITÈRES OBLIGATOIRES RÉGION :</strong><br>
+                            ✓ Siège en Guadeloupe • ✓ Immatriculée > 1 an • ✓ Fiscal & CGSS à jour
+                        </div>
+                    </div>
 
+                    <!-- Cartes de factures interactives -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; margin-bottom: 1.2rem;">
+                        <label class="scan-card" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice(this, 2500, 0.8)">
+                            <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
+                            <div>
+                                <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Création / Refonte de Site Web</strong>
+                                <span style="font-size: 0.74rem; color: #64748b;">Facture : 2 500 € HT</span>
+                                <span style="display: block; color: #047857; font-size: 0.72rem; font-weight: bold; margin-top: 2px;">Éligible à 80% (Gain : 2 000 €)</span>
+                            </div>
+                        </label>
+
+                        <label class="scan-card" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice(this, 1800, 0.8)">
+                            <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
+                            <div>
+                                <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Cybersécurité & Sauvegardes</strong>
+                                <span style="font-size: 0.74rem; color: #64748b;">Facture : 1 800 € HT</span>
+                                <span style="display: block; color: #047857; font-size: 0.72rem; font-weight: bold; margin-top: 2px;">Éligible à 80% (Gain : 1 440 €)</span>
+                            </div>
+                        </label>
+
+                        <label class="scan-card" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice(this, 3500, 0.4)">
+                            <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
+                            <div>
+                                <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Matériel Informatique & Logiciel</strong>
+                                <span style="font-size: 0.74rem; color: #64748b;">Facture : 3 500 € HT</span>
+                                <span style="display: block; color: #0369a1; font-size: 0.72rem; font-weight: bold; margin-top: 2px;">Éligible à 40% (Gain : 1 400 €)</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Bilan Financier -->
+                    <div style="background: linear-gradient(135deg, #05231a 0%, #0f3d2e 100%); color: white; border-radius: 10px; padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">Aide Régionale Rétroactive Détectée :</span>
+                            <div style="font-size: 2rem; font-weight: 900; color: #ffffff;" id="scan-total-refund">4 840,00 €</div>
+                            <small style="color: #cbd5e1; font-size: 0.72rem;">Versée directement sur le compte bancaire (RIB) de votre entreprise.</small>
+                        </div>
+                        <button class="btn btn-gold" onclick="openMandatModal()" style="padding: 0.8rem 1.4rem; font-weight: 900; font-size: 0.90rem;">
+                            🚀 Récupérer ma Subvention sous Mandat
+                        </button>
+                    </div>
+                </div>
                 <!-- SIMULATEUR INTERACTIF -->
                 <div class="simulator-card">
                     <div class="sim-section-title">
@@ -2587,7 +2649,7 @@ document.addEventListener('keydown', (e) => {
         // 🎮 MOTEURS DES 3 NOUVELLES ANIMATIONS INTERACTIVES
         // =========================================================================
 
-        // 1. MOTEUR DU CURSEUR AVANT / APRÈS THEMIS
+        // 1. MOTEUR DU CURSEUR AVANT / APRÈS THEMIS (DÉCOUPE NETTE CLIP-PATH)
         function initThemisSlider() {
             const container = document.getElementById('themis-slider-box');
             const beforeLayer = document.getElementById('themis-before-layer');
@@ -2595,12 +2657,17 @@ document.addEventListener('keydown', (e) => {
             if (!container || !beforeLayer || !handle) return;
 
             let isSliding = false;
-            function updateSlider(x) {
+
+            window.setSliderPercent = function(pct) {
+                const cleanPct = Math.max(0, Math.min(100, pct));
+                beforeLayer.style.clipPath = `polygon(0 0, ${cleanPct}% 0, ${cleanPct}% 100%, 0 100%)`;
+                handle.style.left = cleanPct + '%';
+            };
+
+            function updateSlider(clientX) {
                 const rect = container.getBoundingClientRect();
-                let pos = (x - rect.left) / rect.width * 100;
-                pos = Math.max(10, Math.min(90, pos));
-                beforeLayer.style.width = pos + '%';
-                handle.style.left = pos + '%';
+                let pct = ((clientX - rect.left) / rect.width) * 100;
+                setSliderPercent(pct);
             }
 
             container.addEventListener('mousedown', (e) => { isSliding = true; updateSlider(e.clientX); });
@@ -2611,7 +2678,7 @@ document.addEventListener('keydown', (e) => {
             window.addEventListener('touchend', () => isSliding = false);
             window.addEventListener('touchmove', (e) => { if (isSliding) updateSlider(e.touches[0].clientX); });
         }
-        setTimeout(initThemisSlider, 250);
+        setTimeout(initThemisSlider, 200);
 
         // 2. MOTEUR DU SCANNER RÉTROACTIF CHÈQUE TIC
         window.toggleScanInvoice = function(card, amount, rate) {
