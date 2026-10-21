@@ -771,9 +771,13 @@
         .footer-link { color: var(--accent); text-decoration: underline; cursor: pointer; margin-left: 8px; }
 
         /* =========================================================================
-           ✨ BRIQUES DE MODERNISATION 2026 : PROGRESSION, EFFET SPOTLIGHT & SMOOTH SCROLL
+           ✨ MODERNISATION NATIVE (ZÉRO BLOCAGE, ZÉRO DÉPENDANCE)
            ========================================================================= */
-        /* 1. Filet de progression de lecture supérieur */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 1. Filet de progression supérieur */
         #scroll-progress {
             position: fixed;
             top: 0;
@@ -782,24 +786,21 @@
             background: linear-gradient(90deg, #C59B43, #059669, #38bdf8);
             width: 0%;
             z-index: 99999;
-            transition: width 0.1s ease-out;
             pointer-events: none;
+            transition: width 0.1s ease-out;
         }
 
-        /* 2. Animations d'apparition douces au défilement */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* 3. Halo lumineux sous la souris (Spotlight effect) */
+        /* 2. Effet d'apparition douce sans masquer le contenu */
         .solution-card, .themis-hero-card, .simulator-card, .timeline-card, .pillar-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .solution-card:hover, .timeline-card:hover, .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 28px rgba(44, 76, 110, 0.12);
+        }
+
+        /* 3. Halo lumineux interactif sous la souris */
+        .spotlight-glow {
             position: relative;
             overflow: hidden;
         }
@@ -820,11 +821,6 @@
         .spotlight-glow:hover::before {
             opacity: 1;
         }
-    </style>
-    <!-- Moteur Smooth Scroll Lenis officiel -->
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-		
-		
     </style>
 </head>
 <body>
@@ -2500,7 +2496,7 @@ if (btnMentions) {
     });
 }
 
-        / BOUTON PARTAGE
+        // BOUTON PARTAGE
         const shareBtn = document.querySelector('#btn-partager');
         if (shareBtn) {
             shareBtn.addEventListener('click', () => {
@@ -2518,73 +2514,45 @@ if (btnMentions) {
         }
 
         // =========================================================================
-        // 🚀 INITIALISATION DES EFFETS MODERNES 2026 (SMOOTH SCROLL, REVEAL & SPOTLIGHT)
+        // 🚀 EFFETS MODERNES PUR JS (SANS LIBRAIRIE EXTERNE, SANS CONFLIT)
         // =========================================================================
-        // 1. Initialisation de Lenis (Défilement fluide soyeux)
-        if (typeof Lenis !== 'undefined') {
-            const lenis = new Lenis({
-                duration: 1.15,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                smoothWheel: true,
-                touchMultiplier: 1.5
-            });
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
-        }
-
-        // 2. Gestion dynamique de la barre de progression supérieure
+        // 1. Barre de progression supérieure
         window.addEventListener('scroll', () => {
             const progressBar = document.getElementById('scroll-progress');
             if (progressBar) {
                 const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                progressBar.style.width = scrolled + '%';
-            }
-        });
-
-        // 3. Détection d'apparition des cartes et sections (Intersection Observer)
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+                if (height > 0) {
+                    progressBar.style.width = (winScroll / height * 100) + '%';
                 }
-            });
-        }, { threshold: 0.12 });
+            }
+        }, { passive: true });
 
-        function attachModernEffects() {
-            // Cibles pour l'effet de glissement doux
-            const targets = document.querySelectorAll('.solution-card, .themis-hero-card, .simulator-card, .timeline-card, .pillar-card, .tech-card, .mandat-cta-banner');
-            targets.forEach((el) => {
-                el.classList.add('reveal-on-scroll');
-                revealObserver.observe(el);
-            });
-
-            // Halo lumineux interactif sous le curseur de souris
-            const glowTargets = document.querySelectorAll('.solution-card, .themis-hero-card, .simulator-card, .timeline-card, .pillar-card');
-            glowTargets.forEach((card) => {
-                card.classList.add('spotlight-glow');
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-                });
+        // 2. Halo lumineux interactif (Spotlight) sur les cartes
+        function attachSpotlight() {
+            const cards = document.querySelectorAll('.solution-card, .themis-hero-card, .simulator-card, .timeline-card, .pillar-card');
+            cards.forEach((card) => {
+                if (!card.classList.contains('spotlight-glow')) {
+                    card.classList.add('spotlight-glow');
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    });
+                }
             });
         }
 
-        // Lancement immédiat et lors du changement d'onglet
-        setTimeout(attachModernEffects, 200);
-        document.querySelectorAll('.hub-btn, .filter-btn').forEach(b => {
-            b.addEventListener('click', () => setTimeout(attachModernEffects, 150));
+        // Lancement immédiat et lors des changements d'onglets
+        attachSpotlight();
+        document.querySelectorAll('.hub-btn, .filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => setTimeout(attachSpotlight, 100));
         });
 
     })();
     </script>
 
-    <!-- Élément HTML de la barre de progression en haut d'écran -->
+    <!-- Barre de progression supérieure -->
     <div id="scroll-progress"></div>
 </body>
 </html>
