@@ -34,6 +34,8 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-page);
@@ -484,7 +486,7 @@
         .mandat-cta-banner h4 { font-size: 1.2rem; font-weight: 800; color: #f8fafc; margin-bottom: 0.3rem; }
         .mandat-cta-banner p { font-size: 0.88rem; color: #cbd5e1; margin: 0; }
 
-        /* Formulaire de Mandat & Signature Pad */
+        /* Formulaires de Devis & Mandat */
         .mandat-form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -539,7 +541,7 @@
             cursor: crosshair;
         }
 
-        /* 📜 STYLE TRIPTYQUE RECTO / VERSO (2 FEUILLES PAYSAGE CALIBRÉES) */
+        /* 📜 STYLE TRIPTYQUE RECTO / VERSO */
         .triptyque-sheet {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -560,7 +562,6 @@
             padding: 0 0.6rem;
             position: relative;
         }
-        /* Lignes de pliage en pointillés */
         .triptyque-volet:not(:last-child)::after {
             content: "";
             position: absolute;
@@ -618,77 +619,29 @@
         .volet-case-defi { color: #e11d48; font-weight: 600; }
         .volet-case-sol { color: #047857; font-weight: 600; }
 
-        /* 🖨️ IMPRESSION PARFAITE RECTO-VERSO (2 FEUILLES PAYSAGE SANS COUPURE) */
         @media print {
-            @page {
-                size: A4 landscape;
-                margin: 5mm 6mm;
-            }
+            @page { size: A4 landscape; margin: 5mm 6mm; }
             html, body {
-                width: 297mm !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: white !important;
-                overflow: visible !important;
-                height: auto !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
+                width: 297mm !important; margin: 0 !important; padding: 0 !important; background: white !important;
+                -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
             }
-            /* Masquer absolument tout le site web */
             header, main, footer, .whatsapp-btn, .email-btn, .share-btn, #toast, #lightbox, #modal-overlay, #modal-close-btn, .btn, .plaquette-no-print {
                 display: none !important;
             }
-            #modal {
-                position: static !important;
-                display: block !important;
-                background: white !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                overflow: visible !important;
-                height: auto !important;
-            }
-            .modal-dialog {
-                width: 100% !important;
-                max-width: 100% !important;
-                border: none !important;
-                box-shadow: none !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                border-radius: 0 !important;
-                overflow: visible !important;
-                height: auto !important;
-                max-height: none !important;
-            }
+            #modal { position: static !important; display: block !important; padding: 0 !important; }
+            .modal-dialog { width: 100% !important; max-width: 100% !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
             .triptyque-sheet {
-                box-shadow: none !important;
-                border: 1px solid #94a3b8 !important;
-                border-radius: 6px !important;
-                grid-template-columns: 1fr 1fr 1fr !important;
-                padding: 5mm 6mm !important;
-                margin: 0 auto 0 auto !important;
-                height: 198mm !important;
-                gap: 5mm !important;
-                page-break-after: always !important; /* Coupe nette de la Page 1 */
-                break-after: page !important;
+                box-shadow: none !important; border: 1px solid #94a3b8 !important; border-radius: 6px !important;
+                grid-template-columns: 1fr 1fr 1fr !important; padding: 5mm 6mm !important; margin: 0 auto 0 auto !important;
+                height: 198mm !important; gap: 5mm !important; page-break-after: always !important; break-after: page !important;
             }
-            .triptyque-sheet:last-child {
-                page-break-after: avoid !important;
-                break-after: avoid !important;
-            }
+            .triptyque-sheet:last-child { page-break-after: avoid !important; break-after: avoid !important; }
         }
 
         /* Boutons */
         .btn {
-            display: inline-block;
-            padding: 0.7rem 1.3rem;
-            border-radius: 8px;
-            border: none;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            font-size: 0.9rem;
-            transition: all 0.2s;
+            display: inline-block; padding: 0.7rem 1.3rem; border-radius: 8px; border: none; font-weight: 700;
+            cursor: pointer; text-decoration: none; text-align: center; font-size: 0.9rem; transition: all 0.2s;
         }
         .btn-gold { background: var(--accent); color: #091a2b; }
         .btn-gold:hover { background: var(--accent-hover); color: white; }
@@ -713,7 +666,7 @@
         .tech-pill { background: #f1f5f9; color: var(--primary); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid #e2e8f0; }
         .tech-card-features { font-size: 0.85rem; color: #334155; line-height: 1.5; padding-left: 1.2rem; }
 
-        /* 📸 MODALE GLOBALE & CALENDLY IFRAME */
+        /* 📸 MODALE GLOBALE */
         .hidden { display: none !important; }
         #modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
         #modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); }
@@ -770,56 +723,11 @@
         .site-footer { background: var(--primary); color: #f8fafc; text-align: center; padding: 2.2rem 1rem; margin-top: 4rem; }
         .footer-link { color: var(--accent); text-decoration: underline; cursor: pointer; margin-left: 8px; }
 
-        /* =========================================================================
-           ✨ MODERNISATION NATIVE (ZÉRO BLOCAGE, ZÉRO DÉPENDANCE)
-           ========================================================================= */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* 1. Filet de progression supérieur */
+        /* Filet supérieur de défilement */
         #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
+            position: fixed; top: 0; left: 0; height: 3px;
             background: linear-gradient(90deg, #C59B43, #059669, #38bdf8);
-            width: 0%;
-            z-index: 99999;
-            pointer-events: none;
-            transition: width 0.1s ease-out;
-        }
-
-        /* 2. Effet d'apparition douce sans masquer le contenu */
-        .solution-card, .themis-hero-card, .simulator-card, .timeline-card, .pillar-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .solution-card:hover, .timeline-card:hover, .pillar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 14px 28px rgba(44, 76, 110, 0.12);
-        }
-
-        /* 3. Halo lumineux interactif sous la souris */
-        .spotlight-glow {
-            position: relative;
-            overflow: hidden;
-        }
-        .spotlight-glow::before {
-            content: '';
-            position: absolute;
-            top: var(--mouse-y, -1000px);
-            left: var(--mouse-x, -1000px);
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, rgba(197, 155, 67, 0.14) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-        }
-        .spotlight-glow:hover::before {
-            opacity: 1;
+            width: 0%; z-index: 99999; pointer-events: none; transition: width 0.1s ease-out;
         }
     </style>
 </head>
@@ -827,7 +735,7 @@
 
     <header class="container">
         <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" class="logo-hero">
-        <p class="hero-subtitle">Conception d'applications métiers, d'outils de coordination et automatisation de processus.<br>De l'idée au déploiement.</p>
+        <p class="hero-subtitle">Conception d'applications métiers, d'outils de coordination et accompagnement au financement Chèque TIC en Guadeloupe.<br>De l'idée au déploiement.</p>
 
         <!-- 🚀 ACTIONS RAPIDES DECIDEURS (CALENDLY 15 MIN & PLAQUETTE TRIPTYQUE) -->
         <div class="header-cta-bar">
@@ -875,26 +783,23 @@
                         Tout est géré au même endroit : les acomptes se recalculent en direct et l'outil assemble en 1 clic un dossier contractuel complet prêt à signer (Cahier des charges, Devis, CGV, NDA).
                     </div>
                 </div>
-<!-- ANIMATION 1 : COMPARATEUR THEMIS (BOUTONS CORRIGÉS & AFFICHAGE 100% NET) -->
+
+                <!-- ANIMATION 1 : COMPARATEUR INTERACTIF THEMIS -->
                 <div class="themis-comparison-wrap" style="margin: 2rem 0; background: #071524; border: 1.5px solid rgba(197, 155, 67, 0.45); border-radius: 14px; overflow: hidden; position: relative;">
-                    
                     <div style="padding: 0.8rem 1.4rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
                         <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">⚡ Comparateur d'Efficacité Opérationnelle</span>
-                        
-                        <!-- 🎯 BOUTONS PARFAITEMENT ALIGNÉS AVEC LEUR RÔLE -->
                         <div style="display: flex; gap: 8px;">
-                            <button type="button" onclick="setSliderPercent(100)" style="background: rgba(239,68,68,0.25); border: 1px solid #ef4444; color: #fecaca; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
+                            <button type="button" onclick="setSliderPercent(100)" style="background: rgba(239,68,68,0.25); border: 1px solid #ef4444; color: #fecaca; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; cursor: pointer;">
                                 ❌ Voir Ancien Système (45 min)
                             </button>
-                            <button type="button" onclick="setSliderPercent(0)" style="background: rgba(4,120,87,0.35); border: 1px solid #10b981; color: #a7f3d0; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
+                            <button type="button" onclick="setSliderPercent(0)" style="background: rgba(4,120,87,0.35); border: 1px solid #10b981; color: #a7f3d0; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; cursor: pointer;">
                                 ✅ Voir THEMIS ERP (2 min 30)
                             </button>
                         </div>
                     </div>
 
                     <div class="comparison-container" id="themis-slider-box" style="position: relative; min-height: 310px; user-select: none; overflow: hidden; cursor: ew-resize;">
-                        
-                        <!-- 1. FACE VERTE (THEMIS : VISIBLE QUAND CURSEUR = 0%) -->
+                        <!-- 1. FACE VERTE (THEMIS : 2 MIN 30) -->
                         <div class="comp-side comp-after" style="width: 100%; height: 100%; background: linear-gradient(135deg, #05231a 0%, #0b382a 100%); color: white; padding: 2rem; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
                             <div style="display: inline-block; background: #047857; color: #a7f3d0; font-size: 0.72rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">AVEC THEMIS ERP • CONFORME 2026</div>
                             <h4 style="font-size: 1.8rem; font-weight: 900; color: #ffffff; margin-bottom: 0.4rem; line-height: 1.2;">⏱️ 2 minutes 30 chrono par dossier</h4>
@@ -908,7 +813,7 @@
                             </div>
                         </div>
 
-                        <!-- 2. FACE ROUGE (ANCIEN SYSTÈME : MASQUÉ TOTALEMENT QUAND CURSEUR = 0%) -->
+                        <!-- 2. FACE ROUGE (ANCIEN SYSTÈME : 45 MIN) -->
                         <div class="comp-side comp-before" id="themis-before-layer" style="position: absolute; top:0; left:0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e1b18 0%, #2e1015 100%); color: white; padding: 2rem; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); transition: clip-path 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
                             <div style="max-width: 680px;">
                                 <div style="display: inline-block; background: #991b1b; color: #fecaca; font-size: 0.72rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">MÉTHODE TRADITIONNELLE (PAPIER / EXCEL)</div>
@@ -926,10 +831,11 @@
 
                         <!-- 3. CURSEUR DE SÉPARATION -->
                         <div class="comp-handle" id="themis-slider-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: var(--accent); display: flex; align-items: center; justify-content: center; transform: translateX(-50%); box-shadow: 0 0 14px rgba(0,0,0,0.6); transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
-                            <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5); font-weight: 900; color: #090D16; font-size: 14px;">⟷</div>
+                            <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5); font-weight: 900; color: #091a2b; font-size: 14px;">⟷</div>
                         </div>
                     </div>
                 </div>
+
                 <div class="themis-actions">
                     <button class="btn btn-gold" onclick="openProjectModal('themis', 'demo')">
                         🚀 Tester en direct (Démo interactive intégrée)
@@ -958,34 +864,12 @@
             <section class="glossary-section">
                 <h3 class="glossary-title">📖 Glossaire : Comprendre les termes en toute simplicité</h3>
                 <div class="glossary-grid">
-                    <div class="glossary-card">
-                        <div class="glossary-term">eCRF (Cahier d'Observation)</div>
-                        <div class="glossary-def">Dossier médical numérique ultra-sécurisé utilisé pour recueillir et fiabiliser les données de santé des patients.</div>
-                    </div>
-                    <div class="glossary-card">
-                        <div class="glossary-term">Audit Trail</div>
-                        <div class="glossary-def">Journal de bord automatique et infalsifiable qui enregistre qui a modifié quoi pour une traçabilité médico-légale parfaite.</div>
-                    </div>
-                    <div class="glossary-card">
-                        <div class="glossary-term">Robot d'automatisation (RPA)</div>
-                        <div class="glossary-def">Programme qui effectue des tâches répétitives à la place d'un humain (comme lire un document et recopier les données sans erreur).</div>
-                    </div>
-                    <div class="glossary-card">
-                        <div class="glossary-term">PWA (Progressive Web App)</div>
-                        <div class="glossary-def">Application moderne capable de fonctionner sur smartphone même en plein milieu d'un stade sans aucune connexion internet.</div>
-                    </div>
-                    <div class="glossary-card">
-                        <div class="glossary-term">Kanban</div>
-                        <div class="glossary-def">Tableau visuel en colonnes permettant de faire avancer des dossiers étape par étape de manière très claire.</div>
-                    </div>
-                    <div class="glossary-card">
-                        <div class="glossary-term">Bouclier RGPD</div>
-                        <div class="glossary-def">Système de sécurité scannant automatiquement les documents pour empêcher la publication accidentelle de données personnelles.</div>
-                    </div>
-					<div class="glossary-card">
-                        <div class="glossary-term">Filtre linguistique (spaCy / NLP)</div>
-                        <div class="glossary-def">Programme capable de lire une phrase et de distinguer instantanément un nom de famille d'un mot ordinaire, pour repérer les identités réelles et les protéger.</div>
-                    </div>
+                    <div class="glossary-card"><div class="glossary-term">eCRF (Cahier d'Observation)</div><div class="glossary-def">Dossier médical numérique ultra-sécurisé utilisé pour recueillir et fiabiliser les données de santé des patients.</div></div>
+                    <div class="glossary-card"><div class="glossary-term">Audit Trail</div><div class="glossary-def">Journal de bord automatique et infalsifiable qui enregistre qui a modifié quoi pour une traçabilité médico-légale parfaite.</div></div>
+                    <div class="glossary-card"><div class="glossary-term">Robot d'automatisation (RPA)</div><div class="glossary-def">Programme qui effectue des tâches répétitives à la place d'un humain (comme lire un document et recopier les données sans erreur).</div></div>
+                    <div class="glossary-card"><div class="glossary-term">PWA (Progressive Web App)</div><div class="glossary-def">Application moderne capable de fonctionner sur smartphone même en plein milieu d'un stade sans aucune connexion internet.</div></div>
+                    <div class="glossary-card"><div class="glossary-term">Kanban</div><div class="glossary-def">Tableau visuel en colonnes permettant de faire avancer des dossiers étape par étape de manière très claire.</div></div>
+                    <div class="glossary-card"><div class="glossary-term">Bouclier RGPD</div><div class="glossary-def">Système de sécurité scannant automatiquement les documents pour empêcher la publication accidentelle de données personnelles.</div></div>
                 </div>
             </section>
 
@@ -1001,7 +885,8 @@
                     <h2>Comment travaillons-nous ensemble ?</h2>
                     <p>Une démarche partenariale pragmatique et transparente, pensée pour vous libérer du temps et sécuriser vos processus sans jargon informatique intimidant.</p>
                 </div>
-<!-- ANIMATION 3 : LE PIPELINE INTERACTIF EN 4 TEMPS -->
+
+                <!-- ANIMATION 3 : LE PIPELINE INTERACTIF EN 4 TEMPS -->
                 <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 16px; padding: 1.8rem; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
                     <div style="text-align: center; max-width: 700px; margin: 0 auto 1.8rem auto;">
                         <span style="background: #eff6ff; color: #1e40af; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">CYCLE DE PRODUCTION SOUVERAIN</span>
@@ -1009,7 +894,6 @@
                         <p style="font-size: 0.88rem; color: #64748b;">Cliquez sur chaque étape pour visualiser le livrable exact qui vous est remis :</p>
                     </div>
 
-                    <!-- Sélecteur à 4 boutons -->
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; margin-bottom: 1.5rem;">
                         <div class="method-step-btn active" id="mstep-1" onclick="showMethodDetail(1)" style="border: 2px solid var(--primary); border-radius: 10px; padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; background: #f8fafc;">
                             <div style="font-size: 1.3rem; margin-bottom: 3px;">📞</div>
@@ -1033,7 +917,6 @@
                         </div>
                     </div>
 
-                    <!-- Fiche interactive détaillée -->
                     <div id="method-detail-card" style="background: #f8fafc; border: 1.5px solid var(--primary); border-radius: 10px; padding: 1.4rem; line-height: 1.55;">
                         <h4 id="method-detail-title" style="color: var(--primary); font-size: 1.15rem; font-weight: 800; margin-bottom: 0.4rem;">
                             📞 Étape 1 : L'Échange Flash de Cadrage (5 Minutes Chrono)
@@ -1046,6 +929,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="process-timeline">
                     <div class="timeline-card">
                         <div class="timeline-number">1</div>
@@ -1097,7 +981,8 @@
                     <h2>Financez jusqu'à 80% de votre projet numérique</h2>
                     <p>Le dispositif <strong>Chèque TIC</strong> soutient les TPE, PME et micro-entreprises guadeloupéennes dans leur modernisation digitale avec une subvention pouvant atteindre <strong>jusqu'à 10 000 €</strong>.</p>
                 </div>
-<!-- ANIMATION 2 : SCANNER D'INVESTISSEMENTS RÉCENTS CHÈQUE TIC -->
+
+                <!-- ANIMATION 2 : SCANNER D'INVESTISSEMENTS RÉCENTS CHÈQUE TIC -->
                 <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; margin-bottom: 2.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.2rem;">
                         <div>
@@ -1111,7 +996,6 @@
                         </div>
                     </div>
 
-                    <!-- Cartes de factures interactives -->
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; margin-bottom: 1.2rem;">
                         <label class="scan-card" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice(this, 2500, 0.8)">
                             <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
@@ -1141,7 +1025,6 @@
                         </label>
                     </div>
 
-                    <!-- Bilan Financier -->
                     <div style="background: linear-gradient(135deg, #05231a 0%, #0f3d2e 100%); color: white; border-radius: 10px; padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div>
                             <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">Aide Régionale Rétroactive Détectée :</span>
@@ -1153,6 +1036,7 @@
                         </button>
                     </div>
                 </div>
+
                 <!-- SIMULATEUR INTERACTIF -->
                 <div class="simulator-card">
                     <div class="sim-section-title">
@@ -1160,18 +1044,9 @@
                     </div>
 
                     <div class="eligibility-checks">
-                        <label class="check-label">
-                            <input type="checkbox" id="check-loc" checked onchange="calculerChequeTic()">
-                            <span>Entreprise implantée en Guadeloupe</span>
-                        </label>
-                        <label class="check-label">
-                            <input type="checkbox" id="check-age" checked onchange="calculerChequeTic()">
-                            <span>Activité enregistrée depuis au moins 1 an</span>
-                        </label>
-                        <label class="check-label">
-                            <input type="checkbox" id="check-fisc" checked onchange="calculerChequeTic()">
-                            <span>Situation fiscale et sociale à jour</span>
-                        </label>
+                        <label class="check-label"><input type="checkbox" id="check-loc" checked onchange="calculerChequeTic()"><span>Entreprise implantée en Guadeloupe</span></label>
+                        <label class="check-label"><input type="checkbox" id="check-age" checked onchange="calculerChequeTic()"><span>Activité enregistrée depuis au moins 1 an</span></label>
+                        <label class="check-label"><input type="checkbox" id="check-fisc" checked onchange="calculerChequeTic()"><span>Situation fiscale et sociale à jour</span></label>
                     </div>
 
                     <div class="sim-section-title">
@@ -1182,40 +1057,30 @@
                         <div class="budget-input-box">
                             <h4>🌐 Présence Web & E-commerce</h4>
                             <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
-                            <p>Développement de site vitrine, boutique en ligne, hébergement sécurisé, certificat SSL et sauvegardes automatiques sur 1 an.</p>
+                            <p>Développement de site vitrine, boutique en ligne, hébergement sécurisé et certificats SSL.</p>
                             <input type="number" id="input-web" class="currency-input" placeholder="0 €" value="2500" min="0" oninput="calculerChequeTic()">
                         </div>
 
                         <div class="budget-input-box">
                             <h4>🛡️ Sécurité & Sauvegardes</h4>
                             <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
-                            <p>Audits de sécurité, antivirus professionnels, pare-feu, formation cybersécurité et solutions de backup externalisées.</p>
+                            <p>Audits de sécurité, antivirus professionnels, pare-feu et solutions de backup externalisées.</p>
                             <input type="number" id="input-secu" class="currency-input" placeholder="0 €" value="1500" min="0" oninput="calculerChequeTic()">
                         </div>
 
                         <div class="budget-input-box">
                             <h4>💻 Logiciels Métiers & Équipements</h4>
                             <span class="budget-rate-badge badge-40">Pris en charge à 40%</span>
-                            <p>Logiciels de gestion sur-mesure (THEMIS), pack bureautique, poste de travail PC/Mac, imprimante/scanner laser A4, et formation de prise en main.</p>
+                            <p>Logiciels de gestion sur-mesure (THEMIS), pack bureautique et ordinateurs professionnels.</p>
                             <input type="number" id="input-trans" class="currency-input" placeholder="0 €" value="5000" min="0" oninput="calculerChequeTic()">
                         </div>
                     </div>
 
-                    <!-- Résultat Algorithmique -->
                     <div class="sim-results-panel">
                         <div class="results-grid">
-                            <div class="result-metric">
-                                <h5>Budget Total du Projet</h5>
-                                <div class="value val-total" id="res-total">9 000 € HT</div>
-                            </div>
-                            <div class="result-metric">
-                                <h5>Subvention Chèque TIC Estimée</h5>
-                                <div class="value val-subvention" id="res-aide">5 200 €</div>
-                            </div>
-                            <div class="result-metric">
-                                <h5>Reste à Charge Entreprise</h5>
-                                <div class="value val-reste" id="res-reste">3 800 € HT</div>
-                            </div>
+                            <div class="result-metric"><h5>Budget Total du Projet</h5><div class="value val-total" id="res-total">9 000 € HT</div></div>
+                            <div class="result-metric"><h5>Subvention Chèque TIC Estimée</h5><div class="value val-subvention" id="res-aide">5 200 €</div></div>
+                            <div class="result-metric"><h5>Reste à Charge Entreprise</h5><div class="value val-reste" id="res-reste">3 800 € HT</div></div>
                         </div>
 
                         <div id="eligibility-alert" style="display: none; background: #fee2e2; border-left: 4px solid #ef4444; padding: 0.8rem 1.1rem; border-radius: 6px; font-size: 0.88rem; color: #991b1b; margin-bottom: 1rem;">
@@ -1223,7 +1088,7 @@
                         </div>
 
                         <div class="disclaimer-box">
-                            ℹ️ <strong>Cadre réglementaire & Transparence :</strong> Ce simulateur est fourni par Dhamusoft à titre <strong>strictement indicatif</strong> selon la Délibération n°CR-19-175. L'attribution définitive relève de la compétence exclusive de la Région Guadeloupe et de l'ASP.
+                            ℹ️ <strong>Cadre réglementaire :</strong> Simulateur indicatif selon la Délibération n°CR-19-175. L'attribution définitive relève de la Région Guadeloupe et de l'ASP.
                         </div>
                     </div>
                 </div>
@@ -1238,25 +1103,15 @@
                     </p>
 
                     <div class="accompagnement-steps">
-                        <div class="acc-step">
-                            <strong>1. Cadrage & Devis Éligibles</strong>
-                            <p>Nous calibrons les devis de vos outils (THEMIS, applications métiers, cybersécurité) pour correspondre exactement aux critères de la Région et du FEDER.</p>
-                        </div>
-                        <div class="acc-step">
-                            <strong>2. Rédaction de la Note d'Impact (3 pages)</strong>
-                            <p>Nous rédigeons intégralement la note technique démontrant comment l'outil modernise votre relation client, sécurise vos données et développe votre chiffre d'affaires.</p>
-                        </div>
-                        <div class="acc-step">
-                            <strong>3. Dépôt Administratif sous Mandat</strong>
-                            <p>Grâce au mandat de représentation, nous préparons et télétransmettons pour votre compte le dossier complet sur le portail régional. <em>(La subvention reste versée directement sur le RIB de votre entreprise).</em></p>
-                        </div>
+                        <div class="acc-step"><strong>1. Cadrage & Devis Éligibles</strong><p>Nous calibrons les devis de vos outils pour correspondre aux critères stricts de la Région.</p></div>
+                        <div class="acc-step"><strong>2. Rédaction de la Note d'Impact (3 pages)</strong><p>Nous rédigeons intégralement la note technique démontrant la rentabilité et la sécurité de votre projet.</p></div>
+                        <div class="acc-step"><strong>3. Dépôt Administratif sous Mandat</strong><p>Nous préparons et télétransmettons pour votre compte le dossier complet sur le portail régional.</p></div>
                     </div>
 
-                    <!-- BANNIÈRE FORMALISATION DU MANDAT -->
                     <div class="mandat-cta-banner">
                         <div>
                             <h4>📋 Lancez votre accompagnement Chèque TIC (En ligne ou lors de notre appel)</h4>
-                            <p>Validez votre bon d'accompagnement et signez votre mandat de représentation directement avec votre doigt ou la souris.</p>
+                            <p>Validez votre bon d'accompagnement sécurisé et signez votre mandat de représentation directement avec votre doigt ou la souris.</p>
                         </div>
                         <button class="btn btn-gold" onclick="openMandatModal()">
                             ✍️ Valider mon Accompagnement & Débloquer le Mandat
@@ -1272,49 +1127,20 @@
         <!-- ⚙️ ONGLET 4 : LAB D'INGÉNIERIE & ARCHITECTURE TECHNIQUE  -->
         <!-- ======================================================== -->
         <section id="view-lab" class="view-section">
-            
             <div class="lab-header">
                 <h2>Lab d'Ingénierie & Choix d'Architecture</h2>
                 <p>Découvrez les technologies, protocoles de sécurité et choix de conception sous le capot de chaque solution Dhamusoft.</p>
             </div>
 
             <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="pillar-icon">🖥️</div>
-                    <div class="pillar-title">Moteurs d'Interfaces & GUI</div>
-                    <div class="pillar-desc">
-                        Utilisation de <strong>Flet (Flutter Web)</strong> pour des interfaces SaaS réactives, <strong>PySide6 / Qt6</strong> pour la fluidité d'affichage clinique, et <strong>Tkinter / CustomTkinter</strong> pour des outils bureautiques légers et ultra-stables.
-                    </div>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon">🛡️</div>
-                    <div class="pillar-title">Sécurité & Traçabilité Médicale</div>
-                    <div class="pillar-desc">
-                        Persistance locale sécurisée sous <strong>SQLite</strong> et <strong>Dexie.js (IndexedDB)</strong>. Moteurs stricts d'<strong>Audit Trail horodaté</strong> [Valeur antérieure ➔ Nouvelle] et conformité RGPD intégrée.
-                    </div>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon">🤖</div>
-                    <div class="pillar-title">Automatisation & Robotisation RPA</div>
-                    <div class="pillar-desc">
-                        Pipelines d'ingestion automatisée avec <strong>Selenium</strong>, extraction de données multi-sources SIH et contrôle de bornes physiologiques interdisant les valeurs aberrantes.
-                    </div>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon">📊</div>
-                    <div class="pillar-title">Algorithmes & Moteurs Métiers</div>
-                    <div class="pillar-desc">
-                        Rapprochement d'identités à tolérance floue (matching phonétique et patronymes), génération de rapports vectoriels <strong>PDF print-ready</strong> et classeurs Excel avec graphiques natifs <strong>OpenPyXL</strong>.
-                    </div>
-                </div>
+                <div class="pillar-card"><div class="pillar-icon">🖥️</div><div class="pillar-title">Moteurs d'Interfaces & GUI</div><div class="pillar-desc">Flet (Flutter Web) pour des interfaces SaaS réactives, PySide6/Qt6 et CustomTkinter pour les logiciels bureaux stables.</div></div>
+                <div class="pillar-card"><div class="pillar-icon">🛡️</div><div class="pillar-title">Sécurité & Traçabilité Médicale</div><div class="pillar-desc">Persistance locale sous SQLite et Dexie.js (IndexedDB). Audit Trail horodaté et conformité RGPD intégrée.</div></div>
+                <div class="pillar-card"><div class="pillar-icon">🤖</div><div class="pillar-title">Automatisation & Robotisation RPA</div><div class="pillar-desc">Pipelines d'ingestion avec Selenium, extraction SIH hospitalière et contrôle automatique des bornes.</div></div>
+                <div class="pillar-card"><div class="pillar-icon">📊</div><div class="pillar-title">Algorithmes & Moteurs Métiers</div><div class="pillar-desc">Rapprochement d'identités flou (matching patronymes), génération de PDF vectoriels et classeurs Excel OpenPyXL.</div></div>
             </div>
 
             <h3 style="font-size: 1.5rem; color: var(--primary); font-weight: 800; margin-bottom: 1.5rem;">Spécifications Techniques par Application</h3>
             <div id="tech-spec-grid" class="tech-spec-grid"></div>
-
         </section>
 
     </main>
@@ -1323,10 +1149,7 @@
     <footer class="site-footer">
         <div class="container" style="padding: 0;">
             <p>© 2026 Dhamusoft — Tous droits réservés.</p>
-            <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">
-                Développé avec passion en Guadeloupe 🌴 | 
-                <a id="link-mentions" class="footer-link">Mentions Légales</a>
-            </p>
+            <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">Développé avec passion en Guadeloupe 🌴 | <a id="link-mentions" class="footer-link">Mentions Légales</a></p>
         </div>
     </footer>
 
@@ -1344,9 +1167,7 @@
         <button id="lightbox-close" aria-label="Fermer la vue plein écran">&times;</button>
         <button id="lightbox-prev" class="lightbox-nav-btn" aria-label="Image précédente">&#8249;</button>
         <button id="lightbox-next" class="lightbox-nav-btn" aria-label="Image suivante">&#8250;</button>
-        <div id="lightbox-img-wrap">
-            <img id="lightbox-img" src="" alt="Capture agrandie">
-        </div>
+        <div id="lightbox-img-wrap"><img id="lightbox-img" src="" alt="Capture agrandie"></div>
         <div id="lightbox-caption"></div>
     </div>
 
@@ -1354,197 +1175,25 @@
     <div id="toast">✅ Action réalisée avec succès !</div>
 
     <!-- Boutons flottants -->
-    <button id="btn-partager" class="share-btn" aria-label="Partager le portfolio">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.9-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.9 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg>
-    </button>
-    <a href="mailto:dhamusoft@gmail.com" class="email-btn" aria-label="Envoyer un email à Dhamusoft">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    </a>
-    <a href="https://wa.me/590690051144" class="whatsapp-btn" target="_blank" aria-label="Contactez Dhamusoft sur WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white">
-        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-3.1-5.3-1.4-8.2 1.4-11 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 .9-7-1.4-11-2.8-5.6-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-    </svg>
-</a>
+    <button id="btn-partager" class="share-btn" aria-label="Partager le portfolio"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.9-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.9 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg></button>
+    <a href="mailto:dhamusoft@gmail.com" class="email-btn" aria-label="Envoyer un email à Dhamusoft"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    <a href="https://wa.me/590690051144" class="whatsapp-btn" target="_blank" aria-label="Contactez Dhamusoft sur WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-3.1-5.3-1.4-8.2 1.4-11 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 .9-7-1.4-11-2.8-5.6-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
-    <!-- SCRIPT DU SITE -->
+    <div id="scroll-progress"></div>
+
+    <!-- SCRIPT DU SITE (100% FONCTIONNEL & SANS ERREUR) -->
     <script>
     (function() {
         const CALENDLY_LINK = "https://cal.com/andy-vaubien-4rxyqe";
 
         let projectsData = [
             {
-                "id": "axios",
-                "title": "AXIOS Extracteur Hospitalier",
-                "category": "Tkinter",
-                "badge": "Desktop / Automatisation & Extraction SIH",
-                "hospital": "Déploiement en milieu hospitalier",
-                "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers (EASILY, TD WEB, CYBERLAB) et passerelle d'injection vers la suite PRAXIS.",
-                "enjeu": "Face à des méthodes de saisie manuelles très longues, le service a fini par accumuler un retard important dans le traitement des dossiers patients. L'enjeu d'AXIOS est d'apporter une vraie modernisation pour rattraper tout ce retard. En automatisant la récupération des données directement dans les logiciels de l'hôpital pour les envoyer au bon endroit, ce projet offre un gain de temps énorme.",
-                "tags": ["Python", "Tkinter", "Selenium", "RPA", "Santé", "Extraction PDF"],
-                "type": "desktop",
-                "download_url": "#",
-                "features": [
-                    "Connecteur multi-sources SIH : extraction automatisée depuis EASILY, TD WEB et CYBERLAB",
-                    "SAS de validation qualité avec scoring de fiabilité (indices de confiance vert/orange/rouge)",
-                    "Contrôle des bornes physiologiques interdisant les aberrations lors des corrections manuelles",
-                    "Passerelle d'exportation technique JSON avec horodatage d'audit pour injection directe eCRF"
-                ],
-                "videos": [
-                    {
-                        "url": "assets/previews/axios.mp4",
-                        "focus": "🤖 Remplissage automatique des grilles depuis un PDF médical, badges de confiance colorés s'allumant en temps réel et validation assistée anti-aberrations."
-                    }
-                ],
-                "screenshots": [
-                    { "url": "assets/images/axios_sas.png", "caption": "SAS de contrôle qualité et indices de confiance de l'extraction" }
-                ],
-                "roadmap": [
-                    { "title": "Pont bidirectionnel PRAXIS-AXIOS", "desc": "Lecture automatique du patient actif dans CLINIQUE.db pour pré-remplir le pivot d'identité.", "status": "in_progress" }
-                ]
-            },
-            {
-                "id": "iknos",
-                "title": "IKNOS v1.1",
-                "category": "PySide6",
-                "badge": "Desktop / Coordination Pré-Greffe Rénale",
-                "hospital": "Déploiement en milieu hospitalier",
-                "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM, score psychosocial SMPG, contrôle des péremptions et conformité RGPD avancée.",
-                "enjeu": "Le parcours d'un patient avant qu'il ne puisse être inscrit sur liste d'attente est très long. Il demande de coordonner de nombreux examens qui ont tous des dates d'expiration strictes. Face au risque de voir un dossier bloqué simplement à cause d'un examen périmé, l'enjeu était de créer un outil visuel simple alertant l'équipe avant péremption.",
-                "tags": ["Python", "PySide6", "Qt6", "SQLite", "Santé", "RGPD"],
-                "type": "desktop",
-                "download_url": "#",
-                "features": [
-                    "Pipeline clinique Kanban en 5 stades avec transition automatisée des patients selon l'avancement effectif du dossier",
-                    "Contrôle dynamique des péremptions d'examens médicaux avec alertes colorimétriques de validité",
-                    "Module d'évaluation psychosociale avec calcul du score SMPG sur 100 points et orientation ETP",
-                    "Studio de courriers médicaux et convocations avec fusion de balises dynamiques et export PDF"
-                ],
-                "videos": [
-                    {
-                        "url": "assets/previews/iknos.mp4",
-                        "focus": "🗂️ Progression automatisée des cartes sur le Kanban 5 stades selon les jalons cliniques validés, alertes visuelles pulsantes sur examens périmés et compilation PDF instantanée."
-                    }
-                ],
-                "screenshots": [
-                    { "url": "assets/images/iknos_kanban.png", "caption": "Pipeline Kanban de coordination pré-greffe" },
-                    { "url": "assets/images/iknos_smpg.png", "caption": "Calculateur d'évaluation psychosociale SMPG" }
-                ]
-            },
-            {
-                "id": "delphi",
-                "title": "DELPHI V5.6",
-                "category": "Tkinter",
-                "badge": "Desktop / Décisionnel & Épidémiologie Greffe",
-                "hospital": "Déploiement en milieu hospitalier",
-                "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL (Agence de la Biomédecine). Analyse croisée des listes d'attente, des délais d'accès et reporting Excel/PDF automatisé.",
-                "enjeu": "Utiliser des fichiers de statistiques nationales est souvent un calvaire : les données sont brutes, difficiles à lire, et remplies de petites erreurs d'identités (fautes de frappe, changement de nom après mariage). L'enjeu de DELPHI était de concevoir un moteur intelligent capable de nettoyer et de corriger automatiquement ces erreurs pour les transformer en graphiques clairs.",
-                "tags": ["Python", "Tkinter", "Pandas", "OpenPyXL", "Matplotlib", "Santé", "CRISTAL"],
-                "type": "desktop",
-                "download_url": "#",
-                "features": [
-                    "Moteur d'analyse bicéphale : Mode réconciliation 'Liste d'attente' et Mode enrichissement 'Cohorte des greffés'",
-                    "Algorithme de réconciliation flou : matching NEFG et dédoublonnage phonétique des patronymes",
-                    "Analyses épidémiologiques avancées : délais d'attente, fardeau de la dialyse avant greffe, néphropathies et survie",
-                    "Module de reporting bureautique automatique : rapports vectoriels multipages PDF et classeurs Excel avec graphiques natifs"
-                ],
-                "videos": [
-                    {
-                        "url": "assets/previews/delphi.mp4",
-                        "focus": "📊 Rapprochement flou d'identités en temps réel, génération dynamique d'histogrammes et camemberts interactifs, puis ouverture d'un classeur Excel avec graphiques natifs."
-                    }
-                ],
-                "screenshots": [
-                    { "url": "assets/images/delphi_dashboard.png", "caption": "Tableau de bord statistique interactif Tkinter & Matplotlib" },
-                    { "url": "assets/images/delphi_excel.png", "caption": "Export Excel automatisé avec graphiques natifs OpenPyXL" }
-                ]
-            },
-            {
-                "id": "coachmaster",
-                "title": "Coachmaster V6.0",
-                "category": "HTML",
-                "badge": "Web App PWA / Sport & Pédagogie",
-                "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif, rotations de plateaux et suivi d'assiduité hors-ligne.",
-                "enjeu": "Dans le football amateur, l'encadrement des jeunes repose sur des éducateurs bénévoles dévoués mais souvent sans formation officielle, qui doivent pallier les absences ou changements de coachs en cours de saison. L'enjeu de Coachmaster est d'offrir un assistant clé en main avec séances FFF prêtes à l'emploi permettant à n'importe quel parent d'animer une séance structurée et équitable au pied levé.",
-                "tags": ["HTML5", "JavaScript", "IndexedDB", "Dexie.js", "PWA", "Sport Tech"],
-                "type": "web_standalone",
-                "download_url": "apps/coachmaster/index.html",
-                "features": [
-                    "Architecture PWA 100% hors-ligne avec base locale IndexedDB (Dexie.js)",
-                    "Générateur de séances articulé sur les référentiels DTN FFF, FUNino et Coerver Coaching",
-                    "Double tableau tactique Canvas interactif : mode création statique et tableau blanc animé",
-                    "Chronomètre d'entraînement avec alerte haptique (vibreur) et sifflet multi-tons haute fréquence"
-                ],
-                "videos": [
-                    {
-                        "url": "assets/previews/coachmaster.mp4",
-                        "focus": "⚽ Dessin vectoriel tactile en direct (flèches, passes, courses), manipulation fluide des joueurs sur le terrain et chronomètre d'entraînement haptique animé."
-                    }
-                ],
-                "screenshots": [
-                    { "url": "assets/images/coachmaster_cover.png", "caption": "Interface d'entraînement et tableau tactique Canvas" }
-                ]
-            },
-            {
-                "id": "optitime",
-                "title": "OptiTime V13.6",
-                "category": "Flet",
-                "badge": "Web App & UI / Flet & Gamification",
-                "description": "Assistant de gestion du temps gamifié intégrant un compagnon virtuel (Optigotchi), un suivi d'activité et des micro-pauses ergonomiques pour la santé au travail.",
-                "enjeu": "Rester devant un écran toute la journée finit toujours par créer de la fatigue, des douleurs physiques et une perte de concentration. OptiTime transforme la santé au travail en un jeu positif en motivant l'utilisateur à prendre de vraies pauses grâce à l'évolution d'un petit compagnon virtuel.",
-                "tags": ["Python", "Flet", "Flutter Web", "Gamification", "SQLite"],
-                "type": "web_standalone",
-                "download_url": "https://optitime-production.up.railway.app",
-                "features": [
-                    "Architecture réactive Flet (moteur Flutter Web) avec interface sombre néomorphe ultra-fluide",
-                    "Chronomètre de session dynamique avec styles UI animés en CSS/SVG pur",
-                    "Moteur de gamification (Optigotchi) : gain d'XP, système de trophées et inventaire",
-                    "Catalogue de pauses actives (cohérence cardiaque, ergonomie) récompensées en énergie virtuelle"
-                ],
-                "videos": [
-                    {
-                        "url": "assets/previews/optitime.mp4",
-                        "focus": "✨ Onde ECG pulsante et auras néomorphiques animées en pur CSS, prise de niveau de l'Optigotchi avec effets visuels et bascule de thème UI en direct."
-                    }
-                ],
-                "screenshots": [
-                    { "url": "assets/images/optitime_main.png", "caption": "Chronomètre animé et tableau de bord Optigotchi" }
-                ]
-            },
-            {
-                "id": "themis",
-                "title": "THEMIS",
-                "category": "Flet",
-                "badge": "Web App / Gestion Commerciale & ERP (Flet)",
-                "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi du Chiffre d'Affaires (CA) et génération de dossiers contractuels complets.",
-                "enjeu": "Lorsqu'on lance une entreprise, la gestion administrative devient vite un casse-tête entre différents logiciels. L'enjeu de THEMIS est de regrouper toute la gestion commerciale dans un seul et même outil simple (devis, acomptes, factures, contrats prêts à signer).",
-                "tags": ["Python", "Flet", "Flutter Web", "CRM", "Facturation"],
-                "type": "web_standalone",
-                "download_url": "https://themis-flet-production.up.railway.app",
-                "features": [
-                    "Application bureautique lourde développée avec le framework Flet (plus de 3 200 lignes de code)",
-                    "Tableau de bord financier interactif : suivi du Chiffre d'Affaires (CA), devis actifs, factures émises et encaissements",
-                    "Éditeur de devis sur-mesure intégrant la rédaction dynamique du cahier des charges fonctionnel",
-                    "Système de facturation complet : calcul automatisé des acomptes, des soldes et émission d'avoirs",
-                    "Moteur de rendu pour l'édition de documents légaux prêts à l'impression"
-                ],
-                "videos": [
-                    {
-                        "url": "assets/previews/themis.mp4",
-                        "focus": "💼 Recalcul en direct des acomptes et impact immédiat sur le Chiffre d'Affaires (CA) global lors de l'édition, suivi des KPIs et rendu WYSIWYG d'un contrat commercial PDF complet."
-                    }
-                ],
-                "screenshots": [
-                    { "url": "assets/images/themis_dashboard.png", "caption": "Tableau de bord de gestion commerciale et suivi du Chiffre d'Affaires" }
-                ]
-            },
-			
-			{
                 "id": "webstudio",
                 "title": "Dhamusoft Web & E-Commerce",
                 "category": "HTML",
                 "badge": "Web & E-Commerce / Sites Vitrines & Portails (Éligible 80% Chèque TIC)",
                 "description": "Conception de sites internet vitrines ultra-rapides, boutiques en ligne e-commerce sécurisées et portails clients interactifs. Hébergement souverain, responsive mobile et conformité RGPD.",
-                "enjeu": "Pour une entreprise en Guadeloupe, avoir un site lent, non adapté aux smartphones ou sans visibilité fait perdre des dizaines de clients chaque mois. L'enjeu de notre pôle Web est de concevoir des sites vitrines et marchands percutants, avec simulateurs intégrés, formulaires de conversion et éligibilité à 80% de prise en charge par la Région.",
+                "enjeu": "Pour une entreprise en Guadeloupe, avoir un site lent ou inadapté aux smartphones fait perdre des dizaines de clients chaque mois. L'enjeu de notre pôle Web est de concevoir des sites vitrines et marchands percutants, avec simulateurs intégrés, formulaires de conversion et éligibilité à 80% de prise en charge par la Région.",
                 "tags": ["HTML5", "CSS3", "JavaScript", "E-Commerce", "Stripe", "Responsive", "Chèque TIC 80%"],
                 "type": "web_standalone",
                 "download_url": "https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/",
@@ -1555,24 +1204,166 @@
                     "Hébergement européen souverain (OVH), certificat SSL, sauvegardes régulières et conformité RGPD intégrée",
                     "Éligibilité Chèque TIC : Financement possible jusqu'à 80% par la Région Guadeloupe et le FEDER"
                 ],
+                "videos": [],
+                "screenshots": []
+            },
+            {
+                "id": "axios",
+                "title": "AXIOS Extracteur Hospitalier",
+                "category": "Tkinter",
+                "badge": "Desktop / Automatisation & Extraction SIH",
+                "hospital": "Déploiement en milieu hospitalier",
+                "description": "Robot d'extraction et SAS de contrôle qualité pour SIH hospitaliers (EASILY, TD WEB, CYBERLAB) et passerelle d'injection vers la suite PRAXIS.",
+                "enjeu": "Face à des méthodes de saisie manuelles très longues, le service a fini par accumuler un retard important dans le traitement des dossiers patients. L'enjeu d'AXIOS est d'apporter une vraie modernisation pour rattraper tout ce retard.",
+                "tags": ["Python", "Tkinter", "Selenium", "RPA", "Santé", "Extraction PDF"],
+                "type": "desktop",
+                "download_url": "#",
+                "features": [
+                    "Connecteur multi-sources SIH : extraction automatisée depuis EASILY, TD WEB et CYBERLAB",
+                    "SAS de validation qualité avec scoring de fiabilité (indices de confiance vert/orange/rouge)",
+                    "Contrôle des bornes physiologiques interdisant les aberrations lors des corrections manuelles",
+                    "Passerelle d'exportation technique JSON avec horodatage d'audit pour injection directe eCRF"
+                ],
                 "videos": [
-                    {
-                        "url": "assets/previews/themis.mp4",
-                        "focus": "🌐 Démonstration d'une interface web réactive : navigation par onglets instantanée, simulateur de calcul en temps réel et formulaires de conversion sécurisés."
-                    }
+                    { "url": "assets/previews/axios.mp4", "focus": "🤖 Remplissage automatique des grilles depuis un PDF médical, badges de confiance colorés s'allumant en temps réel et validation assistée anti-aberrations." }
                 ],
                 "screenshots": [
-                    { "url": "assets/images/themis_dashboard.png", "caption": "Exemple d'architecture web moderne Dhamusoft avec simulateur interactif et formulaires dématérialisés" }
-                ]
+                    { "url": "assets/images/axios_sas.png", "caption": "SAS de contrôle qualité et indices de confiance de l'extraction" }
+                ],
+                "roadmap": []
             },
-			
+            {
+                "id": "iknos",
+                "title": "IKNOS v1.1",
+                "category": "PySide6",
+                "badge": "Desktop / Coordination Pré-Greffe Rénale",
+                "hospital": "Déploiement en milieu hospitalier",
+                "description": "Plateforme hospitalière de coordination pré-greffe rénale : pipeline Kanban d'inscription ABM, score psychosocial SMPG, contrôle des péremptions et conformité RGPD avancée.",
+                "enjeu": "Le parcours d'un patient avant qu'il ne puisse être inscrit sur liste d'attente est très long. Il demande de coordonner de nombreux examens qui ont tous des dates d'expiration strictes.",
+                "tags": ["Python", "PySide6", "Qt6", "SQLite", "Santé", "RGPD"],
+                "type": "desktop",
+                "download_url": "#",
+                "features": [
+                    "Pipeline clinique Kanban en 5 stades avec transition automatisée des patients selon l'avancement effectif du dossier",
+                    "Contrôle dynamique des péremptions d'examens médicaux avec alertes colorimétriques de validité",
+                    "Module d'évaluation psychosociale avec calcul du score SMPG sur 100 points et orientation ETP",
+                    "Studio de courriers médicaux et convocations avec fusion de balises dynamiques et export PDF"
+                ],
+                "videos": [
+                    { "url": "assets/previews/iknos.mp4", "focus": "🗂️ Progression automatisée des cartes sur le Kanban 5 stades selon les jalons cliniques validés, alertes visuelles pulsantes sur examens périmés et compilation PDF instantanée." }
+                ],
+                "screenshots": [
+                    { "url": "assets/images/iknos_kanban.png", "caption": "Pipeline Kanban de coordination pré-greffe" },
+                    { "url": "assets/images/iknos_smpg.png", "caption": "Calculateur d'évaluation psychosociale SMPG" }
+                ],
+                "roadmap": []
+            },
+            {
+                "id": "delphi",
+                "title": "DELPHI V5.6",
+                "category": "Tkinter",
+                "badge": "Desktop / Décisionnel & Épidémiologie Greffe",
+                "hospital": "Déploiement en milieu hospitalier",
+                "description": "Moteur de réconciliation et plateforme d'analyse épidémiologique pour les données du registre national CRISTAL (Agence de la Biomédecine).",
+                "enjeu": "Utiliser des fichiers de statistiques nationales est souvent un calvaire : les données sont brutes, difficiles à lire, et remplies de petites erreurs d'identités. L'enjeu de DELPHI était de concevoir un moteur intelligent capable de nettoyer et de corriger automatiquement ces erreurs.",
+                "tags": ["Python", "Tkinter", "Pandas", "OpenPyXL", "Matplotlib", "Santé", "CRISTAL"],
+                "type": "desktop",
+                "download_url": "#",
+                "features": [
+                    "Moteur d'analyse bicéphale : Mode réconciliation 'Liste d'attente' et Mode enrichissement 'Cohorte des greffés'",
+                    "Algorithme de réconciliation flou : matching NEFG et dédoublonnage phonétique des patronymes",
+                    "Analyses épidémiologiques avancées : délais d'attente, fardeau de la dialyse avant greffe, néphropathies et survie",
+                    "Module de reporting bureautique automatique : rapports vectoriels multipages PDF et classeurs Excel avec graphiques natifs"
+                ],
+                "videos": [
+                    { "url": "assets/previews/delphi.mp4", "focus": "📊 Rapprochement flou d'identités en temps réel, génération dynamique d'histogrammes et camemberts interactifs, puis ouverture d'un classeur Excel avec graphiques natifs." }
+                ],
+                "screenshots": [
+                    { "url": "assets/images/delphi_dashboard.png", "caption": "Tableau de bord statistique interactif Tkinter & Matplotlib" },
+                    { "url": "assets/images/delphi_excel.png", "caption": "Export Excel automatisé avec graphiques natifs OpenPyXL" }
+                ],
+                "roadmap": []
+            },
+            {
+                "id": "coachmaster",
+                "title": "Coachmaster V6.0",
+                "category": "HTML",
+                "badge": "Web App PWA / Sport & Pédagogie",
+                "description": "Application web progressive pour éducateurs de football : générateur de séances 90 min, tableau tactique interactif, rotations de plateaux et suivi d'assiduité hors-ligne.",
+                "enjeu": "Dans le football amateur, l'encadrement des jeunes repose sur des éducateurs bénévoles dévoués mais souvent sans formation officielle. L'enjeu de Coachmaster est d'offrir un assistant clé en main avec séances FFF prêtes à l'emploi.",
+                "tags": ["HTML5", "JavaScript", "IndexedDB", "Dexie.js", "PWA", "Sport Tech"],
+                "type": "web_standalone",
+                "download_url": "apps/coachmaster/index.html",
+                "features": [
+                    "Architecture PWA 100% hors-ligne avec base locale IndexedDB (Dexie.js)",
+                    "Générateur de séances articulé sur les référentiels DTN FFF, FUNino et Coerver Coaching",
+                    "Double tableau tactique Canvas interactif : mode création statique et tableau blanc animé",
+                    "Chronomètre d'entraînement avec alerte haptique (vibreur) et sifflet multi-tons haute fréquence"
+                ],
+                "videos": [
+                    { "url": "assets/previews/coachmaster.mp4", "focus": "⚽ Dessin vectoriel tactile en direct (flèches, passes, courses), manipulation fluide des joueurs sur le terrain et chronomètre d'entraînement haptique animé." }
+                ],
+                "screenshots": [
+                    { "url": "assets/images/coachmaster_cover.png", "caption": "Interface d'entraînement et tableau tactique Canvas" }
+                ],
+                "roadmap": []
+            },
+            {
+                "id": "optitime",
+                "title": "OptiTime V13.6",
+                "category": "Flet",
+                "badge": "Web App & UI / Flet & Gamification",
+                "description": "Assistant de gestion du temps gamifié intégrant un compagnon virtuel (Optigotchi), un suivi d'activité et des micro-pauses ergonomiques pour la santé au travail.",
+                "enjeu": "Rester devant un écran toute la journée finit toujours par créer de la fatigue et une perte de concentration. OptiTime transforme la santé au travail en un jeu positif.",
+                "tags": ["Python", "Flet", "Flutter Web", "Gamification", "SQLite"],
+                "type": "web_standalone",
+                "download_url": "https://optitime-production.up.railway.app",
+                "features": [
+                    "Architecture réactive Flet (moteur Flutter Web) avec interface sombre néomorphe ultra-fluide",
+                    "Chronomètre de session dynamique avec styles UI animés en CSS/SVG pur",
+                    "Moteur de gamification (Optigotchi) : gain d'XP, système de trophées et inventaire",
+                    "Catalogue de pauses actives (cohérence cardiaque, ergonomie) récompensées en énergie virtuelle"
+                ],
+                "videos": [
+                    { "url": "assets/previews/optitime.mp4", "focus": "✨ Onde ECG pulsante et auras néomorphiques animées en pur CSS, prise de niveau de l'Optigotchi avec effets visuels et bascule de thème UI en direct." }
+                ],
+                "screenshots": [
+                    { "url": "assets/images/optitime_main.png", "caption": "Chronomètre animé et tableau de bord Optigotchi" }
+                ],
+                "roadmap": []
+            },
+            {
+                "id": "themis",
+                "title": "THEMIS",
+                "category": "Flet",
+                "badge": "Web App / Gestion Commerciale & ERP (Flet)",
+                "description": "Plateforme centralisée de gestion commerciale : création de devis, facturation automatisée, suivi du Chiffre d'Affaires (CA) et génération de dossiers contractuels complets.",
+                "enjeu": "Lorsqu'on lance une entreprise, la gestion administrative devient vite un casse-tête entre différents logiciels. L'enjeu de THEMIS est de regrouper toute la gestion commerciale dans un seul et même outil simple.",
+                "tags": ["Python", "Flet", "Flutter Web", "CRM", "Facturation"],
+                "type": "web_standalone",
+                "download_url": "https://themis-flet-production.up.railway.app",
+                "features": [
+                    "Application bureautique développée avec Flet",
+                    "Tableau de bord financier interactif : suivi du Chiffre d'Affaires, devis actifs, factures et encaissements",
+                    "Éditeur de devis sur-mesure intégrant la rédaction dynamique du cahier des charges",
+                    "Système de facturation complet : calcul automatisé des acomptes et émission d'avoirs",
+                    "Moteur d'inaltérabilité conforme Art. 286 du CGI et export Factur-X 2026"
+                ],
+                "videos": [
+                    { "url": "assets/previews/themis.mp4", "focus": "💼 Recalcul en direct des acomptes et impact immédiat sur le Chiffre d'Affaires (CA) global lors de l'édition, suivi des KPIs et rendu d'un contrat commercial PDF complet." }
+                ],
+                "screenshots": [
+                    { "url": "assets/images/themis_dashboard.png", "caption": "Tableau de bord de gestion commerciale et suivi du Chiffre d'Affaires" }
+                ],
+                "roadmap": []
+            },
             {
                 "id": "ephor",
                 "title": "EPHOR Superviseur",
                 "category": "CustomTkinter",
                 "badge": "Desktop / DevOps & Versioning",
                 "description": "Interface graphique de supervision Git et de sauvegarde de code automatisée avec mode 'fantôme' (auto-commit) et gestion visuelle des rollbacks.",
-                "enjeu": "Créer des logiciels avec l'aide de l'IA permet d'aller beaucoup plus vite, mais expose au risque de casser du code fonctionnel. L'enjeu d'EPHOR est d'offrir un vrai filet de sécurité en sauvegardant automatiquement le code après 30s d'inactivité, avec retour en arrière immédiat en un clic.",
+                "enjeu": "Créer des logiciels avec l'aide de l'IA expose au risque de casser du code fonctionnel. L'enjeu d'EPHOR est d'offrir un vrai filet de sécurité en sauvegardant automatiquement le code après 30s d'inactivité.",
                 "tags": ["Python", "CustomTkinter", "Git", "DevOps", "Threading"],
                 "type": "desktop",
                 "download_url": "#",
@@ -1583,14 +1374,12 @@
                     "Système de Rollback destructif sécurisé pour annuler instantanément des développements instables"
                 ],
                 "videos": [
-                    {
-                        "url": "assets/previews/ephor.mp4",
-                        "focus": "🛡️ Visionneuse de Diff bicolore (ajouts verts / suppressions rouges), compte à rebours du Mode Fantôme et exécution spectaculaire d'un Rollback Git destructif."
-                    }
+                    { "url": "assets/previews/ephor.mp4", "focus": "🛡️ Visionneuse de Diff bicolore (ajouts verts / suppressions rouges), compte à rebours du Mode Fantôme et exécution spectaculaire d'un Rollback Git destructif." }
                 ],
                 "screenshots": [
                     { "url": "assets/images/ephor_dark.png", "caption": "Console DevOps sombre avec visualiseur de Diff Git" }
-                ]
+                ],
+                "roadmap": []
             },
             {
                 "id": "praxis",
@@ -1599,79 +1388,49 @@
                 "badge": "Desktop / Suite eCRF & Greffe Rénale",
                 "hospital": "Déploiement en milieu hospitalier",
                 "description": "Suite clinique bureautique et moteur universel de formulaires pour le suivi longitudinal des transplantés rénaux (eCRF, audit trail, matrice sur 30 ans et passerelle CRISTAL).",
-                "enjeu": "Lors du parcours d'une greffe, les informations du patient (avant, pendant et après l'opération, bilans biologiques) sont éparpillées sur de multiples dossiers et logiciels. L'enjeu majeur de PRAXIS était d'harmoniser toutes ces données sur une seule interface sécurisée avant leur saisie officielle, avec des verrous automatiques interdisant les erreurs humaines.",
+                "enjeu": "Lors du parcours d'une greffe, les informations du patient sont éparpillées sur de multiples dossiers et logiciels. L'enjeu majeur de PRAXIS était d'harmoniser toutes ces données sur une seule interface sécurisée.",
                 "tags": ["Python", "Tkinter", "SQLite", "Santé", "Audit Trail", "eCRF"],
                 "type": "desktop",
                 "download_url": "#",
                 "features": [
                     "Moteur universel d'eCRF dynamique piloté par JSON (Socle J0 et suivis longitudinaux M3 à Y30)",
-                    "Système expert de validation clinique : contrôle des bornes physiologiques en direct et calcul automatique (clairance, ischémie)",
+                    "Système expert de validation clinique : contrôle des bornes physiologiques en direct et calcul automatique",
                     "Console de Pilotage Global : Matrice des jalons dynamique (recul 30 ans) et Kanban de production",
                     "Audit Trail médico-légal strict horodaté traçant chaque champ modifié [Valeur antérieure ➔ Nouvelle]",
                     "Générateur de rapports HTML print-ready autonomes et coffre-fort d'archivage physique ZIP mensuel"
                 ],
                 "videos": [
-                    {
-                        "url": "assets/previews/Borne Bio Praxis.mp4",
-                        "focus": "⚡ Contrôle dynamique des bornes physiologiques en direct : alertes colorimétriques vert/orange/rouge."
-                    },
-                    {
-                        "url": "assets/previews/Douanier Date Praxis.mp4",
-                        "focus": "🛡️ Douanier Chronologique : blocage strict et immédiat des incohérences de dates de suivi."
-                    }
+                    { "url": "assets/previews/Borne Bio Praxis.mp4", "focus": "⚡ Contrôle dynamique des bornes physiologiques en direct : alertes colorimétriques vert/orange/rouge." },
+                    { "url": "assets/previews/Douanier Date Praxis.mp4", "focus": "🛡️ Douanier Chronologique : blocage strict et immédiat des incohérences de dates de suivi." }
                 ],
                 "screenshots": [
-                    { "url": "assets/images/Dashboard_PRAXIS.png", "caption": "Tableau de bord général de la suite clinique PRAXIS et suivi d'activité." },
-                    { "url": "assets/images/Fiche patient_PRAXIS.png", "caption": "Interface de consultation d'un dossier clinique patient comprenant l'historique des événements et mémo clinique." },
-                    { "url": "assets/images/Formulaire Socle_PRAXIS.png", "caption": "Interface du module de consultation pour l'identification d'un patient dans l'application de suivi de greffe." },
-                    { "url": "assets/images/rapport HTML_PRAXIS.png", "caption": "Fenêtre du centre d'impression et de génération des rapports cliniques autonomes." },
-                    { "url": "assets/images/Vue_Pilotage_PRAXIS.png", "caption": "Tableau de bord de gestion et de suivi des dossiers de transplantation par patient." },
-                    { "url": "assets/images/Pilotage global_PRAXIS.png", "caption": "Tableau de bord de suivi d'activité présentant les indicateurs globaux de saisie et de conformité." },
-                    { "url": "assets/images/import Backlog_PRAXIS.png", "caption": "Interface d'importation et de traitement des données patients depuis un fichier Excel vers la base SQLite." },
-                    { "url": "assets/images/requete_PRAXIS.png", "caption": "Requêteur d'extraction multicritère de cohortes pour la recherche clinique." },
-                    { "url": "assets/images/Mode admin_PRAXIS.png", "caption": "Console d'administration : Paramétrage des métadonnées et sécurité des accès." },
-                    { "url": "assets/images/stats_PRAXIS.png", "caption": "Module de statistiques avancées et indicateurs cliniques transversaux." },
-                    { "url": "assets/images/Jalons_PRAXIS.png", "caption": "Matrice temporelle des jalons de suivi greffé (recul longitudinal jusqu'à 30 ans)." }
-                ]
+                    { "url": "assets/images/Dashboard_PRAXIS.png", "caption": "Tableau de bord général de la suite clinique PRAXIS et suivi d'activité." }
+                ],
+                "roadmap": []
             },
             {
                 "id": "taxis",
                 "title": "TAXIS Studio Pro",
                 "category": "CustomTkinter",
                 "badge": "Desktop / Suite DevOps, Médias & Sécurité",
-                "description": "Tour de contrôle interne d'administration logicielle : gestion de contenu en glisser-déposer, double bouclier de sécurité RGPD local (Tesseract OCR + filtre linguistique spaCy), compression WebP automatique, rédaction de légendes assistée par IA (Gemini) et publication Git en 1 clic.",
-                "enjeu": "Administrer et enrichir une vitrine logicielle de niveau professionnel est un exercice complexe : il faut éviter toute fuite de données confidentielles (RGPD), optimiser le poids des images pour ne pas ralentir le site, rédiger des descriptions claires et gérer des commandes informatiques complexes (Git). L'enjeu de TAXIS Studio était de concevoir une tour de contrôle interne 'tout-en-un' : sécuriser chaque écran par un double scan local (lecture de texte et analyse des noms), optimiser automatiquement les visuels en WebP, faire rédiger les légendes par l'IA Gemini et publier les mises à jour en ligne en un clic sans toucher au code.",
-                "tags": [
-                    "Python",
-                    "CustomTkinter",
-                    "OCR Tesseract",
-                    "spaCy (NLP)",
-                    "Gemini IA",
-                    "DevOps & Git",
-                    "RGPD",
-                    "JSON"
-                ],
+                "description": "Tour de contrôle interne d'administration logicielle : gestion de contenu en glisser-déposer, double bouclier de sécurité RGPD local, masquage WebP et publication Git en 1 clic.",
+                "enjeu": "Administrer et enrichir une vitrine logicielle sans fuite de données confidentielles (RGPD) et sans lenteur d'images.",
+                "tags": ["Python", "CustomTkinter", "OCR Tesseract", "spaCy (NLP)", "Gemini IA", "DevOps & Git", "RGPD"],
                 "type": "desktop",
                 "download_url": "#",
                 "features": [
                     "Console d'administration moderne Drag & Drop développée avec CustomTkinter et TkinterDnD",
-                    "Premier rideau de sécurité local : lecture optique par Tesseract OCR (détection de numéros de sécurité sociale, IPP, dates)",
+                    "Premier rideau de sécurité local : lecture optique par Tesseract OCR",
                     "Deuxième rideau de sécurité local : filtre linguistique spaCy (NLP) identifiant automatiquement les vrais patronymes",
-                    "Module interactif de masquage (caviarage/floutage) manuel et conversion/compression automatique au format WebP",
-                    "Copilote de rédaction assisté par IA (Google Gemini) pour générer en un clic des légendes percutantes et homogènes",
-                    "Moteur DevOps intégré : mise à jour instantanée de la base de données (JSON) et publication Git en production en un clic"
+                    "Module interactif de masquage manuel et compression automatique au format WebP",
+                    "Copilote de rédaction assisté par IA (Google Gemini) pour générer des légendes homogènes",
+                    "Moteur DevOps intégré : mise à jour instantanée de la base de données (JSON) et publication Git en 1 clic"
                 ],
                 "videos": [
-                    {
-                        "url": "assets/previews/taxis.mp4",
-                        "focus": "🛡️ Tour d'horizon en 4 temps : Double scan de sécurité local (OCR + spaCy), outil de caviarage interactif, rédaction assistée par Gemini et déploiement Git en 1 clic."
-                    }
+                    { "url": "assets/previews/taxis.mp4", "focus": "🛡️ Tour d'horizon en 4 temps : Double scan de sécurité local (OCR + spaCy), outil de caviarage interactif, rédaction assistée par Gemini et déploiement Git en 1 clic." }
                 ],
                 "screenshots": [
-                    {
-                        "url": "assets/images/taxis_console.png",
-                        "caption": "Console TAXIS Studio Pro : double filtre de confidentialité local, assistance IA et publication en 1 clic."
-                    }
+                    { "url": "assets/images/taxis_console.png", "caption": "Console TAXIS Studio Pro : double filtre de confidentialité local, assistance IA et publication en 1 clic." }
                 ],
                 "roadmap": []
             }
@@ -1865,7 +1624,7 @@
 
         window.openLightbox = function(index, projectId) {
             const project = projectsData.find(item => item.id === projectId);
-            if (!project || !project.screenshots) return;
+            if (!project || !project.screenshots || project.screenshots.length === 0) return;
             currentGalleryImages = project.screenshots;
             currentLightboxIndex = index;
             updateLightboxView();
@@ -1905,13 +1664,13 @@
             if (!screenshots || !Array.isArray(screenshots) || screenshots.length === 0) return '';
             const items = screenshots.map((img, idx) => `
                 <figure class="screenshot-item">
-                    <img src="${encodeURI(img.url)}" alt="${img.caption}" loading="lazy" onclick="openLightbox(${idx}, '${projectId}')" title="Cliquez pour agrandir en plein écran" onerror="console.warn('Image non trouvée :', '${img.url}'); this.parentElement.style.display='none'">
+                    <img src="${encodeURI(img.url)}" alt="${img.caption}" loading="lazy" onclick="openLightbox(${idx}, '${projectId}')" title="Cliquez pour agrandir en plein écran" onerror="this.parentElement.style.display='none'">
                     <figcaption>${img.caption}</figcaption>
                 </figure>
             `).join('');
             return `
                 <div style="margin-top: 1.8rem;">
-                    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem;">📸 Captures d'interfaces & Vues fonctionnelles (Cliquez pour agrandir)</h3>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem;">📸 Captures d'interfaces & Vues fonctionnelles</h3>
                     <div class="screenshots-grid">${items}</div>
                 </div>
             `;
@@ -1931,21 +1690,6 @@
                         </div>
                     ` : ''}
                 `).join('');
-            }
-            
-            if (project.preview_video) {
-                return `
-                    <div class="video-container">
-                        <video controls autoplay muted loop playsinline style="width: 100%; display: block;">
-                            <source src="${encodeURI(project.preview_video)}" type="video/mp4">
-                        </video>
-                    </div>
-                    ${project.video_focus ? `
-                        <div class="video-focus-box">
-                            <strong>🎯 Focus :</strong> ${project.video_focus}
-                        </div>
-                    ` : ''}
-                `;
             }
             return '';
         }
@@ -1972,10 +1716,6 @@
 
             let liveFrameHtml = '';
             if (isLive) {
-                const renderNote = project.download_url.includes('onrender.com') 
-                    ? `<p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">💡 <em>Application en ligne accessible instantanément.</em></p>` 
-                    : '';
-
                 liveFrameHtml = `
                     <div id="modal-view-demo-content" style="${initialView === 'demo' ? 'display: block;' : 'display: none;'} margin: 1rem 0;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -1985,7 +1725,6 @@
                         <div class="modal-iframe-container">
                             <iframe src="${project.download_url}" allow="fullscreen"></iframe>
                         </div>
-                        ${renderNote}
                     </div>
                 `;
             }
@@ -2060,303 +1799,15 @@
                         Choisissez le créneau de votre choix avec Andy VAUBIEN (Dhamusoft) pour échanger sur vos besoins logiciels et votre éligibilité Chèque TIC.
                     </p>
                 </div>
-
                 <div class="modal-iframe-container" style="height: 580px;">
                     <iframe src="${CALENDLY_LINK}"></iframe>
                 </div>
-
-                <div style="text-align: right; margin-top: 1rem;">
-                    <a href="${CALENDLY_LINK}" target="_blank" style="font-size: 0.85rem; color: var(--accent); font-weight: 700; text-decoration: underline;">
-                        Ouvrir le calendrier en plein écran si l'affichage est réduit ↗
-                    </a>
-                </div>
             `;
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         };
 
-        // 📄 MODALE TRIPTYQUE HAUTE DENSITÉ (AVEC PÔLE WEB & E-COMMERCE 80% CHÈQUE TIC)
-        window.openPlaquetteModal = function() {
-            modalBody.innerHTML = `
-                <div class="plaquette-no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.6rem;">
-                    <div>
-                        <h2 style="font-size: 1.45rem; font-weight: 900; color: var(--primary); margin: 0;">Plaquette Corporate Dhamusoft</h2>
-                        <span style="font-size: 0.82rem; color: var(--text-muted);">Édition Décideurs 2026 • Format A4 Paysage Déplié (297 x 210 mm)</span>
-                    </div>
-                    <button class="btn btn-primary" onclick="window.print()">
-                        🖨️ Enregistrer en PDF (2 pages nettes)
-                    </button>
-                </div>
-
-                <!-- ======================================================= -->
-                <!-- 📄 FEUILLE 1 : RECTO EXTÉRIEUR (Volet 5 | Volet 6 | Volet 1) -->
-                <!-- ======================================================= -->
-                <div class="triptyque-sheet" style="background: #ffffff; min-height: 195mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12mm; padding: 10mm 12mm; box-sizing: border-box;">
-                    
-                    <!-- VOLET 1 (GAUCHE RECTO : SOUVERAINETÉ & RÉSILIENCE LOCALE) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                        <div>
-                            <div class="volet-header-banner" style="background: #05231A; padding: 0.6rem 0.9rem; border-radius: 6px; margin-bottom: 1rem;">
-                                <span class="volet-header-title" style="font-size: 0.88rem; font-weight: 900; color: #FFFFFF;">1. Architecture Souveraine</span>
-                                <span class="volet-header-tag" style="background: #A7F3D0; color: #05231A; font-weight: 900;">Sécurité</span>
-                            </div>
-
-                            <!-- Crochet Dépenses Récentes -->
-                            <div style="background: #FFFDF5; border: 1.5px solid var(--accent); border-radius: 8px; padding: 0.85rem; margin-bottom: 1rem;">
-                                <strong style="font-size: 0.85rem; color: #B45309; display: block; margin-bottom: 4px;">⚡ Vous avez récemment investi ?</strong>
-                                <p style="font-size: 0.76rem; color: #78350F; line-height: 1.45; margin: 0;">
-                                    Création de site web, achat de matériel ou progiciel ? <strong>Ne laissez pas dormir vos factures :</strong> activez jusqu'à 80% de subvention Chèque TIC pour renflouer votre trésorerie.
-                                </p>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.9rem; margin-bottom: 0.9rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.3rem;">☁️ Cloud Européen & Hébergement Souverain</div>
-                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">
-                                    Déploiements sur des infrastructures françaises (OVHcloud) sécurisées, auditées et conformes au RGPD, sans dépendance aux acteurs opaques.
-                                </p>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.9rem; margin-bottom: 0.9rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #047857; margin-bottom: 0.3rem;">🔒 Données Physiquement sur vos Postes</div>
-                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">
-                                    Bases de données relationnelles chiffrées (SQLite) hébergées dans vos locaux. Vos données clients ne sont pas revendues ni captées par des tiers.
-                                </p>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; padding: 0.75rem 0.9rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #0369A1; margin-bottom: 0.3rem;">⚡ Fonctionnement Continu Hors-Ligne</div>
-                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">
-                                    Conçues pour la réalité insulaire de la Guadeloupe : vos équipes continuent de produire, facturer et saisir même en cas de coupure internet.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.6rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
-                            <span style="font-size: 0.74rem; color: #065F46; font-weight: 800;">✓ ZÉRO FUITE CLOUD • RÉSILIENCE TERRITORIALE MAXIMALE</span>
-                        </div>
-                    </div>
-
-                    <!-- VOLET 2 (CENTRE RECTO : MÉTHODE D'INGÉNIERIE EN 4 JALONS) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                        <div>
-                            <div class="volet-header-banner" style="background: var(--primary); padding: 0.6rem 0.9rem; border-radius: 6px; margin-bottom: 1rem;">
-                                <span class="volet-header-title" style="font-size: 0.88rem; font-weight: 900; color: #FFFFFF; margin: 0 auto;">2. Notre Méthode d'Intervention</span>
-                            </div>
-
-                            <p style="font-size: 0.78rem; color: #334155; line-height: 1.45; text-align: center; margin-bottom: 1rem;">
-                                Un cycle d'ingénierie court, mesurable et dénué de tout jargon technique intimidant :
-                            </p>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.82rem; color: var(--primary); display: block; margin-bottom: 2px;">1. Appel Flash de Cadrage (5 min)</strong>
-                                <span style="font-size: 0.75rem; color: #475569; line-height: 1.4; display: block;">Évaluation immédiate de vos blocages métiers et confirmation instantanée de votre éligibilité aux 80% d'aide Chèque TIC.</span>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.82rem; color: #B45309; display: block; margin-bottom: 2px;">2. Immersion & Audit des Pertes de Temps (20 min)</strong>
-                                <span style="font-size: 0.75rem; color: #475569; line-height: 1.4; display: block;">Analyse de vos processus de vente : identification des heures perdues et formalisation du cahier des charges fonctionnel.</span>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.82rem; color: #047857; display: block; margin-bottom: 2px;">3. Prototype Fonctionnel sur Données Réelles</strong>
-                                <span style="font-size: 0.75rem; color: #475569; line-height: 1.4; display: block;">Pas de maquette statique : vous testez sous 10 jours un prototype vivant manipulable directement sur vos postes de travail.</span>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; padding: 0.75rem 0.9rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.82rem; color: #0369A1; display: block; margin-bottom: 2px;">4. Déploiement, Formation & Support MCO</strong>
-                                <span style="font-size: 0.75rem; color: #475569; line-height: 1.4; display: block;">Installation finale, formation bienveillante des collaborateurs et supervision continue pour pérenniser vos outils.</span>
-                            </div>
-                        </div>
-
-                        <div style="background: #F8FAFC; border: 1.5px solid var(--frame-border); padding: 0.65rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
-                            <strong style="font-size: 0.76rem; color: var(--primary); display: block; margin-bottom: 2px;">Ligne Directe Ingénierie :</strong>
-                            <span style="font-size: 0.74rem; color: #047857; font-weight: 800;">Andy VAUBIEN • dhamusoft@gmail.com • +590 690 05 11 44</span>
-                        </div>
-                    </div>
-
-                    <!-- VOLET 3 (DROITE RECTO : COUVERTURE & STATUT INSTITUTIONNEL) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; text-align: center;">
-                        <div style="margin-top: 1.5rem;">
-                            <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 230px; margin: 0 auto; display: block;">
-                            <span style="display: inline-block; background: #E2E8F0; color: #091A2B; font-size: 0.70rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; margin-top: 1rem; text-transform: uppercase;">Édition Officielle 2026</span>
-                        </div>
-
-                        <div style="padding: 1.5rem 0.6rem;">
-                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--primary); margin-bottom: 0.8rem; line-height: 1.35;">
-                                De l'idée au déploiement de vos outils numériques sur-mesure.
-                            </h3>
-                            <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0 auto; max-width: 280px;">
-                                Création de sites vitrines & e-commerce, applications métiers haute performance et accompagnement expert aux aides régionales Chèque TIC en Guadeloupe.
-                            </p>
-                        </div>
-
-                        <div style="background: #091A2B; color: white; padding: 1rem; border-radius: 10px; border: 1.5px solid rgba(197, 155, 67, 0.45); text-align: center; margin-bottom: 0.5rem;">
-                            <strong style="font-size: 0.90rem; color: var(--accent); display: block; margin-bottom: 3px;">Andy VAUBIEN</strong>
-                            <span style="font-size: 0.76rem; color: #CBD5E1; display: block; font-weight: 600;">Fondateur & Concepteur Systèmes Métiers</span>
-                            <span style="font-size: 0.76rem; color: #CBD5E1; display: block; margin-top: 3px;">📞 +590 690 05 11 44</span>
-                            <span style="font-size: 0.72rem; color: #94A3B8; display: block; margin-top: 3px;">📍 Capesterre-Belle-Eau, Guadeloupe</span>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <!-- ======================================================= -->
-                <!-- 📄 FEUILLE 2 : VERSO INTÉRIEUR (Volet 3 | Volet 4 | Volet 5) -->
-                <!-- ======================================================= -->
-                <div class="triptyque-sheet" style="background: #ffffff; min-height: 195mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12mm; padding: 10mm 12mm; box-sizing: border-box;">
-                    
-                    <!-- VOLET 4 (GAUCHE VERSO : SANTÉ PUBLIQUE & MILIEU CLINIQUE) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                        <div>
-                            <div class="volet-header-banner" style="background: #065F46; padding: 0.6rem 0.9rem; border-radius: 6px; margin-bottom: 1rem;">
-                                <span class="volet-header-title" style="font-size: 0.88rem; font-weight: 900; color: #FFFFFF;">Santé Publique & Hôpital</span>
-                                <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Biomédical</span>
-                            </div>
-
-                            <!-- PRAXIS GOLD -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">PRAXIS GOLD (Cahier Clinique eCRF)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Risque d'erreur de constantes sur 30 ans de suivi longitudinal greffé.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Douanier chronologique, alertes de bornes physiologiques et audit trail légal infalsifiable.</div>
-                            </div>
-
-                            <!-- IKNOS -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">IKNOS (Coordination & Alertes Pré-Greffe)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Dossiers patients bloqués en silence par des bilans médicaux expirés.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Pipeline Kanban dynamique avec sentinelle de péremption et score psychosocial SMPG sur 100 pts.</div>
-                            </div>
-
-                            <!-- AXIOS -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">AXIOS (Robot d'Analyses SIH)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Retards massifs causés par la recopie manuelle de bilans hospitaliers.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Robot d'extraction RPA automatisé avec voyants de scoring de fiabilité (vert/orange/rouge).</div>
-                            </div>
-                        </div>
-
-                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.6rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
-                            <span style="font-size: 0.72rem; color: #065F46; font-weight: 800;">✓ CONFORMITÉ RGPD MÉDICAL • ZÉRO PERTE DE DONNÉES</span>
-                        </div>
-                    </div>
-
-                    <!-- VOLET 5 (CENTRE VERSO : SITES VITRINES, E-COMMERCE & THEMIS ERP) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                        <div>
-                            <div class="volet-header-banner">
-                                <span class="volet-header-title">Web, E-Commerce & ERP</span>
-                                <span class="volet-header-tag">Solutions</span>
-                            </div>
-
-                            <!-- NOUVEAU PÔLE : SITES VITRINES & BOUTIQUES E-COMMERCE -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; background: #F0F9FF; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
-                                <div class="volet-card-title" style="color: #0369A1; font-size: 0.82rem; font-weight: 800; margin-bottom: 0.25rem;">🌐 Sites Vitrines & E-Commerce (Éligible 80%)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Sites lents, invisibles sur Google et sans conversion mobile pour les TPME locales.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Conception web ultra-rapide (ex: site Dhamusoft), boutiques avec paiement Stripe/CB et signature tactile intégrée.</div>
-                            </div>
-
-                            <!-- THEMIS ERP -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.82rem; font-weight: 800; margin-bottom: 0.25rem;">THEMIS (ERP & Factur-X 2026)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Devis papier lents, litiges contractuels et risque fiscal d'altération de factures.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Chiffrage en 2 min, contrat 7P scellé (CGV/SLA) et inaltérabilité SHA-256 (Art. 286 CGI).</div>
-                            </div>
-
-                            <!-- COACHMASTER & TAXIS -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">PWA Terrain & DevOps (Coachmaster & TAXIS)</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #334155;">
-                                    Applications progressives 100% hors-ligne (football amateur) et consoles de sécurité automatisées avec scan IA des données personnelles (spaCy/NLP).
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="background: #F8FAFC; border: 1px solid var(--frame-border); padding: 0.6rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
-                            <span style="font-size: 0.72rem; color: #475569; font-weight: 700;">Technologies Modernes • Python, Flet, HTML5 & E-Commerce</span>
-                        </div>
-                    </div>
-
-                    <!-- VOLET 6 (DROITE VERSO : ACCOMPAGNEMENT CHÈQUE TIC & MANDAT) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                        <div>
-                            <div class="volet-header-banner" style="background: #065F46; padding: 0.6rem 0.9rem; border-radius: 6px; margin-bottom: 1rem;">
-                                <span class="volet-header-title" style="font-size: 0.88rem; font-weight: 900; color: #FFFFFF;">Subvention Chèque TIC</span>
-                                <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Jusqu'à 80%</span>
-                            </div>
-
-                            <!-- Barème Régional Officiel -->
-                            <div style="background: #ECFDF5; border: 1.5px solid #A7F3D0; border-radius: 8px; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
-                                <strong style="font-size: 0.80rem; color: #065F46; display: block; margin-bottom: 3px;">💡 Barème Région Guadeloupe & FEDER :</strong>
-                                <p style="font-size: 0.74rem; color: #047857; line-height: 1.45; margin: 0;">
-                                    • Sites Web & Cybersécurité : <strong>Pris en charge à 80%</strong><br>
-                                    • Logiciels de gestion & Matériel : <strong>Pris en charge à 40%</strong><br>
-                                    • <strong style="color: #064E3B;">Plafond d'aide directe publique : jusqu'à 10 000 €</strong>
-                                </p>
-                            </div>
-
-                            <!-- Formule AMO Sous Mandat -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.82rem; font-weight: 800; margin-bottom: 0.25rem;">📋 Formule AMO Partagée (390 € + 5%)</div>
-                                <p style="font-size: 0.74rem; color: #475569; line-height: 1.4; margin: 0;">
-                                    • Forfait initial de cadrage : <strong>390,00 € HT</strong> (à la commande).<br>
-                                    • Prime de succès partagée : <strong>+ 5%</strong> exigible uniquement après accord officiel de subvention par la Région.
-                                </p>
-                            </div>
-
-                            <!-- Tunnel Dématérialisé -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">✍️ Signature Dématérialisée 100% en Ligne</div>
-                                <p style="font-size: 0.74rem; color: #475569; line-height: 1.4; margin: 0;">
-                                    Devis d'assistance validé sous condition suspensive ➔ Mandat de représentation tactile scellé et transmis instantanément.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div style="background: #091A2B; color: white; padding: 0.65rem 0.8rem; border-radius: 6px; font-size: 0.72rem; text-align: center; border: 1px solid rgba(197, 155, 67, 0.45); margin-top: 1rem;">
-                            <span style="color: var(--accent); font-weight: 800;">Transparence Absolue :</span> L'aide régionale est versée à 100% sur le compte bancaire de votre entreprise.
-                        </div>
-                    </div>
-
-                </div>
-            `;
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        };
-🔍 Code suivant de repère :
-code
-JavaScript
-// =========================================================================
-        // 🚀 TUNNEL COMMERCIAL 2 EN 1 : DEVIS D'ABORD ➔ PUIS MANDAT PRÉ-REMPLI
-        // =========================================================================
-Déploiement :
-Publiez la mise à jour sur votre site en ligne :
-code
-Cmd
-cd "C:\DHAMUSOFT first" && git add . && git commit -m "Mise a jour plaquette avec pole Sites Web Vitrines et E-commerce" && git push
-Dès le déploiement terminé, ouvrez votre plaquette en ligne et téléchargez-la en PDF : votre offre de création de sites web et boutiques en ligne est maintenant officiellement ancrée au cœur de votre document commercial !
-Model 05:34
-Le blocage vient d'une erreur de syntaxe JavaScript (guillemet non fermé ou balise mal fermée) survenue lors du copier-coller dans votre fichier index.html.
-En JavaScript, si une seule fonction plante (par exemple dans openPlaquetteModal ou openMandatModal), le navigateur arrête immédiatement tout le script, ce qui bloque tous les autres boutons (onglets, modales, etc.).
-Solution radicale pour débloquer votre site immédiatement :
-Voici l'intégralité exacte du bloc JavaScript fonctionnel, nettoyé de toute erreur de fermeture.
-Remplacez dans votre fichier index.html tout le bloc qui va de // 📄 MODALE TRIPTYQUE jusqu'à la fin du fichier par ce code 100 % vérifié et sans aucune erreur :
-🔍 Code précédent de repère :
-code
-JavaScript
-<div style="text-align: right; margin-top: 1rem;">
-                    <a href="${CALENDLY_LINK}" target="_blank" style="font-size: 0.85rem; color: var(--accent); font-weight: 700; text-decoration: underline;">
-                        Ouvrir le calendrier en plein écran si l'affichage est réduit ↗
-                    </a>
-                </div>
-            `;
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        };
-✏️ Code À REMPLACER JUSQU'À LA FIN DU FICHIER :
-code
-JavaScript
-// 📄 MODALE TRIPTYQUE RECTO / VERSO
+        // 📄 MODALE TRIPTYQUE RECTO / VERSO (2 PAGES PAYSAGE HAUTE DENSITÉ)
         window.openPlaquetteModal = function() {
             modalBody.innerHTML = `
                 <div class="plaquette-no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.6rem;">
@@ -2384,11 +1835,11 @@ JavaScript
                             </div>
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.9rem; margin-bottom: 0.9rem; background: #F8FAFC;">
                                 <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.3rem;">☁️ Cloud Européen & Hébergement Souverain</div>
-                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">Déploiements sur des infrastructures françaises (OVHcloud) sécurisées et conformes au RGPD.</p>
+                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">Déploiements sur des infrastructures françaises (OVHcloud) sécurisées, auditées et conformes au RGPD.</p>
                             </div>
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.9rem; margin-bottom: 0.9rem; background: #F8FAFC;">
                                 <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #047857; margin-bottom: 0.3rem;">🔒 Données Physiquement sur vos Postes</div>
-                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">Bases de données chiffrées (SQLite) hébergées dans vos locaux. Zéro fuite cloud.</p>
+                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">Bases de données chiffrées (SQLite) hébergées dans vos locaux. Vos données clients ne sont pas revendues.</p>
                             </div>
                         </div>
                         <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.6rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
@@ -2407,11 +1858,11 @@ JavaScript
                             </div>
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; background: #F8FAFC;">
                                 <strong style="font-size: 0.82rem; color: #B45309; display: block;">2. Immersion & Audit des Pertes de Temps</strong>
-                                <span style="font-size: 0.75rem; color: #475569;">Analyse de vos processus de vente : identification des heures perdues et formalisation.</span>
+                                <span style="font-size: 0.75rem; color: #475569;">Analyse de vos processus : identification des heures perdues et formalisation du cahier des charges.</span>
                             </div>
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.9rem; background: #F8FAFC;">
                                 <strong style="font-size: 0.82rem; color: #047857; display: block;">3. Déploiement Local, Formation & Suivi</strong>
-                                <span style="font-size: 0.75rem; color: #475569;">Installation finale sur vos postes, formation bienveillante et support réactif.</span>
+                                <span style="font-size: 0.75rem; color: #475569;">Installation finale sur vos postes, formation bienveillante et support réactif en Guadeloupe.</span>
                             </div>
                         </div>
                         <div style="background: #F8FAFC; border: 1.5px solid var(--frame-border); padding: 0.65rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
@@ -2424,8 +1875,8 @@ JavaScript
                             <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 230px; margin: 0 auto; display: block;">
                         </div>
                         <div style="padding: 1.5rem 0.6rem;">
-                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--primary); margin-bottom: 0.8rem; line-height: 1.35;">De l'idée au déploiement de vos outils logiciels sur-mesure.</h3>
-                            <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0 auto; max-width: 280px;">Sites vitrines, e-commerce, applications métiers haute performance et aides régionales Chèque TIC.</p>
+                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--primary); margin-bottom: 0.8rem; line-height: 1.35;">De l'idée au déploiement de vos outils numériques sur-mesure.</h3>
+                            <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0 auto; max-width: 280px;">Création de sites vitrines & e-commerce, applications métiers haute performance et aides régionales Chèque TIC.</p>
                         </div>
                         <div style="background: #091A2B; color: white; padding: 1rem; border-radius: 10px; border: 1.5px solid rgba(197, 155, 67, 0.45); text-align: center;">
                             <strong style="font-size: 0.90rem; color: var(--accent); display: block;">Andy VAUBIEN</strong>
@@ -2623,7 +2074,7 @@ JavaScript
                     }),
                     fetch("https://formsubmit.co/ajax/dhamusoft@gmail.com", {
                         method: "POST",
-                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payloadFinal)
                     })
                 ]);
@@ -2870,6 +2321,18 @@ JavaScript
                 }
             });
         }
+
+        // 🚀 PROGRESSION DU DÉFILEMENT (SANS AUCUN BLOCAGE)
+        window.addEventListener('scroll', () => {
+            const progressBar = document.getElementById('scroll-progress');
+            if (progressBar) {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                if (height > 0) {
+                    progressBar.style.width = (winScroll / height * 100) + '%';
+                }
+            }
+        }, { passive: true });
 
     })();
     </script>
