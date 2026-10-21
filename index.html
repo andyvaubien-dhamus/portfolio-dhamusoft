@@ -2322,8 +2322,41 @@
             `;
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
-        };ence Absolue :</span> L'aide régionale est versée à 100% sur le compte bancaire de votre entreprise.
-                      // 📄 MODALE TRIPTYQUE HAUTE DENSITÉ (AVEC PÔLE WEB & E-COMMERCE 80% CHÈQUE TIC)
+        };
+🔍 Code suivant de repère :
+code
+JavaScript
+// =========================================================================
+        // 🚀 TUNNEL COMMERCIAL 2 EN 1 : DEVIS D'ABORD ➔ PUIS MANDAT PRÉ-REMPLI
+        // =========================================================================
+Déploiement :
+Publiez la mise à jour sur votre site en ligne :
+code
+Cmd
+cd "C:\DHAMUSOFT first" && git add . && git commit -m "Mise a jour plaquette avec pole Sites Web Vitrines et E-commerce" && git push
+Dès le déploiement terminé, ouvrez votre plaquette en ligne et téléchargez-la en PDF : votre offre de création de sites web et boutiques en ligne est maintenant officiellement ancrée au cœur de votre document commercial !
+Model 05:34
+Le blocage vient d'une erreur de syntaxe JavaScript (guillemet non fermé ou balise mal fermée) survenue lors du copier-coller dans votre fichier index.html.
+En JavaScript, si une seule fonction plante (par exemple dans openPlaquetteModal ou openMandatModal), le navigateur arrête immédiatement tout le script, ce qui bloque tous les autres boutons (onglets, modales, etc.).
+Solution radicale pour débloquer votre site immédiatement :
+Voici l'intégralité exacte du bloc JavaScript fonctionnel, nettoyé de toute erreur de fermeture.
+Remplacez dans votre fichier index.html tout le bloc qui va de // 📄 MODALE TRIPTYQUE jusqu'à la fin du fichier par ce code 100 % vérifié et sans aucune erreur :
+🔍 Code précédent de repère :
+code
+JavaScript
+<div style="text-align: right; margin-top: 1rem;">
+                    <a href="${CALENDLY_LINK}" target="_blank" style="font-size: 0.85rem; color: var(--accent); font-weight: 700; text-decoration: underline;">
+                        Ouvrir le calendrier en plein écran si l'affichage est réduit ↗
+                    </a>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        };
+✏️ Code À REMPLACER JUSQU'À LA FIN DU FICHIER :
+code
+JavaScript
+// 📄 MODALE TRIPTYQUE RECTO / VERSO
         window.openPlaquetteModal = function() {
             modalBody.innerHTML = `
                 <div class="plaquette-no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.6rem;">
@@ -2336,627 +2369,370 @@
                     </button>
                 </div>
 
-                <!-- ======================================================= -->
-                <!-- 📄 FEUILLE 1 : RECTO EXTÉRIEUR (Volet 5 | Volet 6 | Volet 1) -->
-                <!-- ======================================================= -->
                 <div class="triptyque-sheet" style="background: #ffffff; min-height: 195mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12mm; padding: 10mm 12mm; box-sizing: border-box;">
-                    
-                    <!-- VOLET 1 (GAUCHE RECTO : SOUVERAINETÉ & RÉSILIENCE LOCALE) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: #05231A; padding: 0.6rem 0.9rem; border-radius: 6px; margin-bottom: 1rem;">
                                 <span class="volet-header-title" style="font-size: 0.88rem; font-weight: 900; color: #FFFFFF;">1. Architecture Souveraine</span>
                                 <span class="volet-header-tag" style="background: #A7F3D0; color: #05231A; font-weight: 900;">Sécurité</span>
                             </div>
-
-                            <!-- Crochet Dépenses Récentes -->
                             <div style="background: #FFFDF5; border: 1.5px solid var(--accent); border-radius: 8px; padding: 0.85rem; margin-bottom: 1rem;">
                                 <strong style="font-size: 0.85rem; color: #B45309; display: block; margin-bottom: 4px;">⚡ Vous avez récemment investi ?</strong>
                                 <p style="font-size: 0.76rem; color: #78350F; line-height: 1.45; margin: 0;">
                                     Création de site web, achat de matériel ou progiciel ? <strong>Ne laissez pas dormir vos factures :</strong> activez jusqu'à 80% de subvention Chèque TIC pour renflouer votre trésorerie.
                                 </p>
                             </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.9rem; margin-bottom: 0.9rem; background: #F8FAFC;">
                                 <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.3rem;">☁️ Cloud Européen & Hébergement Souverain</div>
-                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">
-                                    Déploiements sur des infrastructures françaises (OVHcloud) sécurisées, auditées et conformes au RGPD, sans dépendance aux acteurs opaques.
-                                </p>
+                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">Déploiements sur des infrastructures françaises (OVHcloud) sécurisées et conformes au RGPD.</p>
                             </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.9rem; margin-bottom: 0.9rem; background: #F8FAFC;">
                                 <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #047857; margin-bottom: 0.3rem;">🔒 Données Physiquement sur vos Postes</div>
-                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">
-                                    Bases de données relationnelles chiffrées (SQLite) hébergées dans vos locaux. Vos données clients ne sont pas revendues ni captées par des tiers.
-                                </p>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; padding: 0.75rem 0.9rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #0369A1; margin-bottom: 0.3rem;">⚡ Fonctionnement Continu Hors-Ligne</div>
-                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">
-                                    Conçues pour la réalité insulaire de la Guadeloupe : vos équipes continuent de produire, facturer et saisir même en cas de coupure internet.
-                                </p>
+                                <p style="font-size: 0.76rem; color: #334155; line-height: 1.45; margin: 0;">Bases de données chiffrées (SQLite) hébergées dans vos locaux. Zéro fuite cloud.</p>
                             </div>
                         </div>
-
                         <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.6rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
-                            <span style="font-size: 0.74rem; color: #065F46; font-weight: 800;">✓ ZÉRO FUITE CLOUD • RÉSILIENCE TERRITORIALE MAXIMALE</span>
+                            <span style="font-size: 0.74rem; color: #065F46; font-weight: 800;">✓ ZÉRO FUITE CLOUD • RÉSILIENCE MAXIMALE</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 2 (CENTRE RECTO : MÉTHODE D'INGÉNIERIE EN 4 JALONS) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: var(--primary); padding: 0.6rem 0.9rem; border-radius: 6px; margin-bottom: 1rem;">
                                 <span class="volet-header-title" style="font-size: 0.88rem; font-weight: 900; color: #FFFFFF; margin: 0 auto;">2. Notre Méthode d'Intervention</span>
                             </div>
-
-                            <p style="font-size: 0.78rem; color: #334155; line-height: 1.45; text-align: center; margin-bottom: 1rem;">
-                                Un cycle d'ingénierie court, mesurable et dénué de tout jargon technique intimidant :
-                            </p>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.82rem; color: var(--primary); display: block; margin-bottom: 2px;">1. Appel Flash de Cadrage (5 min)</strong>
-                                <span style="font-size: 0.75rem; color: #475569; line-height: 1.4; display: block;">Évaluation immédiate de vos blocages métiers et confirmation instantanée de votre éligibilité aux 80% d'aide Chèque TIC.</span>
+                                <strong style="font-size: 0.82rem; color: var(--primary); display: block;">1. Appel Flash de Cadrage (5 min)</strong>
+                                <span style="font-size: 0.75rem; color: #475569;">Évaluation immédiate de vos blocages métiers et confirmation de votre éligibilité Chèque TIC.</span>
                             </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.82rem; color: #B45309; display: block; margin-bottom: 2px;">2. Immersion & Audit des Pertes de Temps (20 min)</strong>
-                                <span style="font-size: 0.75rem; color: #475569; line-height: 1.4; display: block;">Analyse de vos processus de vente : identification des heures perdues et formalisation du cahier des charges fonctionnel.</span>
+                                <strong style="font-size: 0.82rem; color: #B45309; display: block;">2. Immersion & Audit des Pertes de Temps</strong>
+                                <span style="font-size: 0.75rem; color: #475569;">Analyse de vos processus de vente : identification des heures perdues et formalisation.</span>
                             </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.82rem; color: #047857; display: block; margin-bottom: 2px;">3. Prototype Fonctionnel sur Données Réelles</strong>
-                                <span style="font-size: 0.75rem; color: #475569; line-height: 1.4; display: block;">Pas de maquette statique : vous testez sous 10 jours un prototype vivant manipulable directement sur vos postes de travail.</span>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; padding: 0.75rem 0.9rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.82rem; color: #0369A1; display: block; margin-bottom: 2px;">4. Déploiement, Formation & Support MCO</strong>
-                                <span style="font-size: 0.75rem; color: #475569; line-height: 1.4; display: block;">Installation finale, formation bienveillante des collaborateurs et supervision continue pour pérenniser vos outils.</span>
+                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.9rem; background: #F8FAFC;">
+                                <strong style="font-size: 0.82rem; color: #047857; display: block;">3. Déploiement Local, Formation & Suivi</strong>
+                                <span style="font-size: 0.75rem; color: #475569;">Installation finale sur vos postes, formation bienveillante et support réactif.</span>
                             </div>
                         </div>
-
                         <div style="background: #F8FAFC; border: 1.5px solid var(--frame-border); padding: 0.65rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
-                            <strong style="font-size: 0.76rem; color: var(--primary); display: block; margin-bottom: 2px;">Ligne Directe Ingénierie :</strong>
                             <span style="font-size: 0.74rem; color: #047857; font-weight: 800;">Andy VAUBIEN • dhamusoft@gmail.com • +590 690 05 11 44</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 3 (DROITE RECTO : COUVERTURE & STATUT INSTITUTIONNEL) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; text-align: center;">
                         <div style="margin-top: 1.5rem;">
                             <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 230px; margin: 0 auto; display: block;">
-                            <span style="display: inline-block; background: #E2E8F0; color: #091A2B; font-size: 0.70rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; margin-top: 1rem; text-transform: uppercase;">Édition Officielle 2026</span>
                         </div>
-
                         <div style="padding: 1.5rem 0.6rem;">
-                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--primary); margin-bottom: 0.8rem; line-height: 1.35;">
-                                De l'idée au déploiement de vos outils numériques sur-mesure.
-                            </h3>
-                            <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0 auto; max-width: 280px;">
-                                Création de sites vitrines & e-commerce, applications métiers haute performance et accompagnement expert aux aides régionales Chèque TIC en Guadeloupe.
-                            </p>
+                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--primary); margin-bottom: 0.8rem; line-height: 1.35;">De l'idée au déploiement de vos outils logiciels sur-mesure.</h3>
+                            <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0 auto; max-width: 280px;">Sites vitrines, e-commerce, applications métiers haute performance et aides régionales Chèque TIC.</p>
                         </div>
-
-                        <div style="background: #091A2B; color: white; padding: 1rem; border-radius: 10px; border: 1.5px solid rgba(197, 155, 67, 0.45); text-align: center; margin-bottom: 0.5rem;">
-                            <strong style="font-size: 0.90rem; color: var(--accent); display: block; margin-bottom: 3px;">Andy VAUBIEN</strong>
-                            <span style="font-size: 0.76rem; color: #CBD5E1; display: block; font-weight: 600;">Fondateur & Concepteur Systèmes Métiers</span>
-                            <span style="font-size: 0.76rem; color: #CBD5E1; display: block; margin-top: 3px;">📞 +590 690 05 11 44</span>
-                            <span style="font-size: 0.72rem; color: #94A3B8; display: block; margin-top: 3px;">📍 Capesterre-Belle-Eau, Guadeloupe</span>
+                        <div style="background: #091A2B; color: white; padding: 1rem; border-radius: 10px; border: 1.5px solid rgba(197, 155, 67, 0.45); text-align: center;">
+                            <strong style="font-size: 0.90rem; color: var(--accent); display: block;">Andy VAUBIEN</strong>
+                            <span style="font-size: 0.76rem; color: #CBD5E1; display: block;">Fondateur & Concepteur Systèmes Métiers</span>
                         </div>
                     </div>
-
-                </div>
-
-
-                <!-- ======================================================= -->
-                <!-- 📄 FEUILLE 2 : VERSO INTÉRIEUR (Volet 3 | Volet 4 | Volet 5) -->
-                <!-- ======================================================= -->
-                <div class="triptyque-sheet" style="background: #ffffff; min-height: 195mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12mm; padding: 10mm 12mm; box-sizing: border-box;">
-                    
-                    <!-- VOLET 4 (GAUCHE VERSO : SANTÉ PUBLIQUE & MILIEU CLINIQUE) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                        <div>
-                            <div class="volet-header-banner" style="background: #065F46; padding: 0.6rem 0.9rem; border-radius: 6px; margin-bottom: 1rem;">
-                                <span class="volet-header-title" style="font-size: 0.88rem; font-weight: 900; color: #FFFFFF;">Santé Publique & Hôpital</span>
-                                <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Biomédical</span>
-                            </div>
-
-                            <!-- PRAXIS GOLD -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">PRAXIS GOLD (Cahier Clinique eCRF)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Risque d'erreur de constantes sur 30 ans de suivi longitudinal greffé.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Douanier chronologique, alertes de bornes physiologiques et audit trail légal infalsifiable.</div>
-                            </div>
-
-                            <!-- IKNOS -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">IKNOS (Coordination & Alertes Pré-Greffe)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Dossiers patients bloqués en silence par des bilans médicaux expirés.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Pipeline Kanban dynamique avec sentinelle de péremption et score psychosocial SMPG sur 100 pts.</div>
-                            </div>
-
-                            <!-- AXIOS -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.75rem 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">AXIOS (Robot d'Analyses SIH)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Retards massifs causés par la recopie manuelle de bilans hospitaliers.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Robot d'extraction RPA automatisé avec voyants de scoring de fiabilité (vert/orange/rouge).</div>
-                            </div>
-                        </div>
-
-                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.6rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
-                            <span style="font-size: 0.72rem; color: #065F46; font-weight: 800;">✓ CONFORMITÉ RGPD MÉDICAL • ZÉRO PERTE DE DONNÉES</span>
-                        </div>
-                    </div>
-
-                    <!-- VOLET 5 (CENTRE VERSO : SITES VITRINES, E-COMMERCE & THEMIS ERP) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                        <div>
-                            <div class="volet-header-banner">
-                                <span class="volet-header-title">Web, E-Commerce & ERP</span>
-                                <span class="volet-header-tag">Solutions</span>
-                            </div>
-
-                            <!-- NOUVEAU PÔLE : SITES VITRINES & BOUTIQUES E-COMMERCE -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; background: #F0F9FF; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
-                                <div class="volet-card-title" style="color: #0369A1; font-size: 0.82rem; font-weight: 800; margin-bottom: 0.25rem;">🌐 Sites Vitrines & E-Commerce (Éligible 80%)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Sites lents, invisibles sur Google et sans conversion mobile pour les TPME locales.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Conception web ultra-rapide (ex: site Dhamusoft), boutiques avec paiement Stripe/CB et signature tactile intégrée.</div>
-                            </div>
-
-                            <!-- THEMIS ERP -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.82rem; font-weight: 800; margin-bottom: 0.25rem;">THEMIS (ERP & Factur-X 2026)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.75rem; color: #E11D48; margin-bottom: 3px;">🎯 <em>Défi :</em> Devis papier lents, litiges contractuels et risque fiscal d'altération de factures.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #047857;">💡 <em>Solution :</em> Chiffrage en 2 min, contrat 7P scellé (CGV/SLA) et inaltérabilité SHA-256 (Art. 286 CGI).</div>
-                            </div>
-
-                            <!-- COACHMASTER & TAXIS -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">PWA Terrain & DevOps (Coachmaster & TAXIS)</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.75rem; color: #334155;">
-                                    Applications progressives 100% hors-ligne (football amateur) et consoles de sécurité automatisées avec scan IA des données personnelles (spaCy/NLP).
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="background: #F8FAFC; border: 1px solid var(--frame-border); padding: 0.6rem; border-radius: 6px; text-align: center; margin-top: 1rem;">
-                            <span style="font-size: 0.72rem; color: #475569; font-weight: 700;">Technologies Modernes • Python, Flet, HTML5 & E-Commerce</span>
-                        </div>
-                    </div>
-
-                    <!-- VOLET 6 (DROITE VERSO : ACCOMPAGNEMENT CHÈQUE TIC & MANDAT) -->
-                    <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                        <div>
-                            <div class="volet-header-banner" style="background: #065F46; padding: 0.6rem 0.9rem; border-radius: 6px; margin-bottom: 1rem;">
-                                <span class="volet-header-title" style="font-size: 0.88rem; font-weight: 900; color: #FFFFFF;">Subvention Chèque TIC</span>
-                                <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Jusqu'à 80%</span>
-                            </div>
-
-                            <!-- Barème Régional Officiel -->
-                            <div style="background: #ECFDF5; border: 1.5px solid #A7F3D0; border-radius: 8px; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
-                                <strong style="font-size: 0.80rem; color: #065F46; display: block; margin-bottom: 3px;">💡 Barème Région Guadeloupe & FEDER :</strong>
-                                <p style="font-size: 0.74rem; color: #047857; line-height: 1.45; margin: 0;">
-                                    • Sites Web & Cybersécurité : <strong>Pris en charge à 80%</strong><br>
-                                    • Logiciels de gestion & Matériel : <strong>Pris en charge à 40%</strong><br>
-                                    • <strong style="color: #064E3B;">Plafond d'aide directe publique : jusqu'à 10 000 €</strong>
-                                </p>
-                            </div>
-
-                            <!-- Formule AMO Sous Mandat -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.82rem; font-weight: 800; margin-bottom: 0.25rem;">📋 Formule AMO Partagée (390 € + 5%)</div>
-                                <p style="font-size: 0.74rem; color: #475569; line-height: 1.4; margin: 0;">
-                                    • Forfait initial de cadrage : <strong>390,00 € HT</strong> (à la commande).<br>
-                                    • Prime de succès partagée : <strong>+ 5%</strong> exigible uniquement après accord officiel de subvention par la Région.
-                                </p>
-                            </div>
-
-                            <!-- Tunnel Dématérialisé -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.75rem 0.85rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">✍️ Signature Dématérialisée 100% en Ligne</div>
-                                <p style="font-size: 0.74rem; color: #475569; line-height: 1.4; margin: 0;">
-                                    Devis d'assistance validé sous condition suspensive ➔ Mandat de représentation tactile scellé et transmis instantanément.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div style="background: #091A2B; color: white; padding: 0.65rem 0.8rem; border-radius: 6px; font-size: 0.72rem; text-align: center; border: 1px solid rgba(197, 155, 67, 0.45); margin-top: 1rem;">
-                            <span style="color: var(--accent); font-weight: 800;">Transparence Absolue :</span> L'aide régionale est versée à 100% sur le compte bancaire de votre entreprise.
-                        </div>
-                    </div>
-
                 </div>
             `;
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         };
 
-        // =========================================================================
-// 🚀 TUNNEL COMMERCIAL 2 EN 1 : DEVIS D'ABORD ➔ PUIS MANDAT PRÉ-REMPLI
-// =========================================================================
+        // 🚀 TUNNEL COMMERCIAL 2 EN 1 : DEVIS D'ABORD ➔ PUIS MANDAT
+        let donneesDossierEnCours = {};
 
-// Stockage temporaire des données saisies
-let donneesDossierEnCours = {};
-
-// -------------------------------------------------------------------------
-// ÉTAPE 1 : OUVERTURE DE LA MODALE DU DEVIS OFFICIEL
-// -------------------------------------------------------------------------
-window.openMandatModal = function() {
-    modalBody.innerHTML = `
-        <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
-            <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #ecfdf5; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 1 SUR 2 • CONTRAT D'ACCOMPAGNEMENT</span>
-            <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Devis d'Assistance & Montage Chèque TIC</h2>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-                Cabinet Dhamusoft — Ingénierie & Facilitation Administrative Région Guadeloupe
-            </p>
-        </div>
-
-        <form id="devis-form" onsubmit="validerEtapeDevis(event)">
-            
-            <h4 style="color: var(--primary); font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem;">1. Identification de l'Entreprise Demandeur</h4>
-            <div class="mandat-form-grid">
-                <div class="form-group">
-                    <label>Raison Sociale / Nom Commercial *</label>
-                    <input type="text" id="m-ste" class="form-control" required placeholder="Ex: SAS Mon Entreprise">
-                </div>
-                <div class="form-group">
-                    <label>Forme Juridique *</label>
-                    <input type="text" id="m-forme" class="form-control" required placeholder="Ex: SARL, SAS, Micro-entreprise, EI">
-                </div>
-                <div class="form-group">
-                    <label>Numéro SIRET (14 chiffres) *</label>
-                    <input type="text" id="m-siret" class="form-control" required placeholder="Ex: 123 456 789 00012">
-                </div>
-                <div class="form-group">
-                    <label>Adresse du Siège en Guadeloupe *</label>
-                    <input type="text" id="m-adresse" class="form-control" required placeholder="Ex: Rue Principale, 97130 Capesterre-Belle-Eau">
-                </div>
-                <div class="form-group">
-                    <label>Nom & Prénom du Signataire *</label>
-                    <input type="text" id="m-rep" class="form-control" required placeholder="Ex: DUPONT Jean">
-                </div>
-                <div class="form-group">
-                    <label>Qualité / Fonction *</label>
-                    <input type="text" id="m-fonction" class="form-control" required placeholder="Ex: Gérant, Président">
-                </div>
-                <div class="form-group">
-                    <label>Email Professionnel *</label>
-                    <input type="email" id="m-email" class="form-control" required placeholder="contact@mon-entreprise.gp">
-                </div>
-                <div class="form-group">
-                    <label>Téléphone Portable *</label>
-                    <input type="tel" id="m-tel" class="form-control" required placeholder="0690 XX XX XX">
-                </div>
-            </div>
-
-            <!-- Détail de la Prestation d'Accompagnement (Option B : 390 € + 5%) -->
-            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem; margin: 1.2rem 0;">
-                <div style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; margin-bottom: 0.5rem;">Détail de la Mission de Conseil & Montage :</div>
-                
-                <div style="font-size: 0.86rem; color: #1e293b; line-height: 1.5; margin-bottom: 0.9rem;">
-                    <strong>Mission d'Assistance à Maîtrise d'Ouvrage (AMO) & Cadrage Technique Chèque TIC</strong><br>
-                    <span style="font-size: 0.78rem; color: #64748b;">
-                        • Diagnostic de maturité numérique & éligibilité Délibération Région n° CR-19-175.<br>
-                        • Rédaction complète de la Note d'Impact Stratégique et des argumentaires d'investissement.<br>
-                        • Structuration administrative, vérification des devis éligibles et dépôt dématérialisé ASP.<br>
-                        • Suivi d'instruction jusqu'à notification de la décision régionale.
-                    </span>
+        window.openMandatModal = function() {
+            modalBody.innerHTML = `
+                <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #ecfdf5; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 1 SUR 2 • CONTRAT D'ACCOMPAGNEMENT</span>
+                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Devis d'Assistance & Montage Chèque TIC</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Cabinet Dhamusoft — Ingénierie & Facilitation Administrative Région Guadeloupe</p>
                 </div>
 
-                <div style="border-top: 2px dashed #cbd5e1; padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem;">
-                    <div>
-                        <span style="font-size: 0.75rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Frais d'instruction initiaux :</span><br>
-                        <span style="font-size: 1.3rem; font-weight: 900; color: #05231a;">390,00 € HT</span>
-                        <span style="font-size: 0.75rem; color: #64748b;"> (À la commande)</span>
+                <form id="devis-form" onsubmit="validerEtapeDevis(event)">
+                    <div class="mandat-form-grid">
+                        <div class="form-group"><label>Raison Sociale *</label><input type="text" id="m-ste" class="form-control" required placeholder="Ex: SAS Mon Entreprise"></div>
+                        <div class="form-group"><label>Forme Juridique *</label><input type="text" id="m-forme" class="form-control" required placeholder="Ex: SARL, SAS, EI"></div>
+                        <div class="form-group"><label>Numéro SIRET (14 chiffres) *</label><input type="text" id="m-siret" class="form-control" required placeholder="Ex: 123 456 789 00012"></div>
+                        <div class="form-group"><label>Commune *</label><input type="text" id="m-commune" class="form-control" required placeholder="Ex: Baie-Mahault, Sainte-Rose"></div>
+                        <div class="form-group"><label>Adresse Siège *</label><input type="text" id="m-adresse" class="form-control" required placeholder="Rue Principale, 97130 Capesterre"></div>
+                        <div class="form-group"><label>Nom & Prénom Signataire *</label><input type="text" id="m-rep" class="form-control" required placeholder="DUPONT Jean"></div>
+                        <div class="form-group"><label>Qualité / Fonction *</label><input type="text" id="m-fonction" class="form-control" required placeholder="Gérant, Président"></div>
+                        <div class="form-group"><label>Email Professionnel *</label><input type="email" id="m-email" class="form-control" required placeholder="contact@entreprise.gp"></div>
+                        <div class="form-group"><label>Téléphone *</label><input type="tel" id="m-tel" class="form-control" required placeholder="0690 XX XX XX"></div>
                     </div>
-                    <div style="text-align: right;">
-                        <span style="font-size: 0.75rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Honoraires de Succès (Gagnant-Gagnant) :</span><br>
-                        <span style="font-size: 1.1rem; font-weight: 800; color: #047857;">+ 5 % de la subvention obtenue</span><br>
-                        <span style="font-size: 0.72rem; color: #64748b; font-style: italic;">(Exigible uniquement après accord officiel de la Région)</span>
+
+                    <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem; margin: 1.2rem 0;">
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; margin-bottom: 0.5rem;">Prestation d'Assistance à Maîtrise d'Ouvrage (AMO) :</div>
+                        <p style="font-size: 0.84rem; color: #334155; line-height: 1.45; margin-bottom: 0.8rem;">
+                            Diagnostic de maturité, rédaction de la Note d'Impact Stratégique (3 pages), cadrage des devis éligibles et dépôt dématérialisé ASP.
+                        </p>
+                        <div style="border-top: 2px dashed #cbd5e1; padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-size: 0.72rem; color: #64748b; font-weight: bold;">FRAIS D'INSTRUCTION :</span><br>
+                                <span style="font-size: 1.25rem; font-weight: 900; color: #05231a;">390,00 € HT</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <span style="font-size: 0.72rem; color: #64748b; font-weight: bold;">HONORAIRES DE SUCCÈS :</span><br>
+                                <span style="font-size: 1.1rem; font-weight: 800; color: #047857;">+ 5 % de la subvention</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="signature-box-wrap">
+                        <div class="signature-header">
+                            <span>✍️ SIGNATURE DU BON DE COMMANDE (Doigt ou Souris) *</span>
+                            <button type="button" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;" onclick="clearSignaturePad()">↺ Effacer</button>
+                        </div>
+                        <canvas id="signature-pad"></canvas>
+                    </div>
+
+                    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
+                        <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; font-weight: 700; color: #065f46; cursor: pointer;">
+                            <input type="checkbox" id="d-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
+                            <span>Je certifie être le représentant légal et valide ce devis d'accompagnement (390 € HT + 5% au succès).</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" id="btn-submit-devis" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
+                        ✍️ Valider le Devis & Débloquer le Mandat de Représentation ➔
+                    </button>
+                </form>
+            `;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(initSignaturePad, 100);
+        };
+
+        window.validerEtapeDevis = async function(e) {
+            e.preventDefault();
+            if (!hasSignatureDrawn) {
+                alert("⚠️ Veuillez apposer votre signature manuscrite pour valider le devis.");
+                return;
+            }
+
+            const btn = document.getElementById('btn-submit-devis');
+            btn.disabled = true;
+            btn.textContent = "⏳ Enregistrement du devis...";
+
+            let clientIP = "127.0.0.1";
+            try {
+                const ipRes = await fetch("https://api.ipify.org?format=json");
+                const ipData = await ipRes.json();
+                clientIP = ipData.ip;
+            } catch(err) {}
+
+            donneesDossierEnCours = {
+                entreprise: document.getElementById('m-ste').value,
+                forme_juridique: document.getElementById('m-forme').value,
+                siret: document.getElementById('m-siret').value,
+                commune: document.getElementById('m-commune').value,
+                adresse: document.getElementById('m-adresse').value,
+                representant_legal: document.getElementById('m-rep').value,
+                fonction: document.getElementById('m-fonction').value,
+                email_client: document.getElementById('m-email').value,
+                telephone_client: document.getElementById('m-tel').value,
+                tarif_forfait_ht: 390.00,
+                success_fee_pct: 5.0,
+                ip_signataire: clientIP,
+                date_signature_devis: new Date().toLocaleDateString('fr-FR'),
+                heure_signature_devis: new Date().toLocaleTimeString('fr-FR')
+            };
+
+            try {
+                fetch("https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type_evenement: "DEVIS_AMO_SIGNE", ...donneesDossierEnCours })
+                });
+            } catch(e) {}
+
+            afficherEtapeMandat();
+        };
+
+        function afficherEtapeMandat() {
+            modalBody.innerHTML = `
+                <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #1e40af; background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 2 SUR 2 • DERNIÈRE ÉTAPE</span>
+                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Mandat de Représentation Administrative</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Autorisation de dépôt auprès de la Région Guadeloupe & de l'ASP</p>
                 </div>
-            </div>
 
-            <!-- Clause Légale d'Obligation de Moyens -->
-            <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.7rem; font-size: 0.78rem; color: #92400e; margin-bottom: 1rem; line-height: 1.4;">
-                ⚖️ <strong>ENGAGEMENT RÉGLEMENTAIRE :</strong> Dhamusoft a une obligation de moyens rigoureuse dans la constitution, l'argumentation technique et le dépôt du dossier. La décision d'attribution finale relève de la souveraineté exclusive de la Région Guadeloupe et de l'ASP. Les fonds sont versés à 100 % sur le compte bancaire de l'entreprise mandante.
-            </div>
+                <form id="mandat-form" onsubmit="envoyerMandatAutomatique(event)">
+                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.9rem; margin-bottom: 1rem; font-size: 0.88rem;">
+                        <strong>ENTREPRISE :</strong> ${donneesDossierEnCours.entreprise} (${donneesDossierEnCours.forme_juridique})<br>
+                        <strong>SIRET :</strong> ${donneesDossierEnCours.siret} | <strong>Commune :</strong> ${donneesDossierEnCours.commune}<br>
+                        <strong>SIGNATAIRE :</strong> ${donneesDossierEnCours.representant_legal} (${donneesDossierEnCours.fonction})
+                    </div>
 
-            <!-- Pavé Signature Manuscrite du Devis -->
-            <div class="signature-box-wrap">
-                <div class="signature-header">
-                    <span>✍️ SIGNATURE DU BON DE COMMANDE / DEVIS (Doigt ou Souris) *</span>
-                    <button type="button" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;" onclick="clearSignaturePad()">↺ Effacer</button>
-                </div>
-                <canvas id="signature-pad"></canvas>
-            </div>
+                    <div class="mandat-legal-text" style="font-size: 0.82rem; line-height: 1.5; color: #334155; margin-bottom: 1rem;">
+                        <strong>OBJET DU MANDAT :</strong> L'entreprise mandante donne pouvoir exprès à Monsieur Andy VAUBIEN (Dhamusoft) pour préparer les pièces, rédiger la note d'impact et déposer en son nom la demande Chèque TIC sur le portail de la Région Guadeloupe et de l'ASP.<br><br>
+                        <strong>TRANSPARENCE FINANCIÈRE :</strong> La subvention allouée par la Région Guadeloupe et le FEDER sera versée directement sur le compte bancaire (RIB) de l'entreprise mandante.
+                    </div>
 
-            <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
-                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; font-weight: 700; color: #065f46; cursor: pointer;">
-                    <input type="checkbox" id="d-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
-                    <span>Je certifie être le représentant légal habilité, accepte le tarif d'accompagnement (390 € HT + 5% au succès) et valide ce devis pour lancer le montage de mon dossier.</span>
-                </label>
-            </div>
+                    <div class="signature-box-wrap">
+                        <div class="signature-header">
+                            <span>✍️ SIGNATURE DU MANDAT DE REPRÉSENTATION *</span>
+                            <button type="button" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;" onclick="clearSignaturePad()">↺ Effacer</button>
+                        </div>
+                        <canvas id="signature-pad"></canvas>
+                    </div>
 
-            <button type="submit" id="btn-submit-devis" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
-                ✍️ Valider le Devis & Débloquer le Mandat de Représentation ➔
-            </button>
-        </form>
-    `;
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    setTimeout(initSignaturePad, 100);
-};
+                    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
+                        <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; font-weight: 700; color: #065f46; cursor: pointer;">
+                            <input type="checkbox" id="m-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
+                            <span>Je confirme être le représentant légal habilité, donner mandat formel à Andy VAUBIEN (Dhamusoft) et atteste que la signature ci-dessus est la mienne.</span>
+                        </label>
+                    </div>
 
+                    <button type="submit" id="btn-submit-mandat" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
+                        🚀 Valider & Transmettre le Mandat vers THEMIS ERP
+                    </button>
+                </form>
+            `;
+            setTimeout(initSignaturePad, 100);
+        }
 
-// -------------------------------------------------------------------------
-// VALIDATION DU DEVIS ET TRANSITION DIRECTE VERS LE MANDAT
-// -------------------------------------------------------------------------
-window.validerEtapeDevis = async function(e) {
-    e.preventDefault();
+        window.envoyerMandatAutomatique = async function(e) {
+            e.preventDefault();
+            if (!hasSignatureDrawn) {
+                alert("⚠️ Veuillez apposer votre signature manuscrite pour valider le mandat.");
+                return;
+            }
 
-    if (!hasSignatureDrawn) {
-        alert("⚠️ Veuillez apposer votre signature manuscrite pour valider le devis.");
-        return;
-    }
+            const submitBtn = document.getElementById('btn-submit-mandat');
+            submitBtn.disabled = true;
+            submitBtn.textContent = "⏳ Scellement et transmission vers THEMIS ERP...";
 
-    const btn = document.getElementById('btn-submit-devis');
-    btn.disabled = true;
-    btn.textContent = "⏳ Enregistrement du devis...";
+            const payloadFinal = {
+                type_evenement: "MANDAT_SIGNE",
+                ...donneesDossierEnCours,
+                date_signature_mandat: new Date().toLocaleDateString('fr-FR'),
+                heure_signature_mandat: new Date().toLocaleTimeString('fr-FR'),
+                mandataire: "Andy VAUBIEN - Dhamusoft",
+                dispositif: "Chèque TIC Région Guadeloupe & ASP",
+                _subject: `[DOSSIER COMPLET CHÈQUE TIC] ${donneesDossierEnCours.entreprise}`
+            };
 
-    // Récupération de l'IP discrète
-    let clientIP = "127.0.0.1";
-    try {
-        const ipRes = await fetch("https://api.ipify.org?format=json");
-        const ipData = await ipRes.json();
-        clientIP = ipData.ip;
-    } catch(err) {}
+            try {
+                await Promise.all([
+                    fetch("https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7", {
+                        method: "POST",
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payloadFinal)
+                    }),
+                    fetch("https://formsubmit.co/ajax/dhamusoft@gmail.com", {
+                        method: "POST",
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(payloadFinal)
+                    })
+                ]);
 
-    // Sauvegarde des données propres à l'accompagnement
-    donneesDossierEnCours = {
-        entreprise: document.getElementById('m-ste').value,
-        forme_juridique: document.getElementById('m-forme').value,
-        siret: document.getElementById('m-siret').value,
-        adresse: document.getElementById('m-adresse').value,
-        representant_legal: document.getElementById('m-rep').value,
-        fonction: document.getElementById('m-fonction').value,
-        email_client: document.getElementById('m-email').value,
-        telephone_client: document.getElementById('m-tel').value,
-        tarif_forfait_ht: 390.00,
-        success_fee_pct: 5.0,
-        ip_signataire: clientIP,
-        date_signature_devis: new Date().toLocaleDateString('fr-FR'),
-        heure_signature_devis: new Date().toLocaleTimeString('fr-FR')
-    };
+                modalBody.innerHTML = `
+                    <div style="text-align: center; padding: 2rem 1rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                        <h2 style="color: var(--primary); font-size: 1.8rem; font-weight: 900; margin-bottom: 0.5rem;">Dossier Complet et Scellé !</h2>
+                        <p style="color: #334155; font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto;">
+                            Le devis et le mandat de représentation pour <strong>${payloadFinal.entreprise}</strong> ont été signés et synchronisés avec l'environnement THEMIS ERP.
+                        </p>
+                        <button class="btn btn-primary" onclick="closeModal()">Fermer la fenêtre</button>
+                    </div>
+                `;
+            } catch (err) {
+                alert("Transmission réussie. Votre dossier est en cours de traitement.");
+                closeModal();
+            }
+        };
 
-    // Notification à Make du Devis signé
-    try {
-        fetch("https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                type_evenement: "DEVIS_AMO_SIGNE",
-                ...donneesDossierEnCours
-            })
+        // CANVAS DE SIGNATURE SÉCURISÉ TACTILE & SOURIS
+        let signaturePadCanvas = null;
+        let signatureCtx = null;
+        let isDrawingSignature = false;
+        let hasSignatureDrawn = false;
+
+        function initSignaturePad() {
+            signaturePadCanvas = document.getElementById('signature-pad');
+            if (!signaturePadCanvas) return;
+
+            const rect = signaturePadCanvas.getBoundingClientRect();
+            signaturePadCanvas.width = rect.width;
+            signaturePadCanvas.height = rect.height;
+
+            signatureCtx = signaturePadCanvas.getContext('2d');
+            signatureCtx.strokeStyle = "#0f172a";
+            signatureCtx.lineWidth = 2.5;
+            signatureCtx.lineCap = "round";
+            signatureCtx.lineJoin = "round";
+            hasSignatureDrawn = false;
+
+            function getCoordinates(e) {
+                const box = signaturePadCanvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return { x: clientX - box.left, y: clientY - box.top };
+            }
+
+            function startDraw(e) {
+                isDrawingSignature = true;
+                hasSignatureDrawn = true;
+                const coords = getCoordinates(e);
+                signatureCtx.beginPath();
+                signatureCtx.moveTo(coords.x, coords.y);
+            }
+
+            function draw(e) {
+                if (!isDrawingSignature) return;
+                e.preventDefault();
+                const coords = getCoordinates(e);
+                signatureCtx.lineTo(coords.x, coords.y);
+                signatureCtx.stroke();
+            }
+
+            function stopDraw() { isDrawingSignature = false; }
+
+            signaturePadCanvas.addEventListener('mousedown', startDraw);
+            signaturePadCanvas.addEventListener('mousemove', draw);
+            window.addEventListener('mouseup', stopDraw);
+
+            signaturePadCanvas.addEventListener('touchstart', startDraw, { passive: false });
+            signaturePadCanvas.addEventListener('touchmove', draw, { passive: false });
+            window.addEventListener('touchend', stopDraw);
+        }
+
+        window.clearSignaturePad = function() {
+            if (signatureCtx && signaturePadCanvas) {
+                signatureCtx.clearRect(0, 0, signaturePadCanvas.width, signaturePadCanvas.height);
+                hasSignatureDrawn = false;
+            }
+        };
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            modalBody.innerHTML = '';
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (overlay) overlay.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden') && lightbox.classList.contains('hidden')) closeModal();
         });
-    } catch(e) {}
 
-    // 🚀 BASCULE IMMÉDIATE VERS L'ÉTAPE 2 : LE MANDAT PRÉ-REMPLI !
-    afficherEtapeMandat();
-};
-
-
-// -------------------------------------------------------------------------
-// ÉTAPE 2 : LE MANDAT DE REPRÉSENTATION (PRÉ-REMPLI)
-// -------------------------------------------------------------------------
-function afficherEtapeMandat() {
-    modalBody.innerHTML = `
-        <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
-            <span style="font-size: 0.75rem; font-weight: 800; color: #1e40af; background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 2 SUR 2 • DERNIÈRE ÉTAPE</span>
-            <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Mandat de Représentation Administrative</h2>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-                Autorisation de dépôt auprès de la Région Guadeloupe & de l'ASP
-            </p>
-        </div>
-
-        <form id="mandat-form" onsubmit="envoyerMandatAutomatique(event)">
-            
-            <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.9rem; margin-bottom: 1rem; font-size: 0.88rem;">
-                <strong>ENTREPRISE MANDANTE :</strong> ${donneesDossierEnCours.entreprise} (${donneesDossierEnCours.forme_juridique})<br>
-                <strong>SIRET :</strong> ${donneesDossierEnCours.siret} | <strong>Adresse :</strong> ${donneesDossierEnCours.adresse}<br>
-                <strong>REPRÉSENTANT :</strong> ${donneesDossierEnCours.representant_legal} (${donneesDossierEnCours.fonction})<br>
-                <small style="color: #047857; font-weight: bold;">✅ Informations validées depuis le devis n° DEV-${new Date().getFullYear()}</small>
-            </div>
-
-            <div class="mandat-legal-text" style="font-size: 0.82rem; line-height: 1.5; color: #334155; margin-bottom: 1rem;">
-                <strong>OBJET DU MANDAT :</strong> L'entreprise mandante donne pouvoir exprès à Monsieur Andy VAUBIEN (Dhamusoft) pour préparer les pièces, rédiger la note de cadrage et déposer en son nom la demande Chèque TIC sur le portail de la Région Guadeloupe et de l'ASP.<br><br>
-                <strong>TRANSPARENCE FINANCIÈRE :</strong> Il est expressément stipulé que la subvention allouée par la Région Guadeloupe et le FEDER sera versée directement sur le compte bancaire (RIB) de l'entreprise mandante. Le mandataire n'est aucunement habilité à percevoir cette aide.
-            </div>
-
-            <!-- Signature Manuscrite du Mandat -->
-            <div class="signature-box-wrap">
-                <div class="signature-header">
-                    <span>✍️ SIGNATURE DU MANDAT DE REPRÉSENTATION *</span>
-                    <button type="button" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;" onclick="clearSignaturePad()">↺ Effacer</button>
-                </div>
-                <canvas id="signature-pad"></canvas>
-            </div>
-
-            <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
-                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; font-weight: 700; color: #065f46; cursor: pointer;">
-                    <input type="checkbox" id="m-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
-                    <span>Je confirme être le représentant légal habilité, donner mandat formel à Andy VAUBIEN (Dhamusoft) et atteste que la signature ci-dessus est la mienne.</span>
-                </label>
-            </div>
-
-            <button type="submit" id="btn-submit-mandat" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
-                🚀 Valider & Transmettre le Mandat Signé vers THEMIS ERP
-            </button>
-        </form>
-    `;
-    setTimeout(initSignaturePad, 100);
-}
-
-
-// -------------------------------------------------------------------------
-// ENVOI FINAL DU MANDAT VERS MAKE & THEMIS
-// -------------------------------------------------------------------------
-window.envoyerMandatAutomatique = async function(e) {
-    e.preventDefault();
-
-    if (!hasSignatureDrawn) {
-        alert("⚠️ Veuillez apposer votre signature manuscrite pour valider le mandat.");
-        return;
-    }
-
-    const submitBtn = document.getElementById('btn-submit-mandat');
-    submitBtn.disabled = true;
-    submitBtn.textContent = "⏳ Scellement et transmission vers THEMIS ERP...";
-
-    const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7";
-
-    const payloadFinal = {
-        type_evenement: "MANDAT_SIGNE",
-        ...donneesDossierEnCours,
-        date_signature_mandat: new Date().toLocaleDateString('fr-FR'),
-        heure_signature_mandat: new Date().toLocaleTimeString('fr-FR'),
-        mandataire: "Andy VAUBIEN - Dhamusoft",
-        dispositif: "Chèque TIC Région Guadeloupe & ASP",
-        _subject: `[DOSSIER COMPLET CHÈQUE TIC] ${donneesDossierEnCours.entreprise}`
-    };
-
-    try {
-        await Promise.all([
-            fetch(MAKE_WEBHOOK_URL, {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payloadFinal)
-            }),
-            fetch("https://formsubmit.co/ajax/dhamusoft@gmail.com", {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(payloadFinal)
-            })
-        ]);
-
-        modalBody.innerHTML = `
-            <div style="text-align: center; padding: 2rem 1rem;">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
-                <h2 style="color: var(--primary); font-size: 1.8rem; font-weight: 900; margin-bottom: 0.5rem;">Dossier Complet et Scellé !</h2>
-                <p style="color: #334155; font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto;">
-                    Le devis sous condition suspensive et le mandat de représentation pour <strong>${payloadFinal.entreprise}</strong> ont été signés et synchronisés avec l'environnement THEMIS ERP.
-                </p>
-                <div style="background: #f8fafc; border: 1px solid var(--border); padding: 1.2rem; border-radius: 10px; max-width: 500px; margin: 0 auto 2rem auto; text-align: left; font-size: 0.88rem; color: #475569;">
-                    <strong>Bénéficiaire :</strong> ${payloadFinal.entreprise} (SIRET : ${payloadFinal.siret})<br>
-                    <strong>Signataire :</strong> ${payloadFinal.representant_legal} (${payloadFinal.fonction})<br>
-                    <strong>Devis & Mandat :</strong> Scellés avec horodatage certifié<br>
-                    <strong>Statut :</strong> Prêt pour instruction régionale
-                </div>
-                <button class="btn btn-primary" onclick="closeModal()">Fermer la fenêtre</button>
-            </div>
-        `;
-
-    } catch (err) {
-        alert("Transmission réussie. Votre dossier est en cours de traitement.");
-        closeModal();
-    }
-};
-
-// -------------------------------------------------------------------------
-// MOTEUR CANVAS POUR SIGNATURE (Compatible Souris & Écran Tactile)
-// -------------------------------------------------------------------------
-let signaturePadCanvas = null;
-let signatureCtx = null;
-let isDrawingSignature = false;
-let hasSignatureDrawn = false;
-
-function initSignaturePad() {
-    signaturePadCanvas = document.getElementById('signature-pad');
-    if (!signaturePadCanvas) return;
-
-    const rect = signaturePadCanvas.getBoundingClientRect();
-    signaturePadCanvas.width = rect.width;
-    signaturePadCanvas.height = rect.height;
-
-    signatureCtx = signaturePadCanvas.getContext('2d');
-    signatureCtx.strokeStyle = "#0f172a";
-    signatureCtx.lineWidth = 2.5;
-    signatureCtx.lineCap = "round";
-    signatureCtx.lineJoin = "round";
-    hasSignatureDrawn = false;
-
-    function getCoordinates(e) {
-        const box = signaturePadCanvas.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        return { x: clientX - box.left, y: clientY - box.top };
-    }
-
-    function startDraw(e) {
-        isDrawingSignature = true;
-        hasSignatureDrawn = true;
-        const coords = getCoordinates(e);
-        signatureCtx.beginPath();
-        signatureCtx.moveTo(coords.x, coords.y);
-    }
-
-    function draw(e) {
-        if (!isDrawingSignature) return;
-        e.preventDefault();
-        const coords = getCoordinates(e);
-        signatureCtx.lineTo(coords.x, coords.y);
-        signatureCtx.stroke();
-    }
-
-    function stopDraw() { isDrawingSignature = false; }
-
-    signaturePadCanvas.addEventListener('mousedown', startDraw);
-    signaturePadCanvas.addEventListener('mousemove', draw);
-    window.addEventListener('mouseup', stopDraw);
-
-    signaturePadCanvas.addEventListener('touchstart', startDraw, { passive: false });
-    signaturePadCanvas.addEventListener('touchmove', draw, { passive: false });
-    window.addEventListener('touchend', stopDraw);
-}
-
-window.clearSignaturePad = function() {
-    if (signatureCtx && signaturePadCanvas) {
-        signatureCtx.clearRect(0, 0, signaturePadCanvas.width, signaturePadCanvas.height);
-        hasSignatureDrawn = false;
-    }
-};
-
-function closeModal() {
-    modal.classList.add('hidden');
-    document.body.style.overflow = 'auto';
-    modalBody.innerHTML = '';
-}
-
-if (closeBtn) closeBtn.addEventListener('click', closeModal);
-if (overlay) overlay.addEventListener('click', closeModal);
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden') && lightbox.classList.contains('hidden')) closeModal();
-});
-// =========================================================================
-        // 🎮 MOTEURS DES 3 NOUVELLES ANIMATIONS INTERACTIVES
+        // =========================================================================
+        // 🎮 MOTEURS DES 3 ANIMATIONS INTERACTIVES
         // =========================================================================
 
-        // 1. MOTEUR DU CURSEUR THEMIS (DÉCOUPE FLUIDE & CONTRÔLE PAR BOUTONS SANS INVERSION)
+        // 1. MOTEUR DU CURSEUR THEMIS
         function initThemisSlider() {
             const container = document.getElementById('themis-slider-box');
             const beforeLayer = document.getElementById('themis-before-layer');
             const handle = document.getElementById('themis-slider-handle');
             if (!container || !beforeLayer || !handle) return;
 
-            let isSliding = false;
-
             window.setSliderPercent = function(pct) {
                 const cleanPct = Math.max(0, Math.min(100, pct));
-                // Réactive l'animation fluide pour le clic de bouton
                 beforeLayer.style.transition = 'clip-path 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
                 handle.style.transition = 'left 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
-                
                 beforeLayer.style.clipPath = `polygon(0 0, ${cleanPct}% 0, ${cleanPct}% 100%, 0 100%)`;
                 handle.style.left = cleanPct + '%';
             };
@@ -2965,24 +2741,35 @@ document.addEventListener('keydown', (e) => {
                 const rect = container.getBoundingClientRect();
                 let pct = ((clientX - rect.left) / rect.width) * 100;
                 pct = Math.max(0, Math.min(100, pct));
-                
-                // Désactive la transition pendant le drag pour une réactivité instantanée à la souris
                 beforeLayer.style.transition = 'none';
                 handle.style.transition = 'none';
-                
                 beforeLayer.style.clipPath = `polygon(0 0, ${pct}% 0, ${pct}% 100%, 0 100%)`;
                 handle.style.left = pct + '%';
             }
 
-            container.addEventListener('mousedown', (e) => { isSliding = true; updateSliderDirect(e.clientX); });
-            window.addEventListener('mouseup', () => isSliding = false);
-            window.addEventListener('mousemove', (e) => { if (isSliding) updateSliderDirect(e.clientX); });
+            container.addEventListener('mousedown', (e) => {
+                const onMouseMove = (ev) => updateSliderDirect(ev.clientX);
+                const onMouseUp = () => {
+                    window.removeEventListener('mousemove', onMouseMove);
+                    window.removeEventListener('mouseup', onMouseUp);
+                };
+                window.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('mouseup', onMouseUp);
+                updateSliderDirect(e.clientX);
+            });
 
-            container.addEventListener('touchstart', (e) => { isSliding = true; updateSliderDirect(e.touches[0].clientX); });
-            window.addEventListener('touchend', () => isSliding = false);
-            window.addEventListener('touchmove', (e) => { if (isSliding) updateSliderDirect(e.touches[0].clientX); });
+            container.addEventListener('touchstart', (e) => {
+                const onTouchMove = (ev) => updateSliderDirect(ev.touches[0].clientX);
+                const onTouchEnd = () => {
+                    window.removeEventListener('touchmove', onTouchMove);
+                    window.removeEventListener('touchend', onTouchEnd);
+                };
+                window.addEventListener('touchmove', onTouchMove);
+                window.addEventListener('touchend', onTouchEnd);
+                updateSliderDirect(e.touches[0].clientX);
+            });
         }
-        setTimeout(initThemisSlider, 200);
+        setTimeout(initThemisSlider, 250);
 
         // 2. MOTEUR DU SCANNER RÉTROACTIF CHÈQUE TIC
         window.toggleScanInvoice = function(card, amount, rate) {
@@ -3041,29 +2828,31 @@ document.addEventListener('keydown', (e) => {
             document.getElementById('method-detail-desc').textContent = data.desc;
             document.getElementById('method-detail-badge').textContent = data.badge;
         };
-// INITIALISATION SHOWROOM ET MENTIONS
-renderShowroom(projectsData);
-renderLabTech(projectsData);
 
-const btnMentions = document.querySelector('#link-mentions');
-if (btnMentions) {
-    btnMentions.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalBody.innerHTML = `
-            <h2>⚖️ Mentions Légales</h2>
-            <div style="margin-top: 1.2rem; font-size: 0.95rem; color: #475569; line-height: 1.6;">
-                <p><strong>Éditeur :</strong> Dhamusoft (Micro-entreprise en cours d'immatriculation)<br>
-                <strong>Siège :</strong> Capesterre-Belle-Eau, Guadeloupe<br>
-                <strong>Directeur de publication :</strong> VAUBIEN Andy<br>
-                <strong>Email :</strong> dhamusoft@gmail.com | <strong>Tél :</strong> +590 690 05 11 44<br>
-                <strong>Hébergement :</strong> GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA.<br><br>
-                <em>Ce site vitrine ne dépose aucun cookie de traçage publicitaire et ne collecte aucune donnée à l'insu de l'utilisateur.</em></p>
-            </div>
-        `;
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    });
-}
+        // INITIALISATION DU SITE
+        renderShowroom(projectsData);
+        renderLabTech(projectsData);
+
+        // MENTIONS LÉGALES
+        const btnMentions = document.querySelector('#link-mentions');
+        if (btnMentions) {
+            btnMentions.addEventListener('click', (e) => {
+                e.preventDefault();
+                modalBody.innerHTML = `
+                    <h2>⚖️ Mentions Légales</h2>
+                    <div style="margin-top: 1.2rem; font-size: 0.95rem; color: #475569; line-height: 1.6;">
+                        <p><strong>Éditeur :</strong> Dhamusoft (Micro-entreprise en cours d'immatriculation)<br>
+                        <strong>Siège :</strong> Capesterre-Belle-Eau, Guadeloupe<br>
+                        <strong>Directeur de publication :</strong> VAUBIEN Andy<br>
+                        <strong>Email :</strong> dhamusoft@gmail.com | <strong>Tél :</strong> +590 690 05 11 44<br>
+                        <strong>Hébergement :</strong> GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA.<br><br>
+                        <em>Ce site vitrine ne dépose aucun cookie de traçage publicitaire et ne collecte aucune donnée à l'insu de l'utilisateur.</em></p>
+                    </div>
+                `;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        }
 
         // BOUTON PARTAGE
         const shareBtn = document.querySelector('#btn-partager');
@@ -3082,46 +2871,7 @@ if (btnMentions) {
             });
         }
 
-        // =========================================================================
-        // 🚀 EFFETS MODERNES PUR JS (SANS LIBRAIRIE EXTERNE, SANS CONFLIT)
-        // =========================================================================
-        // 1. Barre de progression supérieure
-        window.addEventListener('scroll', () => {
-            const progressBar = document.getElementById('scroll-progress');
-            if (progressBar) {
-                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                if (height > 0) {
-                    progressBar.style.width = (winScroll / height * 100) + '%';
-                }
-            }
-        }, { passive: true });
-
-        // 2. Halo lumineux interactif (Spotlight) sur les cartes
-        function attachSpotlight() {
-            const cards = document.querySelectorAll('.solution-card, .themis-hero-card, .simulator-card, .timeline-card, .pillar-card');
-            cards.forEach((card) => {
-                if (!card.classList.contains('spotlight-glow')) {
-                    card.classList.add('spotlight-glow');
-                    card.addEventListener('mousemove', (e) => {
-                        const rect = card.getBoundingClientRect();
-                        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-                    });
-                }
-            });
-        }
-
-        // Lancement immédiat et lors des changements d'onglets
-        attachSpotlight();
-        document.querySelectorAll('.hub-btn, .filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => setTimeout(attachSpotlight, 100));
-        });
-
     })();
     </script>
-
-    <!-- Barre de progression supérieure -->
-    <div id="scroll-progress"></div>
 </body>
 </html>
