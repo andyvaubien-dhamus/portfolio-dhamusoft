@@ -875,7 +875,49 @@
                         Tout est géré au même endroit : les acomptes se recalculent en direct et l'outil assemble en 1 clic un dossier contractuel complet prêt à signer (Cahier des charges, Devis, CGV, NDA).
                     </div>
                 </div>
+<!-- ANIMATION 1 : COMPARATEUR INTERACTIF THEMIS -->
+                <div class="themis-comparison-wrap" style="margin: 2rem 0; background: #071524; border: 1px solid rgba(197, 155, 67, 0.4); border-radius: 14px; overflow: hidden; position: relative;">
+                    <div style="padding: 0.8rem 1.2rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">⚡ Comparateur d'Efficacité Opérationnelle</span>
+                        <span style="font-size: 0.72rem; color: #94a3b8;">Glissez le curseur pour comparer ⟷</span>
+                    </div>
 
+                    <div class="comparison-container" id="themis-slider-box" style="position: relative; height: 260px; user-select: none; overflow: hidden;">
+                        <!-- FACE DROITE (THEMIS : 2 MIN 30) -->
+                        <div class="comp-side comp-after" style="position: absolute; inset: 0; background: linear-gradient(135deg, #05231a 0%, #0b382a 100%); color: white; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center;">
+                            <div style="display: inline-block; background: #047857; color: #a7f3d0; font-size: 0.70rem; font-weight: 900; padding: 0.2rem 0.6rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">AVEC THEMIS ERP • CONFORME 2026</div>
+                            <h4 style="font-size: 1.6rem; font-weight: 900; color: #ffffff; margin-bottom: 0.3rem;">⏱️ 2 minutes 30 chrono</h4>
+                            <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.45; margin-bottom: 0.8rem;">
+                                Devis multi-lignes calculé au centime près, acompte ajusté en direct et dossier contractuel officiel (7 pages avec CGV, SLA et RGPD) scellé en un clic.
+                            </p>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span style="background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700;">✓ Factur-X 2026</span>
+                                <span style="background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700;">✓ Inaltérabilité Art. 286 CGI</span>
+                                <span style="background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700;">✓ Radar Trésorerie</span>
+                            </div>
+                        </div>
+
+                        <!-- FACE GAUCHE (LE PAPIER : 45 MIN) -->
+                        <div class="comp-side comp-before" id="themis-before-layer" style="position: absolute; top:0; left:0; bottom:0; width: 50%; background: linear-gradient(135deg, #1e1b18 0%, #2e1015 100%); color: white; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; border-right: 3px solid var(--accent); overflow: hidden;">
+                            <div style="min-width: 300px;">
+                                <div style="display: inline-block; background: #991b1b; color: #fecaca; font-size: 0.70rem; font-weight: 900; padding: 0.2rem 0.6rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">MÉTHODE TRADITIONNELLE (PAPIER / EXCEL)</div>
+                                <h4 style="font-size: 1.6rem; font-weight: 900; color: #f87171; margin-bottom: 0.3rem;">⏳ 45 minutes par devis</h4>
+                                <p style="font-size: 0.82rem; color: #e2e8f0; line-height: 1.45; margin-bottom: 0.8rem;">
+                                    Calculs d'acomptes manuels, CGV éparpillées, oublis de relances d'impayés et risque de redressement fiscal sur l'inaltérabilité.
+                                </p>
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <span style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700; color: #fca5a5;">❌ Soirées perdues</span>
+                                    <span style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; padding: 3px 8px; border-radius: 5px; font-size: 0.70rem; font-weight: 700; color: #fca5a5;">❌ Litiges clients</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Curseur Mobile -->
+                        <div class="comp-handle" id="themis-slider-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: var(--accent); cursor: ew-resize; display: flex; align-items: center; justify-content: center; transform: translateX(-50%);">
+                            <div style="width: 32px; height: 32px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 12px rgba(0,0,0,0.5); font-weight: 900; color: #091a2b; font-size: 12px;">⟷</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="themis-actions">
                     <button class="btn btn-gold" onclick="openProjectModal('themis', 'demo')">
                         🚀 Tester en direct (Démo interactive intégrée)
@@ -947,7 +989,51 @@
                     <h2>Comment travaillons-nous ensemble ?</h2>
                     <p>Une démarche partenariale pragmatique et transparente, pensée pour vous libérer du temps et sécuriser vos processus sans jargon informatique intimidant.</p>
                 </div>
+<!-- ANIMATION 3 : LE PIPELINE INTERACTIF EN 4 TEMPS -->
+                <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 16px; padding: 1.8rem; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div style="text-align: center; max-width: 700px; margin: 0 auto 1.8rem auto;">
+                        <span style="background: #eff6ff; color: #1e40af; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">CYCLE DE PRODUCTION SOUVERAIN</span>
+                        <h3 style="font-size: 1.6rem; font-weight: 900; color: var(--primary); margin: 6px 0 4px 0;">De l'idée à l'outil en production : 4 Jalons Clairs</h3>
+                        <p style="font-size: 0.88rem; color: #64748b;">Cliquez sur chaque étape pour visualiser le livrable exact qui vous est remis :</p>
+                    </div>
 
+                    <!-- Sélecteur à 4 boutons -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; margin-bottom: 1.5rem;">
+                        <div class="method-step-btn active" id="mstep-1" onclick="showMethodDetail(1)" style="border: 2px solid var(--primary); border-radius: 10px; padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; background: #f8fafc;">
+                            <div style="font-size: 1.3rem; margin-bottom: 3px;">📞</div>
+                            <strong style="font-size: 0.85rem; color: var(--primary); display: block;">1. Appel Flash (5 min)</strong>
+                            <span style="font-size: 0.70rem; color: #64748b;">Cadrage & éligibilité</span>
+                        </div>
+                        <div class="method-step-btn" id="mstep-2" onclick="showMethodDetail(2)" style="border: 2px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; background: #ffffff;">
+                            <div style="font-size: 1.3rem; margin-bottom: 3px;">🎯</div>
+                            <strong style="font-size: 0.85rem; color: var(--primary); display: block;">2. Immersion (20 min)</strong>
+                            <span style="font-size: 0.70rem; color: #64748b;">Audit des blocages</span>
+                        </div>
+                        <div class="method-step-btn" id="mstep-3" onclick="showMethodDetail(3)" style="border: 2px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; background: #ffffff;">
+                            <div style="font-size: 1.3rem; margin-bottom: 3px;">⚙️</div>
+                            <strong style="font-size: 0.85rem; color: var(--primary); display: block;">3. Prototype Réel</strong>
+                            <span style="font-size: 0.70rem; color: #64748b;">Sur vos vraies données</span>
+                        </div>
+                        <div class="method-step-btn" id="mstep-4" onclick="showMethodDetail(4)" style="border: 2px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; background: #ffffff;">
+                            <div style="font-size: 1.3rem; margin-bottom: 3px;">🚀</div>
+                            <strong style="font-size: 0.85rem; color: var(--primary); display: block;">4. Déploiement</strong>
+                            <span style="font-size: 0.70rem; color: #64748b;">Installation & formation</span>
+                        </div>
+                    </div>
+
+                    <!-- Fiche interactive détaillée -->
+                    <div id="method-detail-card" style="background: #f8fafc; border: 1.5px solid var(--primary); border-radius: 10px; padding: 1.4rem; line-height: 1.55;">
+                        <h4 id="method-detail-title" style="color: var(--primary); font-size: 1.15rem; font-weight: 800; margin-bottom: 0.4rem;">
+                            📞 Étape 1 : L'Échange Flash de Cadrage (5 Minutes Chrono)
+                        </h4>
+                        <p id="method-detail-desc" style="font-size: 0.88rem; color: #334155; margin-bottom: 0.8rem;">
+                            Pas de réunions interminables. En 5 minutes au téléphone, nous vérifions si votre problème peut être résolu par un outil sur-mesure (THEMIS, PWA, script d'automatisation) et si votre entreprise est éligible aux 80% d'aide Chèque TIC.
+                        </p>
+                        <div id="method-detail-badge" style="background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; font-size: 0.72rem; font-weight: 800; padding: 3px 8px; border-radius: 5px; width: fit-content;">
+                            ✓ Zéro engagement • Réponse d'éligibilité immédiate
+                        </div>
+                    </div>
+                </div>
                 <div class="process-timeline">
                     <div class="timeline-card">
                         <div class="timeline-number">1</div>
@@ -1893,209 +1979,235 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // 📄 MODALE TRIPTYQUE RECTO / VERSO (2 PAGES PAYSAGE IMPRIMÉES PARFAITEMENT SANS COUPURE)
+        // 📄 MODALE TRIPTYQUE RECTO / VERSO (ORDRE DE PLIAGE NATUREL & CROCHET COMMERCIAL RÉCENT)
         window.openPlaquetteModal = function() {
             modalBody.innerHTML = `
                 <div class="plaquette-no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.6rem;">
                     <div>
                         <h2 style="font-size: 1.45rem; font-weight: 900; color: var(--primary); margin: 0;">Plaquette Corporate Dhamusoft</h2>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">Aperçu du dépliant officiel (Page 1 : Extérieur / Page 2 : Intérieur déplié)</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Format Dépliant 3 Volets (Pli Roulé Standard A4 Paysage)</span>
                     </div>
                     <button class="btn btn-primary" onclick="window.print()">
-                        🖨️ Enregistrer en PDF (2 pages)
+                        🖨️ Enregistrer en PDF (2 pages nettes)
                     </button>
                 </div>
 
-                <!-- ========================================== -->
-                <!-- 📄 FEUILLE 1 : LE RECTO (FACE EXTÉRIEURE)   -->
-                <!-- ========================================== -->
-                <div class="triptyque-sheet">
+                <!-- ======================================================= -->
+                <!-- 📄 FEUILLE 1 : RECTO EXTÉRIEUR (Volet 5 | Volet 6 | Volet 1) -->
+                <!-- ======================================================= -->
+                <div class="triptyque-sheet" style="background: #ffffff; position: relative;">
                     
-                    <!-- 1. RABAT INTÉRIEUR (GAUCHE) : ARCHITECTURE HYBRIDE -->
-                    <div class="triptyque-volet">
+                    <!-- 1. VOLET GAUCHE DU RECTO = RABAT INTÉRIEUR (Volet 2 lors de la lecture) -->
+                    <div class="triptyque-volet" style="position: relative;">
+                        <div style="position: absolute; right: 5px; bottom: 35px; opacity: 0.04; font-size: 6rem; font-weight: 900; pointer-events: none; color: #091a2b;">HYBRID</div>
+
                         <div class="volet-header-banner">
-                            <span class="volet-header-title">1. Architecture Hybride</span>
-                            <span class="volet-header-tag">Souverain</span>
+                            <span class="volet-header-title">Architecture Souveraine</span>
+                            <span class="volet-header-tag">Sécurité</span>
                         </div>
 
-                        <div class="volet-card-inner" style="border-left: 3px solid var(--primary);">
-                            <div class="volet-card-title">☁️ Cloud Européen Sécurisé (OVH)</div>
-                            <p style="font-size: 0.72rem; color: #475569; line-height: 1.4; margin: 0;">
-                                Vos applications web sont hébergées sur des serveurs français sécurisés et conformes au RGPD, sans dépendance aux acteurs cloud opaques.
+                        <!-- 🎯 CROCHET COMMERCIAL INVESTISSEMENTS RÉCENTS -->
+                        <div style="background: #fffdf5; border: 1.5px solid var(--accent); border-radius: 8px; padding: 0.6rem; margin-bottom: 0.6rem;">
+                            <strong style="font-size: 0.74rem; color: #b45309; display: block; margin-bottom: 2px;">⚡ Vous avez récemment investi ?</strong>
+                            <p style="font-size: 0.67rem; color: #78350f; line-height: 1.35; margin: 0;">
+                                Achat récent de matériel PC/Mac, création de site web ou logiciel de gestion ? <strong>Ne laissez pas dormir vos factures :</strong> activez jusqu'à 80% de subvention Chèque TIC pour alléger votre trésorerie !
                             </p>
                         </div>
 
-                        <div class="volet-card-inner" style="border-left: 3px solid var(--accent);">
-                            <div class="volet-card-title">🔒 Données Physiquement chez Vous</div>
-                            <p style="font-size: 0.72rem; color: #475569; line-height: 1.4; margin: 0;">
-                                L'application peut tourner dans le Cloud pour un accès universel, pendant que votre base de données sensible reste chez vous en local.
+                        <div class="volet-card-inner" style="border-left: 3px solid var(--primary); padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="font-size: 0.73rem;">☁️ Cloud Souverain & Données chez Vous</div>
+                            <p style="font-size: 0.67rem; color: #475569; line-height: 1.3; margin: 0;">
+                                Serveurs européens conformes RGPD et base de données sensible hébergée dans vos locaux (SQLite chiffré).
                             </p>
                         </div>
 
-                        <div class="volet-card-inner" style="border-left: 3px solid #059669;">
-                            <div class="volet-card-title">⚡ Connecté ou Hors-Ligne</div>
-                            <p style="font-size: 0.72rem; color: #475569; line-height: 1.4; margin: 0;">
-                                Connecté pour piloter vos flux et robots d'automatisation en direct, ou 100% autonome hors-ligne sur le terrain sans internet.
+                        <div class="volet-card-inner" style="border-left: 3px solid #059669; padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="font-size: 0.73rem;">⚡ Autonomie 100% Hors-Ligne</div>
+                            <p style="font-size: 0.67rem; color: #475569; line-height: 1.3; margin: 0;">
+                                Vos outils continuent de tourner même sans connexion internet ou lors de coupures réseau en Guadeloupe.
                             </p>
                         </div>
 
-                        <div style="margin-top: auto; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.45rem; border-radius: 6px; text-align: center;">
-                            <span style="font-size: 0.68rem; color: #065f46; font-weight: 800;">✓ Flexibilité totale • Zéro fuite de données</span>
+                        <div style="margin-top: auto; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.35rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.64rem; color: #065f46; font-weight: 800;">✓ Zéro dépendance • Maîtrise totale de vos données</span>
                         </div>
                     </div>
 
-                    <!-- 2. DOS DU DÉPLIANT (CENTRE) : DÉMARCHE EN 3 ÉTAPES -->
-                    <div class="triptyque-volet">
+                    <!-- 2. VOLET CENTRE DU RECTO = DOS DU DÉPLIANT (Volet 6 final) -->
+                    <div class="triptyque-volet" style="position: relative;">
+                        <div style="position: absolute; left: 10px; bottom: 40px; opacity: 0.04; font-size: 6rem; font-weight: 900; pointer-events: none; color: #091a2b;">METHOD</div>
+
                         <div class="volet-header-banner" style="background: var(--primary);">
-                            <span class="volet-header-title" style="margin: 0 auto;">2. Notre Démarche</span>
+                            <span class="volet-header-title" style="margin: 0 auto;">Notre Méthode d'Intervention</span>
                         </div>
 
-                        <p style="font-size: 0.75rem; color: #334155; line-height: 1.35; text-align: center; margin-bottom: 0.6rem;">
-                            Un accompagnement pragmatique et transparent, sans jargon informatique intimidant :
+                        <p style="font-size: 0.71rem; color: #334155; line-height: 1.3; text-align: center; margin-bottom: 0.4rem;">
+                            Un accompagnement pragmatique et transparent de l'idée au déploiement :
                         </p>
 
-                        <div class="volet-card-inner">
-                            <strong style="font-size: 0.75rem; color: var(--primary); display: block;">1. Diagnostic Métier Offert</strong>
-                            <span style="font-size: 0.68rem; color: #475569;">Échange gratuit de 15 minutes pour cibler vos pertes de temps et vos blocages réels.</span>
+                        <div class="volet-card-inner" style="border-left: 3px solid var(--primary); padding: 0.4rem 0.6rem;">
+                            <strong style="font-size: 0.72rem; color: var(--primary); display: block;">1. Diagnostic Offert (15 min)</strong>
+                            <span style="font-size: 0.65rem; color: #475569;">Évaluation des tâches chronophages et cadrage immédiat de l'éligibilité Chèque TIC.</span>
                         </div>
 
-                        <div class="volet-card-inner">
-                            <strong style="font-size: 0.75rem; color: var(--accent); display: block;">2. Prototypage Agile</strong>
-                            <span style="font-size: 0.68rem; color: #475569;">Conception rapide d'une première version testée directement sur vos données d'entreprise.</span>
+                        <div class="volet-card-inner" style="border-left: 3px solid var(--accent); padding: 0.4rem 0.6rem;">
+                            <strong style="font-size: 0.72rem; color: var(--accent); display: block;">2. Prototypage Rapide & Données Réelles</strong>
+                            <span style="font-size: 0.65rem; color: #475569;">Conception en cycle court d'une interface testée directement sur vos flux d'entreprise.</span>
                         </div>
 
-                        <div class="volet-card-inner">
-                            <strong style="font-size: 0.75rem; color: #059669; display: block;">3. Déploiement & Suivi</strong>
-                            <span style="font-size: 0.68rem; color: #475569;">Installation locale sur vos postes, formation de vos équipes et assistance continue.</span>
+                        <div class="volet-card-inner" style="border-left: 3px solid #059669; padding: 0.4rem 0.6rem;">
+                            <strong style="font-size: 0.72rem; color: #059669; display: block;">3. Déploiement Local & Suivi Continu</strong>
+                            <span style="font-size: 0.65rem; color: #475569;">Installation sur vos postes, formation des équipes et assistance réactive en Guadeloupe.</span>
                         </div>
 
-                        <div style="margin-top: auto; background: #f8fafc; border: 1px solid var(--border); padding: 0.5rem; border-radius: 6px; text-align: center;">
-                            <strong style="font-size: 0.74rem; color: var(--primary); display: block;">Échangeons sur votre projet :</strong>
-                            <span style="font-size: 0.68rem; color: #64748b;">Andy VAUBIEN • dhamusoft@gmail.com • +590 690 05 11 44</span>
+                        <div style="margin-top: auto; background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.45rem; border-radius: 6px; text-align: center;">
+                            <strong style="font-size: 0.70rem; color: var(--primary); display: block;">Contact Direct Ingénierie :</strong>
+                            <span style="font-size: 0.67rem; color: #047857; font-weight: 700;">Andy VAUBIEN • dhamusoft@gmail.com • +590 690 05 11 44</span>
                         </div>
                     </div>
 
-                    <!-- 3. PAGE DE COUVERTURE (DROITE) : LOGO ET VOCATION DHAMUSOFT -->
-                    <div class="triptyque-volet" style="text-align: center; justify-content: center;">
-                        <div style="margin: 1.2rem 0 0.8rem 0;">
-                            <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 210px; margin: 0 auto; display: block;">
+                    <!-- 3. VOLET DROIT DU RECTO = COUVERTURE DU DÉPLIANT (Volet 1 de découverte) -->
+                    <div class="triptyque-volet" style="text-align: center; justify-content: space-between; position: relative;">
+                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.03; font-size: 11rem; font-weight: 900; pointer-events: none; color: #091a2b;">D</div>
+
+                        <div style="margin-top: 0.6rem;">
+                            <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 195px; margin: 0 auto; display: block;">
                         </div>
 
-                        <h3 style="font-size: 0.90rem; font-weight: 900; color: var(--primary); margin-bottom: 0.4rem; line-height: 1.3;">
-                            De l'idée au déploiement de vos outils numériques sur-mesure.
-                        </h3>
+                        <div style="padding: 0 0.4rem;">
+                            <h3 style="font-size: 0.88rem; font-weight: 900; color: var(--primary); margin-bottom: 0.35rem; line-height: 1.25;">
+                                De l'idée au déploiement de vos outils logiciels sur-mesure.
+                            </h3>
+                            <p style="font-size: 0.70rem; color: #475569; line-height: 1.4; margin: 0;">
+                                Conception d'applications métiers, plateformes de coordination clinique et optimisation des aides régionales en Guadeloupe.
+                            </p>
+                        </div>
 
-                        <p style="font-size: 0.73rem; color: #475569; line-height: 1.45; margin: 0 0 1.2rem 0;">
-                            Conception d'applications métiers, d'outils de coordination et automatisation de processus pour professionnels et institutions en Guadeloupe.
-                        </p>
-
-                        <div style="margin-top: auto; background: #091a2b; color: white; padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(197, 155, 67, 0.4); text-align: center;">
+                        <div style="background: #091a2b; color: white; padding: 0.7rem; border-radius: 8px; border: 1px solid rgba(197, 155, 67, 0.45); text-align: center;">
                             <strong style="font-size: 0.78rem; color: var(--accent); display: block; margin-bottom: 2px;">Andy VAUBIEN</strong>
-                            <span style="font-size: 0.70rem; color: #cbd5e1; display: block;">Fondateur & Concepteur Logiciel</span>
-                            <span style="font-size: 0.70rem; color: #cbd5e1; display: block;">📞 +590 690 05 11 44</span>
-                            <span style="font-size: 0.68rem; color: #94a3b8; display: block; margin-top: 2px;">📍 Capesterre-Belle-Eau, Guadeloupe</span>
+                            <span style="font-size: 0.68rem; color: #cbd5e1; display: block;">Fondateur & Concepteur Logiciel</span>
+                            <span style="font-size: 0.68rem; color: #cbd5e1; display: block;">📞 +590 690 05 11 44</span>
+                            <span style="font-size: 0.64rem; color: #94a3b8; display: block; margin-top: 2px;">📍 Capesterre-Belle-Eau, Guadeloupe</span>
                         </div>
                     </div>
 
                 </div>
 
 
-                <!-- ========================================== -->
-                <!-- 📄 FEUILLE 2 : LE VERSO (FACE INTÉRIEURE)   -->
-                <!-- ========================================== -->
-                <div class="triptyque-sheet">
+                <!-- ======================================================= -->
+                <!-- 📄 FEUILLE 2 : VERSO INTÉRIEUR DÉPLIÉ (Volet 3 | Volet 4 | Volet 5) -->
+                <!-- ======================================================= -->
+                <div class="triptyque-sheet" style="background: #ffffff; position: relative;">
                     
-                    <!-- 4. VOLET INTÉRIEUR GAUCHE : SANTÉ PUBLIQUE (STRICT DÉFI / SOLUTION) -->
-                    <div class="triptyque-volet">
+                    <!-- 4. VOLET INTÉRIEUR GAUCHE : SANTÉ PUBLIQUE & MILIEU CLINIQUE -->
+                    <div class="triptyque-volet" style="position: relative;">
+                        <div style="position: absolute; right: 5px; top: 60px; opacity: 0.04; font-size: 6rem; font-weight: 900; pointer-events: none; color: #065f46;">HEALTH</div>
+
                         <div class="volet-header-banner" style="background: #065f46;">
                             <span class="volet-header-title">Santé Publique</span>
                             <span class="volet-header-tag" style="background: #a7f3d0; color: #065f46;">Institutionnel</span>
                         </div>
 
                         <!-- PRAXIS GOLD -->
-                        <div class="volet-card-inner" style="border-left: 3px solid #059669;">
-                            <div class="volet-card-title">PRAXIS GOLD (Dossier Clinique)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Risque d'erreur de saisie de constantes vitales sur 30 ans de suivi médical.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Un « Douanier » virtuel bloque les dates impossibles, signale les constantes anormales et sécurise l'historique sur 30 ans.</div>
+                        <div class="volet-card-inner" style="border-left: 3px solid #059669; padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="font-size: 0.75rem;">PRAXIS GOLD (Dossier eCRF)</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Risque d'erreur de saisie sur 30 ans de suivi longitudinal greffé.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Douanier chronologique et alertes de bornes physiologiques.</div>
                         </div>
 
                         <!-- IKNOS -->
-                        <div class="volet-card-inner" style="border-left: 3px solid #059669;">
-                            <div class="volet-card-title">IKNOS (Coordination & Alertes)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Retards d'inscription de patients à cause d'examens médicaux expirés en silence.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Tableau visuel d'avancement automatique avec sentinelle alertant avant la péremption des examens.</div>
+                        <div class="volet-card-inner" style="border-left: 3px solid #059669; padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="font-size: 0.75rem;">IKNOS (Coordination & Alertes)</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Retards d'inscriptions causés par des examens périmés en silence.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Pipeline Kanban avec sentinelle de validité colorimétrique.</div>
                         </div>
 
                         <!-- AXIOS -->
-                        <div class="volet-card-inner" style="border-left: 3px solid #059669;">
-                            <div class="volet-card-title">AXIOS (Robot d'Analyses)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Des heures perdues à recopier manuellement des bilans biologiques depuis des PDF.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Robot d'extraction avec voyants de confiance (vert/rouge) injectant les bilans sans saisie manuelle.</div>
+                        <div class="volet-card-inner" style="border-left: 3px solid #059669; padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="font-size: 0.75rem;">AXIOS (Robot d'Analyses SIH)</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Des heures perdues à recopier des bilans depuis des PDF hospitaliers.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Robot d'extraction RPA avec scoring de confiance vert/rouge.</div>
+                        </div>
+
+                        <div style="margin-top: auto; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.35rem 0.5rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.64rem; color: #065f46; font-weight: 800;">Traçabilité médico-légale • Audit Trail horodaté</span>
                         </div>
                     </div>
 
-                    <!-- 5. VOLET INTÉRIEUR CENTRE : ENTREPRISES & TERRAIN (THEMIS / COACHMASTER) -->
-                    <div class="triptyque-volet">
+                    <!-- 5. VOLET INTÉRIEUR CENTRE : ENTREPRISES & TERRAIN (THEMIS / TAXIS) -->
+                    <div class="triptyque-volet" style="position: relative;">
+                        <div style="position: absolute; left: 10px; top: 60px; opacity: 0.04; font-size: 6rem; font-weight: 900; pointer-events: none; color: #091a2b;">SOLUTIONS</div>
+
                         <div class="volet-header-banner">
                             <span class="volet-header-title">Entreprises & Terrain</span>
                             <span class="volet-header-tag">Solutions</span>
                         </div>
 
                         <!-- THEMIS -->
-                        <div class="volet-card-inner" style="border-left: 3px solid var(--accent); background: #fffdf5;">
-                            <div class="volet-card-title" style="color: #b45309;">THEMIS (ERP & Facturation)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Devis manuels éparpillés, erreurs d'acomptes et absence de contrats signés.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Recalcul du CA en direct lors de la saisie et assemblage en 1 clic d'un dossier contractuel complet prêt à signer.</div>
+                        <div class="volet-card-inner" style="border-left: 3px solid var(--accent); background: #fffdf5; padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="color: #b45309; font-size: 0.75rem;">THEMIS (ERP & Factur-X 2026)</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Devis manuels éparpillés, erreurs d'acomptes et risque fiscal d'altération.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Suite conforme Art. 286 CGI, scellement SHA-256 et Factur-X XML.</div>
                         </div>
 
-                        <!-- COACHMASTER (AVEC VOTRE VRAI DÉFI SPORTIF BÉNÉVOLES) -->
-                        <div class="volet-card-inner" style="border-left: 3px solid var(--primary);">
-                            <div class="volet-card-title">Coachmaster (PWA Foot)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Encadrer une équipe de jeunes sans formation d'entraîneur, avec des bénévoles qui manquent ou changent en cours de saison.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Assistant clé en main avec séances officielles de 90 min (FFF) et rotations automatiques : n'importe quel parent peut animer un entraînement structuré au pied levé.</div>
+                        <!-- COACHMASTER -->
+                        <div class="volet-card-inner" style="border-left: 3px solid var(--primary); padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="font-size: 0.75rem;">Coachmaster (PWA Entraînement)</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Encadrement bénévole sans bagage technique et absences répétées.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Assistant 100% hors-ligne avec séances FFF prêtes à animer en 90 min.</div>
                         </div>
 
-                        <!-- TAXIS (SUITE DEVOPS & SÉCURITÉ) -->
-                        <div class="volet-card-inner" style="border-left: 3px solid #7c3aed;">
-                            <div class="volet-card-title" style="color: #6d28d9;">🛡️ TAXIS Studio Pro (DevOps & Sécurité)</div>
-                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Risque de fuite de données confidentielles (RGPD), lenteur du site causée par des images trop lourdes et lourdeur des commandes techniques pour publier les mises à jour.</div>
-                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Tour de contrôle complète : double scan de sécurité local (OCR + analyse des noms par spaCy) avec outil de masquage, compression automatique en WebP, rédaction de légendes par l'IA Gemini et publication en ligne en 1 clic.</div>
+                        <!-- TAXIS STUDIO PRO -->
+                        <div class="volet-card-inner" style="border-left: 3px solid #7c3aed; padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="color: #6d28d9; font-size: 0.75rem;">🛡️ TAXIS Studio Pro (DevOps)</div>
+                            <div class="volet-case-box volet-case-defi">🎯 <em>Défi :</em> Fuite de données personnelles et complexité des commandes Git.</div>
+                            <div class="volet-case-box volet-case-sol">💡 <em>Solution :</em> Double scan IA/NLP (spaCy + OCR), masquage et déploiement 1 clic.</div>
+                        </div>
+
+                        <div style="margin-top: auto; background: #f8fafc; border: 1px solid var(--border); padding: 0.35rem 0.5rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.64rem; color: #475569; font-weight: 700;">Développements robustes • Python, Flet & PWA</span>
                         </div>
                     </div>
 
-                    <!-- 6. VOLET INTÉRIEUR DROIT : FINANCEMENT RÉGIONAL CHÈQUE TIC -->
-                    <div class="triptyque-volet">
+                    <!-- 6. VOLET INTÉRIEUR DROIT : FORMULE CHÈQUE TIC & MANDAT DÉMATÉRIALISÉ -->
+                    <div class="triptyque-volet" style="position: relative;">
+                        <div style="position: absolute; right: 5px; bottom: 35px; opacity: 0.04; font-size: 6rem; font-weight: 900; pointer-events: none; color: #065f46;">TIC 80%</div>
+
                         <div class="volet-header-banner" style="background: #065f46;">
                             <span class="volet-header-title">Financement Chèque TIC</span>
                             <span class="volet-header-tag" style="background: #a7f3d0; color: #065f46;">Jusqu'à 80%</span>
                         </div>
 
-                        <!-- EXEMPLE CONCRET -->
-                        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 0.65rem 0.75rem; margin-bottom: 0.55rem;">
-                            <strong style="font-size: 0.75rem; color: #065f46; display: block; margin-bottom: 2px;">💡 Exemple Concret Chèque TIC :</strong>
-                            <p style="font-size: 0.70rem; color: #047857; line-height: 1.35; margin: 0;">
-                                • Projet Logiciel ou Site : <strong>5 000 € HT</strong><br>
-                                • Prise en charge Région / FEDER (80%) : <strong>- 4 000 €</strong><br>
-                                • <strong style="color: #064e3b; font-size: 0.74rem;">👉 Votre Reste à Charge : 1 000 € HT seulement !</strong>
+                        <!-- BARÈME OFFICIEL -->
+                        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 0.45rem 0.6rem; margin-bottom: 0.45rem;">
+                            <strong style="font-size: 0.72rem; color: #065f46; display: block; margin-bottom: 2px;">💡 Barème Région Guadeloupe & FEDER :</strong>
+                            <p style="font-size: 0.67rem; color: #047857; line-height: 1.3; margin: 0;">
+                                • Web & Cybersécurité : <strong>80% pris en charge</strong><br>
+                                • Logiciels & Matériel : <strong>40% pris en charge</strong><br>
+                                • <strong style="color: #064e3b;">Plafond d'aide directe : jusqu'à 10 000 €</strong>
                             </p>
-                            <small style="font-size: 0.65rem; color: #065f46; display: block; margin-top: 2px;">(Plafond maximum de subvention : 10 000 €)</small>
                         </div>
 
-                        <!-- NOS 2 FORMULES SOUS MANDAT -->
-                        <strong style="font-size: 0.74rem; color: var(--primary); display: block; margin-bottom: 0.3rem;">Nos Formules sous Mandat Réglementaire :</strong>
+                        <!-- FORMULE AMO SOUS MANDAT -->
+                        <strong style="font-size: 0.71rem; color: var(--primary); display: block; margin-bottom: 0.2rem;">Accompagnement & Montage Dossier :</strong>
                         
-                        <div class="volet-card-inner" style="border-left: 3px solid var(--accent); background: #fffbeb;">
-                            <div class="volet-card-title" style="color: #b45309;">🎁 Projet Dhamusoft (Montage OFFERT)</div>
-                            <p class="volet-card-desc" style="font-size: 0.68rem;">Vous développez votre solution avec nous ? Le montage du dossier, la note d'impact (3 p.) et le dépôt administratif sont <strong>100% OFFERTS</strong> !</p>
+                        <div class="volet-card-inner" style="border-left: 3px solid var(--accent); background: #fffdf5; padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="color: #b45309; font-size: 0.74rem;">📋 Formule AMO Partagée (390 € + 5%)</div>
+                            <p style="font-size: 0.66rem; color: #475569; line-height: 1.25; margin: 0;">
+                                • Instruction & Cadrage initial : <strong>390,00 € HT</strong>.<br>
+                                • Prime de succès partagée : <strong>+ 5%</strong> exigible uniquement après accord officiel de subvention par la Région.
+                            </p>
                         </div>
 
-                        <div class="volet-card-inner" style="border-left: 3px solid var(--primary);">
-                            <div class="volet-card-title">📋 Mandat d'Assistance Seul (Payant)</div>
-                            <p class="volet-card-desc" style="font-size: 0.68rem;">Vous avez déjà vos devis ? Nous rédigeons votre note d'impact et gérons le dépôt sous mandat officiel.</p>
+                        <div class="volet-card-inner" style="border-left: 3px solid var(--primary); padding: 0.4rem 0.6rem;">
+                            <div class="volet-card-title" style="font-size: 0.74rem;">✍️ Signature Dématérialisée 100% en Ligne</div>
+                            <p style="font-size: 0.66rem; color: #475569; line-height: 1.25; margin: 0;">
+                                Devis d'assistance signé sous condition suspensive ➔ Mandat de représentation tactile scellé et transmis instantanément.
+                            </p>
                         </div>
 
-                        <div style="margin-top: auto; background: #f8fafc; border: 1px solid var(--border); padding: 0.35rem; border-radius: 6px; font-size: 0.66rem; color: #64748b; line-height: 1.25; text-align: center;">
-                            <em>La subvention régionale reste versée directement sur le RIB de votre entreprise.</em>
+                        <div style="margin-top: auto; background: #091a2b; color: white; padding: 0.45rem; border-radius: 6px; font-size: 0.63rem; text-align: center; border: 1px solid rgba(197, 155, 67, 0.4);">
+                            <span style="color: var(--accent); font-weight: bold;">Transparence Absolue :</span> L'aide régionale est versée à 100% sur le compte bancaire de votre entreprise.
                         </div>
                     </div>
 
@@ -2471,7 +2583,93 @@ if (overlay) overlay.addEventListener('click', closeModal);
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal.classList.contains('hidden') && lightbox.classList.contains('hidden')) closeModal();
 });
+// =========================================================================
+        // 🎮 MOTEURS DES 3 NOUVELLES ANIMATIONS INTERACTIVES
+        // =========================================================================
 
+        // 1. MOTEUR DU CURSEUR AVANT / APRÈS THEMIS
+        function initThemisSlider() {
+            const container = document.getElementById('themis-slider-box');
+            const beforeLayer = document.getElementById('themis-before-layer');
+            const handle = document.getElementById('themis-slider-handle');
+            if (!container || !beforeLayer || !handle) return;
+
+            let isSliding = false;
+            function updateSlider(x) {
+                const rect = container.getBoundingClientRect();
+                let pos = (x - rect.left) / rect.width * 100;
+                pos = Math.max(10, Math.min(90, pos));
+                beforeLayer.style.width = pos + '%';
+                handle.style.left = pos + '%';
+            }
+
+            container.addEventListener('mousedown', (e) => { isSliding = true; updateSlider(e.clientX); });
+            window.addEventListener('mouseup', () => isSliding = false);
+            window.addEventListener('mousemove', (e) => { if (isSliding) updateSlider(e.clientX); });
+
+            container.addEventListener('touchstart', (e) => { isSliding = true; updateSlider(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => isSliding = false);
+            window.addEventListener('touchmove', (e) => { if (isSliding) updateSlider(e.touches[0].clientX); });
+        }
+        setTimeout(initThemisSlider, 250);
+
+        // 2. MOTEUR DU SCANNER RÉTROACTIF CHÈQUE TIC
+        window.toggleScanInvoice = function(card, amount, rate) {
+            setTimeout(() => {
+                let totalRefund = 0;
+                const cards = document.querySelectorAll('.scan-card');
+                cards.forEach((c, idx) => {
+                    const isChecked = c.querySelector('input').checked;
+                    c.style.borderColor = isChecked ? '#047857' : '#cbd5e1';
+                    c.style.background = isChecked ? '#f0fdf4' : '#ffffff';
+                    if (isChecked) {
+                        if (idx === 0) totalRefund += 2500 * 0.8;
+                        if (idx === 1) totalRefund += 1800 * 0.8;
+                        if (idx === 2) totalRefund += 3500 * 0.4;
+                    }
+                });
+                totalRefund = Math.min(10000, totalRefund);
+                document.getElementById('scan-total-refund').textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalRefund);
+            }, 50);
+        };
+
+        // 3. MOTEUR DU PIPELINE MÉTHODE EN 4 TEMPS
+        const methodStepsData = {
+            1: {
+                title: "📞 Étape 1 : L'Échange Flash de Cadrage (5 Minutes Chrono)",
+                desc: "Pas de réunions interminables. En 5 minutes au téléphone, nous vérifions si votre problème peut être résolu par un outil sur-mesure (THEMIS, PWA, script d'automatisation) et si votre entreprise est éligible aux 80% d'aide Chèque TIC.",
+                badge: "✓ Zéro engagement • Réponse d'éligibilité immédiate"
+            },
+            2: {
+                title: "🎯 Étape 2 : L'Immersion Métier & Audit des Pertes de Temps (20 Minutes)",
+                desc: "Nous analysons vos documents réels et vos processus : où sont les blocages ? Quelles sont les données sensibles à isoler localement ? Nous formalisons un cahier des charges fonctionnel prêt pour l'instruction.",
+                badge: "✓ Cartographie précise • Zéro jargon intimidant"
+            },
+            3: {
+                title: "⚙️ Étape 3 : Le Prototype Réel & Test sur vos Données Locales",
+                desc: "Nous ne livrons pas de maquettes Figma statiques. Vous testez immédiatement un premier prototype fonctionnel articulé sur une base SQLite souveraine, installé directement sur vos machines en Guadeloupe.",
+                badge: "✓ Prototypage itératif • Données 100% chez vous"
+            },
+            4: {
+                title: "🚀 Étape 4 : Déploiement, Formation des Équipes & MCO",
+                desc: "L'application finale est déployée. Nous assurons la formation bienveillante de vos collaborateurs et assurons un contrat de maintien en condition opérationnelle (MCO) avec sauvegardes chiffrées automatiques.",
+                badge: "✓ Prise en main en 1 jour • Support réactif en Guadeloupe"
+            }
+        };
+
+        window.showMethodDetail = function(stepNum) {
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById('mstep-' + i);
+                if (btn) {
+                    btn.style.borderColor = (i === stepNum) ? 'var(--primary)' : 'var(--border)';
+                    btn.style.background = (i === stepNum) ? '#f8fafc' : '#ffffff';
+                }
+            }
+            const data = methodStepsData[stepNum];
+            document.getElementById('method-detail-title').textContent = data.title;
+            document.getElementById('method-detail-desc').textContent = data.desc;
+            document.getElementById('method-detail-badge').textContent = data.badge;
+        };
 // INITIALISATION SHOWROOM ET MENTIONS
 renderShowroom(projectsData);
 renderLabTech(projectsData);
