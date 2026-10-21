@@ -2066,19 +2066,19 @@ let donneesDossierEnCours = {};
 window.openMandatModal = function() {
     modalBody.innerHTML = `
         <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
-            <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #ecfdf5; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 1 SUR 2 • ENGAGEMENT INITIAL</span>
-            <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Proposition Commerciale & Devis</h2>
+            <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #ecfdf5; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 1 SUR 2 • CONTRAT D'ACCOMPAGNEMENT</span>
+            <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Devis d'Assistance & Montage Chèque TIC</h2>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-                Programme Numérique Éligible au Dispositif Chèque TIC Région Guadeloupe (FEDER)
+                Cabinet Dhamusoft — Ingénierie & Facilitation Administrative Région Guadeloupe
             </p>
         </div>
 
         <form id="devis-form" onsubmit="validerEtapeDevis(event)">
             
-            <h4 style="color: var(--primary); font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem;">1. Coordonnées de l'Entreprise Bénéficiaire</h4>
+            <h4 style="color: var(--primary); font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem;">1. Identification de l'Entreprise Demandeur</h4>
             <div class="mandat-form-grid">
                 <div class="form-group">
-                    <label>Raison Sociale *</label>
+                    <label>Raison Sociale / Nom Commercial *</label>
                     <input type="text" id="m-ste" class="form-control" required placeholder="Ex: SAS Mon Entreprise">
                 </div>
                 <div class="form-group">
@@ -2090,7 +2090,7 @@ window.openMandatModal = function() {
                     <input type="text" id="m-siret" class="form-control" required placeholder="Ex: 123 456 789 00012">
                 </div>
                 <div class="form-group">
-                    <label>Adresse du Siège *</label>
+                    <label>Adresse du Siège en Guadeloupe *</label>
                     <input type="text" id="m-adresse" class="form-control" required placeholder="Ex: Rue Principale, 97130 Capesterre-Belle-Eau">
                 </div>
                 <div class="form-group">
@@ -2106,54 +2106,62 @@ window.openMandatModal = function() {
                     <input type="email" id="m-email" class="form-control" required placeholder="contact@mon-entreprise.gp">
                 </div>
                 <div class="form-group">
-                    <label>Téléphone Mobile *</label>
+                    <label>Téléphone Portable *</label>
                     <input type="tel" id="m-tel" class="form-control" required placeholder="0690 XX XX XX">
                 </div>
             </div>
 
-            <!-- Ventilation Officielle Chèque TIC -->
-            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 1.2rem 0;">
-                <div style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; margin-bottom: 0.5rem;">Prestations Éligibles & Ventilation Budgétaire :</div>
-                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
-                    <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 4px 0;">• <strong>Portail Web Client & Espace Sécurisé</strong> (Aide 80%)</td><td style="text-align: right; font-weight: bold;">3 200,00 € HT</td></tr>
-                    <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 4px 0;">• <strong>Cybersécurité, Sauvegardes & RGPD</strong> (Aide 80%)</td><td style="text-align: right; font-weight: bold;">1 800,00 € HT</td></tr>
-                    <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 4px 0;">• <strong>ERP THEMIS Suite — Facturation & Gestion</strong> (Aide 40%)</td><td style="text-align: right; font-weight: bold;">2 800,00 € HT</td></tr>
-                </table>
-                <div style="margin-top: 0.8rem; padding-top: 0.6rem; border-top: 2px dashed #cbd5e1; display: flex; justify-content: space-between; align-items: center;">
+            <!-- Détail de la Prestation d'Accompagnement (Option B : 390 € + 5%) -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem; margin: 1.2rem 0;">
+                <div style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; margin-bottom: 0.5rem;">Détail de la Mission de Conseil & Montage :</div>
+                
+                <div style="font-size: 0.86rem; color: #1e293b; line-height: 1.5; margin-bottom: 0.9rem;">
+                    <strong>Mission d'Assistance à Maîtrise d'Ouvrage (AMO) & Cadrage Technique Chèque TIC</strong><br>
+                    <span style="font-size: 0.78rem; color: #64748b;">
+                        • Diagnostic de maturité numérique & éligibilité Délibération Région n° CR-19-175.<br>
+                        • Rédaction complète de la Note d'Impact Stratégique et des argumentaires d'investissement.<br>
+                        • Structuration administrative, vérification des devis éligibles et dépôt dématérialisé ASP.<br>
+                        • Suivi d'instruction jusqu'à notification de la décision régionale.
+                    </span>
+                </div>
+
+                <div style="border-top: 2px dashed #cbd5e1; padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem;">
                     <div>
-                        <span style="font-size: 0.8rem; color: #64748b;">Investissement : 7 800,00 € HT</span><br>
-                        <span style="font-size: 0.9rem; font-weight: bold; color: #047857;">Subvention Région estimée : - 5 120,00 €</span>
+                        <span style="font-size: 0.75rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Frais d'instruction initiaux :</span><br>
+                        <span style="font-size: 1.3rem; font-weight: 900; color: #05231a;">390,00 € HT</span>
+                        <span style="font-size: 0.75rem; color: #64748b;"> (À la commande)</span>
                     </div>
                     <div style="text-align: right;">
-                        <span style="font-size: 0.75rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Reste à charge réel :</span><br>
-                        <span style="font-size: 1.3rem; font-weight: 900; color: var(--primary);">2 680,00 € HT</span>
+                        <span style="font-size: 0.75rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Honoraires de Succès (Gagnant-Gagnant) :</span><br>
+                        <span style="font-size: 1.1rem; font-weight: 800; color: #047857;">+ 5 % de la subvention obtenue</span><br>
+                        <span style="font-size: 0.72rem; color: #64748b; font-style: italic;">(Exigible uniquement après accord officiel de la Région)</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Condition Suspensive Légale -->
-            <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.7rem; font-size: 0.8rem; color: #92400e; margin-bottom: 1rem;">
-                ⚖️ <strong>CONDITION SUSPENSIVE CHÈQUE TIC :</strong> Ce devis est strictement conditionné à l'obtention de l'Accusé de Réception de la Région Guadeloupe. <u>Aucun acompte ne vous sera facturé avant l'accord de recevabilité.</u>
+            <!-- Clause Légale d'Obligation de Moyens -->
+            <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.7rem; font-size: 0.78rem; color: #92400e; margin-bottom: 1rem; line-height: 1.4;">
+                ⚖️ <strong>ENGAGEMENT RÉGLEMENTAIRE :</strong> Dhamusoft a une obligation de moyens rigoureuse dans la constitution, l'argumentation technique et le dépôt du dossier. La décision d'attribution finale relève de la souveraineté exclusive de la Région Guadeloupe et de l'ASP. Les fonds sont versés à 100 % sur le compte bancaire de l'entreprise mandante.
             </div>
 
             <!-- Pavé Signature Manuscrite du Devis -->
             <div class="signature-box-wrap">
                 <div class="signature-header">
-                    <span>✍️ SIGNATURE DU DEVIS (Tracez au doigt ou à la souris) *</span>
+                    <span>✍️ SIGNATURE DU BON DE COMMANDE / DEVIS (Doigt ou Souris) *</span>
                     <button type="button" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;" onclick="clearSignaturePad()">↺ Effacer</button>
                 </div>
                 <canvas id="signature-pad"></canvas>
             </div>
 
             <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
-                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; font-weight: 700; color: #065f46; cursor: pointer;">
+                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; font-weight: 700; color: #065f46; cursor: pointer;">
                     <input type="checkbox" id="d-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
-                    <span>Je certifie être le représentant légal et valide formellement ce devis sous condition suspensive d'éligibilité Chèque TIC (Art. 1367 C. Civ).</span>
+                    <span>Je certifie être le représentant légal habilité, accepte le tarif d'accompagnement (390 € HT + 5% au succès) et valide ce devis pour lancer le montage de mon dossier.</span>
                 </label>
             </div>
 
             <button type="submit" id="btn-submit-devis" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
-                ✍️ Valider le Devis & Débloquer le Mandat Région ➔
+                ✍️ Valider le Devis & Débloquer le Mandat de Représentation ➔
             </button>
         </form>
     `;
@@ -2186,7 +2194,7 @@ window.validerEtapeDevis = async function(e) {
         clientIP = ipData.ip;
     } catch(err) {}
 
-    // Sauvegarde en mémoire des données pour pré-remplir le mandat
+    // Sauvegarde des données propres à l'accompagnement
     donneesDossierEnCours = {
         entreprise: document.getElementById('m-ste').value,
         forme_juridique: document.getElementById('m-forme').value,
@@ -2196,6 +2204,8 @@ window.validerEtapeDevis = async function(e) {
         fonction: document.getElementById('m-fonction').value,
         email_client: document.getElementById('m-email').value,
         telephone_client: document.getElementById('m-tel').value,
+        tarif_forfait_ht: 390.00,
+        success_fee_pct: 5.0,
         ip_signataire: clientIP,
         date_signature_devis: new Date().toLocaleDateString('fr-FR'),
         heure_signature_devis: new Date().toLocaleTimeString('fr-FR')
@@ -2207,7 +2217,7 @@ window.validerEtapeDevis = async function(e) {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                type_evenement: "DEVIS_SIGNE",
+                type_evenement: "DEVIS_AMO_SIGNE",
                 ...donneesDossierEnCours
             })
         });
