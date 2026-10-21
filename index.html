@@ -1845,10 +1845,10 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // 📄 MODALE TRIPTYQUE RECTO / VERSO (2 PAGES PAYSAGE CALIBRÉES)
+        // 📄 MODALE TRIPTYQUE RECTO / VERSO (100% CLAIR, SANS JARGON, 2 PAGES NETTES)
         window.openPlaquetteModal = function() {
             
-            // Contenu HTML haute précision pour les 2 pages A4 Paysage
+            // Contenu HTML haute lisibilité pour les 2 pages A4 Paysage
             const getPlaquetteHtml = () => `
                 <!-- ======================================================= -->
                 <!-- 📄 FEUILLE 1 : RECTO EXTÉRIEUR (Volet 1 | Volet 2 | Volet 3) -->
@@ -1859,73 +1859,80 @@
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: #05231A; padding: 0.55rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
-                                <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF;">1. Architecture Souveraine</span>
-                                <span class="volet-header-tag" style="background: #A7F3D0; color: #05231A; font-weight: 900;">Sécurité</span>
+                                <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF;">1. Vos Données en Sécurité</span>
+                                <span class="volet-header-tag" style="background: #A7F3D0; color: #05231A; font-weight: 900;">Protection</span>
                             </div>
 
+                            <!-- Crochet Dépenses Récentes -->
                             <div style="background: #FFFDF5; border: 1.5px solid var(--accent); border-radius: 8px; padding: 0.75rem; margin-bottom: 0.8rem;">
                                 <strong style="font-size: 0.82rem; color: #B45309; display: block; margin-bottom: 3px;">⚡ Vous avez récemment investi ?</strong>
                                 <p style="font-size: 0.74rem; color: #78350F; line-height: 1.4; margin: 0;">
-                                    Création de site web, achat de matériel ou progiciel ? <strong>Ne laissez pas dormir vos factures :</strong> activez jusqu'à 80% de subvention Chèque TIC pour renflouer votre trésorerie.
+                                    Achat récent d'ordinateurs, création d'un site web ou logiciel ? <strong>Ne laissez pas dormir vos factures :</strong> activez jusqu'à 80% de remboursement avec la subvention Chèque TIC Région Guadeloupe !
                                 </p>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">☁️ Cloud Européen & Hébergement Souverain</div>
-                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">Déploiements sur des infrastructures françaises (OVHcloud) sécurisées, auditées et conformes au RGPD.</p>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">☁️ Serveurs Sécurisés en France</div>
+                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">
+                                    Vos outils et sites sont hébergés sur des serveurs français hautement protégés, garantissant le respect strict des lois sur la vie privée.
+                                </p>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #047857; margin-bottom: 0.25rem;">🔒 Données Physiquement sur vos Postes</div>
-                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">Bases de données chiffrées (SQLite) hébergées dans vos locaux. Vos données clients ne sont pas revendues.</p>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #047857; margin-bottom: 0.25rem;">🔒 Vos Fichiers Restent Chez Vous</div>
+                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">
+                                    Toutes vos informations clients et financières restent stockées directement sur vos ordinateurs. Elles ne sont jamais revendues ni partagées.
+                                </p>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; padding: 0.65rem 0.8rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #0369A1; margin-bottom: 0.25rem;">⚡ Fonctionnement Continu Hors-Ligne</div>
-                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">Conçues pour la réalité insulaire : vos équipes continuent de produire et facturer même sans connexion internet.</p>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #0369A1; margin-bottom: 0.25rem;">⚡ Fonctionne Même Sans Internet</div>
+                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">
+                                    Adapté aux réalités de la Guadeloupe : vous continuez à travailler, facturer et gérer votre activité même lors des coupures d'internet ou de réseau.
+                                </p>
                             </div>
                         </div>
 
                         <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.5rem; border-radius: 6px; text-align: center; margin-top: 0.6rem;">
-                            <span style="font-size: 0.72rem; color: #065F46; font-weight: 800;">✓ ZÉRO FUITE CLOUD • RÉSILIENCE MAXIMALE</span>
+                            <span style="font-size: 0.72rem; color: #065F46; font-weight: 800;">✓ CONTRÔLE TOTAL DE VOS FICHIERS • ZÉRO FUITE</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 2 (CENTRE RECTO : MÉTHODE D'INGÉNIERIE EN 4 JALONS) -->
+                    <!-- VOLET 2 (CENTRE RECTO : MÉTHODE DE TRAVAIL CLAIRE EN 4 ÉTAPES) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: var(--primary); padding: 0.55rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
-                                <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF; margin: 0 auto;">2. Notre Méthode d'Intervention</span>
+                                <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF; margin: 0 auto;">2. Comment Travaillons-Nous ?</span>
                             </div>
 
                             <p style="font-size: 0.75rem; color: #334155; line-height: 1.4; text-align: center; margin-bottom: 0.8rem;">
-                                Un cycle d'ingénierie court, mesurable et dénué de tout jargon technique :
+                                Un accompagnement simple, rapide et sans vocabulaire compliqué :
                             </p>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.80rem; color: var(--primary); display: block; margin-bottom: 2px;">1. Appel Flash de Cadrage (5 min)</strong>
-                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Évaluation de vos blocages métiers et confirmation de votre éligibilité Chèque TIC.</span>
+                                <strong style="font-size: 0.80rem; color: var(--primary); display: block; margin-bottom: 2px;">1. Échange Téléphonique (5 minutes)</strong>
+                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Nous faisons le point sur vos besoins et vérifions immédiatement si vous pouvez obtenir les 80% d'aide financière de la Région.</span>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.80rem; color: #B45309; display: block; margin-bottom: 2px;">2. Immersion & Audit des Pertes de Temps</strong>
-                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Analyse de vos processus de vente : identification des heures perdues et formalisation.</span>
+                                <strong style="font-size: 0.80rem; color: #B45309; display: block; margin-bottom: 2px;">2. Analyse de vos Besoins (20 minutes)</strong>
+                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Nous regardons vos tâches répétitives (devis, factures, organisation) pour identifier où vous perdez du temps chaque semaine.</span>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.80rem; color: #047857; display: block; margin-bottom: 2px;">3. Prototype Fonctionnel sur Données Réelles</strong>
-                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Pas de maquette statique : test sous 10 jours d'un outil vivant directement sur vos postes.</span>
+                                <strong style="font-size: 0.80rem; color: #047857; display: block; margin-bottom: 2px;">3. Test d'un Modèle Fonctionnel</strong>
+                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Pas de promesses sur papier : vous essayez sous 10 jours une première version personnalisée avec vos propres informations d'entreprise.</span>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; padding: 0.65rem 0.8rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.80rem; color: #0369A1; display: block; margin-bottom: 2px;">4. Déploiement, Formation & Support MCO</strong>
-                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Installation finale, formation des collaborateurs et supervision continue.</span>
+                                <strong style="font-size: 0.80rem; color: #0369A1; display: block; margin-bottom: 2px;">4. Installation, Formation & Suivi</strong>
+                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Nous installons tout, formons vos collaborateurs avec patience et restons disponibles en Guadeloupe pour vous épauler.</span>
                             </div>
                         </div>
 
                         <div style="background: #F8FAFC; border: 1.5px solid var(--frame-border); padding: 0.55rem; border-radius: 6px; text-align: center; margin-top: 0.6rem;">
-                            <strong style="font-size: 0.74rem; color: var(--primary); display: block;">Ligne Directe Ingénierie :</strong>
-                            <span style="font-size: 0.72rem; color: #047857; font-weight: 800;">Andy VAUBIEN • dhamusoft@gmail.com • +590 690 05 11 44</span>
+                            <strong style="font-size: 0.74rem; color: var(--primary); display: block;">Contact Direct :</strong>
+                            <span style="font-size: 0.72rem; color: #047857; font-weight: 800;">Andy VAUBIEN • dhamusoft@gmail.com • 0690 05 11 44</span>
                         </div>
                     </div>
 
@@ -1941,14 +1948,14 @@
                                 De l'idée au déploiement de vos outils numériques sur-mesure.
                             </h3>
                             <p style="font-size: 0.78rem; color: #475569; line-height: 1.5; margin: 0 auto; max-width: 270px;">
-                                Création de sites vitrines & e-commerce, applications métiers haute performance et accompagnement expert aux aides régionales Chèque TIC en Guadeloupe.
+                                Création de sites internet vitrines et marchands, logiciels de gestion sur-mesure et accompagnement complet pour obtenir les aides de la Région Guadeloupe.
                             </p>
                         </div>
 
                         <div style="background: #091A2B; color: white; padding: 0.85rem; border-radius: 10px; border: 1.5px solid rgba(197, 155, 67, 0.45); text-align: center;">
                             <strong style="font-size: 0.86rem; color: var(--accent); display: block; margin-bottom: 2px;">Andy VAUBIEN</strong>
-                            <span style="font-size: 0.74rem; color: #CBD5E1; display: block; font-weight: 600;">Fondateur & Concepteur Systèmes Métiers</span>
-                            <span style="font-size: 0.74rem; color: #CBD5E1; display: block; margin-top: 2px;">📞 +590 690 05 11 44</span>
+                            <span style="font-size: 0.74rem; color: #CBD5E1; display: block; font-weight: 600;">Concepteur de Logiciels & Accompagnateur Numérique</span>
+                            <span style="font-size: 0.74rem; color: #CBD5E1; display: block; margin-top: 2px;">📞 0690 05 11 44</span>
                             <span style="font-size: 0.70rem; color: #94A3B8; display: block; margin-top: 2px;">📍 Capesterre-Belle-Eau, Guadeloupe</span>
                         </div>
                     </div>
@@ -1960,72 +1967,72 @@
                 <!-- ======================================================= -->
                 <div class="triptyque-sheet" style="background: #ffffff; min-height: 195mm; height: 195mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10mm; padding: 8mm 10mm; box-sizing: border-box; page-break-before: always; break-before: page;">
                     
-                    <!-- VOLET 4 (GAUCHE VERSO : SANTÉ PUBLIQUE & MILIEU CLINIQUE) -->
+                    <!-- VOLET 4 (GAUCHE VERSO : SANTÉ PUBLIQUE & MILIEU MÉDICAL) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: #065F46; padding: 0.55rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
-                                <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF;">Santé Publique & Hôpital</span>
-                                <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Biomédical</span>
+                                <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF;">Santé & Milieu Médical</span>
+                                <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Haute Sécurité</span>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">PRAXIS GOLD (Cahier Clinique eCRF)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Défi :</em> Risque d'erreur de constantes sur 30 ans de suivi longitudinal greffé.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>Solution :</em> Douanier chronologique, alertes de bornes physiologiques et audit trail légal.</div>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">PRAXIS GOLD (Dossier Médical Informatisé)</div>
+                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Risque d'erreur lors du recueil de données médicales sur 30 ans de suivi d'un patient.</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Un système intelligent bloque les dates illogiques, alerte sur les constantes anormales et conserve un historique officiel infalsifiable.</div>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">IKNOS (Coordination Pré-Greffe)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Défi :</em> Dossiers patients bloqués en silence par des examens expirés.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>Solution :</em> Pipeline Kanban dynamique avec sentinelle de péremption et score SMPG.</div>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">IKNOS (Suivi des Dossiers & Alertes)</div>
+                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Des dossiers patients bloqués parce qu'un examen médical obligatoire est périmé sans qu'on s'en rende compte.</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Tableau visuel d'avancement automatique avec des alertes de couleur claires avant l'expiration des documents.</div>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.75rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">AXIOS (Robot d'Analyses SIH)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Défi :</em> Retards massifs causés par la recopie manuelle de bilans hospitaliers.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>Solution :</em> Robot d'extraction RPA automatisé avec voyants de scoring de fiabilité.</div>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">AXIOS (Lecture Automatique d'Analyses)</div>
+                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Des heures perdues à recopier à la main des résultats d'analyses sanguines depuis des feuilles PDF.</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Un robot lit les documents et remplit automatiquement les grilles avec des voyants de contrôle (vert si tout est sûr).</div>
                             </div>
                         </div>
 
                         <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.5rem; border-radius: 6px; text-align: center; margin-top: 0.6rem;">
-                            <span style="font-size: 0.70rem; color: #065F46; font-weight: 800;">✓ CONFORMITÉ RGPD MÉDICAL • AUDIT TRAIL INFALSIFIABLE</span>
+                            <span style="font-size: 0.70rem; color: #065F46; font-weight: 800;">✓ CONFORMITÉ LÉGALE STRICTE • FIABILITÉ MAXIMALE</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 5 (CENTRE VERSO : SITES VITRINES, E-COMMERCE & THEMIS ERP) -->
+                    <!-- VOLET 5 (CENTRE VERSO : SITES INTERNET, VENTE EN LIGNE & GESTION THEMIS) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner">
-                                <span class="volet-header-title">Web, E-Commerce & ERP</span>
-                                <span class="volet-header-tag">Solutions</span>
+                                <span class="volet-header-title">Sites Web & Outils de Gestion</span>
+                                <span class="volet-header-tag">Entreprises</span>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; background: #F0F9FF; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem;">
-                                <div class="volet-card-title" style="color: #0369A1; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">🌐 Sites Vitrines & E-Commerce (Éligible 80%)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Défi :</em> Sites lents, invisibles sur Google et sans conversion mobile locale.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>Solution :</em> Conception web ultra-rapide (< 1s), boutiques avec paiement CB/Stripe et signature tactile.</div>
+                                <div class="volet-card-title" style="color: #0369A1; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">🌐 Sites Internet & Boutiques en Ligne (Aide 80%)</div>
+                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Sites internet lents, mal adaptés aux téléphones et invisibles pour les clients en Guadeloupe.</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Création de sites modernes et ultra-rapides, boutiques avec paiement sécurisé par Carte Bancaire et signature tactile.</div>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">THEMIS (ERP & Factur-X 2026)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Défi :</em> Devis papier lents, litiges contractuels et risque fiscal d'altération.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>Solution :</em> Chiffrage en 2 min, contrat 7P scellé et inaltérabilité SHA-256 (Art. 286 CGI).</div>
+                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">THEMIS (Gestion Commerciale & Facturation)</div>
+                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Devis papier interminables, factures modifiées à la main et risque d'amende fiscale.</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Vos devis prêts en 2 minutes, calcul automatique des acomptes et facturation 100% conforme aux nouvelles lois fiscales 2026.</div>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.75rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem;">PWA Terrain & DevOps (Coachmaster / TAXIS)</div>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem;">Applications Pratiques sur le Terrain</div>
                                 <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #334155;">
-                                    Applications progressives 100% hors-ligne (football amateur) et consoles avec scan IA des données sensibles (spaCy/NLP).
+                                    Outils simplifiés pour éducateurs sportifs (séances de football clé en main sur smartphone) et robots automatisant vos tâches informatiques répétitives.
                                 </div>
                             </div>
                         </div>
 
                         <div style="background: #F8FAFC; border: 1px solid var(--frame-border); padding: 0.5rem; border-radius: 6px; text-align: center; margin-top: 0.6rem;">
-                            <span style="font-size: 0.70rem; color: #475569; font-weight: 700;">Technologies Modernes • Python, Flet, HTML5 & E-Commerce</span>
+                            <span style="font-size: 0.70rem; color: #475569; font-weight: 700;">Des solutions simples, rapides et faites pour votre quotidien</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 6 (DROITE VERSO : ACCOMPAGNEMENT CHÈQUE TIC & MANDAT) -->
+                    <!-- VOLET 6 (DROITE VERSO : SUBVENTION CHÈQUE TIC & ACCOMPAGNEMENT CLAIR) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: #065F46; padding: 0.55rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
@@ -2034,39 +2041,40 @@
                             </div>
 
                             <div style="background: #ECFDF5; border: 1.5px solid #A7F3D0; border-radius: 8px; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem;">
-                                <strong style="font-size: 0.78rem; color: #065F46; display: block; margin-bottom: 2px;">💡 Barème Région Guadeloupe & FEDER :</strong>
+                                <strong style="font-size: 0.78rem; color: #065F46; display: block; margin-bottom: 2px;">💡 Barème Officiel Région Guadeloupe :</strong>
                                 <p style="font-size: 0.72rem; color: #047857; line-height: 1.4; margin: 0;">
-                                    • Sites Web & Cybersécurité : <strong>Pris en charge à 80%</strong><br>
-                                    • Logiciels de gestion & Matériel : <strong>Pris en charge à 40%</strong><br>
-                                    • <strong style="color: #064E3B;">Plafond d'aide directe publique : jusqu'à 10 000 €</strong>
+                                    • Sites Internet & Sécurité Informatique : <strong>80% financés par la Région</strong><br>
+                                    • Logiciels de gestion & Ordinateurs : <strong>40% financés par la Région</strong><br>
+                                    • <strong style="color: #064E3B;">Plafond d'aide financière : jusqu'à 10 000 €</strong>
                                 </p>
                             </div>
 
+                            <!-- Formule sans sigle barbare (AMO traduit en français clair) -->
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">📋 Formule AMO Partagée (390 € + 5%)</div>
+                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">📋 Conseil, Montage de Dossier & Suivi</div>
                                 <p style="font-size: 0.72rem; color: #475569; line-height: 1.35; margin: 0;">
-                                    • Forfait initial de cadrage : <strong>390,00 € HT</strong> (à la commande).<br>
-                                    • Prime de succès partagée : <strong>+ 5%</strong> exigible uniquement après accord officiel de subvention par la Région.
+                                    • Forfait de démarrage : <strong>390,00 € HT</strong> (nous rédigeons la note technique et préparons toutes les pièces).<br>
+                                    • Prime au succès : <strong>+ 5%</strong> (vous ne payez ce bonus que si la Région valide officiellement votre subvention).
                                 </p>
                             </div>
 
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.75rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem;">✍️ Signature Dématérialisée 100% en Ligne</div>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem;">✍️ Signature Facile 100% en Ligne</div>
                                 <p style="font-size: 0.72rem; color: #475569; line-height: 1.35; margin: 0;">
-                                    Devis d'assistance validé sous condition suspensive ➔ Mandat de représentation tactile scellé et transmis instantanément.
+                                    Vous validez le devis puis signez le mandat directement sur votre téléphone avec le doigt : nous nous occupons de tout le reste auprès de la Région.
                                 </p>
                             </div>
                         </div>
 
                         <div style="background: #091A2B; color: white; padding: 0.6rem 0.75rem; border-radius: 6px; font-size: 0.70rem; text-align: center; border: 1px solid rgba(197, 155, 67, 0.45); margin-top: 0.6rem;">
-                            <span style="color: var(--accent); font-weight: 800;">Transparence Absolue :</span> L'aide régionale est versée à 100% sur le compte bancaire de votre entreprise.
+                            <span style="color: var(--accent); font-weight: 800;">Transparence Totale :</span> La subvention de la Région est versée à 100% sur le compte bancaire de votre entreprise.
                         </div>
                     </div>
 
                 </div>
             `;
 
-            // Fonction d'impression haute fidélité par ouverture d'onglet d'impression dédié
+            // Moteur d'impression haute fidélité (ISO 2 Pages A4 Paysage nettes)
             window.imprimerPlaquettePro = function() {
                 const printWindow = window.open('', '_blank');
                 printWindow.document.write(`
@@ -2158,7 +2166,7 @@
                 printWindow.document.close();
             };
 
-            // Rendu visuel dans la modale avec bouton déclencheur haute précision
+            // Rendu visuel dans la modale
             modalBody.innerHTML = `
                 <div class="plaquette-no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.6rem;">
                     <div>
