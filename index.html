@@ -1724,18 +1724,11 @@
             };
 
             try {
-                await Promise.all([
-                    fetch("https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7", {
-                        method: "POST",
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payloadFinal)
-                    }),
-                    fetch("https://formsubmit.co/ajax/dhamusoft@gmail.com", {
-                        method: "POST",
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payloadFinal)
-                    })
-                ]);
+                await fetch("https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payloadFinal)
+                });
 
                 modalBody.innerHTML = `
                     <div style="text-align: center; padding: 2rem 1rem;">
