@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 🌐 Réseaux Sociaux & Métadonnées -->
     <meta name="description" content="Dhamusoft : Conception d'applications métiers, d'outils de coordination et accompagnement au financement Chèque TIC en Guadeloupe.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/"> 
@@ -17,13 +16,10 @@
     
     <style>
         :root {
-            /* 🎨 CHARTE GRAPHIQUE DHAMUSOFT */
-            --primary: #2C4C6E;       /* Bleu marine profond */
+            --primary: #2C4C6E;
             --primary-hover: #1E3754; 
-            --accent: #C59B43;        /* Or Dhamusoft */
+            --accent: #C59B43;
             --accent-hover: #A88132;
-            
-            /* 💡 Fonds minéraux et contrastes */
             --bg-page: #f8fafc;       
             --card-bg: #ffffff;       
             --text-main: #0f172a;     
@@ -33,7 +29,6 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         html { scroll-behavior: smooth; }
 
         body {
@@ -46,229 +41,96 @@
             min-height: 100vh;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-        
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
         main.container { flex: 1; }
 
-        /* 🖼️ Logo & Accroche */
         .logo-hero {
-            display: block;
-            width: 100%;
-            max-width: 580px; 
-            height: auto;
-            margin: 0 auto 1.2rem auto; 
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));
+            display: block; width: 100%; max-width: 580px; height: auto;
+            margin: 0 auto 1.2rem auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));
         }
         
-        .hero-subtitle {
-            text-align: center;
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
+        .hero-subtitle { text-align: center; font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 500; }
 
-        /* 🚀 Barre d'action Header */
-        .header-cta-bar {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
+        .header-cta-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
         .header-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.55rem 1.25rem;
-            border-radius: 25px;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: inline-flex; align-items: center; gap: 8px; padding: 0.55rem 1.25rem;
+            border-radius: 25px; font-size: 0.88rem; font-weight: 700; text-decoration: none;
+            cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-        .btn-cta-rdv {
-            background: var(--primary);
-            color: white;
-            border: 1px solid var(--primary);
-        }
+        .btn-cta-rdv { background: var(--primary); color: white; border: 1px solid var(--primary); }
         .btn-cta-rdv:hover { background: var(--primary-hover); transform: translateY(-2px); }
-        .btn-cta-pdf {
-            background: #ffffff;
-            color: var(--primary);
-            border: 1px solid var(--frame-border);
-        }
+        .btn-cta-pdf { background: #ffffff; color: var(--primary); border: 1px solid var(--frame-border); }
         .btn-cta-pdf:hover { border-color: var(--primary); transform: translateY(-2px); }
 
-        /* 🔀 COMMUTATEUR À 4 ONGLETS */
-        .hub-switcher-wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-        }
+        .hub-switcher-wrap { display: flex; justify-content: center; margin-bottom: 2.5rem; }
         .hub-switcher {
-            background: #e2e8f0;
-            padding: 5px;
-            border-radius: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            background: #e2e8f0; padding: 5px; border-radius: 30px; display: flex;
+            flex-wrap: wrap; gap: 6px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
         }
         .hub-btn {
-            border: none;
-            background: transparent;
-            padding: 0.65rem 1.3rem;
-            font-size: 0.90rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.25s ease;
+            border: none; background: transparent; padding: 0.65rem 1.3rem; font-size: 0.90rem;
+            font-weight: 700; color: var(--text-muted); border-radius: 25px; cursor: pointer; transition: all 0.25s ease;
         }
-        .hub-btn.active {
-            background: var(--primary);
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(44, 76, 110, 0.25);
-        }
+        .hub-btn.active { background: var(--primary); color: #ffffff; box-shadow: 0 4px 12px rgba(44, 76, 110, 0.25); }
         .hub-btn-tic { color: #065f46; }
-        .hub-btn-tic.active {
-            background: #059669;
-            color: white;
-            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
-        }
+        .hub-btn-tic.active { background: #059669; color: white; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25); }
 
         .view-section { display: none; }
         .view-section.active { display: block; animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ⭐ HERO FLAGSHIP (THEMIS) */
         .themis-hero-card {
             background: linear-gradient(135deg, #091a2b 0%, #173352 100%);
-            border-radius: 18px;
-            padding: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 3rem;
-            box-shadow: 0 15px 35px rgba(9, 26, 43, 0.25);
-            border: 1px solid rgba(197, 155, 67, 0.35);
+            border-radius: 18px; padding: 2.5rem; color: #ffffff; margin-bottom: 3rem;
+            box-shadow: 0 15px 35px rgba(9, 26, 43, 0.25); border: 1px solid rgba(197, 155, 67, 0.35);
         }
         .themis-badge-top {
-            display: inline-block;
-            background: var(--accent);
-            color: #091a2b;
-            font-size: 0.75rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 0.35rem 0.9rem;
-            border-radius: 20px;
-            margin-bottom: 1rem;
+            display: inline-block; background: var(--accent); color: #091a2b; font-size: 0.75rem;
+            font-weight: 900; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem;
         }
         .themis-title { font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
         .themis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1.5rem 0; }
         @media (max-width: 768px) { .themis-grid { grid-template-columns: 1fr; } }
         .themis-box {
-            background: rgba(255, 255, 255, 0.06);
-            border-left: 4px solid var(--accent);
-            padding: 1.2rem;
-            border-radius: 0 10px 10px 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.06); border-left: 4px solid var(--accent);
+            padding: 1.2rem; border-radius: 0 10px 10px 0; font-size: 0.95rem; line-height: 1.6;
         }
         .themis-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
 
-        /* Filtres */
-        .filter-bar {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.65rem;
-            margin-bottom: 2rem;
-        }
+        .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.65rem; margin-bottom: 2rem; }
         .filter-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 0.5rem 1.1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-            transition: all 0.2s ease;
+            background: var(--card-bg); border: 1px solid var(--border); color: var(--text-muted);
+            padding: 0.5rem 1.1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); transition: all 0.2s ease;
         }
-        .filter-btn.active {
-            background: var(--primary);
-            color: #ffffff;
-            border-color: var(--primary);
-            box-shadow: 0 2px 6px rgba(44, 76, 110, 0.25);
-        }
-        .filter-btn.chu-filter.active {
-            background: #059669;
-            border-color: #059669;
-        }
+        .filter-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); box-shadow: 0 2px 6px rgba(44, 76, 110, 0.25); }
+        .filter-btn.chu-filter.active { background: #059669; border-color: #059669; }
 
-        /* Grille Solutions */
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-        }
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
         .solution-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.8rem;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
+            padding: 1.8rem; display: flex; flex-direction: column; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
-        .solution-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: 0 12px 24px rgba(44, 76, 110, 0.09);
-        }
+        .solution-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 24px rgba(44, 76, 110, 0.09); }
         .solution-card.card-chu { border-top: 4px solid #059669; }
         .solution-badge { font-size: 0.72rem; font-weight: 800; color: var(--accent); text-transform: uppercase; }
         .solution-title { font-size: 1.35rem; font-weight: 800; color: var(--primary); margin: 0.3rem 0 1rem 0; }
         
         .case-box {
-            background: #f8fafc;
-            border-radius: 10px;
-            padding: 1rem 1.1rem;
-            margin-bottom: 0.9rem;
-            font-size: 0.88rem;
-            line-height: 1.55;
-            border: 1px solid var(--border);
+            background: #f8fafc; border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 0.9rem;
+            font-size: 0.88rem; line-height: 1.55; border: 1px solid var(--border);
         }
         .case-box-enjeu { border-left: 3px solid var(--accent); color: #334155; }
         .case-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 5px; }
 
         .solution-card-footer {
-            margin-top: auto;
-            padding-top: 1.2rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
+            margin-top: auto; padding-top: 1.2rem; border-top: 1px solid var(--border);
+            display: flex; flex-direction: column; gap: 0.7rem;
         }
-        .tech-link {
-            font-size: 0.8rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 700;
-            cursor: pointer;
-            text-align: center;
-        }
+        .tech-link { font-size: 0.8rem; color: var(--primary); text-decoration: none; font-weight: 700; cursor: pointer; text-align: center; }
         .tech-link:hover { text-decoration: underline; color: var(--accent); }
 
-        /* 🤝 SECTION COMMENT TRAVAILLONS-NOUS ? */
         .process-page-wrap { max-width: 950px; margin: 0 auto; }
         .process-header { text-align: center; margin-bottom: 3rem; }
         .process-header h2 { font-size: 2.2rem; color: var(--primary); font-weight: 900; margin-bottom: 0.8rem; }
@@ -276,160 +138,63 @@
         
         .process-timeline { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3.5rem; }
         .timeline-card {
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            display: flex;
-            gap: 1.8rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border-left: 6px solid var(--primary);
+            background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 2rem;
+            display: flex; gap: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border-left: 6px solid var(--primary);
         }
         .timeline-number {
-            background: var(--primary);
-            color: white;
-            font-size: 1.3rem;
-            font-weight: 900;
-            min-width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 4px 10px rgba(44, 76, 110, 0.25);
+            background: var(--primary); color: white; font-size: 1.3rem; font-weight: 900; min-width: 50px;
+            height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; box-shadow: 0 4px 10px rgba(44, 76, 110, 0.25);
         }
         .timeline-content h3 { font-size: 1.3rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; }
         .timeline-content p { color: #334155; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.8rem; }
         .timeline-highlight {
-            display: inline-block;
-            background: #ecfdf5;
-            color: #065f46;
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            border: 1px solid #a7f3d0;
+            display: inline-block; background: #ecfdf5; color: #065f46; font-size: 0.8rem; font-weight: 700;
+            padding: 0.3rem 0.8rem; border-radius: 6px; border: 1px solid #a7f3d0;
         }
         .guarantee-box {
-            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
-            border: 1px solid var(--frame-border);
-            border-radius: 16px;
-            padding: 2.2rem;
-            text-align: center;
-            margin-top: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 1px solid var(--frame-border);
+            border-radius: 16px; padding: 2.2rem; text-align: center; margin-top: 2rem;
         }
 
-        /* 💰 SECTION CHÈQUE TIC */
         .tic-wrap { max-width: 1000px; margin: 0 auto; }
         .tic-hero {
-            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
-            color: white;
-            border-radius: 18px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 10px 30px rgba(6, 78, 59, 0.2);
-            border: 1px solid rgba(167, 243, 208, 0.3);
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); color: white; border-radius: 18px;
+            padding: 2.5rem; margin-bottom: 2.5rem; box-shadow: 0 10px 30px rgba(6, 78, 59, 0.2); border: 1px solid rgba(167, 243, 208, 0.3);
         }
         .tic-hero h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 0.8rem; }
         .tic-hero p { font-size: 1.05rem; opacity: 0.95; line-height: 1.6; max-width: 840px; }
 
         .simulator-card {
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2.2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+            background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 2.2rem;
+            margin-bottom: 3rem; box-shadow: 0 6px 20px rgba(0,0,0,0.04);
         }
-        .sim-section-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .sim-section-title { font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; }
         .eligibility-checks {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-            background: #f8fafc;
-            padding: 1.4rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+            margin-bottom: 2rem; background: #f8fafc; padding: 1.4rem; border-radius: 12px; border: 1px solid var(--border);
         }
-        .check-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #334155;
-            cursor: pointer;
-        }
+        .check-label { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; font-weight: 600; color: #334155; cursor: pointer; }
         .check-label input { width: 18px; height: 18px; margin-top: 2px; cursor: pointer; }
 
-        .budget-inputs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .budget-input-box {
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.4rem;
-            display: flex;
-            flex-direction: column;
-        }
-        .budget-input-box h4 {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 0.3rem;
-        }
-        .budget-rate-badge {
-            align-self: flex-start;
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            margin-bottom: 0.8rem;
-        }
+        .budget-inputs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .budget-input-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; }
+        .budget-input-box h4 { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 0.3rem; }
+        .budget-rate-badge { align-self: flex-start; font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 12px; margin-bottom: 0.8rem; }
         .badge-80 { background: #dcfce7; color: #15803d; }
         .badge-40 { background: #e0f2fe; color: #0369a1; }
         .budget-input-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; flex-grow: 1; }
         .currency-input {
-            width: 100%;
-            padding: 0.7rem 1rem;
-            border: 1.5px solid var(--frame-border);
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-main);
-            outline: none;
-            transition: border-color 0.2s;
+            width: 100%; padding: 0.7rem 1rem; border: 1.5px solid var(--frame-border); border-radius: 8px;
+            font-size: 1.1rem; font-weight: 700; color: var(--text-main); outline: none; transition: border-color 0.2s;
         }
         .currency-input:focus { border-color: var(--primary); }
 
         .sim-results-panel {
-            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
-            border: 2px solid #cbd5e1;
-            border-radius: 14px;
-            padding: 2rem;
-            margin-top: 1.5rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 2px solid #cbd5e1;
+            border-radius: 14px; padding: 2rem; margin-top: 1.5rem;
         }
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center; margin-bottom: 1.5rem; }
         .result-metric h5 { font-size: 0.82rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; font-weight: 700; }
         .result-metric .value { font-size: 1.8rem; font-weight: 900; }
         .val-total { color: var(--primary); }
@@ -437,246 +202,69 @@
         .val-reste { color: var(--accent); }
 
         .disclaimer-box {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-            padding: 0.85rem 1.2rem;
-            font-size: 0.82rem;
-            color: #92400e;
-            border-radius: 0 8px 8px 0;
-            line-height: 1.5;
+            background: #fffbeb; border-left: 4px solid #f59e0b; padding: 0.85rem 1.2rem;
+            font-size: 0.82rem; color: #92400e; border-radius: 0 8px 8px 0; line-height: 1.5;
         }
 
         .accompagnement-box {
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2.2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            margin-bottom: 3rem;
+            background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 2.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 3rem;
         }
-        .accompagnement-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin: 1.8rem 0;
-        }
-        .acc-step {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1.3rem;
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--primary);
-        }
+        .accompagnement-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 1.8rem 0; }
+        .acc-step { background: #f8fafc; border-radius: 12px; padding: 1.3rem; border: 1px solid var(--border); border-top: 4px solid var(--primary); }
         .acc-step strong { color: var(--primary); display: block; margin-bottom: 0.4rem; font-size: 1rem; font-weight: 800; }
         .acc-step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; margin: 0; }
 
         .mandat-cta-banner {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-            border: 1px solid rgba(197, 155, 67, 0.4);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; border-radius: 12px;
+            padding: 1.8rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+            flex-wrap: wrap; margin-top: 2rem; border: 1px solid rgba(197, 155, 67, 0.4);
         }
         .mandat-cta-banner h4 { font-size: 1.2rem; font-weight: 800; color: #f8fafc; margin-bottom: 0.3rem; }
         .mandat-cta-banner p { font-size: 0.88rem; color: #cbd5e1; margin: 0; }
 
-        /* Formulaires de Devis & Mandat */
-        .mandat-form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
+        .mandat-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
         @media(max-width: 650px) { .mandat-form-grid { grid-template-columns: 1fr; } }
         .form-group { display: flex; flex-direction: column; gap: 4px; }
         .form-group label { font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; }
-        .form-control {
-            padding: 0.65rem 0.9rem;
-            border: 1.5px solid var(--frame-border);
-            border-radius: 6px;
-            font-size: 0.9rem;
-            outline: none;
-        }
+        .form-control { padding: 0.65rem 0.9rem; border: 1.5px solid var(--frame-border); border-radius: 6px; font-size: 0.9rem; outline: none; }
         .form-control:focus { border-color: var(--primary); }
         .mandat-legal-text {
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem;
-            font-size: 0.8rem;
-            color: #475569;
-            line-height: 1.5;
-            max-height: 160px;
-            overflow-y: auto;
-            margin: 1rem 0;
+            background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;
+            font-size: 0.8rem; color: #475569; line-height: 1.5; max-height: 160px; overflow-y: auto; margin: 1rem 0;
         }
 
-        .signature-box-wrap {
-            background: #ffffff;
-            border: 1.5px dashed var(--primary);
-            border-radius: 8px;
-            padding: 0.8rem;
-            margin: 1rem 0;
-        }
-        .signature-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
+        .signature-box-wrap { background: #ffffff; border: 1.5px dashed var(--primary); border-radius: 8px; padding: 0.8rem; margin: 1rem 0; }
+        .signature-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
         .signature-header span { font-size: 0.82rem; font-weight: 800; color: var(--primary); }
-        #signature-pad {
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            width: 100%;
-            height: 130px;
-            background: #ffffff;
-            touch-action: none;
-            cursor: crosshair;
-        }
+        #signature-pad { border: 1px solid #cbd5e1; border-radius: 6px; width: 100%; height: 130px; background: #ffffff; touch-action: none; cursor: crosshair; }
 
-        /* 📜 STYLE TRIPTYQUE RECTO / VERSO */
         .triptyque-sheet {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.4rem;
-            background: #ffffff;
-            border: 1.5px solid var(--frame-border);
-            border-radius: 12px;
-            padding: 1.5rem 1.2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-            margin: 1rem 0 2rem 0;
-            position: relative;
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4rem; background: #ffffff;
+            border: 1.5px solid var(--frame-border); border-radius: 12px; padding: 1.5rem 1.2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06); margin: 1rem 0 2rem 0; position: relative;
         }
         @media (max-width: 880px) { .triptyque-sheet { grid-template-columns: 1fr; gap: 1.5rem; } }
 
-        .triptyque-volet {
-            display: flex;
-            flex-direction: column;
-            padding: 0 0.6rem;
-            position: relative;
-        }
+        .triptyque-volet { display: flex; flex-direction: column; padding: 0 0.6rem; position: relative; }
         .triptyque-volet:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            right: -0.75rem;
-            top: 2%;
-            height: 96%;
-            border-right: 1.5px dashed #cbd5e1;
+            content: ""; position: absolute; right: -0.75rem; top: 2%; height: 96%; border-right: 1.5px dashed #cbd5e1;
         }
         @media (max-width: 880px) { .triptyque-volet:not(:last-child)::after { display: none; } }
 
         .volet-header-banner {
-            background: var(--primary);
-            color: white;
-            padding: 0.45rem 0.75rem;
-            border-radius: 6px;
-            margin-bottom: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: var(--primary); color: white; padding: 0.45rem 0.75rem; border-radius: 6px;
+            margin-bottom: 0.9rem; display: flex; justify-content: space-between; align-items: center;
         }
-        .volet-header-title {
-            font-size: 0.80rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 0;
-        }
-        .volet-header-tag {
-            background: var(--accent);
-            color: #091a2b;
-            font-size: 0.62rem;
-            font-weight: 900;
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
+        .volet-header-title { font-size: 0.80rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
+        .volet-header-tag { background: var(--accent); color: #091a2b; font-size: 0.62rem; font-weight: 900; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; }
 
-        .volet-card-inner {
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 0.6rem 0.75rem;
-            margin-bottom: 0.6rem;
-        }
-        .volet-card-title {
-            font-size: 0.80rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 0.2rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-.volet-case-box { font-size: 0.73rem; line-height: 1.4; margin: 0.2rem 0; }
+        .volet-card-inner { background: #f8fafc; border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem 0.75rem; margin-bottom: 0.6rem; }
+        .volet-card-title { font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem; display: flex; align-items: center; gap: 5px; }
+        .volet-case-box { font-size: 0.73rem; line-height: 1.4; margin: 0.2rem 0; }
         .volet-case-defi { color: #e11d48; font-weight: 600; }
         .volet-case-sol { color: #047857; font-weight: 600; }
 
-        /* 🖨️ MOTEUR D'IMPRESSION CALIBRÉ 2 PAGES PAYSAGE EXACTES */
-        @media print {
-            @page {
-                size: A4 landscape;
-                margin: 4mm 6mm;
-            }
-            html, body {
-                width: 100% !important;
-                height: auto !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: white !important;
-                overflow: visible !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            /* Masquer absolument tout le reste du site */
-            header, main, footer, .whatsapp-btn, .email-btn, .share-btn, #toast, #lightbox, #modal-overlay, #modal-close-btn, .btn, .plaquette-no-print {
-                display: none !important;
-            }
-            #modal {
-                position: static !important;
-                display: block !important;
-                background: white !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                overflow: visible !important;
-            }
-            .modal-dialog {
-                width: 100% !important;
-                max-width: 100% !important;
-                border: none !important;
-                box-shadow: none !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                overflow: visible !important;
-                max-height: none !important;
-            }
-            .triptyque-sheet {
-                box-shadow: none !important;
-                border: 1px solid #cbd5e1 !important;
-                border-radius: 6px !important;
-                grid-template-columns: 1fr 1fr 1fr !important;
-                padding: 6mm 8mm !important;
-                margin: 0 auto !important;
-                min-height: 194mm !important;
-                height: 194mm !important;
-                box-sizing: border-box !important;
-                gap: 6mm !important;
-            }
-            /* Forcer le saut de page strict avant la Feuille 2 */
-            .page-break-sheet {
-                page-break-before: always !important;
-                break-before: page !important;
-            }
-        }
-
-        /* Boutons */
         .btn {
             display: inline-block; padding: 0.7rem 1.3rem; border-radius: 8px; border: none; font-weight: 700;
             cursor: pointer; text-decoration: none; text-align: center; font-size: 0.9rem; transition: all 0.2s;
@@ -688,7 +276,6 @@
         .btn-outline { background: transparent; border: 1px solid var(--frame-border); color: var(--primary); }
         .btn-outline:hover { background: #f1f5f9; border-color: var(--primary); }
 
-        /* LAB TECHNIQUE */
         .lab-header { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; }
         .lab-header h2 { font-size: 2rem; color: var(--primary); font-weight: 900; margin-bottom: 0.6rem; }
         .lab-header p { color: var(--text-muted); font-size: 1.05rem; }
@@ -704,7 +291,6 @@
         .tech-pill { background: #f1f5f9; color: var(--primary); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid #e2e8f0; }
         .tech-card-features { font-size: 0.85rem; color: #334155; line-height: 1.5; padding-left: 1.2rem; }
 
-        /* 📸 MODALE GLOBALE */
         .hidden { display: none !important; }
         #modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
         #modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); }
@@ -727,7 +313,6 @@
         .modal-iframe-container { width: 100%; height: 540px; border-radius: 12px; overflow: hidden; border: 1px solid var(--frame-border); margin: 1rem 0; background: #f8fafc; }
         .modal-iframe-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* 🔍 LIGHTBOX PLEIN ÉCRAN */
         #lightbox { position: fixed; inset: 0; z-index: 2500; background: rgba(10, 15, 26, 0.94); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; }
         #lightbox-img-wrap { max-width: 90vw; max-height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; }
         #lightbox-img { max-width: 100%; max-height: 78vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); }
@@ -738,7 +323,6 @@
         #lightbox-prev { left: 25px; }
         #lightbox-next { right: 25px; }
 
-        /* 📖 GLOSSAIRE */
         .glossary-section { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
         .glossary-title { font-size: 1.5rem; color: var(--primary); font-weight: 800; text-align: center; margin-bottom: 1.5rem; }
         .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
@@ -746,7 +330,6 @@
         .glossary-term { font-weight: 800; color: var(--primary); margin-bottom: 0.3rem; font-size: 0.95rem; }
         .glossary-def { font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; }
 
-        /* 📱 Boutons Flottants Contact & Partage */
         .whatsapp-btn, .email-btn, .share-btn { position: fixed; right: 25px; border-radius: 50%; width: 55px; height: 55px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; transition: transform 0.2s; border: none; cursor: pointer; }
         .whatsapp-btn { bottom: 25px; background: #25d366; }
         .email-btn { bottom: 90px; background: var(--primary); }
@@ -757,11 +340,9 @@
         #toast { visibility: hidden; min-width: 250px; background: #1f2937; color: #fff; text-align: center; border-radius: 8px; padding: 12px; position: fixed; z-index: 3000; left: 50%; bottom: 30px; transform: translateX(-50%); font-weight: 600; opacity: 0; transition: 0.3s; }
         #toast.show { visibility: visible; opacity: 1; bottom: 50px; }
 
-        /* 📌 Footer */
         .site-footer { background: var(--primary); color: #f8fafc; text-align: center; padding: 2.2rem 1rem; margin-top: 4rem; }
         .footer-link { color: var(--accent); text-decoration: underline; cursor: pointer; margin-left: 8px; }
 
-        /* Filet supérieur de défilement */
         #scroll-progress {
             position: fixed; top: 0; left: 0; height: 3px;
             background: linear-gradient(90deg, #C59B43, #059669, #38bdf8);
@@ -775,17 +356,11 @@
         <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" class="logo-hero">
         <p class="hero-subtitle">Conception d'applications métiers, d'outils de coordination et accompagnement au financement Chèque TIC en Guadeloupe.<br>De l'idée au déploiement.</p>
 
-        <!-- 🚀 ACTIONS RAPIDES DECIDEURS (CALENDLY 15 MIN & PLAQUETTE TRIPTYQUE) -->
         <div class="header-cta-bar">
-            <button class="header-cta-btn btn-cta-rdv" onclick="openCalendlyModal()">
-                📅 Réserver un échange (15 min)
-            </button>
-            <button class="header-cta-btn btn-cta-pdf" onclick="openPlaquetteModal()">
-                📄 Télécharger la Plaquette (PDF)
-            </button>
+            <button class="header-cta-btn btn-cta-rdv" onclick="openCalendlyModal()">📅 Réserver un échange (15 min)</button>
+            <button class="header-cta-btn btn-cta-pdf" onclick="openPlaquetteModal()">📄 Télécharger la Plaquette (PDF)</button>
         </div>
 
-        <!-- 🔀 COMMUTATEUR DUAL-HUB À 4 ONGLETS -->
         <div class="hub-switcher-wrap">
             <div class="hub-switcher">
                 <button id="btn-show-solutions" class="hub-btn active">💼 Showroom Solutions</button>
@@ -799,11 +374,10 @@
     <main class="container">
 
         <!-- ======================================================== -->
-        <!-- 💼 ONGLET 1 : SHOWROOM SOLUTIONS (Cas Métiers)           -->
+        <!-- 💼 ONGLET 1 : SHOWROOM SOLUTIONS                         -->
         <!-- ======================================================== -->
         <section id="view-solutions" class="view-section active">
 
-            <!-- ⭐ HERO FLAGSHIP : THEMIS -->
             <div class="themis-hero-card">
                 <span class="themis-badge-top">⭐ Flagship Business • Gestion Commerciale & ERP</span>
                 <h2 class="themis-title">THEMIS — Votre copilote commercial et contractuel complet</h2>
@@ -822,7 +396,7 @@
                     </div>
                 </div>
 
-                <!-- ANIMATION 1 : COMPARATEUR INTERACTIF THEMIS -->
+                <!-- ANIMATION 1 : COMPARATEUR THEMIS -->
                 <div class="themis-comparison-wrap" style="margin: 2rem 0; background: #071524; border: 1.5px solid rgba(197, 155, 67, 0.45); border-radius: 14px; overflow: hidden; position: relative;">
                     <div style="padding: 0.8rem 1.4rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
                         <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">⚡ Comparateur d'Efficacité Opérationnelle</span>
@@ -837,7 +411,6 @@
                     </div>
 
                     <div class="comparison-container" id="themis-slider-box" style="position: relative; min-height: 310px; user-select: none; overflow: hidden; cursor: ew-resize;">
-                        <!-- 1. FACE VERTE (THEMIS : 2 MIN 30) -->
                         <div class="comp-side comp-after" style="width: 100%; height: 100%; background: linear-gradient(135deg, #05231a 0%, #0b382a 100%); color: white; padding: 2rem; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
                             <div style="display: inline-block; background: #047857; color: #a7f3d0; font-size: 0.72rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">AVEC THEMIS ERP • CONFORME 2026</div>
                             <h4 style="font-size: 1.8rem; font-weight: 900; color: #ffffff; margin-bottom: 0.4rem; line-height: 1.2;">⏱️ 2 minutes 30 chrono par dossier</h4>
@@ -845,13 +418,12 @@
                                 Devis multi-lignes chiffré immédiatement, acomptes recalculés en direct et dossier contractuel officiel complet (7 pages incluant CGV, SLA et RGPD) assemblé et scellé en un clic.
                             </p>
                             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Conforme Factur-X 2026 (XML)</span>
-                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Inaltérabilité Art. 286 CGI (SHA-256)</span>
-                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Radar de Trésorerie & Relances Auto</span>
+                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Conforme Factur-X 2026</span>
+                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Inaltérabilité Art. 286 CGI</span>
+                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Radar Trésorerie</span>
                             </div>
                         </div>
 
-                        <!-- 2. FACE ROUGE (ANCIEN SYSTÈME : 45 MIN) -->
                         <div class="comp-side comp-before" id="themis-before-layer" style="position: absolute; top:0; left:0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e1b18 0%, #2e1015 100%); color: white; padding: 2rem; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); transition: clip-path 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
                             <div style="max-width: 680px;">
                                 <div style="display: inline-block; background: #991b1b; color: #fecaca; font-size: 0.72rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">MÉTHODE TRADITIONNELLE (PAPIER / EXCEL)</div>
@@ -860,14 +432,13 @@
                                     Ressaisie manuelle sous Word, calculs d'acomptes à la main sous Excel, conditions générales éparpillées, oublis fréquents de relance des factures impayées et insécurité fiscale.
                                 </p>
                                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Soirées et week-ends perdus</span>
-                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Risque de litiges et impayés</span>
-                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Non-conformité légale</span>
+                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Soirées perdues</span>
+                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Risque de litiges</span>
+                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Non-conformité fiscale</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 3. CURSEUR DE SÉPARATION -->
                         <div class="comp-handle" id="themis-slider-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: var(--accent); display: flex; align-items: center; justify-content: center; transform: translateX(-50%); box-shadow: 0 0 14px rgba(0,0,0,0.6); transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
                             <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5); font-weight: 900; color: #091a2b; font-size: 14px;">⟷</div>
                         </div>
@@ -875,15 +446,9 @@
                 </div>
 
                 <div class="themis-actions">
-                    <button class="btn btn-gold" onclick="openProjectModal('themis', 'demo')">
-                        🚀 Tester en direct (Démo interactive intégrée)
-                    </button>
-                    <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="openProjectModal('themis', 'media')">
-                        📸 Consulter la vitrine visuelle détaillée
-                    </button>
-                    <button class="tech-link" style="color: #93c5fd; background: none; border: none; margin-left: 10px;" onclick="goToTechSpec('themis')">
-                        ⚙️ Voir l'architecture sous le capot →
-                    </button>
+                    <button class="btn btn-gold" onclick="openProjectModal('themis', 'demo')">🚀 Tester en direct (Démo interactive intégrée)</button>
+                    <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="openProjectModal('themis', 'media')">📸 Consulter la vitrine visuelle détaillée</button>
+                    <button class="tech-link" style="color: #93c5fd; background: none; border: none; margin-left: 10px;" onclick="goToTechSpec('themis')">⚙️ Voir l'architecture sous le capot →</button>
                 </div>
             </div>
 
@@ -895,7 +460,6 @@
                 <button class="filter-btn" data-filter="devops">DevOps & Outils</button>
             </div>
 
-            <!-- Grille des Fiches Solutions -->
             <div id="solutions-grid" class="solutions-grid"></div>
 
             <!-- 📖 GLOSSAIRE -->
@@ -915,7 +479,7 @@
 
 
         <!-- ======================================================== -->
-        <!-- 🤝 ONGLET 2 : COMMENT TRAVAILLONS-NOUS ? (Notre Méthode) -->
+        <!-- 🤝 ONGLET 2 : COMMENT TRAVAILLONS-NOUS ?                 -->
         <!-- ======================================================== -->
         <section id="view-method" class="view-section">
             <div class="process-page-wrap">
@@ -973,7 +537,7 @@
                         <div class="timeline-number">1</div>
                         <div class="timeline-content">
                             <h3>Diagnostic & Immersion Métier (Sans engagement)</h3>
-                            <p>Nous débutons par un échange de 15 minutes pour comprendre votre quotidien : où se situent vos pertes de temps ? Quelles sont les tâches manuelles répétitives ? Quels sont vos impératifs de confidentialité ? Nous formalisons ensemble un besoin clair et réaliste.</p>
+                            <p>Nous débutons par un échange de 15 minutes pour comprendre votre quotidien : où se situent vos pertes de temps ? Quelles sont les tâches manuelles répétitives ? Nous formalisons ensemble un besoin clair et réaliste.</p>
                             <span class="timeline-highlight">✓ Diagnostic offert • Zéro engagement</span>
                         </div>
                     </div>
@@ -982,7 +546,7 @@
                         <div class="timeline-number">2</div>
                         <div class="timeline-content">
                             <h3>Conception Agile & Prototype Rapide</h3>
-                            <p>Pas d'attente interminable : nous concevons rapidement un premier prototype fonctionnel que vous pouvez tester sur vos vraies données. Nous privilégions des bases de données locales souveraines (SQLite), garantissant une vitesse instantanée et zéro fuite dans le Cloud.</p>
+                            <p>Pas d'attente interminable : nous concevons rapidement un premier prototype fonctionnel que vous pouvez tester sur vos vraies données. Bases de données locales souveraines (SQLite), garantissant vitesse et zéro fuite Cloud.</p>
                             <span class="timeline-highlight">✓ Prototypage itératif • Données 100% locales</span>
                         </div>
                     </div>
@@ -991,7 +555,7 @@
                         <div class="timeline-number">3</div>
                         <div class="timeline-content">
                             <h3>Déploiement, Formation & Suivi Personnalisé</h3>
-                            <p>L'outil est installé directement sur vos postes de travail ou déployé en toute sécurité. Nous formons vos équipes avec bienveillance et assurons un accompagnement réactif pour adapter l'application au fur et à mesure de votre croissance.</p>
+                            <p>L'outil est installé directement sur vos postes. Nous formons vos équipes avec bienveillance et assurons un accompagnement réactif pour adapter l'application au fur et à mesure de votre croissance.</p>
                             <span class="timeline-highlight">✓ Prise en main immédiate • Support continu en Guadeloupe</span>
                         </div>
                     </div>
@@ -1000,9 +564,7 @@
                 <div class="guarantee-box">
                     <h3 style="color: var(--primary); font-size: 1.35rem; font-weight: 800; margin-bottom: 0.6rem;">Prêt à moderniser vos processus métiers ?</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Échangeons 15 minutes sur votre projet et vos besoins en logiciels sur-mesure.</p>
-                    <button class="btn btn-primary" onclick="openCalendlyModal()">
-                        📅 Réserver un créneau de 15 minutes dès maintenant
-                    </button>
+                    <button class="btn btn-primary" onclick="openCalendlyModal()">📅 Réserver un créneau de 15 minutes dès maintenant</button>
                 </div>
             </div>
         </section>
@@ -1077,20 +639,14 @@
 
                 <!-- SIMULATEUR INTERACTIF -->
                 <div class="simulator-card">
-                    <div class="sim-section-title">
-                        <span>1️⃣ Testez votre éligibilité en 3 critères</span>
-                    </div>
-
+                    <div class="sim-section-title"><span>1️⃣ Testez votre éligibilité en 3 critères</span></div>
                     <div class="eligibility-checks">
                         <label class="check-label"><input type="checkbox" id="check-loc" checked onchange="calculerChequeTic()"><span>Entreprise implantée en Guadeloupe</span></label>
                         <label class="check-label"><input type="checkbox" id="check-age" checked onchange="calculerChequeTic()"><span>Activité enregistrée depuis au moins 1 an</span></label>
                         <label class="check-label"><input type="checkbox" id="check-fisc" checked onchange="calculerChequeTic()"><span>Situation fiscale et sociale à jour</span></label>
                     </div>
 
-                    <div class="sim-section-title">
-                        <span>2️⃣ Estimez votre budget par volet de dépenses (HT)</span>
-                    </div>
-
+                    <div class="sim-section-title"><span>2️⃣ Estimez votre budget par volet de dépenses (HT)</span></div>
                     <div class="budget-inputs-grid">
                         <div class="budget-input-box">
                             <h4>🌐 Présence Web & E-commerce</h4>
@@ -1098,14 +654,12 @@
                             <p>Développement de site vitrine, boutique en ligne, hébergement sécurisé et certificats SSL.</p>
                             <input type="number" id="input-web" class="currency-input" placeholder="0 €" value="2500" min="0" oninput="calculerChequeTic()">
                         </div>
-
                         <div class="budget-input-box">
                             <h4>🛡️ Sécurité & Sauvegardes</h4>
                             <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
                             <p>Audits de sécurité, antivirus professionnels, pare-feu et solutions de backup externalisées.</p>
                             <input type="number" id="input-secu" class="currency-input" placeholder="0 €" value="1500" min="0" oninput="calculerChequeTic()">
                         </div>
-
                         <div class="budget-input-box">
                             <h4>💻 Logiciels Métiers & Équipements</h4>
                             <span class="budget-rate-badge badge-40">Pris en charge à 40%</span>
@@ -1151,9 +705,7 @@
                             <h4>📋 Lancez votre accompagnement Chèque TIC (En ligne ou lors de notre appel)</h4>
                             <p>Validez votre bon d'accompagnement sécurisé et signez votre mandat de représentation directement avec votre doigt ou la souris.</p>
                         </div>
-                        <button class="btn btn-gold" onclick="openMandatModal()">
-                            ✍️ Valider mon Accompagnement & Débloquer le Mandat
-                        </button>
+                        <button class="btn btn-gold" onclick="openMandatModal()">✍️ Valider mon Accompagnement & Débloquer le Mandat</button>
                     </div>
                 </div>
 
@@ -1183,7 +735,6 @@
 
     </main>
 
-    <!-- 📌 FOOTER -->
     <footer class="site-footer">
         <div class="container" style="padding: 0;">
             <p>© 2026 Dhamusoft — Tous droits réservés.</p>
@@ -1191,7 +742,6 @@
         </div>
     </footer>
 
-    <!-- Modale globale -->
     <div id="modal" class="hidden">
         <div id="modal-overlay"></div>
         <div class="modal-dialog">
@@ -1200,7 +750,6 @@
         </div>
     </div>
 
-    <!-- 🔍 LIGHTBOX PLEIN ÉCRAN -->
     <div id="lightbox" class="hidden">
         <button id="lightbox-close" aria-label="Fermer la vue plein écran">&times;</button>
         <button id="lightbox-prev" class="lightbox-nav-btn" aria-label="Image précédente">&#8249;</button>
@@ -1209,17 +758,14 @@
         <div id="lightbox-caption"></div>
     </div>
 
-    <!-- Toast Notification -->
     <div id="toast">✅ Action réalisée avec succès !</div>
 
-    <!-- Boutons flottants -->
     <button id="btn-partager" class="share-btn" aria-label="Partager le portfolio"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.9-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.9 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg></button>
     <a href="mailto:dhamusoft@gmail.com" class="email-btn" aria-label="Envoyer un email à Dhamusoft"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
     <a href="https://wa.me/590690051144" class="whatsapp-btn" target="_blank" aria-label="Contactez Dhamusoft sur WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-3.1-5.3-1.4-8.2 1.4-11 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 .9-7-1.4-11-2.8-5.6-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
     <div id="scroll-progress"></div>
 
-    <!-- SCRIPT DU SITE (100% FONCTIONNEL & SANS ERREUR) -->
     <script>
     (function() {
         const CALENDLY_LINK = "https://cal.com/andy-vaubien-4rxyqe";
@@ -1474,7 +1020,7 @@
             }
         ];
 
-        // 🔀 COMMUTATEUR DUAL-HUB À 4 ONGLETS
+        // COMMUTATEUR À 4 ONGLETS
         const btnShowSolutions = document.querySelector('#btn-show-solutions');
         const btnShowMethod = document.querySelector('#btn-show-method');
         const btnShowChequetic = document.querySelector('#btn-show-chequetic');
@@ -1523,7 +1069,7 @@
             }, 300);
         };
 
-        // 🧮 ALGORITHME SIMULATEUR DU CHÈQUE TIC
+        // ALGORITHME DU CHÈQUE TIC
         window.calculerChequeTic = function() {
             const checkLoc = document.getElementById('check-loc').checked;
             const checkAge = document.getElementById('check-age').checked;
@@ -1555,7 +1101,7 @@
             document.getElementById('res-reste').textContent = formatEuro(resteACharge) + ' HT';
         };
 
-        // RENDU DU SHOWROOM SOLUTIONS
+        // RENDU SHOWROOM
         const solutionsGrid = document.querySelector('#solutions-grid');
         const filterBtns = document.querySelectorAll('.filter-btn');
         let currentFilter = 'all';
@@ -1622,7 +1168,7 @@
             });
         });
 
-        // RENDU DU LAB TECHNIQUE
+        // RENDU LAB
         const techSpecGrid = document.querySelector('#tech-spec-grid');
         function renderLabTech(projects) {
             if (!techSpecGrid) return;
@@ -1643,7 +1189,7 @@
             `).join('');
         }
 
-        // 🔍 LIGHTBOX PLEIN ÉCRAN
+        // LIGHTBOX
         let currentGalleryImages = [];
         let currentLightboxIndex = 0;
         const lightbox = document.querySelector('#lightbox');
@@ -1692,7 +1238,7 @@
             }
         });
 
-        // GESTION DE LA MODALE & RENDU DES MÉDIAS
+        // MODALE
         const modal = document.querySelector('#modal');
         const modalBody = document.querySelector('#modal-body');
         const closeBtn = document.querySelector('#modal-close-btn');
@@ -1702,7 +1248,7 @@
             if (!screenshots || !Array.isArray(screenshots) || screenshots.length === 0) return '';
             const items = screenshots.map((img, idx) => `
                 <figure class="screenshot-item">
-                    <img src="${encodeURI(img.url)}" alt="${img.caption}" loading="lazy" onclick="openLightbox(${idx}, '${projectId}')" title="Cliquez pour agrandir en plein écran" onerror="this.parentElement.style.display='none'">
+                    <img src="${encodeURI(img.url)}" alt="${img.caption}" loading="lazy" onclick="openLightbox(${idx}, '${projectId}')" title="Cliquez pour agrandir" onerror="this.parentElement.style.display='none'">
                     <figcaption>${img.caption}</figcaption>
                 </figure>
             `).join('');
@@ -1722,11 +1268,7 @@
                             <source src="${encodeURI(vid.url)}" type="video/mp4">
                         </video>
                     </div>
-                    ${vid.focus ? `
-                        <div class="video-focus-box">
-                            <strong>🎯 Focus :</strong> ${vid.focus}
-                        </div>
-                    ` : ''}
+                    ${vid.focus ? `<div class="video-focus-box"><strong>🎯 Focus :</strong> ${vid.focus}</div>` : ''}
                 `).join('');
             }
             return '';
@@ -1742,12 +1284,8 @@
             if (isLive) {
                 modeSwitcherHtml = `
                     <div class="modal-view-switcher">
-                        <button class="modal-view-tab ${initialView === 'demo' ? 'active' : ''}" id="tab-modal-demo" onclick="switchModalView('demo')">
-                            🚀 Démo en direct (Interactive)
-                        </button>
-                        <button class="modal-view-tab ${initialView === 'media' ? 'active' : ''}" id="tab-modal-media" onclick="switchModalView('media')">
-                            📸 Captures & Vidéo Démo
-                        </button>
+                        <button class="modal-view-tab ${initialView === 'demo' ? 'active' : ''}" id="tab-modal-demo" onclick="switchModalView('demo')">🚀 Démo en direct</button>
+                        <button class="modal-view-tab ${initialView === 'media' ? 'active' : ''}" id="tab-modal-media" onclick="switchModalView('media')">📸 Captures & Vidéo</button>
                     </div>
                 `;
             }
@@ -1760,47 +1298,26 @@
                             <span style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">Application active en temps réel :</span>
                             <a href="${project.download_url}" target="_blank" style="font-size: 0.82rem; color: var(--accent); font-weight: 700; text-decoration: underline;">Ouvrir en plein écran ↗</a>
                         </div>
-                        <div class="modal-iframe-container">
-                            <iframe src="${project.download_url}" allow="fullscreen"></iframe>
-                        </div>
+                        <div class="modal-iframe-container"><iframe src="${project.download_url}" allow="fullscreen"></iframe></div>
                     </div>
                 `;
             }
-
-            const mediaContentHtml = `
-                <div id="modal-view-media-content" style="${(!isLive || initialView === 'media') ? 'display: block;' : 'display: none;'}">
-                    ${renderVideos(project)}
-                    ${renderScreenshots(project.screenshots, project.id)}
-                </div>
-            `;
-
-            const actionBtn = isLive 
-                ? `<a href="${project.download_url}" target="_blank" class="btn btn-primary">🚀 Ouvrir en grand (Nouvel onglet)</a>`
-                : `<div class="action-notice" style="background: #f8fafc; border: 1px solid var(--border); padding: 0.65rem 1.1rem; border-radius: 8px; font-size: 0.88rem; color: #475569;">🔒 Logiciel Privé / Démonstration encadrée sur demande</div>`;
 
             modalBody.innerHTML = `
                 <div style="margin-bottom: 1.2rem;">
                     <span style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">${project.badge}</span>
                     <h2 style="font-size: 1.8rem; font-weight: 900; color: var(--primary); margin-top: 0.3rem;">${project.title}</h2>
                 </div>
-
                 ${modeSwitcherHtml}
                 ${liveFrameHtml}
-                ${mediaContentHtml}
-
-                ${project.enjeu ? `
-                <div class="case-box case-box-enjeu" style="margin-top: 1.5rem;">
-                    <div class="case-label" style="color: var(--accent);">🎯 L'Enjeu / La Problématique :</div>
-                    ${project.enjeu}
+                <div id="modal-view-media-content" style="${(!isLive || initialView === 'media') ? 'display: block;' : 'display: none;'}">
+                    ${renderVideos(project)}
+                    ${renderScreenshots(project.screenshots, project.id)}
                 </div>
-                ` : ''}
-
-                <p style="font-size: 0.95rem; color: #334155; line-height: 1.6; margin-bottom: 1.2rem;">
-                    ${project.description}
-                </p>
-
+                ${project.enjeu ? `<div class="case-box case-box-enjeu" style="margin-top: 1.5rem;"><div class="case-label" style="color: var(--accent);">🎯 L'Enjeu / La Problématique :</div>${project.enjeu}</div>` : ''}
+                <p style="font-size: 0.95rem; color: #334155; line-height: 1.6; margin-bottom: 1.2rem;">${project.description}</p>
                 <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
-                    ${actionBtn}
+                    ${isLive ? `<a href="${project.download_url}" target="_blank" class="btn btn-primary">🚀 Ouvrir en grand (Nouvel onglet)</a>` : `<div class="action-notice" style="background: #f8fafc; border: 1px solid var(--border); padding: 0.65rem 1.1rem; border-radius: 8px; font-size: 0.88rem; color: #475569;">🔒 Logiciel Privé / Démonstration encadrée sur demande</div>`}
                 </div>
             `;
 
@@ -1827,254 +1344,149 @@
             }
         };
 
-        // 📅 MODALE CAL.COM (15 MINUTES)
         window.openCalendlyModal = function() {
             modalBody.innerHTML = `
                 <div style="margin-bottom: 1rem;">
                     <span style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">Prise de Contact Directe</span>
                     <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--primary); margin-top: 0.3rem;">📅 Réserver un échange (15 min)</h2>
-                    <p style="font-size: 0.95rem; color: #475569; margin-top: 0.5rem;">
-                        Choisissez le créneau de votre choix avec Andy VAUBIEN (Dhamusoft) pour échanger sur vos besoins logiciels et votre éligibilité Chèque TIC.
-                    </p>
+                    <p style="font-size: 0.95rem; color: #475569; margin-top: 0.5rem;">Choisissez le créneau de votre choix avec Andy VAUBIEN (Dhamusoft).</p>
                 </div>
-                <div class="modal-iframe-container" style="height: 580px;">
-                    <iframe src="${CALENDLY_LINK}"></iframe>
-                </div>
+                <div class="modal-iframe-container" style="height: 580px;"><iframe src="${CALENDLY_LINK}"></iframe></div>
             `;
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         };
 
-        // 📄 MODALE TRIPTYQUE RECTO / VERSO (100% CLAIR, SANS JARGON, 2 PAGES NETTES)
+        // 📄 MODALE TRIPTYQUE RECTO / VERSO
         window.openPlaquetteModal = function() {
-            
-            // Contenu HTML haute lisibilité pour les 2 pages A4 Paysage
             const getPlaquetteHtml = () => `
-                <!-- ======================================================= -->
-                <!-- 📄 FEUILLE 1 : RECTO EXTÉRIEUR (Volet 1 | Volet 2 | Volet 3) -->
-                <!-- ======================================================= -->
                 <div class="triptyque-sheet" style="background: #ffffff; min-height: 195mm; height: 195mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10mm; padding: 8mm 10mm; box-sizing: border-box; page-break-after: always; break-after: page;">
-                    
-                    <!-- VOLET 1 (GAUCHE RECTO : SOUVERAINETÉ & RÉSILIENCE LOCALE) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: #05231A; padding: 0.55rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
                                 <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF;">1. Vos Données en Sécurité</span>
                                 <span class="volet-header-tag" style="background: #A7F3D0; color: #05231A; font-weight: 900;">Protection</span>
                             </div>
-
-                            <!-- Crochet Dépenses Récentes -->
                             <div style="background: #FFFDF5; border: 1.5px solid var(--accent); border-radius: 8px; padding: 0.75rem; margin-bottom: 0.8rem;">
                                 <strong style="font-size: 0.82rem; color: #B45309; display: block; margin-bottom: 3px;">⚡ Vous avez récemment investi ?</strong>
-                                <p style="font-size: 0.74rem; color: #78350F; line-height: 1.4; margin: 0;">
-                                    Achat récent d'ordinateurs, création d'un site web ou logiciel ? <strong>Ne laissez pas dormir vos factures :</strong> activez jusqu'à 80% de remboursement avec la subvention Chèque TIC Région Guadeloupe !
-                                </p>
+                                <p style="font-size: 0.74rem; color: #78350F; line-height: 1.4; margin: 0;">Achat d'ordinateurs, site web ou logiciel ? Activez jusqu'à 80% de remboursement Chèque TIC !</p>
                             </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
                                 <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">☁️ Serveurs Sécurisés en France</div>
-                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">
-                                    Vos outils et sites sont hébergés sur des serveurs français hautement protégés, garantissant le respect strict des lois sur la vie privée.
-                                </p>
+                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">Vos outils et sites sont hébergés sur des serveurs français sécurisés conformes au RGPD.</p>
                             </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #047857; margin-bottom: 0.25rem;">🔒 Vos Fichiers Restent Chez Vous</div>
-                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">
-                                    Toutes vos informations clients et financières restent stockées directement sur vos ordinateurs. Elles ne sont jamais revendues ni partagées.
-                                </p>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; padding: 0.65rem 0.8rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #0369A1; margin-bottom: 0.25rem;">⚡ Fonctionne Même Sans Internet</div>
-                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">
-                                    Adapté aux réalités de la Guadeloupe : vous continuez à travailler, facturer et gérer votre activité même lors des coupures d'internet ou de réseau.
-                                </p>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #047857; margin-bottom: 0.25rem;">🔒 Fichiers Stockés Chez Vous</div>
+                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">Toutes vos données clients restent stockées sur vos propres ordinateurs en local.</p>
                             </div>
                         </div>
-
-                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.5rem; border-radius: 6px; text-align: center; margin-top: 0.6rem;">
-                            <span style="font-size: 0.72rem; color: #065F46; font-weight: 800;">✓ CONTRÔLE TOTAL DE VOS FICHIERS • ZÉRO FUITE</span>
+                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.5rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.72rem; color: #065F46; font-weight: 800;">✓ CONTRÔLE TOTAL DE VOS FICHIERS</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 2 (CENTRE RECTO : MÉTHODE DE TRAVAIL CLAIRE EN 4 ÉTAPES) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: var(--primary); padding: 0.55rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
                                 <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF; margin: 0 auto;">2. Comment Travaillons-Nous ?</span>
                             </div>
-
-                            <p style="font-size: 0.75rem; color: #334155; line-height: 1.4; text-align: center; margin-bottom: 0.8rem;">
-                                Un accompagnement simple, rapide et sans vocabulaire compliqué :
-                            </p>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.80rem; color: var(--primary); display: block; margin-bottom: 2px;">1. Échange Téléphonique (5 minutes)</strong>
-                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Nous faisons le point sur vos besoins et vérifions immédiatement si vous pouvez obtenir les 80% d'aide financière de la Région.</span>
+                                <strong style="font-size: 0.80rem; color: var(--primary); display: block;">1. Échange Téléphonique (5 min)</strong>
+                                <span style="font-size: 0.73rem; color: #475569;">Vérification de vos besoins et de votre éligibilité Chèque TIC.</span>
                             </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.80rem; color: #B45309; display: block; margin-bottom: 2px;">2. Analyse de vos Besoins (20 minutes)</strong>
-                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Nous regardons vos tâches répétitives (devis, factures, organisation) pour identifier où vous perdez du temps chaque semaine.</span>
+                                <strong style="font-size: 0.80rem; color: #B45309; display: block;">2. Analyse des Besoins (20 min)</strong>
+                                <span style="font-size: 0.73rem; color: #475569;">Identification précise des tâches chronophages où vous perdez du temps.</span>
                             </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.80rem; color: #047857; display: block; margin-bottom: 2px;">3. Test d'un Modèle Fonctionnel</strong>
-                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Pas de promesses sur papier : vous essayez sous 10 jours une première version personnalisée avec vos propres informations d'entreprise.</span>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; padding: 0.65rem 0.8rem; background: #F8FAFC;">
-                                <strong style="font-size: 0.80rem; color: #0369A1; display: block; margin-bottom: 2px;">4. Installation, Formation & Suivi</strong>
-                                <span style="font-size: 0.73rem; color: #475569; line-height: 1.35; display: block;">Nous installons tout, formons vos collaborateurs avec patience et restons disponibles en Guadeloupe pour vous épauler.</span>
+                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.8rem; background: #F8FAFC;">
+                                <strong style="font-size: 0.80rem; color: #047857; display: block;">3. Test d'un Modèle Fonctionnel</strong>
+                                <span style="font-size: 0.73rem; color: #475569;">Essai sous 10 jours d'un outil testé avec vos vraies informations.</span>
                             </div>
                         </div>
-
-                        <div style="background: #F8FAFC; border: 1.5px solid var(--frame-border); padding: 0.55rem; border-radius: 6px; text-align: center; margin-top: 0.6rem;">
-                            <strong style="font-size: 0.74rem; color: var(--primary); display: block;">Contact Direct :</strong>
-                            <span style="font-size: 0.72rem; color: #047857; font-weight: 800;">Andy VAUBIEN • dhamusoft@gmail.com • 0690 05 11 44</span>
+                        <div style="background: #F8FAFC; border: 1.5px solid var(--frame-border); padding: 0.55rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.72rem; color: #047857; font-weight: 800;">Andy VAUBIEN • 0690 05 11 44</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 3 (DROITE RECTO : COUVERTURE DU DÉPLIANT) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; text-align: center;">
                         <div style="margin-top: 1rem;">
                             <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width: 100%; max-width: 220px; margin: 0 auto; display: block;">
-                            <span style="display: inline-block; background: #E2E8F0; color: #091A2B; font-size: 0.68rem; font-weight: 900; padding: 0.2rem 0.6rem; border-radius: 10px; margin-top: 0.8rem; text-transform: uppercase;">Édition Officielle 2026</span>
+                            <span style="display: inline-block; background: #E2E8F0; color: #091A2B; font-size: 0.68rem; font-weight: 900; padding: 0.2rem 0.6rem; border-radius: 10px; margin-top: 0.8rem;">Édition 2026</span>
                         </div>
-
                         <div style="padding: 1rem 0.5rem;">
-                            <h3 style="font-size: 1.1rem; font-weight: 900; color: var(--primary); margin-bottom: 0.6rem; line-height: 1.35;">
-                                De l'idée au déploiement de vos outils numériques sur-mesure.
-                            </h3>
-                            <p style="font-size: 0.78rem; color: #475569; line-height: 1.5; margin: 0 auto; max-width: 270px;">
-                                Création de sites internet vitrines et marchands, logiciels de gestion sur-mesure et accompagnement complet pour obtenir les aides de la Région Guadeloupe.
-                            </p>
+                            <h3 style="font-size: 1.1rem; font-weight: 900; color: var(--primary); margin-bottom: 0.6rem;">De l'idée au déploiement de vos outils sur-mesure.</h3>
+                            <p style="font-size: 0.78rem; color: #475569; line-height: 1.5;">Sites internet vitrines, marchands et logiciels métiers adaptés à la Guadeloupe.</p>
                         </div>
-
                         <div style="background: #091A2B; color: white; padding: 0.85rem; border-radius: 10px; border: 1.5px solid rgba(197, 155, 67, 0.45); text-align: center;">
-                            <strong style="font-size: 0.86rem; color: var(--accent); display: block; margin-bottom: 2px;">Andy VAUBIEN</strong>
-                            <span style="font-size: 0.74rem; color: #CBD5E1; display: block; font-weight: 600;">Concepteur de Logiciels & Accompagnateur Numérique</span>
-                            <span style="font-size: 0.74rem; color: #CBD5E1; display: block; margin-top: 2px;">📞 0690 05 11 44</span>
-                            <span style="font-size: 0.70rem; color: #94A3B8; display: block; margin-top: 2px;">📍 Capesterre-Belle-Eau, Guadeloupe</span>
+                            <strong style="font-size: 0.86rem; color: var(--accent); display: block;">Andy VAUBIEN</strong>
+                            <span style="font-size: 0.74rem; color: #CBD5E1; display: block;">Concepteur Logiciel • 0690 05 11 44</span>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- ======================================================= -->
-                <!-- 📄 FEUILLE 2 : VERSO INTÉRIEUR (Volet 4 | Volet 5 | Volet 6) -->
-                <!-- ======================================================= -->
                 <div class="triptyque-sheet" style="background: #ffffff; min-height: 195mm; height: 195mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10mm; padding: 8mm 10mm; box-sizing: border-box; page-break-before: always; break-before: page;">
-                    
-                    <!-- VOLET 4 (GAUCHE VERSO : SANTÉ PUBLIQUE & MILIEU MÉDICAL) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: #065F46; padding: 0.55rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
                                 <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF;">Santé & Milieu Médical</span>
-                                <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Haute Sécurité</span>
+                                <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Sécurité</span>
                             </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">PRAXIS GOLD (Dossier Médical Informatisé)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Risque d'erreur lors du recueil de données médicales sur 30 ans de suivi d'un patient.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Un système intelligent bloque les dates illogiques, alerte sur les constantes anormales et conserve un historique officiel infalsifiable.</div>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46;">PRAXIS GOLD (Dossier Médical)</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 Système expert bloquant les incohérences de dates et sécurisant l'historique sur 30 ans.</div>
                             </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">IKNOS (Suivi des Dossiers & Alertes)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Des dossiers patients bloqués parce qu'un examen médical obligatoire est périmé sans qu'on s'en rende compte.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Tableau visuel d'avancement automatique avec des alertes de couleur claires avant l'expiration des documents.</div>
-                            </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.75rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46; margin-bottom: 0.2rem;">AXIOS (Lecture Automatique d'Analyses)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Des heures perdues à recopier à la main des résultats d'analyses sanguines depuis des feuilles PDF.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Un robot lit les documents et remplit automatiquement les grilles avec des voyants de contrôle (vert si tout est sûr).</div>
+                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #065F46;">IKNOS (Alertes Pré-Greffe)</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 Tableau visuel alertant automatiquement avant la péremption d'examens médicaux.</div>
                             </div>
                         </div>
-
-                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.5rem; border-radius: 6px; text-align: center; margin-top: 0.6rem;">
-                            <span style="font-size: 0.70rem; color: #065F46; font-weight: 800;">✓ CONFORMITÉ LÉGALE STRICTE • FIABILITÉ MAXIMALE</span>
+                        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 0.5rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.70rem; color: #065F46; font-weight: 800;">✓ CONFORMITÉ LÉGALE STRICTE</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 5 (CENTRE VERSO : SITES INTERNET, VENTE EN LIGNE & GESTION THEMIS) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner">
-                                <span class="volet-header-title">Sites Web & Outils de Gestion</span>
+                                <span class="volet-header-title">Sites Web & Gestion</span>
                                 <span class="volet-header-tag">Entreprises</span>
                             </div>
-
                             <div class="volet-card-inner" style="border-left: 3.5px solid #0284C7; background: #F0F9FF; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem;">
-                                <div class="volet-card-title" style="color: #0369A1; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">🌐 Sites Internet & Boutiques en Ligne (Aide 80%)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Sites internet lents, mal adaptés aux téléphones et invisibles pour les clients en Guadeloupe.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Création de sites modernes et ultra-rapides, boutiques avec paiement sécurisé par Carte Bancaire et signature tactile.</div>
+                                <div class="volet-card-title" style="color: #0369A1; font-size: 0.80rem; font-weight: 800;">🌐 Sites Vitrines & E-Commerce (80%)</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 Sites rapides (< 1s), boutiques avec paiement par CB et formulaires interactifs.</div>
                             </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">THEMIS (Gestion Commerciale & Facturation)</div>
-                                <div class="volet-case-box volet-case-defi" style="font-size: 0.73rem; color: #E11D48; margin-bottom: 2px;">🎯 <em>Le Problème :</em> Devis papier interminables, factures modifiées à la main et risque d'amende fiscale.</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 <em>La Solution :</em> Vos devis prêts en 2 minutes, calcul automatique des acomptes et facturation 100% conforme aux nouvelles lois fiscales 2026.</div>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.75rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem;">Applications Pratiques sur le Terrain</div>
-                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #334155;">
-                                    Outils simplifiés pour éducateurs sportifs (séances de football clé en main sur smartphone) et robots automatisant vos tâches informatiques répétitives.
-                                </div>
+                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem; background: #FFFDF5;">
+                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800;">THEMIS (ERP & Factur-X 2026)</div>
+                                <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 Devis en 2 min, contrat 7P scellé et conformité fiscale Art. 286 du CGI.</div>
                             </div>
                         </div>
-
-                        <div style="background: #F8FAFC; border: 1px solid var(--frame-border); padding: 0.5rem; border-radius: 6px; text-align: center; margin-top: 0.6rem;">
-                            <span style="font-size: 0.70rem; color: #475569; font-weight: 700;">Des solutions simples, rapides et faites pour votre quotidien</span>
+                        <div style="background: #F8FAFC; border: 1px solid var(--frame-border); padding: 0.5rem; border-radius: 6px; text-align: center;">
+                            <span style="font-size: 0.70rem; color: #475569; font-weight: 700;">Des solutions faites pour votre quotidien</span>
                         </div>
                     </div>
 
-                    <!-- VOLET 6 (DROITE VERSO : SUBVENTION CHÈQUE TIC & ACCOMPAGNEMENT CLAIR) -->
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <div>
                             <div class="volet-header-banner" style="background: #065F46; padding: 0.55rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
                                 <span class="volet-header-title" style="font-size: 0.85rem; font-weight: 900; color: #FFFFFF;">Subvention Chèque TIC</span>
                                 <span class="volet-header-tag" style="background: #A7F3D0; color: #065F46; font-weight: 900;">Jusqu'à 80%</span>
                             </div>
-
                             <div style="background: #ECFDF5; border: 1.5px solid #A7F3D0; border-radius: 8px; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem;">
-                                <strong style="font-size: 0.78rem; color: #065F46; display: block; margin-bottom: 2px;">💡 Barème Officiel Région Guadeloupe :</strong>
-                                <p style="font-size: 0.72rem; color: #047857; line-height: 1.4; margin: 0;">
-                                    • Sites Internet & Sécurité Informatique : <strong>80% financés par la Région</strong><br>
-                                    • Logiciels de gestion & Ordinateurs : <strong>40% financés par la Région</strong><br>
-                                    • <strong style="color: #064E3B;">Plafond d'aide financière : jusqu'à 10 000 €</strong>
-                                </p>
+                                <strong style="font-size: 0.78rem; color: #065F46; display: block;">💡 Barème Officiel Région Guadeloupe :</strong>
+                                <p style="font-size: 0.72rem; color: #047857; line-height: 1.4; margin: 0;">• Sites Web & Sécurité : 80% pris en charge<br>• Matériel & Logiciels : 40% pris en charge</p>
                             </div>
-
-                            <!-- Formule sans sigle barbare (AMO traduit en français clair) -->
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem; margin-bottom: 0.7rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800; margin-bottom: 0.2rem;">📋 Conseil, Montage de Dossier & Suivi</div>
-                                <p style="font-size: 0.72rem; color: #475569; line-height: 1.35; margin: 0;">
-                                    • Forfait de démarrage : <strong>390,00 € HT</strong> (nous rédigeons la note technique et préparons toutes les pièces).<br>
-                                    • Prime au succès : <strong>+ 5%</strong> (vous ne payez ce bonus que si la Région valide officiellement votre subvention).
-                                </p>
-                            </div>
-
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.75rem; background: #F8FAFC;">
-                                <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem;">✍️ Signature Facile 100% en Ligne</div>
-                                <p style="font-size: 0.72rem; color: #475569; line-height: 1.35; margin: 0;">
-                                    Vous validez le devis puis signez le mandat directement sur votre téléphone avec le doigt : nous nous occupons de tout le reste auprès de la Région.
-                                </p>
+                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem;">
+                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800;">📋 Conseil & Montage de Dossier</div>
+                                <p style="font-size: 0.72rem; color: #475569; line-height: 1.35; margin: 0;">• Forfait initial : <strong>550,00 € HT</strong> (éligible remboursement jusqu'à 80%).<br>• Honoraires succès dégressifs : <strong>10% à 4%</strong> uniquement après accord Région.</p>
                             </div>
                         </div>
-
-                        <div style="background: #091A2B; color: white; padding: 0.6rem 0.75rem; border-radius: 6px; font-size: 0.70rem; text-align: center; border: 1px solid rgba(197, 155, 67, 0.45); margin-top: 0.6rem;">
-                            <span style="color: var(--accent); font-weight: 800;">Transparence Totale :</span> La subvention de la Région est versée à 100% sur le compte bancaire de votre entreprise.
+                        <div style="background: #091A2B; color: white; padding: 0.6rem 0.75rem; border-radius: 6px; font-size: 0.70rem; text-align: center;">
+                            <span style="color: var(--accent); font-weight: 800;">Transparence Totale :</span> L'aide est versée à 100% sur votre RIB.
                         </div>
                     </div>
-
                 </div>
             `;
 
-            // Moteur d'impression haute fidélité (ISO 2 Pages A4 Paysage nettes)
             window.imprimerPlaquettePro = function() {
                 const printWindow = window.open('', '_blank');
                 printWindow.document.write(`
@@ -2084,70 +1496,21 @@
                         <meta charset="UTF-8">
                         <title>Plaquette_Corporate_Dhamusoft_2026</title>
                         <style>
-                            @page {
-                                size: A4 landscape;
-                                margin: 4mm 6mm;
-                            }
+                            @page { size: A4 landscape; margin: 4mm 6mm; }
                             * { box-sizing: border-box; margin: 0; padding: 0; }
-                            body {
-                                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-                                color: #0f172a;
-                                background: white;
-                                -webkit-print-color-adjust: exact !important;
-                                print-color-adjust: exact !important;
-                            }
+                            body { font-family: -apple-system, sans-serif; color: #0f172a; background: white; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
                             .triptyque-sheet {
-                                width: 285mm;
-                                height: 196mm;
-                                min-height: 196mm;
-                                margin: 0 auto;
-                                display: grid;
-                                grid-template-columns: 1fr 1fr 1fr;
-                                gap: 8mm;
-                                padding: 6mm 8mm;
-                                box-sizing: border-box;
-                                border: 1px solid #cbd5e1;
-                                border-radius: 6px;
-                                page-break-after: always;
-                                break-after: page;
+                                width: 285mm; height: 196mm; min-height: 196mm; margin: 0 auto; display: grid;
+                                grid-template-columns: 1fr 1fr 1fr; gap: 8mm; padding: 6mm 8mm; border: 1px solid #cbd5e1;
+                                border-radius: 6px; page-break-after: always; break-after: page;
                             }
-                            .triptyque-sheet:last-child {
-                                page-break-after: avoid;
-                                break-after: avoid;
-                            }
-                            .triptyque-volet {
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: space-between;
-                                height: 100%;
-                                padding: 0 4mm;
-                                position: relative;
-                            }
-                            .triptyque-volet:not(:last-child)::after {
-                                content: "";
-                                position: absolute;
-                                right: -4mm;
-                                top: 2%;
-                                height: 96%;
-                                border-right: 1.5px dashed #cbd5e1;
-                            }
-                            .volet-header-banner {
-                                color: white;
-                                padding: 0.45rem 0.75rem;
-                                border-radius: 6px;
-                                margin-bottom: 0.6rem;
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                            }
+                            .triptyque-sheet:last-child { page-break-after: avoid; break-after: avoid; }
+                            .triptyque-volet { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 0 4mm; position: relative; }
+                            .triptyque-volet:not(:last-child)::after { content: ""; position: absolute; right: -4mm; top: 2%; height: 96%; border-right: 1.5px dashed #cbd5e1; }
+                            .volet-header-banner { color: white; padding: 0.45rem 0.75rem; border-radius: 6px; margin-bottom: 0.6rem; display: flex; justify-content: space-between; align-items: center; }
                             .volet-header-title { font-size: 0.82rem; font-weight: 900; text-transform: uppercase; }
                             .volet-header-tag { font-size: 0.62rem; font-weight: 900; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; }
-                            .volet-card-inner {
-                                border: 1px solid #e2e8f0;
-                                border-radius: 6px;
-                                padding: 0.55rem 0.7rem;
-                                margin-bottom: 0.5rem;
-                            }
+                            .volet-card-inner { border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.55rem 0.7rem; margin-bottom: 0.5rem; }
                             .volet-card-title { font-size: 0.78rem; font-weight: 800; margin-bottom: 0.15rem; }
                             .volet-case-box { font-size: 0.71rem; line-height: 1.35; margin: 0.15rem 0; }
                         </style>
@@ -2155,10 +1518,7 @@
                     <body>
                         ${getPlaquetteHtml()}
                         <script>
-                            window.onload = function() {
-                                window.print();
-                                setTimeout(() => window.close(), 1500);
-                            };
+                            window.onload = function() { window.print(); setTimeout(() => window.close(), 1500); };
                         <\/script>
                     </body>
                     </html>
@@ -2166,16 +1526,13 @@
                 printWindow.document.close();
             };
 
-            // Rendu visuel dans la modale
             modalBody.innerHTML = `
                 <div class="plaquette-no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.6rem;">
                     <div>
                         <h2 style="font-size: 1.45rem; font-weight: 900; color: var(--primary); margin: 0;">Plaquette Corporate Dhamusoft</h2>
                         <span style="font-size: 0.82rem; color: var(--text-muted);">Aperçu officiel (Page 1 : Extérieur Recto / Page 2 : Intérieur Verso déplié)</span>
                     </div>
-                    <button class="btn btn-primary" onclick="imprimerPlaquettePro()">
-                        🖨️ Enregistrer en PDF (2 pages nettes)
-                    </button>
+                    <button class="btn btn-primary" onclick="imprimerPlaquettePro()">🖨️ Enregistrer en PDF (2 pages nettes)</button>
                 </div>
                 ${getPlaquetteHtml()}
             `;
@@ -2184,21 +1541,7 @@
             document.body.style.overflow = 'hidden';
         };
 
-        Aucun élément sélectionné 
-
-Aller au contenu
-Utiliser Gmail avec un lecteur d'écran
-Conversations
-0 % sur 5 120 Go utilisés
-Conditions d'utilisation · Confidentialité · Règlement du programme
-Dernière activité sur le compte : il y a 1 minute
-Détails
-ai_studio_code.js
-100 %
-        
-        };
-        
-        // 🚀 TUNNEL COMMERCIAL 2 EN 1 BLINDÉ (CONSERVATION DES DONNÉES GARANTIE)
+        // 🚀 TUNNEL COMMERCIAL : DEVIS ➔ PUIS MANDAT
         window.dossierClientThemis = {};
 
         window.openMandatModal = function() {
@@ -2222,29 +1565,24 @@ ai_studio_code.js
                         <div class="form-group"><label>Téléphone *</label><input type="tel" id="m-tel" class="form-control" required placeholder="0690 XX XX XX"></div>
                     </div>
 
-                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.1rem; margin: 1.2rem 0;">
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem; margin: 1.2rem 0;">
                         <div style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; margin-bottom: 0.4rem;">Prestation Éligible Chèque TIC Région Guadeloupe :</div>
                         <h4 style="color: var(--primary); font-size: 0.95rem; font-weight: 900; margin: 0 0 0.6rem 0;">Mission d'Assistance à Maîtrise d'Ouvrage (AMO), Audit des Flux & Cadrage de Transition Numérique</h4>
                         <p style="font-size: 0.82rem; color: #334155; line-height: 1.45; margin-bottom: 0.8rem;">
                             Diagnostic de maturité, rédaction intégrale de la Note d'Impact Stratégique (3 pages), cadrage des devis éligibles et dépôt dématérialisé ASP sous mandat.
                         </p>
                         <div style="background: #eff6ff; border-left: 3.5px solid #2563eb; padding: 0.7rem 0.9rem; border-radius: 0 6px 6px 0; font-size: 0.78rem; color: #1e40af; line-height: 1.45; margin-bottom: 0.9rem;">
-                            💡 <strong>BONNE NOUVELLE :</strong> Vos 550 € d'engagement initial rémunèrent notre travail immédiat de rédaction et de cadrage. Mais notre mission d'Assistance à Maîtrise d'Ouvrage est <strong>elle-même éligible au Chèque TIC : une fois le dossier validé par l'ASP, la Région vous remboursera jusqu'à 80% de nos honoraires !</strong>
+                            💡 <strong>BONNE NOUVELLE :</strong> Vos 550 € d'engagement initial rémunèrent notre travail immédiat de rédaction et de cadrage. Notre mission d'Assistance à Maîtrise d'Ouvrage est <strong>elle-même éligible au Chèque TIC : la Région vous remboursera jusqu'à 80% de nos honoraires après validation de l'ASP !</strong>
                         </div>
                         <div style="border-top: 2px dashed #cbd5e1; padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
                             <div>
-                                <span style="font-size: 0.72rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Honoraires Initiaux d'AMO :</span><br>
+                                <span style="font-size: 0.72rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Honoraires Initiaux :</span><br>
                                 <span style="font-size: 1.3rem; font-weight: 900; color: #05231a;">550,00 € HT</span>
-                                <span style="font-size: 0.72rem; color: #64748b; display: block;">(À la commande • Éligible remboursement Région)</span>
                             </div>
                             <div style="text-align: right;">
-                                <span style="font-size: 0.72rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Honoraires au Succès (Barème Dégressif) :</span><br>
+                                <span style="font-size: 0.72rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Honoraires au Succès :</span><br>
                                 <span style="font-size: 0.95rem; font-weight: 800; color: #047857;">De 10% à 4% de l'aide obtenue</span><br>
-                                <small style="font-size: 0.70rem; color: #475569; line-height: 1.3; display: block; margin-top: 2px;">
-                                    ≤ 3 000 € : <strong>10%</strong> | 3 001 à 5 000 € : <strong>8%</strong><br>
-                                    5 001 à 7 500 € : <strong>6%</strong> | > 7 500 € : <strong>4%</strong><br>
-                                    <em>(Exigible uniquement après accord officiel de la Région)</em>
-                                </small>
+                                <small style="font-size: 0.70rem; color: #475569; display: block; margin-top: 2px;">≤ 3000€: 10% | 3001-5000€: 8% | 5001-7500€: 6% | >7500€: 4%</small>
                             </div>
                         </div>
                     </div>
@@ -2292,7 +1630,6 @@ ai_studio_code.js
                 clientIP = ipData.ip;
             } catch(err) {}
 
-            // 🔒 SAUVEGARDE GLOBALE VERROUILLÉE
             window.dossierClientThemis = {
                 entreprise: document.getElementById('m-ste').value.trim(),
                 forme_juridique: document.getElementById('m-forme').value.trim(),
@@ -2415,9 +1752,8 @@ ai_studio_code.js
                 closeModal();
             }
         };
-Affichage de ai_studio_code.js en cours...
 
-        // CANVAS DE SIGNATURE SÉCURISÉ TACTILE & SOURIS
+        // CANVAS
         let signaturePadCanvas = null;
         let signatureCtx = null;
         let isDrawingSignature = false;
@@ -2491,11 +1827,7 @@ Affichage de ai_studio_code.js en cours...
             if (e.key === 'Escape' && !modal.classList.contains('hidden') && lightbox.classList.contains('hidden')) closeModal();
         });
 
-        // =========================================================================
-        // 🎮 MOTEURS DES 3 ANIMATIONS INTERACTIVES
-        // =========================================================================
-
-        // 1. MOTEUR DU CURSEUR THEMIS
+        // MOTEURS ANIMATIONS
         function initThemisSlider() {
             const container = document.getElementById('themis-slider-box');
             const beforeLayer = document.getElementById('themis-before-layer');
@@ -2544,7 +1876,6 @@ Affichage de ai_studio_code.js en cours...
         }
         setTimeout(initThemisSlider, 250);
 
-        // 2. MOTEUR DU SCANNER RÉTROACTIF CHÈQUE TIC
         window.toggleScanInvoice = function(card, amount, rate) {
             setTimeout(() => {
                 let totalRefund = 0;
@@ -2564,26 +1895,25 @@ Affichage de ai_studio_code.js en cours...
             }, 50);
         };
 
-        // 3. MOTEUR DU PIPELINE MÉTHODE EN 4 TEMPS
         const methodStepsData = {
             1: {
                 title: "📞 Étape 1 : L'Échange Flash de Cadrage (5 Minutes Chrono)",
-                desc: "Pas de réunions interminables. En 5 minutes au téléphone, nous vérifions si votre problème peut être résolu par un outil sur-mesure (THEMIS, PWA, script d'automatisation) et si votre entreprise est éligible aux 80% d'aide Chèque TIC.",
+                desc: "En 5 minutes au téléphone, nous vérifions si votre problème peut être résolu par un outil sur-mesure (THEMIS, PWA, automatisation) et si votre entreprise est éligible aux 80% d'aide Chèque TIC.",
                 badge: "✓ Zéro engagement • Réponse d'éligibilité immédiate"
             },
             2: {
                 title: "🎯 Étape 2 : L'Immersion Métier & Audit des Pertes de Temps (20 Minutes)",
-                desc: "Nous analysons vos documents réels et vos processus : où sont les blocages ? Quelles sont les données sensibles à isoler localement ? Nous formalisons un cahier des charges fonctionnel prêt pour l'instruction.",
+                desc: "Nous analysons vos documents réels et vos processus : où sont les blocages ? Nous formalisons un cahier des charges fonctionnel prêt pour l'instruction.",
                 badge: "✓ Cartographie précise • Zéro jargon intimidant"
             },
             3: {
                 title: "⚙️ Étape 3 : Le Prototype Réel & Test sur vos Données Locales",
-                desc: "Nous ne livrons pas de maquettes Figma statiques. Vous testez immédiatement un premier prototype fonctionnel articulé sur une base SQLite souveraine, installé directement sur vos machines en Guadeloupe.",
+                desc: "Pas de maquettes statiques : vous testez immédiatement sous 10 jours un premier outil fonctionnel articulé sur une base locale souveraine.",
                 badge: "✓ Prototypage itératif • Données 100% chez vous"
             },
             4: {
                 title: "🚀 Étape 4 : Déploiement, Formation des Équipes & MCO",
-                desc: "L'application finale est déployée. Nous assurons la formation bienveillante de vos collaborateurs et assurons un contrat de maintien en condition opérationnelle (MCO) avec sauvegardes chiffrées automatiques.",
+                desc: "L'application est déployée. Nous assurons la formation bienveillante de vos collaborateurs et assurons le suivi technique en Guadeloupe.",
                 badge: "✓ Prise en main en 1 jour • Support réactif en Guadeloupe"
             }
         };
@@ -2602,11 +1932,10 @@ Affichage de ai_studio_code.js en cours...
             document.getElementById('method-detail-badge').textContent = data.badge;
         };
 
-        // INITIALISATION DU SITE
+        // INITIALISATION FINALE
         renderShowroom(projectsData);
         renderLabTech(projectsData);
 
-        // MENTIONS LÉGALES
         const btnMentions = document.querySelector('#link-mentions');
         if (btnMentions) {
             btnMentions.addEventListener('click', (e) => {
@@ -2617,9 +1946,8 @@ Affichage de ai_studio_code.js en cours...
                         <p><strong>Éditeur :</strong> Dhamusoft (Micro-entreprise en cours d'immatriculation)<br>
                         <strong>Siège :</strong> Capesterre-Belle-Eau, Guadeloupe<br>
                         <strong>Directeur de publication :</strong> VAUBIEN Andy<br>
-                        <strong>Email :</strong> dhamusoft@gmail.com | <strong>Tél :</strong> +590 690 05 11 44<br>
-                        <strong>Hébergement :</strong> GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA.<br><br>
-                        <em>Ce site vitrine ne dépose aucun cookie de traçage publicitaire et ne collecte aucune donnée à l'insu de l'utilisateur.</em></p>
+                        <strong>Email :</strong> dhamusoft@gmail.com | <strong>Tél :</strong> 0690 05 11 44<br>
+                        <strong>Hébergement :</strong> GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA.</p>
                     </div>
                 `;
                 modal.classList.remove('hidden');
@@ -2627,7 +1955,6 @@ Affichage de ai_studio_code.js en cours...
             });
         }
 
-        // BOUTON PARTAGE
         const shareBtn = document.querySelector('#btn-partager');
         if (shareBtn) {
             shareBtn.addEventListener('click', () => {
@@ -2644,7 +1971,6 @@ Affichage de ai_studio_code.js en cours...
             });
         }
 
-        // 🚀 PROGRESSION DU DÉFILEMENT (SANS AUCUN BLOCAGE)
         window.addEventListener('scroll', () => {
             const progressBar = document.getElementById('scroll-progress');
             if (progressBar) {
