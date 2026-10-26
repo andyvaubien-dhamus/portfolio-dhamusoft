@@ -582,7 +582,7 @@
                     <p>Le dispositif <strong>Chèque TIC</strong> soutient les TPE, PME et micro-entreprises guadeloupéennes dans leur modernisation digitale avec une subvention pouvant atteindre <strong>jusqu'à 10 000 €</strong>.</p>
                 </div>
 
-                <!-- ANIMATION 2 : SCANNER D'INVESTISSEMENTS RÉCENTS CHÈQUE TIC -->
+                <!-- ANIMATION 2 : SCANNER D'INVESTISSEMENTS RÉCENTS CHÈQUE TIC (DYNAMIQUE) -->
                 <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; margin-bottom: 2.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.2rem;">
                         <div>
@@ -597,7 +597,7 @@
                     </div>
 
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; margin-bottom: 1.2rem;">
-                        <label class="scan-card" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice(this, 2500, 0.8)">
+                        <label class="scan-card" data-amount="2500" data-rate="0.8" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice()">
                             <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
                             <div>
                                 <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Création / Refonte de Site Web</strong>
@@ -606,7 +606,7 @@
                             </div>
                         </label>
 
-                        <label class="scan-card" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice(this, 1800, 0.8)">
+                        <label class="scan-card" data-amount="1800" data-rate="0.8" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice()">
                             <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
                             <div>
                                 <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Cybersécurité & Sauvegardes</strong>
@@ -615,7 +615,7 @@
                             </div>
                         </label>
 
-                        <label class="scan-card" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice(this, 3500, 0.4)">
+                        <label class="scan-card" data-amount="3500" data-rate="0.4" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; transition: all 0.2s;" onclick="toggleScanInvoice()">
                             <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
                             <div>
                                 <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Matériel Informatique & Logiciel</strong>
@@ -765,10 +765,12 @@
     <a href="https://wa.me/590690051144" class="whatsapp-btn" target="_blank" aria-label="Contactez Dhamusoft sur WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-3.1-5.3-1.4-8.2 1.4-11 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 .9-7-1.4-11-2.8-5.6-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
     <div id="scroll-progress"></div>
-
-    <script>
+<script>
     (function() {
         const CALENDLY_LINK = "https://cal.com/andy-vaubien-4rxyqe";
+
+        window.formuleSelectionnee = 'partenaire';
+        window.dossierClientThemis = {};
 
         let projectsData = [
             {
@@ -1020,7 +1022,7 @@
             }
         ];
 
-        // COMMUTATEUR À 4 ONGLETS
+        // ONGLETS
         const btnShowSolutions = document.querySelector('#btn-show-solutions');
         const btnShowMethod = document.querySelector('#btn-show-method');
         const btnShowChequetic = document.querySelector('#btn-show-chequetic');
@@ -1032,30 +1034,30 @@
         const viewLab = document.querySelector('#view-lab');
 
         function switchHub(tab) {
-            [btnShowSolutions, btnShowMethod, btnShowChequetic, btnShowLab].forEach(b => b.classList.remove('active'));
-            [viewSolutions, viewMethod, viewChequetic, viewLab].forEach(v => v.classList.remove('active'));
+            [btnShowSolutions, btnShowMethod, btnShowChequetic, btnShowLab].forEach(b => { if (b) b.classList.remove('active'); });
+            [viewSolutions, viewMethod, viewChequetic, viewLab].forEach(v => { if (v) v.classList.remove('active'); });
 
-            if (tab === 'solutions') {
+            if (tab === 'solutions' && btnShowSolutions && viewSolutions) {
                 btnShowSolutions.classList.add('active');
                 viewSolutions.classList.add('active');
-            } else if (tab === 'method') {
+            } else if (tab === 'method' && btnShowMethod && viewMethod) {
                 btnShowMethod.classList.add('active');
                 viewMethod.classList.add('active');
-            } else if (tab === 'chequetic') {
+            } else if (tab === 'chequetic' && btnShowChequetic && viewChequetic) {
                 btnShowChequetic.classList.add('active');
                 viewChequetic.classList.add('active');
                 calculerChequeTic();
-            } else if (tab === 'lab') {
+            } else if (tab === 'lab' && btnShowLab && viewLab) {
                 btnShowLab.classList.add('active');
                 viewLab.classList.add('active');
             }
             window.scrollTo({ top: 320, behavior: 'smooth' });
         }
 
-        btnShowSolutions.addEventListener('click', () => switchHub('solutions'));
-        btnShowMethod.addEventListener('click', () => switchHub('method'));
-        btnShowChequetic.addEventListener('click', () => switchHub('chequetic'));
-        btnShowLab.addEventListener('click', () => switchHub('lab'));
+        if (btnShowSolutions) btnShowSolutions.addEventListener('click', () => switchHub('solutions'));
+        if (btnShowMethod) btnShowMethod.addEventListener('click', () => switchHub('method'));
+        if (btnShowChequetic) btnShowChequetic.addEventListener('click', () => switchHub('chequetic'));
+        if (btnShowLab) btnShowLab.addEventListener('click', () => switchHub('lab'));
 
         window.goToTechSpec = function(projectId) {
             switchHub('lab');
@@ -1069,19 +1071,20 @@
             }, 300);
         };
 
-        // ALGORITHME DU CHÈQUE TIC
+        // ALGORITHME CHÈQUE TIC
         window.calculerChequeTic = function() {
-            const checkLoc = document.getElementById('check-loc').checked;
-            const checkAge = document.getElementById('check-age').checked;
-            const checkFisc = document.getElementById('check-fisc').checked;
-            const alertBox = document.getElementById('eligibility-alert');
+            const elLoc = document.getElementById('check-loc');
+            const elAge = document.getElementById('check-age');
+            const elFisc = document.getElementById('check-fisc');
+            if (!elLoc || !elAge || !elFisc) return;
 
-            const isEligible = checkLoc && checkAge && checkFisc;
+            const isEligible = elLoc.checked && elAge.checked && elFisc.checked;
+            const alertBox = document.getElementById('eligibility-alert');
             if (alertBox) alertBox.style.display = isEligible ? 'none' : 'block';
 
-            const budgetWeb = Math.max(0, parseFloat(document.getElementById('input-web').value) || 0);
-            const budgetSecu = Math.max(0, parseFloat(document.getElementById('input-secu').value) || 0);
-            const budgetTrans = Math.max(0, parseFloat(document.getElementById('input-trans').value) || 0);
+            const budgetWeb = Math.max(0, parseFloat((document.getElementById('input-web') || {}).value) || 0);
+            const budgetSecu = Math.max(0, parseFloat((document.getElementById('input-secu') || {}).value) || 0);
+            const budgetTrans = Math.max(0, parseFloat((document.getElementById('input-trans') || {}).value) || 0);
 
             const totalHT = budgetWeb + budgetSecu + budgetTrans;
 
@@ -1096,9 +1099,13 @@
             const resteACharge = Math.max(0, totalHT - subventionEstimee);
             const formatEuro = (val) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(val);
 
-            document.getElementById('res-total').textContent = formatEuro(totalHT) + ' HT';
-            document.getElementById('res-aide').textContent = isEligible ? formatEuro(subventionEstimee) : '0 € (Inéligible)';
-            document.getElementById('res-reste').textContent = formatEuro(resteACharge) + ' HT';
+            const resTot = document.getElementById('res-total');
+            const resAide = document.getElementById('res-aide');
+            const resReste = document.getElementById('res-reste');
+
+            if (resTot) resTot.textContent = formatEuro(totalHT) + ' HT';
+            if (resAide) resAide.textContent = isEligible ? formatEuro(subventionEstimee) : '0 € (Inéligible)';
+            if (resReste) resReste.textContent = formatEuro(resteACharge) + ' HT';
         };
 
         // RENDU SHOWROOM
@@ -1200,10 +1207,10 @@
         const lightboxNext = document.querySelector('#lightbox-next');
 
         function updateLightboxView() {
-            if (!currentGalleryImages || currentGalleryImages.length === 0) return;
+            if (!currentGalleryImages || currentGalleryImages.length === 0 || !lightboxImg) return;
             const cur = currentGalleryImages[currentLightboxIndex];
             lightboxImg.src = encodeURI(cur.url);
-            lightboxCaption.textContent = `${cur.caption} (${currentLightboxIndex + 1} / ${currentGalleryImages.length})`;
+            if (lightboxCaption) lightboxCaption.textContent = `${cur.caption} (${currentLightboxIndex + 1} / ${currentGalleryImages.length})`;
         }
 
         window.openLightbox = function(index, projectId) {
@@ -1212,12 +1219,12 @@
             currentGalleryImages = project.screenshots;
             currentLightboxIndex = index;
             updateLightboxView();
-            lightbox.classList.remove('hidden');
+            if (lightbox) lightbox.classList.remove('hidden');
         };
 
         function closeLightbox() {
-            lightbox.classList.add('hidden');
-            lightboxImg.src = '';
+            if (lightbox) lightbox.classList.add('hidden');
+            if (lightboxImg) lightboxImg.src = '';
         }
 
         if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
@@ -1231,10 +1238,10 @@
         });
 
         document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('hidden')) {
+            if (lightbox && !lightbox.classList.contains('hidden')) {
                 if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') lightboxPrev.click();
-                if (e.key === 'ArrowRight') lightboxNext.click();
+                if (e.key === 'ArrowLeft' && lightboxPrev) lightboxPrev.click();
+                if (e.key === 'ArrowRight' && lightboxNext) lightboxNext.click();
             }
         });
 
@@ -1276,7 +1283,7 @@
 
         window.openProjectModal = function(projectId, initialView = 'media') {
             const project = projectsData.find(item => item.id === projectId);
-            if (!project) return;
+            if (!project || !modalBody) return;
 
             const isLive = (project.id === 'coachmaster' || project.category === 'Flet' || project.type === 'web_standalone') && project.download_url && project.download_url !== '#';
 
@@ -1321,7 +1328,7 @@
                 </div>
             `;
 
-            modal.classList.remove('hidden');
+            if (modal) modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         };
 
@@ -1345,6 +1352,7 @@
         };
 
         window.openCalendlyModal = function() {
+            if (!modalBody) return;
             modalBody.innerHTML = `
                 <div style="margin-bottom: 1rem;">
                     <span style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">Prise de Contact Directe</span>
@@ -1353,12 +1361,13 @@
                 </div>
                 <div class="modal-iframe-container" style="height: 580px;"><iframe src="${CALENDLY_LINK}"></iframe></div>
             `;
-            modal.classList.remove('hidden');
+            if (modal) modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         };
 
-        // 📄 MODALE TRIPTYQUE RECTO / VERSO
+        // TRIPTYQUE PLAQUETTE
         window.openPlaquetteModal = function() {
+            if (!modalBody) return;
             const getPlaquetteHtml = () => `
                 <div class="triptyque-sheet" style="background: #ffffff; min-height: 195mm; height: 195mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10mm; padding: 8mm 10mm; box-sizing: border-box; page-break-after: always; break-after: page;">
                     <div class="triptyque-volet" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
@@ -1369,11 +1378,11 @@
                             </div>
                             <div style="background: #FFFDF5; border: 1.5px solid var(--accent); border-radius: 8px; padding: 0.75rem; margin-bottom: 0.8rem;">
                                 <strong style="font-size: 0.82rem; color: #B45309; display: block; margin-bottom: 3px;">⚡ Vous avez récemment investi ?</strong>
-                                <p style="font-size: 0.74rem; color: #78350F; line-height: 1.4; margin: 0;">Achat d'ordinateurs, site web ou logiciel ? Activez jusqu'à 80% de remboursement Chèque TIC !</p>
+                                <p style="font-size: 0.74rem; color: #78350F; line-height: 1.4; margin: 0;">Achat d'ordinateurs, site web ou logiciel ? Activez jusqu'à 80% de remboursement Chèque TIC rétroactif !</p>
                             </div>
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--primary); padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
                                 <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">☁️ Serveurs Sécurisés en France</div>
-                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">Vos outils et sites sont hébergés sur des serveurs français sécurisés conformes au RGPD.</p>
+                                <p style="font-size: 0.74rem; color: #334155; line-height: 1.4; margin: 0;">Vos outils et sites sont hébergés sur des serveurs français souverains conformes au RGPD.</p>
                             </div>
                             <div class="volet-card-inner" style="border-left: 3.5px solid #059669; padding: 0.65rem 0.8rem; margin-bottom: 0.7rem; background: #F8FAFC;">
                                 <div class="volet-card-title" style="font-size: 0.80rem; font-weight: 800; color: #047857; margin-bottom: 0.25rem;">🔒 Fichiers Stockés Chez Vous</div>
@@ -1455,7 +1464,7 @@
                                 <div class="volet-card-title" style="color: #0369A1; font-size: 0.80rem; font-weight: 800;">🌐 Sites Vitrines & E-Commerce (80%)</div>
                                 <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 Sites rapides (< 1s), boutiques avec paiement par CB et formulaires interactifs.</div>
                             </div>
-                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem; background: #FFFDF5;">
+                            <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem;">
                                 <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800;">THEMIS (ERP & Factur-X 2026)</div>
                                 <div class="volet-case-box volet-case-sol" style="font-size: 0.73rem; color: #047857;">💡 Devis en 2 min, contrat 7P scellé et conformité fiscale Art. 286 du CGI.</div>
                             </div>
@@ -1476,8 +1485,11 @@
                                 <p style="font-size: 0.72rem; color: #047857; line-height: 1.4; margin: 0;">• Sites Web & Sécurité : 80% pris en charge<br>• Matériel & Logiciels : 40% pris en charge</p>
                             </div>
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem;">
-                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800;">📋 Conseil & Montage de Dossier</div>
-                                <p style="font-size: 0.72rem; color: #475569; line-height: 1.35; margin: 0;">• Forfait initial : <strong>550,00 € HT</strong> (éligible remboursement jusqu'à 80%).<br>• Honoraires succès dégressifs : <strong>10% à 4%</strong> uniquement après accord Région.</p>
+                                <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800;">📋 Assistance en 2 Jalons Clairs</div>
+                                <p style="font-size: 0.72rem; color: #475569; line-height: 1.35; margin: 0;">
+                                    • <strong>Projet Dhamusoft :</strong> 250 € + 350 € (Reste réel : 50 € + 70 €).<br>
+                                    • <strong>Sauvetage Rétroactif :</strong> 500 € (Dépôt) + 500 € (Liasse de Liquidation ASP). Reste réel : 100 € + 100 €.
+                                </p>
                             </div>
                         </div>
                         <div style="background: #091A2B; color: white; padding: 0.6rem 0.75rem; border-radius: 6px; font-size: 0.70rem; text-align: center;">
@@ -1489,41 +1501,11 @@
 
             window.imprimerPlaquettePro = function() {
                 const printWindow = window.open('', '_blank');
-                printWindow.document.write(`
-                    <!DOCTYPE html>
-                    <html lang="fr">
-                    <head>
-                        <meta charset="UTF-8">
-                        <title>Plaquette_Corporate_Dhamusoft_2026</title>
-                        <style>
-                            @page { size: A4 landscape; margin: 4mm 6mm; }
-                            * { box-sizing: border-box; margin: 0; padding: 0; }
-                            body { font-family: -apple-system, sans-serif; color: #0f172a; background: white; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-                            .triptyque-sheet {
-                                width: 285mm; height: 196mm; min-height: 196mm; margin: 0 auto; display: grid;
-                                grid-template-columns: 1fr 1fr 1fr; gap: 8mm; padding: 6mm 8mm; border: 1px solid #cbd5e1;
-                                border-radius: 6px; page-break-after: always; break-after: page;
-                            }
-                            .triptyque-sheet:last-child { page-break-after: avoid; break-after: avoid; }
-                            .triptyque-volet { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 0 4mm; position: relative; }
-                            .triptyque-volet:not(:last-child)::after { content: ""; position: absolute; right: -4mm; top: 2%; height: 96%; border-right: 1.5px dashed #cbd5e1; }
-                            .volet-header-banner { color: white; padding: 0.45rem 0.75rem; border-radius: 6px; margin-bottom: 0.6rem; display: flex; justify-content: space-between; align-items: center; }
-                            .volet-header-title { font-size: 0.82rem; font-weight: 900; text-transform: uppercase; }
-                            .volet-header-tag { font-size: 0.62rem; font-weight: 900; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; }
-                            .volet-card-inner { border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.55rem 0.7rem; margin-bottom: 0.5rem; }
-                            .volet-card-title { font-size: 0.78rem; font-weight: 800; margin-bottom: 0.15rem; }
-                            .volet-case-box { font-size: 0.71rem; line-height: 1.35; margin: 0.15rem 0; }
-                        </style>
-                    </head>
-                    <body>
-                        ${getPlaquetteHtml()}
-                        <script>
-                            window.onload = function() { window.print(); setTimeout(() => window.close(), 1500); };
-                        <\/script>
-                    </body>
-                    </html>
-                `);
+                if (!printWindow) return;
+                printWindow.document.write('<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Plaquette_Corporate_Dhamusoft_2026</title><style>@page{size:A4 landscape;margin:4mm 6mm;}*{box-sizing:border-box;margin:0;padding:0;}body{font-family:-apple-system,sans-serif;color:#0f172a;background:white;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}.triptyque-sheet{width:285mm;height:196mm;min-height:196mm;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8mm;padding:6mm 8mm;border:1px solid #cbd5e1;border-radius:6px;page-break-after:always;break-after:page;}.triptyque-sheet:last-child{page-break-after:avoid;break-after:avoid;}.triptyque-volet{display:flex;flex-direction:column;justify-content:space-between;height:100%;padding:0 4mm;position:relative;}.triptyque-volet:not(:last-child)::after{content:"";position:absolute;right:-4mm;top:2%;height:96%;border-right:1.5px dashed #cbd5e1;}.volet-header-banner{color:white;padding:0.45rem 0.75rem;border-radius:6px;margin-bottom:0.6rem;display:flex;justify-content:space-between;align-items:center;}.volet-header-title{font-size:0.82rem;font-weight:900;text-transform:uppercase;}.volet-header-tag{font-size:0.62rem;font-weight:900;padding:0.15rem 0.4rem;border-radius:4px;text-transform:uppercase;}.volet-card-inner{border:1px solid #e2e8f0;border-radius:6px;padding:0.55rem 0.7rem;margin-bottom:0.5rem;}.volet-card-title{font-size:0.78rem;font-weight:800;margin-bottom:0.15rem;}.volet-case-box{font-size:0.71rem;line-height:1.35;margin:0.15rem 0;}</style></head><body>' + getPlaquetteHtml() + '</body></html>');
                 printWindow.document.close();
+                printWindow.focus();
+                setTimeout(() => { printWindow.print(); }, 500);
             };
 
             modalBody.innerHTML = `
@@ -1537,19 +1519,20 @@
                 ${getPlaquetteHtml()}
             `;
 
-            modal.classList.remove('hidden');
+            if (modal) modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         };
 
-        // 🚀 TUNNEL COMMERCIAL : DEVIS ➔ PUIS MANDAT
-        window.dossierClientThemis = {};
-
+        // TUNNEL COMMERCIAL
         window.openMandatModal = function() {
+            if (!modalBody) return;
+            window.formuleSelectionnee = 'partenaire';
+
             modalBody.innerHTML = `
                 <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
-                    <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #ecfdf5; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 1 SUR 2 • CONTRAT D'ACCOMPAGNEMENT</span>
-                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Devis d'Assistance & Montage Chèque TIC</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Cabinet Dhamusoft — Ingénierie & Facilitation Administrative Région Guadeloupe</p>
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #ecfdf5; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 1 SUR 2 • CONVENTION D'ACCOMPAGNEMENT ÉCHELONNÉE</span>
+                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Devis de Cadrage & Assistance Chèque TIC</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Cabinet Dhamusoft — Prestation d'Ingénierie & de Liquidation ASP (Catégories 3.1 & 3.2 Région Guadeloupe)</p>
                 </div>
 
                 <form id="devis-form" onsubmit="validerEtapeDevis(event)">
@@ -1565,77 +1548,67 @@
                         <div class="form-group"><label>Téléphone *</label><input type="tel" id="m-tel" class="form-control" required placeholder="0690 XX XX XX"></div>
                     </div>
 
-                   <!-- SÉLECTEUR STRATÉGIQUE DES 2 FORMULES CHÈQUE TIC -->
                     <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 1.4rem; margin: 1.2rem 0;">
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 0.6rem;">Périmètre de votre mission d'accompagnement :</div>
                         
-                        <div style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 0.4rem;">Convention d'Accompagnement Chèque TIC Région Guadeloupe :</div>
-                        
-                        <!-- 🎯 TITRE ET DESCRIPTIF QUI CHANGENT EN DIRECT SELON LE BOUTON CLIQUE ! -->
                         <div style="background: #ffffff; border: 1.5px solid var(--primary); border-radius: 8px; padding: 1rem; margin-bottom: 1.2rem;">
-                            <span id="devis-type-badge" style="background: #ecfdf5; color: #047857; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">PRESTATION SELECTIONNEE</span>
+                            <span id="devis-type-badge" style="background: #ecfdf5; color: #047857; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">OPTION NOUVEAU PROJET AVEC DHAMUSOFT</span>
                             <h4 id="devis-mission-titre" style="color: var(--primary); font-size: 1.05rem; font-weight: 900; margin: 6px 0 4px 0;">
-                                Mission de Cadrage Technique, Note d'Impact Stratégique (3 pages) & Montage sous Mandat
+                                Cadrage Initial (Cat. 3.1) & Déploiement / Formation aux Outils (Cat. 3.2)
                             </h4>
                             <p id="devis-mission-desc" style="font-size: 0.84rem; color: #334155; line-height: 1.5; margin: 0;">
-                                Conception de votre solution numérique avec Dhamusoft (Site Web, THEMIS ERP ou Automatisation), rédaction complète de la Note d'Impact et dépôt dématérialisé ASP.
+                                Vous concevez votre solution avec Dhamusoft. Cadrage et note d'impact au Jalon 1, puis formation approfondie et déblocage de la liquidation ASP au Jalon 2.
                             </p>
                         </div>
 
-                        <!-- 🔀 LE DOUBLE CHOIX COMMERCIAL INTERACTIF -->
                         <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.2rem;">
-                            
-                            <!-- OPTION A : NOUVEAU PROJET DHAMUSOFT (250 €) -->
                             <label id="opt-partenaire-box" style="border: 2.5px solid #047857; background: #ecfdf5; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; transition: all 0.2s;">
-                                <input type="radio" name="formule_tic" id="rad-partenaire" value="250" checked onchange="choisirFormuleAccompagnement(250)" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
+                                <input type="radio" name="formule_tic" id="rad-partenaire" value="partenaire" checked onchange="choisirFormuleAccompagnement('partenaire')" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
                                 <div>
-                                    <strong style="color: #065f46; font-size: 0.95rem; display: block;">🌟 FORMULE NOUVEAU PROJET AVEC DHAMUSOFT</strong>
+                                    <strong style="color: #065f46; font-size: 0.95rem; display: block;">🌟 FORMULE PROJET NUMÉRIQUE AVEC DHAMUSOFT</strong>
                                     <span style="font-size: 0.80rem; color: #047857; line-height: 1.4; display: block; margin-top: 3px;">
-                                        Vous concevez votre solution (Site Web, THEMIS ERP, Automatisation) avec Dhamusoft.<br>
-                                        • Tarif privilégié de montage : <strong>250,00 € HT</strong> (au lieu de 500 €)<br>
-                                        • <strong>Remboursé à 80% par la Région : votre reste à charge réel n'est que de 50 € HT !</strong>
+                                        Vous créez votre solution avec Dhamusoft (Site vitrine/marchand, THEMIS ERP, Automatisation).<br>
+                                        • <strong>Jalon 1 (Cadrage, Note d'Impact & Dépôt) :</strong> <strong>250,00 € HT</strong> (Reste réel à charge : <strong>50 € HT</strong>).<br>
+                                        • <strong>Jalon 2 (Formation, Kit FEDER & Liquidation ASP) :</strong> <strong>350,00 € HT</strong> (Planifié dès recevabilité Région • Reste réel : <strong>70 € HT</strong>).
                                     </span>
                                 </div>
                             </label>
 
-                            <!-- OPTION B : SAUVETAGE RÉTROACTIF (500 €) -->
                             <label id="opt-externe-box" style="border: 1.5px solid #cbd5e1; background: #ffffff; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; transition: all 0.2s;">
-                                <input type="radio" name="formule_tic" id="rad-externe" value="500" onchange="choisirFormuleAccompagnement(500)" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
+                                <input type="radio" name="formule_tic" id="rad-externe" value="sauvetage" onchange="choisirFormuleAccompagnement('sauvetage')" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
                                 <div>
-                                    <strong style="color: #b45309; font-size: 0.95rem; display: block;">💰 FORMULE SAUVETAGE & REMBOURSEMENT (Factures Déjà Payées)</strong>
+                                    <strong style="color: #b45309; font-size: 0.95rem; display: block;">💰 FORMULE SAUVETAGE & REMBOURSEMENT (Factures Déjà Payées Ailleurs)</strong>
                                     <span style="font-size: 0.80rem; color: #475569; line-height: 1.4; display: block; margin-top: 3px;">
-                                        Vous avez récemment acheté du matériel, un site ou logiciel et <strong>vous ignoriez l'existence de l'aide ?</strong><br>
-                                        • Nous récupérons vos factures déjà réglées et activons votre remboursement ASP sous mandat.<br>
-                                        • Forfait officiel : <strong>500,00 € HT</strong> ➔ <strong>Remboursé à 80% (reste à charge : 100 € HT) !</strong>
+                                        Vous avez investi récemment dans du matériel, un site ou logiciel sans demander l'aide Région ?<br>
+                                        • <strong>Jalon 1 (Audit d'éligibilité, Note de Régularisation & Dépôt ASP) :</strong> <strong>500,00 € HT</strong> (Reste réel : <strong>100 € HT</strong>).<br>
+                                        • <strong>Jalon 2 (Liasse de Liquidation Finale ASP & Déblocage du Virement) :</strong> <strong>500,00 € HT</strong> (Déclenché dès l'accord officiel Région • Reste réel : <strong>100 € HT</strong>).
                                     </span>
                                 </div>
                             </label>
-
                         </div>
 
-                        <!-- 📊 CARTOUCHE DE PRIX GÉANT HAUTE VISIBILITÉ -->
                         <div id="box-bilan-prix" style="background: #05231a; color: white; border-radius: 10px; padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border: 1.5px solid #047857;">
                             <div>
-                                <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">MONTANT FACTURÉ DU DEVIS :</span><br>
+                                <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">JALON 1 — FACTURÉ CE JOUR (ENGAGEMENT FERME) :</span><br>
                                 <span style="font-size: 2.2rem; font-weight: 900; color: #ffffff;" id="lbl-tarif-amo">250,00 € HT</span>
                                 <div style="background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-top: 4px;">
-                                    <span style="font-size: 0.85rem; font-weight: 900; color: #a7f3d0;" id="lbl-rac-amo">👉 Reste à charge réel après subvention : 50,00 € HT seulement !</span>
+                                    <span style="font-size: 0.85rem; font-weight: 900; color: #a7f3d0;" id="lbl-rac-amo">👉 Reste à charge réel après subvention (80%) : 50,00 € HT</span>
                                 </div>
                             </div>
                             
-                            <div style="text-align: right; background: rgba(0,0,0,0.25); padding: 0.8rem 1rem; border-radius: 8px;">
-                                <span style="font-size: 0.72rem; color: #cbd5e1; font-weight: bold; text-transform: uppercase;">Honoraires au Succès :</span><br>
-                                <span style="font-size: 1.1rem; font-weight: 900; color: #facc15;">De 10% à 4% de l'aide</span><br>
-                                <small style="font-size: 0.68rem; color: #94a3b8; display: block; margin-top: 2px;">
-                                    (Exigible uniquement après accord officiel de la Région)
+                            <div style="text-align: right; background: rgba(0,0,0,0.3); padding: 0.8rem 1rem; border-radius: 8px; max-width: 380px;">
+                                <span style="font-size: 0.72rem; color: #cbd5e1; font-weight: bold; text-transform: uppercase;" id="lbl-jalon2-titre">JALON 2 (FORMATION & LIQUIDATION ASP) :</span><br>
+                                <span style="font-size: 1.05rem; font-weight: 900; color: #a7f3d0;" id="lbl-jalon2-desc">350,00 € HT (Reste réel : 70 € HT)</span><br>
+                                <small style="font-size: 0.70rem; color: #94a3b8; display: block; margin-top: 4px; line-height: 1.35;" id="lbl-jalon2-detail">
+                                    Formation à l'outil, kit obligatoire affichage FEDER et demande de paiement ASP (planifié après notification de recevabilité Région).
                                 </small>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="signature-box-wrap">
                         <div class="signature-header">
-                            <span>✍️ SIGNATURE DU BON DE COMMANDE (Doigt ou Souris) *</span>
+                            <span>✍️ SIGNATURE DU BON DE COMMANDE JALON 1 (Doigt ou Souris) *</span>
                             <button type="button" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;" onclick="clearSignaturePad()">↺ Effacer</button>
                         </div>
                         <canvas id="signature-pad"></canvas>
@@ -1644,75 +1617,82 @@
                     <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
                         <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; font-weight: 700; color: #065f46; cursor: pointer;">
                             <input type="checkbox" id="d-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
-                            <span>Je certifie être le représentant légal et valide ce devis d'accompagnement (550 € HT + succès dégressif).</span>
+                            <span id="d-consent-label">Je confirme être le représentant légal et valide le bon de commande ferme du Jalon 1 (250 € HT, éligible à 80% de prise en charge Chèque TIC).</span>
                         </label>
                     </div>
 
                     <button type="submit" id="btn-submit-devis" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
-                        ✍️ Valider le Devis & Débloquer le Mandat de Représentation ➔
+                        ✍️ Valider le Jalon 1 & Débloquer le Mandat de Représentation ➔
                     </button>
                 </form>
             `;
-            modal.classList.remove('hidden');
+            if (modal) modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             setTimeout(initSignaturePad, 100);
         };
-		
-// 🎯 MOTEUR DE BASCULE DYNAMIQUE DU TARIF DU DEVIS (250 € vs 500 €)
-let tarifAccompagnementChoisi = 250.00;
 
-        window.choisirFormuleAccompagnement = function(montant) {
-            tarifAccompagnementChoisi = parseFloat(montant);
+        window.choisirFormuleAccompagnement = function(type) {
+            window.formuleSelectionnee = type;
             
             const boxPartenaire = document.getElementById('opt-partenaire-box');
             const boxExterne = document.getElementById('opt-externe-box');
             const lblTarif = document.getElementById('lbl-tarif-amo');
             const lblRac = document.getElementById('lbl-rac-amo');
+            const lblJalon2Titre = document.getElementById('lbl-jalon2-titre');
+            const lblJalon2 = document.getElementById('lbl-jalon2-desc');
+            const lblJalon2Detail = document.getElementById('lbl-jalon2-detail');
             const missionTitre = document.getElementById('devis-mission-titre');
             const missionDesc = document.getElementById('devis-mission-desc');
             const typeBadge = document.getElementById('devis-type-badge');
+            const consentLabel = document.getElementById('d-consent-label');
 
             if (!lblTarif) return;
 
-            if (montant === 250) {
-                // Style Option Partenaire Active
+            if (type === 'partenaire') {
                 if (boxPartenaire) { boxPartenaire.style.border = '2.5px solid #047857'; boxPartenaire.style.background = '#ecfdf5'; }
                 if (boxExterne) { boxExterne.style.border = '1.5px solid #cbd5e1'; boxExterne.style.background = '#ffffff'; }
 
-                // Mise à jour du texte du devis (Option A)
-                if (typeBadge) { typeBadge.textContent = "OPTION PROJET PARTENAIRE (250 €)"; typeBadge.style.color = "#047857"; typeBadge.style.background = "#ecfdf5"; }
-                if (missionTitre) missionTitre.textContent = "Mission d'Assistance à Maîtrise d'Ouvrage (AMO), Note d'Impact & Montage sous Mandat";
-                if (missionDesc) missionDesc.textContent = "Conception de votre solution numérique avec Dhamusoft (Site Web, THEMIS ERP ou Automatisation), rédaction intégrale de la Note d'Impact Stratégique (3 pages) et dépôt dématérialisé ASP.";
+                if (typeBadge) { typeBadge.textContent = "OPTION NOUVEAU PROJET AVEC DHAMUSOFT"; typeBadge.style.color = "#047857"; typeBadge.style.background = "#ecfdf5"; }
+                if (missionTitre) missionTitre.textContent = "Cadrage Initial (Cat. 3.1) & Déploiement / Formation aux Outils (Cat. 3.2)";
+                if (missionDesc) missionDesc.textContent = "Vous concevez votre solution avec Dhamusoft. Cadrage et note d'impact au Jalon 1, puis formation approfondie et déblocage de la liquidation ASP au Jalon 2.";
+                if (consentLabel) consentLabel.textContent = "Je confirme être le représentant légal et valide le bon de commande ferme du Jalon 1 (250 € HT, éligible à 80% de prise en charge Chèque TIC).";
 
-                // Mise à jour du prix géant
                 lblTarif.textContent = '250,00 € HT';
-                lblRac.textContent = '👉 Reste à charge réel après subvention : 50,00 € HT seulement !';
+                lblRac.textContent = '👉 Reste à charge réel après subvention (80%) : 50,00 € HT';
+                if (lblJalon2Titre) lblJalon2Titre.textContent = "JALON 2 (FORMATION & LIQUIDATION ASP) :";
+                if (lblJalon2) lblJalon2.textContent = "350,00 € HT (Reste réel : 70 € HT)";
+                if (lblJalon2Detail) lblJalon2Detail.textContent = "Formation à l'outil, kit obligatoire affichage FEDER et demande de paiement ASP (planifié après notification de recevabilité Région).";
             } else {
-                // Style Option Sauvetage Active
                 if (boxExterne) { boxExterne.style.border = '2.5px solid #b45309'; boxExterne.style.background = '#fffbeb'; }
                 if (boxPartenaire) { boxPartenaire.style.border = '1.5px solid #cbd5e1'; boxPartenaire.style.background = '#ffffff'; }
 
-                // Mise à jour du texte du devis (Option B)
-                if (typeBadge) { typeBadge.textContent = "OPTION SAUVETAGE FACTURES DÉJÀ RÉGLÉES (500 €)"; typeBadge.style.color = "#b45309"; typeBadge.style.background = "#fffbeb"; }
-                if (missionTitre) missionTitre.textContent = "Mission d'Audit Rétroactif, Récupération de Factures Récentes & Déblocage Subvention ASP";
-                if (missionDesc) missionDesc.textContent = "Audit de conformité de vos factures déjà réglées (matériel, site, logiciels), rédaction de la Note d'Impact de régularisation et instruction sous mandat pour débloquer votre virement de subvention ASP.";
+                if (typeBadge) { typeBadge.textContent = "OPTION SAUVETAGE FACTURES DÉJÀ RÉGLÉES (PLAFOND RÉGION 1 000 €)"; typeBadge.style.color = "#b45309"; typeBadge.style.background = "#fffbeb"; }
+                if (missionTitre) missionTitre.textContent = "Audit Rétroactif (Cat. 3.1) & Liasse de Liquidation Finale ASP (Cat. 3.2)";
+                if (missionDesc) missionDesc.textContent = "Audit de conformité de vos factures antérieures (matériel, site, logiciels), rédaction de la Note de régularisation (Jalon 1), puis montage de la Liasse de Liquidation ASP (pointage bancaire, n° de série, publicité FEDER) pour ordonner le virement (Jalon 2).";
+                if (consentLabel) consentLabel.textContent = "Je confirme être le représentant légal et valide le bon de commande ferme du Jalon 1 (500 € HT, éligible à 80% de prise en charge Chèque TIC).";
 
-                // Mise à jour du prix géant
                 lblTarif.textContent = '500,00 € HT';
-                lblRac.textContent = '👉 Reste à charge réel après subvention : 100,00 € HT seulement !';
+                lblRac.textContent = '👉 Reste à charge réel après subvention (80%) : 100,00 € HT';
+                if (lblJalon2Titre) lblJalon2Titre.textContent = "JALON 2 (LIASSE DE LIQUIDATION ASP) :";
+                if (lblJalon2) lblJalon2.textContent = "500,00 € HT (Reste réel : 100 € HT)";
+                if (lblJalon2Detail) lblJalon2Detail.textContent = "Pointage bancaire, inventaire matériel n° de série, kit obligatoire affichage FEDER et instruction du virement ASP (déclenché dès notification d'attribution Région).";
             }
         };
-		
+
         window.validerEtapeDevis = async function(e) {
             e.preventDefault();
             if (!hasSignatureDrawn) {
-                alert("⚠️ Veuillez apposer votre signature manuscrite pour valider le devis.");
+                alert("⚠️ Veuillez apposer votre signature manuscrite pour valider le bon de commande Jalon 1.");
                 return;
             }
 
             const btn = document.getElementById('btn-submit-devis');
-            btn.disabled = true;
-            btn.textContent = "⏳ Enregistrement du devis...";
+            if (btn) {
+                btn.disabled = true;
+                btn.textContent = "⏳ Enregistrement du Jalon 1...";
+            }
+
+            const signatureDevisData = signaturePadCanvas ? signaturePadCanvas.toDataURL("image/png") : null;
 
             let clientIP = "127.0.0.1";
             try {
@@ -1721,18 +1701,39 @@ let tarifAccompagnementChoisi = 250.00;
                 clientIP = ipData.ip;
             } catch(err) {}
 
+            const isPartenaire = (window.formuleSelectionnee === 'partenaire');
+            const jalon1 = isPartenaire ? 250.00 : 500.00;
+            const jalon2 = isPartenaire ? 350.00 : 500.00;
+
             window.dossierClientThemis = {
-                entreprise: document.getElementById('m-ste').value.trim(),
-                forme_juridique: document.getElementById('m-forme').value.trim(),
-                siret: document.getElementById('m-siret').value.trim(),
-                commune: document.getElementById('m-commune').value.trim(),
-                adresse: document.getElementById('m-adresse').value.trim(),
-                representant_legal: document.getElementById('m-rep').value.trim(),
-                fonction: document.getElementById('m-fonction').value.trim(),
-                email_client: document.getElementById('m-email').value.trim(),
-                telephone_client: document.getElementById('m-tel').value.trim(),
-                tarif_forfait_ht: tarifAccompagnementChoisi,
+                entreprise: (document.getElementById('m-ste') || {}).value.trim(),
+                forme_juridique: (document.getElementById('m-forme') || {}).value.trim(),
+                siret: (document.getElementById('m-siret') || {}).value.trim(),
+                commune: (document.getElementById('m-commune') || {}).value.trim(),
+                adresse: (document.getElementById('m-adresse') || {}).value.trim(),
+                representant_legal: (document.getElementById('m-rep') || {}).value.trim(),
+                fonction: (document.getElementById('m-fonction') || {}).value.trim(),
+                email_client: (document.getElementById('m-email') || {}).value.trim(),
+                telephone_client: (document.getElementById('m-tel') || {}).value.trim(),
+                
+                formule_type: window.formuleSelectionnee,
+                formule_libelle: isPartenaire ? "PROJET_DHAMUSOFT_250_350" : "SAUVETAGE_RETROACTIF_LIASSE_500_500",
+                structure_mission: "2_JALONS_ECHELONNES_CONFORMES_FEDER",
+                
+                jalon_1_intitule: isPartenaire ? "Cadrage, Note d'Impact & Dépôt ASP" : "Audit Rétroactif, Note de Régularisation & Dépôt",
+                jalon_1_montant_ht: jalon1,
+                jalon_1_reste_charge_ht: jalon1 * 0.20,
+                
+                jalon_2_intitule: isPartenaire ? "Formation aux Outils, Kit FEDER & Liquidation ASP" : "Liasse de Liquidation Finale ASP & Kit Affichage FEDER",
+                jalon_2_montant_ht: jalon2,
+                jalon_2_reste_charge_ht: jalon2 * 0.20,
+                jalon_2_declencheur: isPartenaire ? "A notification de recevabilité Région" : "A réception de l'Arrêté d'Attribution de subvention",
+
+                total_mission_ht: jalon1 + jalon2,
+                total_reste_charge_ht: (jalon1 + jalon2) * 0.20,
+
                 ip_signataire: clientIP,
+                signature_devis_base64: signatureDevisData,
                 date_signature_devis: new Date().toLocaleDateString('fr-FR'),
                 heure_signature_devis: new Date().toLocaleTimeString('fr-FR')
             };
@@ -1741,24 +1742,31 @@ let tarifAccompagnementChoisi = 250.00;
         };
 
         function afficherEtapeMandat() {
+            if (!modalBody) return;
+            const d = window.dossierClientThemis;
+
             modalBody.innerHTML = `
                 <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
                     <span style="font-size: 0.75rem; font-weight: 800; color: #1e40af; background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 2 SUR 2 • DERNIÈRE ÉTAPE</span>
-                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Mandat de Représentation Administrative</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Autorisation de dépôt auprès de la Région Guadeloupe & de l'ASP</p>
+                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Mandat Exprès de Représentation Administrative</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Dépôt dématérialisé et instruction de liquidation auprès de la Région Guadeloupe & de l'ASP</p>
                 </div>
 
                 <form id="mandat-form" onsubmit="envoyerMandatAutomatique(event)">
-                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.9rem; margin-bottom: 1rem; font-size: 0.88rem;">
-                        <strong>ENTREPRISE :</strong> ${window.dossierClientThemis.entreprise} (${window.dossierClientThemis.forme_juridique})<br>
-                        <strong>SIRET :</strong> ${window.dossierClientThemis.siret} | <strong>Commune :</strong> ${window.dossierClientThemis.commune}<br>
-                        <strong>SIGNATAIRE :</strong> ${window.dossierClientThemis.representant_legal} (${window.dossierClientThemis.fonction})<br>
-                        <strong>EMAIL :</strong> ${window.dossierClientThemis.email_client} | <strong>TÉL :</strong> ${window.dossierClientThemis.telephone_client}
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 0.9rem; margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.5;">
+                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                            <strong>ENTREPRISE : ${d.entreprise} (${d.forme_juridique})</strong>
+                            <span style="background: #e2e8f0; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 800;">SIRET : ${d.siret}</span>
+                        </div>
+                        <div><strong>SIGNATAIRE :</strong> ${d.representant_legal} (${d.fonction}) | <strong>COMMUNE :</strong> ${d.commune}</div>
+                        <div style="margin-top: 4px; color: var(--primary); font-weight: 700;">
+                            👉 MISSION : ${d.jalon_1_montant_ht} € HT (Jalon 1 immédiat) + ${d.jalon_2_montant_ht} € HT (${d.jalon_2_intitule})
+                        </div>
                     </div>
 
-                    <div class="mandat-legal-text" style="font-size: 0.82rem; line-height: 1.5; color: #334155; margin-bottom: 1rem;">
-                        <strong>OBJET DU MANDAT :</strong> L'entreprise mandante donne pouvoir exprès à Monsieur Andy VAUBIEN (Dhamusoft) pour préparer les pièces, rédiger la note d'impact et déposer en son nom la demande Chèque TIC sur le portail de la Région Guadeloupe et de l'ASP.<br><br>
-                        <strong>TRANSPARENCE FINANCIÈRE :</strong> La subvention allouée par la Région Guadeloupe et le FEDER sera versée directement sur le compte bancaire (RIB) de l'entreprise mandante.
+                    <div class="mandat-legal-text" style="font-size: 0.80rem; line-height: 1.5; color: #334155; margin-bottom: 1rem;">
+                        <strong>OBJET DU MANDAT :</strong> L'entreprise mandante donne mandat exprès et pouvoir de représentation à Monsieur Andy VAUBIEN (Cabinet Dhamusoft) pour préparer les pièces techniques, formaliser les Notes d'Impact et de Régularisation, télétransmettre la demande d'aide Chèque TIC, et assembler la liasse de liquidation finale (pointage des écritures bancaires, fiches d'inventaire matériel et conformité d'affichage européen FEDER).<br><br>
+                        <strong>TRANSPARENCE FINANCIÈRE TOTALE :</strong> La subvention allouée par la Région Guadeloupe et le FEDER sera directement et intégralement créditée par l'ASP sur le compte bancaire officiel (RIB) de l'entreprise mandante.
                     </div>
 
                     <div class="signature-box-wrap">
@@ -1772,12 +1780,12 @@ let tarifAccompagnementChoisi = 250.00;
                     <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
                         <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; font-weight: 700; color: #065f46; cursor: pointer;">
                             <input type="checkbox" id="m-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
-                            <span>Je confirme être le représentant légal habilité, donner mandat formel à Andy VAUBIEN (Dhamusoft) et atteste que la signature ci-dessus est la mienne.</span>
+                            <span>Je confirme être le représentant légal habilité, donner mandat formel à Andy VAUBIEN (Dhamusoft) et atteste que la signature manuscrite ci-dessus est la mienne.</span>
                         </label>
                     </div>
 
                     <button type="submit" id="btn-submit-mandat" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
-                        🚀 Valider & Transmettre le Mandat vers THEMIS ERP
+                        🚀 Valider & Synchroniser le Mandat vers THEMIS ERP
                     </button>
                 </form>
             `;
@@ -1792,8 +1800,13 @@ let tarifAccompagnementChoisi = 250.00;
             }
 
             const submitBtn = document.getElementById('btn-submit-mandat');
-            submitBtn.disabled = true;
-            submitBtn.textContent = "⏳ Scellement et transmission vers THEMIS ERP...";
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = "⏳ Scellement et transmission vers THEMIS ERP...";
+            }
+
+            const signatureMandatData = signaturePadCanvas ? signaturePadCanvas.toDataURL("image/png") : null;
+            const d = window.dossierClientThemis;
 
             const payloadFinal = {
                 type_evenement: "MANDAT_SIGNE",
@@ -1806,9 +1819,17 @@ let tarifAccompagnementChoisi = 250.00;
                 fonction: window.dossierClientThemis.fonction,
                 email_client: window.dossierClientThemis.email_client,
                 telephone_client: window.dossierClientThemis.telephone_client,
+                tarif_forfait_ht: window.dossierClientThemis.tarif_forfait_ht || 250.00,
                 ip_signataire: window.dossierClientThemis.ip_signataire,
+                
+                // 🕒 HORODATAGE COMPLET DU DEVIS (JALON 1) :
+                date_signature_devis: window.dossierClientThemis.date_signature_devis,
+                heure_signature_devis: window.dossierClientThemis.heure_signature_devis,
+
+                // 🕒 HORODATAGE DU MANDAT (JALON 2) :
                 date_signature_mandat: new Date().toLocaleDateString('fr-FR'),
                 heure_signature_mandat: new Date().toLocaleTimeString('fr-FR'),
+
                 mandataire: "Andy VAUBIEN - Dhamusoft",
                 dispositif: "Chèque TIC Région Guadeloupe & ASP",
                 _subject: `[DOSSIER COMPLET CHÈQUE TIC] ${window.dossierClientThemis.entreprise}`
@@ -1826,8 +1847,14 @@ let tarifAccompagnementChoisi = 250.00;
                         <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
                         <h2 style="color: var(--primary); font-size: 1.8rem; font-weight: 900; margin-bottom: 0.5rem;">Dossier Complet et Scellé !</h2>
                         <p style="color: #334155; font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto;">
-                            Le devis et le mandat de représentation pour <strong>${payloadFinal.entreprise}</strong> ont été signés et synchronisés avec l'environnement THEMIS ERP.
+                            Le bon de commande Jalon 1 (${payloadFinal.jalon_1_montant_ht} € HT) et le mandat d'instruction pour <strong>${payloadFinal.entreprise}</strong> ont été signés et synchronisés avec THEMIS ERP.
                         </p>
+                        <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; max-width: 500px; margin: 0 auto 1.5rem auto; text-align: left; font-size: 0.85rem;">
+                            <strong>Prochaines étapes :</strong><br>
+                            1. Vous recevez par email votre bon de commande Jalon 1 acquitté.<br>
+                            2. Dhamusoft dépose votre dossier sous mandat sur le portail régional.<br>
+                            3. Le Jalon 2 (${payloadFinal.jalon_2_montant_ht} € HT) ne sera activé qu'après notification officielle d'accord de la Région.
+                        </div>
                         <button class="btn btn-primary" onclick="closeModal()">Fermer la fenêtre</button>
                     </div>
                 `;
@@ -1837,7 +1864,7 @@ let tarifAccompagnementChoisi = 250.00;
             }
         };
 
-        // CANVAS
+        // CANVAS SIGNATURE
         let signaturePadCanvas = null;
         let signatureCtx = null;
         let isDrawingSignature = false;
@@ -1900,18 +1927,22 @@ let tarifAccompagnementChoisi = 250.00;
         };
 
         function closeModal() {
-            modal.classList.add('hidden');
+            if (modal) modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
-            modalBody.innerHTML = '';
+            if (modalBody) modalBody.innerHTML = '';
         }
 
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
         if (overlay) overlay.addEventListener('click', closeModal);
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden') && lightbox.classList.contains('hidden')) closeModal();
+            if (e.key === 'Escape') {
+                if (modal && !modal.classList.contains('hidden') && (!lightbox || lightbox.classList.contains('hidden'))) {
+                    closeModal();
+                }
+            }
         });
 
-        // MOTEURS ANIMATIONS
+        // SLIDER THEMIS
         function initThemisSlider() {
             const container = document.getElementById('themis-slider-box');
             const beforeLayer = document.getElementById('themis-before-layer');
@@ -1960,25 +1991,31 @@ let tarifAccompagnementChoisi = 250.00;
         }
         setTimeout(initThemisSlider, 250);
 
-        window.toggleScanInvoice = function(card, amount, rate) {
+        // SCANNER FACTURES
+        window.toggleScanInvoice = function() {
             setTimeout(() => {
                 let totalRefund = 0;
                 const cards = document.querySelectorAll('.scan-card');
-                cards.forEach((c, idx) => {
-                    const isChecked = c.querySelector('input').checked;
-                    c.style.borderColor = isChecked ? '#047857' : '#cbd5e1';
-                    c.style.background = isChecked ? '#f0fdf4' : '#ffffff';
+                cards.forEach(card => {
+                    const checkbox = card.querySelector('input[type="checkbox"]');
+                    const isChecked = checkbox ? checkbox.checked : false;
+                    const amount = parseFloat(card.getAttribute('data-amount')) || 0;
+                    const rate = parseFloat(card.getAttribute('data-rate')) || 0;
+
+                    card.style.borderColor = isChecked ? '#047857' : '#cbd5e1';
+                    card.style.background = isChecked ? '#f0fdf4' : '#ffffff';
+
                     if (isChecked) {
-                        if (idx === 0) totalRefund += 2500 * 0.8;
-                        if (idx === 1) totalRefund += 1800 * 0.8;
-                        if (idx === 2) totalRefund += 3500 * 0.4;
+                        totalRefund += amount * rate;
                     }
                 });
                 totalRefund = Math.min(10000, totalRefund);
-                document.getElementById('scan-total-refund').textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalRefund);
+                const elTot = document.getElementById('scan-total-refund');
+                if (elTot) elTot.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalRefund);
             }, 50);
         };
 
+        // PIPELINE 4 TEMPS
         const methodStepsData = {
             1: {
                 title: "📞 Étape 1 : L'Échange Flash de Cadrage (5 Minutes Chrono)",
@@ -2011,12 +2048,17 @@ let tarifAccompagnementChoisi = 250.00;
                 }
             }
             const data = methodStepsData[stepNum];
-            document.getElementById('method-detail-title').textContent = data.title;
-            document.getElementById('method-detail-desc').textContent = data.desc;
-            document.getElementById('method-detail-badge').textContent = data.badge;
+            if (!data) return;
+            const elTit = document.getElementById('method-detail-title');
+            const elDesc = document.getElementById('method-detail-desc');
+            const elBdg = document.getElementById('method-detail-badge');
+
+            if (elTit) elTit.textContent = data.title;
+            if (elDesc) elDesc.textContent = data.desc;
+            if (elBdg) elBdg.textContent = data.badge;
         };
 
-        // INITIALISATION FINALE
+        // INITIALISATION
         renderShowroom(projectsData);
         renderLabTech(projectsData);
 
@@ -2024,6 +2066,7 @@ let tarifAccompagnementChoisi = 250.00;
         if (btnMentions) {
             btnMentions.addEventListener('click', (e) => {
                 e.preventDefault();
+                if (!modalBody) return;
                 modalBody.innerHTML = `
                     <h2>⚖️ Mentions Légales</h2>
                     <div style="margin-top: 1.2rem; font-size: 0.95rem; color: #475569; line-height: 1.6;">
@@ -2034,7 +2077,7 @@ let tarifAccompagnementChoisi = 250.00;
                         <strong>Hébergement :</strong> GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA.</p>
                     </div>
                 `;
-                modal.classList.remove('hidden');
+                if (modal) modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
             });
         }
@@ -2048,8 +2091,10 @@ let tarifAccompagnementChoisi = 250.00;
                 } else {
                     navigator.clipboard.writeText(url).then(() => {
                         const toast = document.getElementById("toast");
-                        toast.className = "show";
-                        setTimeout(() => toast.className = toast.className.replace("show", ""), 3000);
+                        if (toast) {
+                            toast.className = "show";
+                            setTimeout(() => toast.className = toast.className.replace("show", ""), 3000);
+                        }
                     });
                 }
             });
@@ -2069,4 +2114,4 @@ let tarifAccompagnementChoisi = 250.00;
     })();
     </script>
 </body>
-</html>
+</html>	
