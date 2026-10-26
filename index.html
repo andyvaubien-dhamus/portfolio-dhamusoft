@@ -1565,22 +1565,31 @@
                         <div class="form-group"><label>Téléphone *</label><input type="tel" id="m-tel" class="form-control" required placeholder="0690 XX XX XX"></div>
                     </div>
 
-                    <!-- SÉLECTEUR STRATÉGIQUE DES 2 FORMULES CHÈQUE TIC -->
-                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem; margin: 1.2rem 0;">
-                        <div style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; margin-bottom: 0.4rem;">Convention d'Accompagnement Chèque TIC Région Guadeloupe :</div>
-                        <h4 style="color: var(--primary); font-size: 0.95rem; font-weight: 900; margin: 0 0 0.8rem 0;">
-                            Mission de Cadrage Technique, Note d'Impact Stratégique (3 pages) & Dépôt ASP
-                        </h4>
+                   <!-- SÉLECTEUR STRATÉGIQUE DES 2 FORMULES CHÈQUE TIC -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 1.4rem; margin: 1.2rem 0;">
+                        
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 0.4rem;">Convention d'Accompagnement Chèque TIC Région Guadeloupe :</div>
+                        
+                        <!-- 🎯 TITRE ET DESCRIPTIF QUI CHANGENT EN DIRECT SELON LE BOUTON CLIQUE ! -->
+                        <div style="background: #ffffff; border: 1.5px solid var(--primary); border-radius: 8px; padding: 1rem; margin-bottom: 1.2rem;">
+                            <span id="devis-type-badge" style="background: #ecfdf5; color: #047857; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">PRESTATION SELECTIONNEE</span>
+                            <h4 id="devis-mission-titre" style="color: var(--primary); font-size: 1.05rem; font-weight: 900; margin: 6px 0 4px 0;">
+                                Mission de Cadrage Technique, Note d'Impact Stratégique (3 pages) & Montage sous Mandat
+                            </h4>
+                            <p id="devis-mission-desc" style="font-size: 0.84rem; color: #334155; line-height: 1.5; margin: 0;">
+                                Conception de votre solution numérique avec Dhamusoft (Site Web, THEMIS ERP ou Automatisation), rédaction complète de la Note d'Impact et dépôt dématérialisé ASP.
+                            </p>
+                        </div>
 
-                        <!-- 🔀 LE DOUBLE CHOIX COMMERCIAL PSYCHOLOGIQUE -->
+                        <!-- 🔀 LE DOUBLE CHOIX COMMERCIAL INTERACTIF -->
                         <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.2rem;">
                             
                             <!-- OPTION A : NOUVEAU PROJET DHAMUSOFT (250 €) -->
-                            <label id="opt-partenaire-box" style="border: 2px solid #047857; background: #ecfdf5; border-radius: 8px; padding: 0.9rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; transition: all 0.2s;">
-                                <input type="radio" name="formule_tic" id="rad-partenaire" value="250" checked onchange="choisirFormuleAccompagnement(250)" style="margin-top: 3px; transform: scale(1.3); cursor: pointer;">
+                            <label id="opt-partenaire-box" style="border: 2.5px solid #047857; background: #ecfdf5; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; transition: all 0.2s;">
+                                <input type="radio" name="formule_tic" id="rad-partenaire" value="250" checked onchange="choisirFormuleAccompagnement(250)" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
                                 <div>
-                                    <strong style="color: #065f46; font-size: 0.88rem; display: block;">🌟 FORMULE NOUVEAU PROJET AVEC DHAMUSOFT</strong>
-                                    <span style="font-size: 0.78rem; color: #047857; line-height: 1.4; display: block; margin-top: 2px;">
+                                    <strong style="color: #065f46; font-size: 0.95rem; display: block;">🌟 FORMULE NOUVEAU PROJET AVEC DHAMUSOFT</strong>
+                                    <span style="font-size: 0.80rem; color: #047857; line-height: 1.4; display: block; margin-top: 3px;">
                                         Vous concevez votre solution (Site Web, THEMIS ERP, Automatisation) avec Dhamusoft.<br>
                                         • Tarif privilégié de montage : <strong>250,00 € HT</strong> (au lieu de 500 €)<br>
                                         • <strong>Remboursé à 80% par la Région : votre reste à charge réel n'est que de 50 € HT !</strong>
@@ -1588,20 +1597,41 @@
                                 </div>
                             </label>
 
-                            <!-- OPTION B : SAUVETAGE RÉTROACTIF FACTURES DÉJÀ PAYÉES (500 €) -->
-                            <label id="opt-externe-box" style="border: 1.5px solid #cbd5e1; background: #ffffff; border-radius: 8px; padding: 0.9rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; transition: all 0.2s;">
-                                <input type="radio" name="formule_tic" id="rad-externe" value="500" onchange="choisirFormuleAccompagnement(500)" style="margin-top: 3px; transform: scale(1.3); cursor: pointer;">
+                            <!-- OPTION B : SAUVETAGE RÉTROACTIF (500 €) -->
+                            <label id="opt-externe-box" style="border: 1.5px solid #cbd5e1; background: #ffffff; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; transition: all 0.2s;">
+                                <input type="radio" name="formule_tic" id="rad-externe" value="500" onchange="choisirFormuleAccompagnement(500)" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
                                 <div>
-                                    <strong style="color: #b45309; font-size: 0.88rem; display: block;">💰 FORMULE SAUVETAGE & REMBOURSEMENT (Factures Récentes Déjà Réglées)</strong>
-                                    <span style="font-size: 0.78rem; color: #475569; line-height: 1.4; display: block; margin-top: 2px;">
-                                        Vous avez récemment acheté du matériel, un logiciel ou créé un site et <strong>vous ignoriez l'existence de l'aide régionale ?</strong><br>
-                                        • Nous récupérons vos factures, vérifions l'éligibilité et déclenchons votre remboursement ASP sous mandat.<br>
-                                        • Forfait de cadrage : <strong>500,00 € HT</strong> ➔ <strong>Remboursé à 80% (reste à charge : 100 € HT) !</strong>
+                                    <strong style="color: #b45309; font-size: 0.95rem; display: block;">💰 FORMULE SAUVETAGE & REMBOURSEMENT (Factures Déjà Payées)</strong>
+                                    <span style="font-size: 0.80rem; color: #475569; line-height: 1.4; display: block; margin-top: 3px;">
+                                        Vous avez récemment acheté du matériel, un site ou logiciel et <strong>vous ignoriez l'existence de l'aide ?</strong><br>
+                                        • Nous récupérons vos factures déjà réglées et activons votre remboursement ASP sous mandat.<br>
+                                        • Forfait officiel : <strong>500,00 € HT</strong> ➔ <strong>Remboursé à 80% (reste à charge : 100 € HT) !</strong>
                                     </span>
                                 </div>
                             </label>
 
                         </div>
+
+                        <!-- 📊 CARTOUCHE DE PRIX GÉANT HAUTE VISIBILITÉ -->
+                        <div id="box-bilan-prix" style="background: #05231a; color: white; border-radius: 10px; padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border: 1.5px solid #047857;">
+                            <div>
+                                <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">MONTANT FACTURÉ DU DEVIS :</span><br>
+                                <span style="font-size: 2.2rem; font-weight: 900; color: #ffffff;" id="lbl-tarif-amo">250,00 € HT</span>
+                                <div style="background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-top: 4px;">
+                                    <span style="font-size: 0.85rem; font-weight: 900; color: #a7f3d0;" id="lbl-rac-amo">👉 Reste à charge réel après subvention : 50,00 € HT seulement !</span>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: right; background: rgba(0,0,0,0.25); padding: 0.8rem 1rem; border-radius: 8px;">
+                                <span style="font-size: 0.72rem; color: #cbd5e1; font-weight: bold; text-transform: uppercase;">Honoraires au Succès :</span><br>
+                                <span style="font-size: 1.1rem; font-weight: 900; color: #facc15;">De 10% à 4% de l'aide</span><br>
+                                <small style="font-size: 0.68rem; color: #94a3b8; display: block; margin-top: 2px;">
+                                    (Exigible uniquement après accord officiel de la Région)
+                                </small>
+                            </div>
+                        </div>
+
+                    </div>
 
                     <div class="signature-box-wrap">
                         <div class="signature-header">
@@ -1629,7 +1659,7 @@
         };
 		
 // 🎯 MOTEUR DE BASCULE DYNAMIQUE DU TARIF DU DEVIS (250 € vs 500 €)
-        let tarifAccompagnementChoisi = 250.00;
+let tarifAccompagnementChoisi = 250.00;
 
         window.choisirFormuleAccompagnement = function(montant) {
             tarifAccompagnementChoisi = parseFloat(montant);
@@ -1638,37 +1668,38 @@
             const boxExterne = document.getElementById('opt-externe-box');
             const lblTarif = document.getElementById('lbl-tarif-amo');
             const lblRac = document.getElementById('lbl-rac-amo');
+            const missionTitre = document.getElementById('devis-mission-titre');
+            const missionDesc = document.getElementById('devis-mission-desc');
+            const typeBadge = document.getElementById('devis-type-badge');
 
-            if (!boxPartenaire || !boxExterne || !lblTarif || !lblRac) return;
+            if (!lblTarif) return;
 
             if (montant === 250) {
                 // Style Option Partenaire Active
-                boxPartenaire.style.border = '2px solid #047857';
-                boxPartenaire.style.background = '#ecfdf5';
-                
-                // Style Option Externe Inactive
-                boxExterne.style.border = '1.5px solid #cbd5e1';
-                boxExterne.style.background = '#ffffff';
+                if (boxPartenaire) { boxPartenaire.style.border = '2.5px solid #047857'; boxPartenaire.style.background = '#ecfdf5'; }
+                if (boxExterne) { boxExterne.style.border = '1.5px solid #cbd5e1'; boxExterne.style.background = '#ffffff'; }
 
-                // Recalcul du texte
+                // Mise à jour du texte du devis (Option A)
+                if (typeBadge) { typeBadge.textContent = "OPTION PROJET PARTENAIRE (250 €)"; typeBadge.style.color = "#047857"; typeBadge.style.background = "#ecfdf5"; }
+                if (missionTitre) missionTitre.textContent = "Mission d'Assistance à Maîtrise d'Ouvrage (AMO), Note d'Impact & Montage sous Mandat";
+                if (missionDesc) missionDesc.textContent = "Conception de votre solution numérique avec Dhamusoft (Site Web, THEMIS ERP ou Automatisation), rédaction intégrale de la Note d'Impact Stratégique (3 pages) et dépôt dématérialisé ASP.";
+
+                // Mise à jour du prix géant
                 lblTarif.textContent = '250,00 € HT';
-                lblTarif.style.color = '#05231a';
-                lblRac.textContent = '(Reste à charge après aide Région : 50 € HT)';
-                lblRac.style.color = '#047857';
+                lblRac.textContent = '👉 Reste à charge réel après subvention : 50,00 € HT seulement !';
             } else {
-                // Style Option Externe Active
-                boxExterne.style.border = '2px solid #047857';
-                boxExterne.style.background = '#ecfdf5';
+                // Style Option Sauvetage Active
+                if (boxExterne) { boxExterne.style.border = '2.5px solid #b45309'; boxExterne.style.background = '#fffbeb'; }
+                if (boxPartenaire) { boxPartenaire.style.border = '1.5px solid #cbd5e1'; boxPartenaire.style.background = '#ffffff'; }
 
-                // Style Option Partenaire Inactive
-                boxPartenaire.style.border = '1.5px solid #cbd5e1';
-                boxPartenaire.style.background = '#ffffff';
+                // Mise à jour du texte du devis (Option B)
+                if (typeBadge) { typeBadge.textContent = "OPTION SAUVETAGE FACTURES DÉJÀ RÉGLÉES (500 €)"; typeBadge.style.color = "#b45309"; typeBadge.style.background = "#fffbeb"; }
+                if (missionTitre) missionTitre.textContent = "Mission d'Audit Rétroactif, Récupération de Factures Récentes & Déblocage Subvention ASP";
+                if (missionDesc) missionDesc.textContent = "Audit de conformité de vos factures déjà réglées (matériel, site, logiciels), rédaction de la Note d'Impact de régularisation et instruction sous mandat pour débloquer votre virement de subvention ASP.";
 
-                // Recalcul du texte
+                // Mise à jour du prix géant
                 lblTarif.textContent = '500,00 € HT';
-                lblTarif.style.color = '#05231a';
-                lblRac.textContent = '(Reste à charge après aide Région : 100 € HT)';
-                lblRac.style.color = '#047857';
+                lblRac.textContent = '👉 Reste à charge réel après subvention : 100,00 € HT seulement !';
             }
         };
 		
