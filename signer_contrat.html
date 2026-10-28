@@ -126,85 +126,36 @@
 
 <script>
 let canvas = null, ctx = null, isDrawing = false, hasDrawn = false;
+let contratData = {};
 
-// Objet global contenant les données officielles du devis
-let contratData = {
-    devis: "DEV-EN-COURS",
-    ste: "Votre Entreprise",
-    siret: "Non renseigné",
-    rep: "Le Dirigeant",
-    montant: "0.00",
-    acompte: "30",
-    email: "",
-    tel: ""
-};
-
-// 🔗 LIEN DE VOTRE FEUILLE GOOGLE SHEETS "Devis_En_Attente" PUBLIÉE EN CSV
-// (Remplacez par votre vrai lien publié si vous utilisez la méthode Cloud)
-const URL_SHEET_DEVIS_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRl2qDcWIVyAftkGNT4BXef6QMfTSjc9AwHrnCfJ8695x7NzF4Kf7oBALR38R_sqOoCn43GFqqHy5G5/pubhtml?gid=1964888021&single=true";
-
-// Fonction d'extraction rapide CSV sans librairie externe
-function parserLigneDevisCSV(csvText, devisId) {
-    const lignes = csvText.split("\n");
-    if (lignes.length < 2) return null;
-    const entetes = lignes[0].split(",").map(h => h.trim().replace(/^"|"$/g, ""));
-    
-    for (let i = 1; i < lignes.length; i++) {
-        const cols = lignes[i].split(",").map(c => c.trim().replace(/^"|"$/g, ""));
-        if (cols[0] && cols[0].toUpperCase() === devisId.toUpperCase()) {
-            return {
-                devis: cols[0],
-                ste: cols[1] || "Entreprise",
-                siret: cols[2] || "Non renseigné",
-                rep: cols[3] || "Le Dirigeant",
-                email: cols[4] || "",
-                tel: cols[5] || "",
-                montant: cols[6] || "0.00",
-                acompte: cols[7] || "30"
-            };
-        }
-    }
-    return null;
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
+    // Lecture des paramètres passés dans le lien
     const p = new URLSearchParams(window.location.search);
-    const devisId = p.get("id") || p.get("devis");
+    
+    contratData = {
+        devis: p.get("devis") || p.get("id") || "DEV-OFFICIEL",
+        ste: p.get("ste") || "Votre Entreprise",
+        siret: p.get("siret") || "Non renseigné",
+        rep: p.get("rep") || "Le Dirigeant",
+        montant: p.get("montant") || "0.00",
+        acompte: p.get("acompte") || "30",
+        email: p.get("email") || "",
+        tel: p.get("tel") || ""
+    };
 
-    // 1. Priorité A : Chargement direct via les paramètres d'URL (immédiat)
-    if (p.has("ste")) {
-        contratData = {
-            devis: devisId || "DEV-202610-01",
-            ste: p.get("ste"),
-            siret: p.get("siret") || "Non renseigné",
-            rep: p.get("rep") || "Le Dirigeant",
-            montant: p.get("montant") || "0.00",
-            acompte: p.get("acompte") || "30",
-            email: p.get("email") || "",
-            tel: p.get("tel") || ""
-        };
-        injecterDonneesContrat();
-    }
-    // 2. Priorité B : Chargement Cloud via l'identifiant court (?id=DEV-XXX)
-    else if (devisId && URL_SHEET_DEVIS_CSV && !URL_SHEET_DEVIS_CSV.includes("gid=123456789")) {
-        try {
-            const res = await fetch(URL_SHEET_DEVIS_CSV);
-            const csv = await res.text();
-            const dataExtracted = parserLigneDevisCSV(csv, devisId);
-            if (dataExtracted) {
-                contratData = dataExtracted;
-                injecterDonneesContrat();
-            }
-        } catch(err) {
-            console.warn("Chargement Cloud échoué, mode autonome activé", err);
-            injecterDonneesContrat();
-        }
-    } else {
-        injecterDonneesContrat();
-    }
+    // Remplissage immédiat des textes (plus aucun "---")
+    document.getElementById("c-num-devis").textContent = "Réf : " + contratData.devis;
+    document.getElementById("c-ste-sticky").textContent = contratData.ste;
+    document.getElementById("c-montant-sticky").textContent = contratData.montant + " € HT";
+    document.getElementById("c-ste").textContent = contratData.ste;
+    document.getElementById("c-siret").textContent = contratData.siret;
+    document.getElementById("c-rep").textContent = contratData.rep;
+    document.getElementById("c-montant").textContent = contratData.montant + " € HT";
+    document.getElementById("c-acompte").textContent = contratData.acompte;
 
-    // 3. Initialisation du Canvas de Signature Tactile
+    // Initialisation du Canvas de Signature
     canvas = document.getElementById("canvas-contrat");
+    if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width;
     canvas.height = rect.height;
@@ -232,17 +183,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.addEventListener("touchend", stop);
 });
 
-function injecterDonneesContrat() {
-    document.getElementById("c-num-devis").textContent = "Réf : " + contratData.devis;
-    document.getElementById("c-ste-sticky").textContent = contratData.ste;
-    document.getElementById("c-montant-sticky").textContent = contratData.montant + " € HT";
-    document.getElementById("c-ste").textContent = contratData.ste;
-    document.getElementById("c-siret").textContent = contratData.siret;
-    document.getElementById("c-rep").textContent = contratData.rep;
-    document.getElementById("c-montant").textContent = contratData.montant + " € HT";
-    document.getElementById("c-acompte").textContent = contratData.acompte;
-}
-
 function clearSignatureCanvas() {
     if (ctx && canvas) { ctx.clearRect(0, 0, canvas.width, canvas.height); hasDrawn = false; }
 }
@@ -256,7 +196,7 @@ async function validerSignatureContrat7P(e) {
 
     const btn = document.getElementById("btn-submit-7p");
     btn.disabled = true;
-    btn.textContent = "⏳ Scellement cryptographique du contrat en cours...";
+    btn.textContent = "⏳ Scellement cryptographique du contrat...";
 
     let clientIP = "127.0.0.1";
     try {
@@ -272,21 +212,17 @@ async function validerSignatureContrat7P(e) {
         client_siret: contratData.siret,
         client_nom: contratData.rep,
         client_email: contratData.email,
+        destinataire_email: contratData.email,
+        email_client: contratData.email,
         client_telephone: contratData.tel,
         montant_ht: parseFloat(contratData.montant),
-        acompte_pct: contratData.acompte,
-        Acompte_Pct: contratData.acompte,
-        Statut: "SIGNE_EN_LIGNE",
         ip_signataire: clientIP,
         date_signature: new Date().toLocaleDateString('fr-FR'),
         heure_signature: new Date().toLocaleTimeString('fr-FR'),
-        
-        // ✍️ LES DEUX NOMS POUR MAKE (AVEC ET SANS MAJUSCULES) :
-        Signature_PNG: canvas.toDataURL("image/png"),
-        signature_png: canvas.toDataURL("image/png")
+        Signature_PNG: canvas.toDataURL("image/png")
     };
 
-    // Webhook Make.com officiel
+    // Webhook Make.com
     const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7";
 
     try {
@@ -301,14 +237,13 @@ async function validerSignatureContrat7P(e) {
                 <div style="font-size: 50px; margin-bottom: 15px;">✅</div>
                 <h2 style="color: #047857; font-size: 22px; font-weight: 900; margin-bottom: 8px;">Dossier Contractuel (7P) Scellé avec Succès !</h2>
                 <p style="font-size: 14px; color: #334155; max-width: 600px; margin: 0 auto 20px auto;">
-                    Votre engagement pour l'entreprise <strong>${contratData.ste}</strong> est désormais validé. Votre signature manuscrite et votre horodatage ont été certifiés et transmis à l'environnement THEMIS ERP.
+                    Votre engagement pour l'entreprise <strong>${contratData.ste}</strong> est validé. Votre signature tactile et votre exemplaire scellé vous ont été envoyés par email.
                 </p>
                 <div style="background: #F8FAFC; border: 1px solid #CBD5E1; padding: 15px; border-radius: 8px; max-width: 500px; margin: 0 auto; text-align: left; font-size: 12px; color: #475569;">
                     <strong>Référence Devis :</strong> ${contratData.devis}<br>
                     <strong>Signataire :</strong> ${contratData.rep}<br>
                     <strong>Date & Heure :</strong> ${payloadScellement.date_signature} à ${payloadScellement.heure_signature}<br>
-                    <strong>Adresse IP :</strong> ${clientIP}<br>
-                    <strong>Intégrité :</strong> Scellé eIDAS / Art. 1367 Code Civil
+                    <strong>Adresse IP :</strong> ${clientIP}
                 </div>
             </div>
         `;
