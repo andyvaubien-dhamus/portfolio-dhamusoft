@@ -266,6 +266,7 @@ async function validerSignatureContrat7P(e) {
 
     const payloadScellement = {
         event: "contrat_7p_signe_en_ligne",
+        type_evenement: "CONTRAT_7P_SIGNE",
         numero_devis: contratData.devis,
         client_societe: contratData.ste,
         client_siret: contratData.siret,
@@ -273,9 +274,15 @@ async function validerSignatureContrat7P(e) {
         client_email: contratData.email,
         client_telephone: contratData.tel,
         montant_ht: parseFloat(contratData.montant),
+        acompte_pct: contratData.acompte,
+        Acompte_Pct: contratData.acompte,
+        Statut: "SIGNE_EN_LIGNE",
         ip_signataire: clientIP,
         date_signature: new Date().toLocaleDateString('fr-FR'),
         heure_signature: new Date().toLocaleTimeString('fr-FR'),
+        
+        // ✍️ LES DEUX NOMS POUR MAKE (AVEC ET SANS MAJUSCULES) :
+        Signature_PNG: canvas.toDataURL("image/png"),
         signature_png: canvas.toDataURL("image/png")
     };
 
