@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadrage & Diagnostic Web Conciergerie - Dhamusoft</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+  
+  <style>
+    :root {
+      --primary: #2C4C6E;
+      --primary-hover: #1E3754;
+      --accent: #C59B43;
+      --accent-hover: #A88132;
+      --bg-page: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --frame-border: #cbd5e1;
+      --success-green: #059669;
+      --success-bg: #ecfdf5;
+      --edit-bg: #e0f2fe;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      background: var(--card-bg);
+      padding: 2.2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 15px rgba(44, 76, 110, 0.06);
+    }
+
+    .brand-header { text-align: center; margin-bottom: 1.8rem; padding-bottom: 1.2rem; border-bottom: 2px solid var(--border); }
+    .brand-logo { display: block; max-width: 260px; height: auto; margin: 0 auto 0.8rem auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.04)); }
+    .brand-tag { display: inline-block; font-size: 0.78rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
+    h1 { font-size: 1.45rem; color: var(--primary); font-weight: 800; line-height: 1.3; }
+    p.intro { color: var(--text-muted); font-size: 0.92rem; margin-top: 0.5rem; }
+
+    .client-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+    .client-info input { padding: 0.75rem 1rem; border: 1px solid var(--frame-border); border-radius: 8px; font-size: 0.92rem; outline: none; }
+    .client-info input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(44, 76, 110, 0.12); }
+
+    .question { margin-bottom: 1.35rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border); }
+    .question-title { font-weight: 700; font-size: 0.95rem; color: var(--primary); margin-bottom: 0.6rem; }
+    label { display: flex; align-items: flex-start; margin-bottom: 0.55rem; cursor: pointer; font-size: 0.90rem; color: var(--text-muted); }
+    label:hover { color: var(--text-main); }
+    input[type="radio"] { margin-right: 12px; margin-top: 4px; accent-color: var(--primary); min-width: 17px; min-height: 17px; }
+
+    .btn-submit { width: 100%; padding: 0.85rem; background: var(--primary); color: #ffffff; border: none; border-radius: 25px; font-weight: 700; font-size: 0.98rem; cursor: pointer; margin-top: 0.8rem; transition: all 0.2s; }
+    .btn-submit:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+    #confirmation-screen { display: none; text-align: center; padding: 2.2rem 1.5rem; background: var(--success-bg); border: 1px solid #a7f3d0; border-radius: 12px; }
+    .confirm-title { font-size: 1.3rem; font-weight: 800; color: var(--success-green); margin-bottom: 0.5rem; }
+    .confirm-desc { font-size: 0.92rem; color: var(--text-main); margin-bottom: 1.5rem; }
+    .buttons-group { display: flex; flex-direction: column; gap: 10px; max-width: 380px; margin: 0 auto; }
+    .btn-action { padding: 0.8rem 1.2rem; color: white; text-decoration: none; border-radius: 25px; font-weight: 700; font-size: 0.90rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none; }
+    .btn-wa { background: #25D366; } .btn-wa:hover { background: #1eb855; }
+    .btn-gmail { background: #ea4335; } .btn-gmail:hover { background: #d33828; }
+    .btn-mail-app { background: var(--primary); } .btn-mail-app:hover { background: var(--primary-hover); }
+    .secret-trigger { margin-top: 2rem; font-size: 0.75rem; color: #94a3b8; cursor: pointer; user-select: none; }
+
+    #adminModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; }
+    .admin-card { background: white; padding: 24px; border-radius: 12px; max-width: 360px; width: 90%; text-align: center; }
+    .admin-card input { width: 100%; padding: 10px; margin: 14px 0; border: 1px solid var(--frame-border); border-radius: 6px; font-size: 1rem; text-align: center; }
+    .admin-card .ref-input { font-size: 0.85rem; background: #f8fafc; color: var(--text-muted); }
+
+    #restitution-report { display: none; margin-top: 2.5rem; padding-top: 2rem; border-top: 2px dashed var(--frame-border); }
+    .report-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); padding-bottom: 1rem; margin-bottom: 1.2rem; }
+    .report-header-titles h2 { font-size: 1.2rem; color: var(--primary); font-weight: 800; }
+    .report-logo { max-width: 160px; height: auto; }
+    .meta-box { font-size: 0.88rem; color: var(--text-muted); margin-top: 4px; }
+    
+    .tic-alert { background: var(--success-bg); border-left: 4px solid var(--success-green); padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.88rem; color: #064e3b; margin-bottom: 1.4rem; }
+    
+    .ranking-card { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 1rem; background: #ffffff; }
+    .badge-rank { display: inline-block; font-weight: 800; font-size: 0.75rem; padding: 3px 10px; border-radius: 15px; margin-bottom: 0.4rem; letter-spacing: 0.5px; }
+    .rank-1 { border-color: var(--accent); background: #fffdfa; } .rank-1 .badge-rank { background: var(--accent); color: white; }
+    .rank-2 { border-color: var(--primary); background: #f8fafc; } .rank-2 .badge-rank { background: var(--primary); color: white; }
+    .rank-3 { border-color: var(--border); background: #f8fafc; opacity: 0.8; } .rank-3 .badge-rank { background: var(--text-muted); color: white; }
+    .sol-title { font-size: 1.05rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px; }
+    .sol-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; }
+    .sol-calc { font-size: 0.86rem; background: #f1f5f9; padding: 8px 12px; border-radius: 6px; color: var(--text-main); margin-top: 6px; }
+
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.85rem; }
+    .data-table th, .data-table td { border: 1px solid var(--frame-border); padding: 10px; text-align: left; vertical-align: middle; }
+    .data-table th { background-color: var(--primary); color: white; font-weight: 700; }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+    .highlight-row { font-weight: 700; background-color: #fef3c7 !important; }
+    .section-title { font-size: 1.2rem; color: var(--primary); font-weight: 800; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block; }
+    
+    [contenteditable="true"] { background-color: var(--edit-bg); border: 1px dashed #7dd3fc; border-radius: 4px; padding: 2px 6px; outline: none; transition: background 0.2s; }
+    [contenteditable="true"]:focus { background-color: #bae6fd; border-color: #0284c7; }
+
+    .flash-metrics { display: flex; gap: 15px; margin-bottom: 1rem; }
+    .metric-box { flex: 1; background: #f1f5f9; padding: 12px; border-radius: 8px; border: 1px solid var(--frame-border); text-align: center; }
+    .metric-box strong { display: block; color: var(--primary); font-size: 0.95rem; margin-bottom: 5px; }
+
+    .btn-print { display: block; width: 100%; padding: 0.75rem; background: #ffffff; color: var(--primary); border: 1px solid var(--frame-border); border-radius: 25px; font-weight: 700; font-size: 0.90rem; cursor: pointer; margin-top: 2rem; }
+    
+    .page-break { margin-top: 2rem; padding-top: 2rem; border-top: 2px dashed var(--frame-border); }
+    .tool-label { display: block; font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-top: 4px; }
+
+    /* Grille Méthodologie (Annexe) */
+    .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 1.5rem; }
+    .method-card { border: 1px solid var(--frame-border); padding: 18px; border-radius: 10px; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+    .method-card h4 { color: var(--primary); font-size: 0.98rem; margin-bottom: 8px; }
+    .method-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
+    .method-tool { font-size: 0.78rem; font-weight: 800; color: var(--accent-hover); background: #fef3c7; padding: 4px 10px; border-radius: 12px; display: inline-block; }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .container { border: none; box-shadow: none; padding: 0; max-width: 100%; }
+      #quizForm, #confirmation-screen, .btn-print, .intro, .brand-header, #adminModal { display: none !important; }
+      #restitution-report { display: block !important; border-top: none; margin-top: 0; padding-top: 0; }
+      .ranking-card { page-break-inside: avoid; border: 1px solid #cbd5e1; }
+      .page-break { page-break-before: always; border-top: none; margin-top: 0; padding-top: 0; }
+      [contenteditable="true"] { background-color: transparent !important; border: none !important; padding: 0 !important; }
+      .method-card { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="brand-header">
+    <img src="assets/images/logo_dhamusoft.png" onerror="this.onerror=null; this.src='https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/assets/images/logo_dhamusoft.png';" alt="Logo Dhamusoft" class="brand-logo">
+    <span class="brand-tag">Conseil & Ingénierie Web • Guadeloupe</span>
+    <h1>Étude d'Opportunité & Cadrage Web Conciergerie</h1>
+    <p class="intro">Ce diagnostic analyse vos processus opérationnels, chiffre vos besoins d'automatisation et évalue votre éligibilité aux aides régionales de transition numérique (Chèque TIC Guadeloupe jusqu'à 80 %).</p>
+  </div>
+
+  <form id="quizForm">
+    <div class="client-info">
+      <input type="text" id="clientNom" placeholder="Votre Nom & Prénom *" required>
+      <input type="text" id="clientStructure" placeholder="Nom de votre Conciergerie / Structure *" required>
+    </div>
+
+    <div class="question">
+      <div class="question-title">1. Depuis combien de temps votre structure est-elle immatriculée ?</div>
+      <label><input type="radio" name="q1" value="Moins de 6 mois" data-score-tic="0" checked> Moins de 6 mois (création récente)</label>
+      <label><input type="radio" name="q1" value="Entre 6 mois et 1 an" data-score-tic="10"> Entre 6 mois et 1 an</label>
+      <label><input type="radio" name="q1" value="Plus de 1 an" data-score-tic="25"> Plus d'un an d'activité régulière</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">2. Situation administrative et fiscale de l'entreprise ?</div>
+      <label><input type="radio" name="q2" value="À jour" data-score-tic="25" checked> À jour des cotisations fiscales et sociales (attestations disponibles)</label>
+      <label><input type="radio" name="q2" value="Non à jour" data-score-tic="-100"> En cours de régularisation ou non à jour</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">3. Aujourd'hui, comment souhaitez-vous traiter les demandes de réservation ?</div>
+      <label><input type="radio" name="q3" value="Devis & validation manuelle" data-score-sm="15" data-score-wx="5" checked> Par demande de devis qualifiée (validation manuelle avant émission de contrat)</label>
+      <label><input type="radio" name="q3" value="Paiement direct CB" data-score-sm="5" data-score-wx="15"> En réservation instantanée avec encaissement de l'acompte par carte bancaire</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">4. Comment envisagez-vous la gestion des séjours d'ici 6 mois ?</div>
+      <label><input type="radio" name="q4" value="Volume maîtrisé" data-score-sm="10" checked> Même volume maîtrisé (sélection personnalisée des vacanciers)</label>
+      <label><input type="radio" name="q4" value="Automatisation poussée" data-score-sm="20" data-score-wx="10"> Automatisation maximale pour limiter le temps administratif de gestion</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">5. Les logements sont-ils (ou seront-ils) listés sur Airbnb ou Booking.com ?</div>
+      <label><input type="radio" name="q5" value="Oui, synchro iCal" data-score-sm="15" data-score-wx="10" checked> Oui, il faut synchroniser les disponibilités en continu pour éviter les sur-réservations</label>
+      <label><input type="radio" name="q5" value="Non, exclusivité totale" data-score-sm="0" data-score-wx="0"> Non, les réservations se feront exclusivement sur notre plateforme</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">6. À combien estimez-vous les coûts annuels d'un site sur une plateforme type Wix ?</div>
+      <label><input type="radio" name="q6" value="Moins de 100 €/an" checked> Moins de 100 € / an (nom de domaine compris)</label>
+      <label><input type="radio" name="q6" value="Entre 200 € et 360 €/an"> Entre 200 € et 360 € / an selon les modules choisis</label>
+      <label><input type="radio" name="q6" value="Plus de 450 €/an"> Plus de 450 € / an (avec options e-commerce & réservations)</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">7. Concernant vos charges informatiques récurrentes, quelle est votre préférence ?</div>
+      <label><input type="radio" name="q7" value="Zéro abonnement mensuel" data-score-sm="25" data-score-wx="0" checked> Zéro abonnement mensuel obligatoire (frais limités au nom de domaine ~15 €/an)</label>
+      <label><input type="radio" name="q7" value="Abonnement accepté" data-score-sm="0" data-score-wx="25"> Un abonnement mensuel (17 € à 35 €/mois) ne me pose aucune difficulté</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">8. Quel budget prévoyez-vous pour ce projet ?</div>
+      <label><input type="radio" name="q8" value="< 450 € (Optimisation ciblée)" data-score-wx="25" checked> Moins de 450 € (Optimisation ciblée de l'existant)</label>
+      <label><input type="radio" name="q8" value="500 € à 800 € (Refonte en 3x)" data-score-sm="20"> 500 € à 800 € (Refonte sur-mesure échelonnable en 3x sans frais)</label>
+      <label><input type="radio" name="q8" value="800 € à 980 € (Pack TIC)" data-score-tic="25"> 800 € à 980 € (Pack complet finançable à 80 % par le Chèque TIC)</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">9. Quel est le frein technique majeur rencontré sur votre site web actuel ?</div>
+      <label><input type="radio" name="q9" value="Visibilité Google" data-score-sm="20" data-score-wx="5" checked> Le manque de visibilité sur Google (introuvable face aux concurrents locaux)</label>
+      <label><input type="radio" name="q9" value="Anomalies design/mobile" data-score-sm="10" data-score-wx="15"> Des anomalies de présentation, de mise en page ou de navigation</label>
+      <label><input type="radio" name="q9" value="Les deux" data-score-sm="25" data-score-wx="0"> Les deux : je veux un outil professionnel, ultra-rapide et immédiatement crédible</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">10. Quelle est votre priorité commerciale immédiate sur le web ?</div>
+      <label><input type="radio" name="q10" value="Recruter propriétaires" data-score-sm="15" data-score-wx="10" checked> Recruter des propriétaires en intendance locative (démontrer notre rigueur de gestion)</label>
+      <label><input type="radio" name="q10" value="Réservations vacanciers" data-score-sm="15" data-score-wx="10"> Capter des vacanciers en direct pour maximiser la marge nette</label>
+      <label><input type="radio" name="q10" value="Équilibre" data-score-sm="20" data-score-wx="5"> Développer simultanément ces deux cibles avec des parcours bien séparés</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">11. L'affichage et la réactivité mobile sur les réseaux 4G de Guadeloupe sont-ils cruciaux ?</div>
+      <label><input type="radio" name="q11" value="Priorité absolue" data-score-sm="20" data-score-wx="0" checked> Priorité absolue : chargement instantané sans lourdeurs techniques sur mobile</label>
+      <label><input type="radio" name="q11" value="Secondaire" data-score-sm="5" data-score-wx="15"> Secondaire : le design graphique prime sur la vitesse pure de chargement</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">12. Concernant votre trésorerie de démarrage et les facilités de règlement ?</div>
+      <label><input type="radio" name="q12" value="Échelonnement en 3 fois" data-score-sm="20" data-score-tic="15" checked> Projet structuré souhaité avec facilité de règlement (paiement échelonné en 3 fois sans frais)</label>
+      <label><input type="radio" name="q12" value="Avance Chèque TIC" data-score-sm="15" data-score-tic="25"> Capacité d'avance de trésorerie pour percevoir le remboursement régional de 80 %</label>
+      <label><input type="radio" name="q12" value="Trésorerie serrée" data-score-sm="0" data-score-wx="25"> Trésorerie très serrée : intervention légère d'ajustement uniquement</label>
+    </div>
+
+    <button type="button" class="btn-submit" onclick="traiterEtSoumettre()">Valider et enregistrer mes réponses</button>
+  </form>
+
+  <div id="confirmation-screen">
+    <div class="confirm-title">✅ Diagnostic complété avec succès !</div>
+    <p class="confirm-desc">Vos critères opérationnels et vos priorités d'optimisation ont été enregistrés.<br>
+    Prévenez votre conseiller <strong>Dhamusoft</strong> en un clic pour convenir de la restitution de votre étude technique et financière :</p>
+    
+    <div class="buttons-group">
+      <a id="btnWhatsApp" class="btn-action btn-wa" href="#" target="_blank">📱 Prévenir via WhatsApp</a>
+      <a id="btnGmail" class="btn-action btn-gmail" href="#" target="_blank">📧 Prévenir avec Gmail Web</a>
+      <a id="btnEmailApp" class="btn-action btn-mail-app" href="#">✉️ Prévenir par E-mail</a>
+    </div>
+
+    <div class="secret-trigger" onclick="handleSecretClick()">© Dhamusoft • Solutions Logicielles</div>
+  </div>
+
+  <div id="restitution-report">
+    
+    <!-- PAGE 1 : CLASSEMENT -->
+    <div class="report-header">
+      <div class="report-header-titles">
+        <h2>FICHE DE RESTITUTION STRATÉGIQUE & DIGITALE</h2>
+        <div class="meta-box" id="reportMeta"></div>
+      </div>
+      <img src="assets/images/logo_dhamusoft.png" onerror="this.onerror=null; this.src='https://andyvaubien-dhamus.github.io/portfolio-dhamusoft/assets/images/logo_dhamusoft.png';" alt="Dhamusoft" class="report-logo">
+    </div>
+
+    <div class="tic-alert">
+      <strong>Dispositif Régional Chèque TIC & Trésorerie :</strong> Nos solutions sont calibrées sous 1 000 € pour faciliter votre avance de trésorerie. Elles sont finançables jusqu'à 80 % par la Région Guadeloupe et bénéficient d'un <strong>échelonnement en 3 fois sans frais</strong> pendant l'instruction de l'aide.
+    </div>
+
+    <h3 style="font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--primary);">Classement comparatif des 3 solutions (Budget &lt; 1000 €)</h3>
+    <div id="solutionsRanking"></div>
+    
+    <button class="btn-print" onclick="window.print()">🖨️ Exporter le dossier complet en PDF</button>
+
+    <!-- PAGE 2 : RENTABILITÉ SUR 3 ANS -->
+    <div class="page-break">
+      <div class="section-title">Étude de Rentabilité Financière sur 3 Ans (TCO)</div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+        Analyse comparative démontrant l'impact des charges fixes de la plateforme Wix (moy. 28 €/mois) par rapport à un actif propriétaire Dhamusoft sans abonnement mensuel.
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Indicateur financier</th>
+            <th>Maintien Wix seul</th>
+            <th>Offre 1 : Wix Optimisé</th>
+            <th>Offre 2 : Sur-Mesure</th>
+            <th>Offre 3 : Pack Croissance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Investissement initial</strong></td>
+            <td>0 €</td>
+            <td>390 € <br><span style="font-size:0.75rem; font-weight:normal;">(ou 2x 195 €)</span></td>
+            <td>750 € <br><span style="font-size:0.75rem; font-weight:normal;">(ou 3x 250 €)</span></td>
+            <td>980 € <br><span style="font-size:0.75rem; font-weight:normal;">(ou 3x 326 €)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Aide Chèque TIC (80 %)</strong></td>
+            <td>Non éligible</td>
+            <td>Non éligible</td>
+            <td style="color: var(--success-green); font-weight: bold;">- 600 €</td>
+            <td style="color: var(--success-green); font-weight: bold;">- 784 €</td>
+          </tr>
+          <tr>
+            <td><strong>Coût net de création</strong></td>
+            <td>0 €</td>
+            <td>390 €</td>
+            <td><strong>150 €</strong></td>
+            <td><strong>196 €</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Abonnements sur 3 ans</strong></td>
+            <td>1 008 € <br><span style="font-size:0.75rem; font-weight:normal;">(336 €/an)</span></td>
+            <td>1 008 € <br><span style="font-size:0.75rem; font-weight:normal;">(336 €/an)</span></td>
+            <td>45 € <br><span style="font-size:0.75rem; font-weight:normal;">(Domaine 15 €/an)</span></td>
+            <td>45 € <br><span style="font-size:0.75rem; font-weight:normal;">(Domaine 15 €/an)</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>COÛT TOTAL SUR 3 ANS</td>
+            <td>1 008 €</td>
+            <td>1 398 €</td>
+            <td>195 € <span style="font-size:0.75rem; font-weight:normal;">(avec aide)</span></td>
+            <td>241 € <span style="font-size:0.75rem; font-weight:normal;">(avec aide)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Bilan & Économie nette</strong></td>
+            <td style="color: #ef4444;">Perte sèche (loyers)</td>
+            <td style="color: #ef4444;">Surcoût de +390 €</td>
+            <td style="color: var(--success-green); font-weight: bold;">Jusqu'à 813 € d'économie</td>
+            <td style="color: var(--success-green); font-weight: bold;">Jusqu'à 767 € d'économie</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--text-muted);">
+        <em>Conclusion : Même sans subvention régionale, l'offre Sur-Mesure est amortie dès le 22ème mois grâce à la suppression de l'abonnement Wix. Avec le Chèque TIC, le coût total sur 3 ans (incluant la création) est 5 fois moins cher que de conserver le site Wix actuel.</em>
+      </p>
+    </div>
+
+    <!-- PAGE 3 : AUDIT TECHNIQUE AVEC METHODE INTEGREE -->
+    <div class="page-break">
+      <div class="section-title">Benchmark Technique & Plan d'Action SEO</div>
+      
+      <p style="font-size: 0.85rem; margin-bottom: 1rem;">
+        <strong>URL Auditée :</strong> <span contenteditable="true" style="font-weight: bold; padding: 2px 8px; min-width: 250px; display: inline-block;">www.conciergerieserviceguadeloupe.com</span>
+      </p>
+
+      <div class="flash-metrics">
+        <div class="metric-box">
+          <strong>Score Mobile PageSpeed</strong>
+          <span contenteditable="true" style="font-size: 1.2rem; font-weight: bold;">38 / 100</span>
+        </div>
+        <div class="metric-box">
+          <strong>Pages indexées Google</strong>
+          <span contenteditable="true" style="font-size: 1.2rem; font-weight: bold;">2 pages</span>
+        </div>
+        <div class="metric-box">
+          <strong>Conversion Mobile</strong>
+          <span contenteditable="true" style="font-size: 1.2rem; font-weight: bold; color: #ef4444;">Absente (Pas de WhatsApp)</span>
+        </div>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Axe d'Audit Technique</th>
+            <th style="width: 28%;">Constat sur votre Wix actuel</th>
+            <th style="width: 23%;">Standard Top Concurrents</th>
+            <th style="width: 24%;">Plan d'Action Dhamusoft</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>1. Vitesse & Score Mobile (Core Web Vitals)</strong><br>
+              <span class="tool-label">🛠 Outil : Google PageSpeed Insights</span>
+            </td>
+            <td contenteditable="true">Score &lt; 50/100 : Chargement &gt; 3,5s sur réseau 4G local à cause des scripts lourds propriétaires Wix.</td>
+            <td>Score &gt; 90/100 : Affichage instantané (&lt; 1,2s).</td>
+            <td>Code pur allégé sans surcouche logicielle : pénalité Google levée et rebond divisé par 2.</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>2. Balisage Sémantique SEO (H1, H2, Title)</strong><br>
+              <span class="tool-label">🛠 Méthode : Inspection du code source</span>
+            </td>
+            <td contenteditable="true">Générique / Confus : Titres non géo-ciblés, hiérarchie H1 absente ou dupliquée.</td>
+            <td>Géo-ciblage strict par intention et zone géographique.</td>
+            <td>Réécriture complète de l'arborescence pour capter les requêtes locales (Guadeloupe).</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>3. Optimisation Visuelle (Alt & .webp)</strong><br>
+              <span class="tool-label">🛠 Outil : Analyseur réseau (DevTools)</span>
+            </td>
+            <td contenteditable="true">Fichiers bruts lourds (ex: 3 Mo) sans balises textuelles "alt" pour Google Images.</td>
+            <td>Compression WebP &lt; 150 Ko + mots-clés.</td>
+            <td>Conversion intégrale au format .webp et indexation SEO des photos de biens.</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>4. Séparation des Parcours (Propriétaires / Voyageurs)</strong><br>
+              <span class="tool-label">🛠 Méthode : Audit des parcours UX</span>
+            </td>
+            <td contenteditable="true">Parcours mélangés : les cibles se croisent sur la page d'accueil, diluant le message.</td>
+            <td>Double tunnel étanche dès la page d'accueil.</td>
+            <td>Création de deux portes d'entrée distinctes avec argumentaires de conversion dédiés.</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>5. Ergonomie Tactile & Contact Mobile</strong><br>
+              <span class="tool-label">🛠 Méthode : Test d'utilisabilité tactile</span>
+            </td>
+            <td contenteditable="true">Friction élevée : formulaires inadaptés au mobile, numéros de tel non cliquables.</td>
+            <td>Contact en 1 tapotement (appels/WhatsApp).</td>
+            <td>Intégration d'une barre d'action mobile rapide (Appel direct, WhatsApp prérempli).</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>6. Indexation robots.txt & Couverture Google</strong><br>
+              <span class="tool-label">🛠 Outil : Requête Google "site:"</span>
+            </td>
+            <td contenteditable="true">Sous-indexation critique : la majorité des pages internes sont ignorées par Google.</td>
+            <td>Plan Sitemap XML actif et pages ciblées.</td>
+            <td>Déploiement d'un sitemap propre et soumission manuelle à Google Search Console.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGE 4 : ANNEXE MÉTHODOLOGIE -->
+    <div class="page-break">
+      <div class="section-title">Annexe 1 : Transparence & Méthodologie d'Audit Technique</div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+        Dans une démarche de stricte transparence, ce document annexe détaille les outils officiels et les protocoles d'ingénierie web utilisés par Dhamusoft pour évaluer objectivement les performances et les anomalies de votre site actuel.
+      </p>
+
+      <div class="method-grid">
+        <!-- Point 1 -->
+        <div class="method-card">
+          <h4>1. Vitesse & Performances Mobiles</h4>
+          <span class="method-tool">Outil : Google PageSpeed Insights (API)</span>
+          <p>Mesure des signaux Web essentiels (Core Web Vitals) tels que le <em>Largest Contentful Paint (LCP)</em> et le <em>Cumulative Layout Shift (CLS)</em>. Permet de chiffrer l'impact négatif des surcouches JavaScript imposées par l'hébergeur sur les réseaux mobiles 3G/4G.</p>
+        </div>
+        
+        <!-- Point 2 -->
+        <div class="method-card">
+          <h4>2. Sémantique & Structure SEO</h4>
+          <span class="method-tool">Méthode : Inspection du DOM (Document Object Model)</span>
+          <p>Analyse du code source HTML brut lu par les robots. Vérification de la présence, de l'unicité et du ciblage géographique des balises maîtresses <code>&lt;title&gt;</code> et de la hiérarchie des titres (de <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code>) pour le référencement local.</p>
+        </div>
+
+        <!-- Point 3 -->
+        <div class="method-card">
+          <h4>3. Poids & Métadonnées Visuelles</h4>
+          <span class="method-tool">Outil : Chrome Developer Tools (Onglet Network)</span>
+          <p>Interception des requêtes serveur pour vérifier le poids réel de téléchargement des images. Contrôle de la présence de l'attribut textuel <code>alt="..."</code> obligatoire pour positionner vos biens sur le moteur de recherche Google Images.</p>
+        </div>
+
+        <!-- Point 4 -->
+        <div class="method-card">
+          <h4>4. Architecture des Parcours Utilisateur</h4>
+          <span class="method-tool">Méthode : Audit UX (Cognitive Walkthrough)</span>
+          <p>Simulation du cheminement d'un visiteur selon son intention (Propriétaire cherchant de la gestion vs Vacancier cherchant une nuitée). Évaluation des points de friction cognitifs qui font chuter le taux de conversion.</p>
+        </div>
+
+        <!-- Point 5 -->
+        <div class="method-card">
+          <h4>5. Accessibilité & Ergonomie Tactile</h4>
+          <span class="method-tool">Méthode : Test d'Émulation Mobile & Tap Targets</span>
+          <p>Vérification du dimensionnement des boutons d'appel à l'action pour les écrans tactiles. Contrôle des protocoles de liens rapides (ex: <code>tel:</code> ou <code>https://wa.me/</code>) pour garantir une mise en relation instantanée au pouce.</p>
+        </div>
+
+        <!-- Point 6 -->
+        <div class="method-card">
+          <h4>6. Profondeur d'Indexabilité</h4>
+          <span class="method-tool">Outil : Opérateur Google "site:" & fichier robots.txt</span>
+          <p>Interrogation directe des serveurs de Google via la commande avancée <code>site:votredomaine.com</code> pour extraire le nombre exact de pages officiellement reconnues et affichables dans les résultats de recherche publics.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="adminModal">
+  <div class="admin-card">
+    <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 8px;">Espace Consultant</h3>
+    <p style="font-size: 0.85rem; color: var(--text-muted);">Restaurer un dossier client ou afficher les résultats :</p>
+    <input type="password" id="adminPass" placeholder="Code secret (1984)">
+    <input type="text" id="adminRef" class="ref-input" placeholder="Réf. Dossier (Copier-coller ici)">
+    
+    <div style="display: flex; gap: 8px; margin-top: 10px;">
+      <button class="btn-action btn-mail-app" style="flex: 1;" onclick="verifierPass()">Valider</button>
+      <button class="btn-action" style="flex: 1; background: #cbd5e1; color: var(--text-main);" onclick="fermerModal()">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DEST_PHONE = "5906900511"; 
+const DEST_EMAIL = "dhamusoft@gmail.com";
+const ADMIN_CODE = "1984";
+
+let secretClicks = 0;
+
+function traiterEtSoumettre() {
+  const form = document.getElementById('quizForm');
+  const nom = document.getElementById('clientNom').value.trim();
+  const structure = document.getElementById('clientStructure').value.trim();
+
+  if (!nom || !structure) {
+    alert("Merci d'indiquer votre nom et le nom de votre structure avant de valider.");
+    return;
+  }
+
+  let scoreTic = 0, scoreSM = 0, scoreWx = 0;
+  let indices = [];
+
+  for (let i = 1; i <= 12; i++) {
+    const radios = form.querySelectorAll(`input[name="q${i}"]`);
+    let checkedIndex = 0;
+    radios.forEach((r, idx) => { 
+      if(r.checked) {
+        checkedIndex = idx;
+        scoreTic += parseInt(r.getAttribute('data-score-tic') || '0', 10);
+        scoreSM += parseInt(r.getAttribute('data-score-sm') || '0', 10);
+        scoreWx += parseInt(r.getAttribute('data-score-wx') || '0', 10);
+      }
+    });
+    indices.push(checkedIndex);
+  }
+
+  // --- CRYPTAGE DE LA REFERENCE (NOM::STRUCTURE::012012012) ---
+  const refString = `${nom}::${structure}::${indices.join('')}`;
+  const refCode = btoa(encodeURIComponent(refString)); // Convertit en Base64
+
+  const solutions = [
+    {
+      id: "sur_mesure",
+      titre: "Refonte Sur-Mesure Sans Abonnement (Indépendance & iCal)",
+      score: scoreSM + (scoreTic >= 45 ? 25 : 0),
+      coutAnnuel: "~15 € / an (nom de domaine seul)",
+      financement: "Prestation : 750 € | Financement Chèque TIC 80 % : -600 € | Reste à charge réel : 150 € (3x 250 € hors subvention). Éligible rubrique « Développement site Web ».",
+      description: "Migration vers un site propriétaire ultra-performant (chargement &lt; 1s), optimisation SEO local Guadeloupe, synchronisation iCal multicanale et suppression définitive de l'abonnement Wix.",
+      atout: "Élimine la charge fixe de Wix, booste la visibilité Google et préserve la trésorerie grâce à l'échelonnement."
+    },
+    {
+      id: "pack_croissance",
+      titre: "Pack Croissance & Acquisition (Propriétaires + Voyageurs)",
+      score: scoreTic + 15,
+      coutAnnuel: "~15 € / an",
+      financement: "Prestation globale : 980 € | Financement Chèque TIC 80 % : -784 € | Reste à charge réel : 196 € (3x 326 € hors subvention). Éligible rubriques « Dev. Site Web » et « Accompagnement ».",
+      description: "Refonte sur-mesure complète, double tunnel de conversion, simulateur de rentabilité locative pour séduire les propriétaires, livret d'accueil numérique et SEO avancé.",
+      atout: "Levier financier régional pour acquérir un actif digital complet de niveau agence à moins de 200 € réels."
+    },
+    {
+      id: "wix_optimise",
+      titre: "Audit & Optimisation Express du site Wix existant",
+      score: scoreWx,
+      coutAnnuel: "200 € à 360 € / an (maintien de l'abonnement Wix en cours)",
+      financement: "Intervention forfaitaire : 390 € (Règlement comptant ou en 2 fois). Non éligible aide régionale.",
+      description: "Nettoyage des anomalies d'affichage mobile sur le site en place, réécriture des balises SEO essentielles (titres, metas) et ajustement des boutons de contact rapide.",
+      atout: "Mise en œuvre rapide sans formalité administrative régionale, idéale si vous n'êtes pas éligible aux aides."
+    }
+  ];
+
+  solutions.sort((a, b) => b.score - a.score);
+
+  const containerRanking = document.getElementById('solutionsRanking');
+  containerRanking.innerHTML = '';
+
+  const badges = [
+    { label: "🥇 SOLUTION RECOMMANDÉE", class: "rank-1" },
+    { label: "🥈 SOLUTION ALTERNATIVE", class: "rank-2" },
+    { label: "🥉 SOLUTION ÉCARTÉE / SECONDAIRE", class: "rank-3" }
+  ];
+
+  solutions.forEach((sol, idx) => {
+    const card = document.createElement('div');
+    card.className = `ranking-card ${badges[idx].class}`;
+    card.innerHTML = `
+      <span class="badge-rank">${badges[idx].label}</span>
+      <div class="sol-title">${sol.titre}</div>
+      <div class="sol-desc">${sol.description}</div>
+      <div class="sol-desc"><strong>Bénéfice clé :</strong> ${sol.atout}</div>
+      <div class="sol-calc">
+        • Frais fixes annuels : <strong>${sol.coutAnnuel}</strong><br>
+        • Modalités & Financement : ${sol.financement}
+      </div>
+    `;
+    containerRanking.appendChild(card);
+  });
+
+  document.getElementById('reportMeta').innerHTML = `
+    <strong>Bénéficiaire :</strong> ${nom} — ${structure} | <strong>Réalisé par :</strong> Dhamusoft | <strong>Date :</strong> ${new Date().toLocaleDateString('fr-FR')}
+  `;
+
+  // Message complet avec la Réf. Dossier à la fin
+  const messageClient = `Bonjour,\n\nJe viens de compléter l'étude d'opportunité et le cadrage technique pour le projet web de ma structure : ${structure}.\n\nMes critères d'organisation ont été enregistrés avec succès.\nJe reste à votre disposition pour planifier la restitution de notre feuille de route.\n\nBien cordialement,\n${nom}\n\n---\nRéf. Dossier : ${refCode}`;
+
+  document.getElementById('btnWhatsApp').href = `https://wa.me/${DEST_PHONE}?text=${encodeURIComponent(messageClient)}`;
+
+  // Encodage renforcé pour les E-mails (protège les sauts de ligne)
+  const messageEmail = messageClient.replace(/\n/g, '%0D%0A');
+  const sujet = `Diagnostic Web complété - ${structure} (${nom})`;
+  
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(DEST_EMAIL)}&su=${encodeURIComponent(sujet)}&body=${messageEmail}`;
+  document.getElementById('btnGmail').href = gmailUrl;
+
+  document.getElementById('btnEmailApp').href = `mailto:${DEST_EMAIL}?subject=${encodeURIComponent(sujet)}&body=${messageEmail}`;
+
+  form.style.display = 'none';
+  document.getElementById('confirmation-screen').style.display = 'block';
+}
+
+function handleSecretClick() {
+  secretClicks++;
+  if (secretClicks >= 3) {
+    secretClicks = 0;
+    ouvrirModal();
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && (e.key === 'D' || e.key === 'd')) {
+    e.preventDefault();
+    ouvrirModal();
+  }
+});
+
+function ouvrirModal() {
+  document.getElementById('adminModal').style.display = 'flex';
+  document.getElementById('adminPass').focus();
+}
+
+function fermerModal() {
+  document.getElementById('adminModal').style.display = 'none';
+  document.getElementById('adminPass').value = '';
+}
+
+function verifierPass() {
+  const pass = document.getElementById('adminPass').value;
+  const ref = document.getElementById('adminRef').value.trim();
+
+  if (pass === ADMIN_CODE) {
+    fermerModal();
+
+    // RESTAURATION DES DONNÉES SI UN CODE EST COLLÉ
+    if (ref) {
+      try {
+        const decoded = decodeURIComponent(atob(ref));
+        const parts = decoded.split('::');
+        if (parts.length === 3) {
+          document.getElementById('clientNom').value = parts[0];
+          document.getElementById('clientStructure').value = parts[1];
+          const indicesArray = parts[2].split('');
+          
+          for(let i = 1; i <= 12; i++) {
+             const radios = document.querySelectorAll(`input[name="q${i}"]`);
+             const restoredIndex = parseInt(indicesArray[i-1], 10);
+             if(radios[restoredIndex]) {
+                radios[restoredIndex].checked = true;
+             }
+          }
+          // On relance le calcul silencieusement
+          traiterEtSoumettre();
+        }
+      } catch(e) {
+        alert("Code de restauration invalide.");
+        return;
+      }
+    }
+
+    // AFFICHER LE RAPPORT
+    document.getElementById('quizForm').style.display = 'none';
+    document.getElementById('confirmation-screen').style.display = 'none';
+    const rep = document.getElementById('restitution-report');
+    rep.style.display = 'block';
+    rep.scrollIntoView({ behavior: 'smooth' });
+
+  } else {
+    alert("Code incorrect.");
+  }
+}
+</script>
+
+</body>
+</html>
