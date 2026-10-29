@@ -13,20 +13,24 @@
             --text: #090D16;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding: 20px 10px; }
-        .contract-wrapper { max-width: 840px; margin: 0 auto; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; }
-        .contract-header { background: var(--primary); color: white; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px 10px; }
+        .contract-wrapper { max-width: 860px; margin: 0 auto; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; }
+        .contract-header { background: var(--primary); color: white; padding: 22px 28px; display: flex; justify-content: space-between; align-items: center; }
         .contract-tag { background: #0B382A; color: #A7F3D0; font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
-        .contract-body { padding: 30px; font-size: 12.5px; color: #334155; }
-        .legal-box { background: #F8FAFC; border: 1px solid var(--border); border-radius: 8px; padding: 15px; margin: 15px 0; }
-        .legal-title { font-size: 13.5px; font-weight: 900; color: var(--primary); margin-bottom: 6px; text-transform: uppercase; }
+        .contract-body { padding: 35px; font-size: 13px; color: #334155; }
+        .page-break-box { background: #FFFFFF; border: 1px solid var(--border); border-radius: 8px; padding: 22px; margin-bottom: 24px; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+        .page-badge { display: inline-block; background: #E2E8F0; color: #0F172A; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 4px; margin-bottom: 12px; text-transform: uppercase; }
+        .legal-title { font-size: 15px; font-weight: 900; color: var(--primary); margin-bottom: 12px; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; text-transform: uppercase; }
         .article { margin-bottom: 12px; }
         .article-title { font-weight: 800; color: #05231A; display: block; margin-bottom: 2px; }
-        .signature-zone { background: #F8FAFC; border: 2px dashed #94A3B8; border-radius: 8px; padding: 15px; margin: 20px 0; text-align: center; }
-        #canvas-contrat { background: #FFFFFF; border: 1px solid var(--border); border-radius: 6px; width: 100%; height: 140px; cursor: crosshair; touch-action: none; }
-        .btn-sign { width: 100%; background: #047857; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 15px; font-weight: 900; cursor: pointer; transition: all 0.2s; }
+        .signature-zone { background: #F8FAFC; border: 2px dashed #94A3B8; border-radius: 8px; padding: 18px; margin: 20px 0; text-align: center; }
+        #canvas-contrat { background: #FFFFFF; border: 1px solid var(--border); border-radius: 6px; width: 100%; height: 150px; cursor: crosshair; touch-action: none; }
+        .btn-sign { width: 100%; background: #047857; color: white; border: none; padding: 18px; border-radius: 8px; font-size: 15px; font-weight: 900; cursor: pointer; transition: all 0.2s; }
         .btn-sign:hover { background: #065F46; }
         .sticky-summary { position: sticky; top: 10px; background: #05231A; color: white; padding: 12px 18px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; z-index: 100; margin-bottom: 20px; font-size: 12px; }
+        table.contract-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        table.contract-table th, table.contract-table td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; font-size: 12px; }
+        table.contract-table th { background: #F1F5F9; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -40,86 +44,133 @@
             <h2 style="font-size: 18px; margin-top: 4px; color: #FFFFFF;">Convention d'Ingénierie & Proposition Commerciale</h2>
         </div>
         <div style="text-align: right; font-size: 11px; color: #A7F3D0;">
-            Dhamusoft ERP Suite<br><span id="c-num-devis">Réf: Chargement...</span>
+            Cabinet Dhamusoft<br><span id="c-num-devis">Réf: Chargement...</span>
         </div>
     </div>
 
     <!-- Bandeau flottant récapitulatif -->
     <div class="sticky-summary">
-        <div>Client : <strong id="c-ste-sticky">---</strong> | Devis : <strong id="c-montant-sticky">--- € HT</strong></div>
+        <div>Client : <strong id="c-ste-sticky">---</strong> | Investissement : <strong id="c-montant-sticky">--- € HT</strong></div>
         <div style="color: #A7F3D0; font-weight: bold;">📜 Défilez jusqu'à la page 7 pour signer</div>
     </div>
 
     <div class="contract-body">
         
-        <!-- PAGE 1 : DEVIS FINANCIER & CAHIER DES CHARGES -->
-        <div class="legal-box" style="border-left: 4px solid var(--primary);">
+        <!-- PAGE 1 : CAHIER DES CHARGES & SYNTHÈSE FINANCIÈRE -->
+        <div class="page-break-box">
+            <span class="page-badge">Page 1 / 7 — Cahier des Charges & Devis</span>
             <div class="legal-title">1. Descriptif de la Mission & Synthèse Financière</div>
             <p><strong>Bénéficiaire :</strong> <span id="c-ste">Société Client</span> (SIRET : <span id="c-siret">---</span>) représentée par <span id="c-rep">---</span>.</p>
             <p><strong>Prestataire :</strong> Cabinet Dhamusoft — Ingénierie Logicielle & Systèmes Métiers, Capesterre-Belle-Eau, Guadeloupe.</p>
-            <div style="margin-top: 10px; padding: 10px; background: white; border: 1px solid var(--border); border-radius: 6px;">
+            
+            <table class="contract-table">
+                <thead>
+                    <tr><th>Prestation d'Ingénierie & Déploiement</th><th style="text-align: right; width: 120px;">Montant HT</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Déploiement des solutions métiers, connecteurs automatisés et configuration opérationnelle.</td>
+                        <td style="text-align: right; font-weight: bold;" id="c-montant-table">--- €</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 10px; padding: 12px; background: #F8FAFC; border: 1px solid var(--border); border-radius: 6px;">
                 <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 13px;">
                     <span>Montant Total des Travaux :</span>
                     <span id="c-montant" style="color: #047857;">--- € HT</span>
                 </div>
-                <small style="color: #64748B;">Acompte à la signature : <span id="c-acompte">30</span> % • Solde à livraison des outils.</small>
+                <small style="color: #64748B;">Acompte à la commande : <span id="c-acompte">30</span> % • Solde à livraison définitive et signature du PV de recette.</small>
             </div>
         </div>
 
-        <!-- PAGE 2 & 3 : CONDITIONS GÉNÉRALES DE VENTE (14 ARTICLES) -->
-        <div class="legal-box">
-            <div class="legal-title">2. Conditions Générales de Vente (Extraits Articles 1 à 14)</div>
-            <div class="article"><span class="article-title">Article 3 — Modalités de Paiement & Pénalités :</span> Le paiement s'effectue par virement bancaire. Tout retard entraîne de plein droit l'application de pénalités au taux légal en vigueur ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40,00 € (Art. L441-10 C. Com).</div>
+        <!-- PAGE 2 : CGV (ARTICLES 1 À 7) -->
+        <div class="page-break-box">
+            <span class="page-badge">Page 2 / 7 — Conditions Générales de Vente (Partie 1)</span>
+            <div class="legal-title">2. Conditions Générales de Vente (Articles 1 à 7)</div>
+            <div class="article"><span class="article-title">Article 1 — Objet :</span> Les présentes conditions régissent les prestations d'ingénierie logicielle, d'automatisation de flux et de paramétrage fournies par Dhamusoft.</div>
+            <div class="article"><span class="article-title">Article 2 — Commandes & Délais :</span> La validation de la commande est réputée acquise dès apposition de la signature tactile électronique et versement de l'acompte prévu.</div>
+            <div class="article"><span class="article-title">Article 3 — Modalités de Paiement & Pénalités :</span> Le paiement s'effectue par virement bancaire sous 15 jours nets. Tout retard entraîne de plein droit l'application de pénalités au taux légal en vigueur ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40,00 € (Art. L441-10 du Code de Commerce).</div>
+            <div class="article"><span class="article-title">Article 4 — Collaboration du Client :</span> Le client s'engage à transmettre dans les meilleurs délais l'ensemble des éléments techniques indispensables à l'exécution de la mission.</div>
             <div class="article"><span class="article-title">Article 5 — Réserve de Propriété :</span> Le prestataire conserve la propriété pleine et entière des livrables jusqu'au parfait encaissement de la totalité des sommes dues.</div>
-            <div class="article"><span class="article-title">Article 8 — Recette & Procès-Verbal :</span> La livraison donne lieu à une phase de vérification de 8 jours ouvrés à l'issue de laquelle la signature du PV de recette vaut acceptation définitive.</div>
+            <div class="article"><span class="article-title">Article 6 — Force Majeure :</span> Les obligations des parties sont suspendues en cas de force majeure telle que définie par la jurisprudence française.</div>
+            <div class="article"><span class="article-title">Article 7 — Responsabilité :</span> Dhamusoft s'engage à exécuter ses prestations au titre d'une obligation de moyens renforcée.</div>
         </div>
 
-        <!-- PAGE 4 & 5 : SERVICE LEVEL AGREEMENT (SLA) -->
-        <div class="legal-box">
-            <div class="legal-title">3. Accord de Niveau de Service (SLA - Support & Maintenance)</div>
-            <div class="article"><span class="article-title">Article 2 — Disponibilité des Outils :</span> Le prestataire garantit un taux de disponibilité cible de 99,5% pour les applications déployées en hébergement souverain.</div>
-            <div class="article"><span class="article-title">Article 4 — Délais d'Intervention :</span> En cas d'incident bloquant de niveau 1, prise en charge prioritaire garantie sous un délai maximal de 4 heures ouvrées.</div>
+        <!-- PAGE 3 : CGV (ARTICLES 8 À 14) -->
+        <div class="page-break-box">
+            <span class="page-badge">Page 3 / 7 — Conditions Générales de Vente (Partie 2)</span>
+            <div class="legal-title">3. Conditions Générales de Vente (Articles 8 à 14)</div>
+            <div class="article"><span class="article-title">Article 8 — Recette & Procès-Verbal :</span> La mise à disposition des outils donne lieu à une phase de vérification de 8 jours ouvrés à l'issue de laquelle la signature du PV de recette vaut acceptation définitive.</div>
+            <div class="article"><span class="article-title">Article 9 — Propriété Intellectuelle :</span> Le transfert des droits d'utilisation des développements spécifiques s'opère à date de paiement intégral du solde.</div>
+            <div class="article"><span class="article-title">Article 10 — Scope-Shield & Avenants :</span> Toute demande additionnelle non prévue au cahier des charges initial fera l'objet d'un avenant chiffré préalable.</div>
+            <div class="article"><span class="article-title">Article 11 — Résiliation :</span> En cas de manquement grave non réparé sous 30 jours après mise en demeure, le contrat pourra être résilié de plein droit.</div>
+            <div class="article"><span class="article-title">Article 12 — Non-Sollicitation de Personnel :</span> Les parties renoncent à engager directement ou indirectement tout collaborateur de l'autre partie.</div>
+            <div class="article"><span class="article-title">Article 13 — Tolérance :</span> Le fait de ne pas se prévaloir d'un manquement ne vaut pas renonciation à s'en prévaloir ultérieurement.</div>
+            <div class="article"><span class="article-title">Article 14 — Droit Applicable & Juridiction :</span> Le présent contrat est soumis au droit français. Tout litige relève de la compétence exclusive du Tribunal de Commerce de Pointe-à-Pitre.</div>
         </div>
 
-        <!-- PAGE 6 : ACCORD DE CONFIDENTIALITÉ (NDA) & RGPD -->
-        <div class="legal-box">
-            <div class="legal-title">4. Accord de Confidentialité Stricte (NDA) & Protection des Données</div>
-            <div class="article"><span class="article-title">Article 1 — Confidentialité Totale :</span> Le cabinet Dhamusoft s'engage à observer le secret professionnel le plus absolu sur l'ensemble des données, flux et processus métiers confiés par le client.</div>
-            <div class="article"><span class="article-title">Article 4 — Non-Commercialisation :</span> Aucune donnée personnelle ou professionnelle ne fait l'objet de cession, de vente ou d'exploitation par des tiers.</div>
+        <!-- PAGE 4 : SERVICE LEVEL AGREEMENT (SLA) -->
+        <div class="page-break-box">
+            <span class="page-badge">Page 4 / 7 — Accord de Niveau de Service (SLA)</span>
+            <div class="legal-title">4. SLA — Support, Disponibilité & Maintenance</div>
+            <div class="article"><span class="article-title">Article 1 — Périmètre du Support :</span> Le support couvre la surveillance des passerelles, la correction des dysfonctionnements imputables aux développements et la veille d'exploitation.</div>
+            <div class="article"><span class="article-title">Article 2 — Taux de Disponibilité Garanti :</span> Dhamusoft s'engage sur un taux de disponibilité cible de 99,5 % pour les serveurs et flux applicatifs administrés.</div>
+            <div class="article"><span class="article-title">Article 3 — Classification des Incidents :</span> Niveau 1 (Bloquant : arrêt total du flux d'encaissement ou de commande) ; Niveau 2 (Majeur : dégradation partielle sans arrêt global) ; Niveau 3 (Mineur).</div>
+            <div class="article"><span class="article-title">Article 4 — Délais de Prise en Charge (GTI) :</span> Prise en charge sous 4 heures ouvrées pour les incidents de Niveau 1, sous 8 heures ouvrées pour le Niveau 2.</div>
+            <div class="article"><span class="article-title">Article 5 — Maintenance Préventive :</span> Des créneaux d'optimisation sont planifiés avec notification préalable de 48 heures.</div>
         </div>
 
-        <!-- PAGE 7 : PROTOCOLE DE SIGNATURE SCELLÉE -->
-        <div class="legal-box" style="border: 2px solid #047857; background: #ECFDF5;">
-            <div class="legal-title" style="color: #065F46;">5. Protocole de Scellement & Signature Électronique Unique</div>
-            <p style="font-size: 11.5px; color: #065F46;">
-                Conformément aux dispositions de l'article 1367 du Code Civil et au règlement européen eIDAS, l'apposition de votre signature manuscrite tactile ci-dessous vaut acceptation irrévocable et conjointe de l'intégralité des 7 pages du présent dossier contractuel (Cahier des charges, Devis, CGV, SLA, NDA et PV de recette).
+        <!-- PAGE 5 : ACCORD DE CONFIDENTIALITÉ (NDA) -->
+        <div class="page-break-box">
+            <span class="page-badge">Page 5 / 7 — Accord de Confidentialité Stricte (NDA)</span>
+            <div class="legal-title">5. Accord de Confidentialité Stricte & Non-Divulgation</div>
+            <div class="article"><span class="article-title">Article 1 — Définition des Informations Confidentielles :</span> Sont réputées confidentielles l'ensemble des données financières, fichiers clients, processus métiers, clés API et architectures logicielles confiés.</div>
+            <div class="article"><span class="article-title">Article 2 — Secret Professionnel :</span> Dhamusoft s'engage à observer le secret le plus absolu et à ne divulguer aucune information sans accord écrit préalable.</div>
+            <div class="article"><span class="article-title">Article 3 — Restitution & Décharge :</span> À l'achèvement de la mission, l'ensemble des accès et identifiants temporaires sont révoqués ou restitués au client.</div>
+            <div class="article"><span class="article-title">Article 4 — Durée de l'Engagement :</span> La présente obligation de confidentialité demeure en vigueur pendant une durée de 36 mois suivant l'expiration du contrat.</div>
+        </div>
+
+        <!-- PAGE 6 : CONFORMITÉ RGPD & SÉCURITÉ DES DONNÉES -->
+        <div class="page-break-box">
+            <span class="page-badge">Page 6 / 7 — Protection des Données & RGPD</span>
+            <div class="legal-title">6. Engagement RGPD & Souveraineté des Données</div>
+            <div class="article"><span class="article-title">Article 1 — Qualité de Sous-Traitant :</span> Au sens du Règlement (UE) 2016/679 (RGPD), le prestataire traite les données personnelles exclusivement pour le compte et sur instruction du client.</div>
+            <div class="article"><span class="article-title">Article 2 — Non-Commercialisation :</span> Aucune donnée ne fait l'objet de cession, revente ou profilage tiers.</div>
+            <div class="article"><span class="article-title">Article 3 — Mesures Techniques de Sécurité :</span> Chiffrement des flux en transit (TLS 1.3), cloisonnement des bases locales SQLite et gestion chiffrée des secrets techniques.</div>
+            <div class="article"><span class="article-title">Article 4 — Notification en Cas de Violation :</span> Alerte immédiate du dirigeant sous un délai maximal de 24 heures en cas de violation avérée de données.</div>
+        </div>
+
+        <!-- PAGE 7 : SCELLAGE & SIGNATURE MANUSCRITE TACTILE -->
+        <div class="page-break-box" style="border: 2px solid #047857; background: #ECFDF5;">
+            <span class="page-badge" style="background: #047857; color: white;">Page 7 / 7 — Scellement Juridique & Emargement</span>
+            <div class="legal-title" style="color: #065F46;">7. Protocole de Scellement & Signature Électronique Unique</div>
+            <p style="font-size: 12px; color: #065F46; margin-bottom: 15px;">
+                Conformément aux dispositions de l'article 1367 du Code Civil et au règlement européen eIDAS (Règlement UE n° 910/2014), l'apposition de votre signature manuscrite tactile ci-dessous vaut acceptation irrévocable, pleine et entière de l'intégralité des 7 pages du présent dossier contractuel (Cahier des charges, Devis financier, CGV 14 articles, SLA support, NDA et Décharge RGPD).
             </p>
-        </div>
 
-        <!-- FORMULAIRE DE VALIDATION -->
-        <form id="form-sign-7p" onsubmit="validerSignatureContrat7P(event)">
-            
-            <div style="background: #FFFFFF; border: 1.5px solid var(--border); padding: 12px; border-radius: 8px; margin: 15px 0;">
-                <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #05231A; font-weight: 700; cursor: pointer;">
-                    <input type="checkbox" id="chk-contrat-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
-                    <span>Je confirme être le représentant légal habilité, atteste avoir pris connaissance des 7 pages et valide l'ensemble des conditions contractuelles, du devis et des engagements de service.</span>
-                </label>
-            </div>
-
-            <!-- Pavé de signature manuscrite -->
-            <div class="signature-zone">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <strong style="font-size: 11px; text-transform: uppercase; color: var(--primary);">✍️ Signature Manuscrite du Client (Tracez au doigt ou à la souris) *</strong>
-                    <button type="button" onclick="clearSignatureCanvas()" style="background: none; border: none; color: #B91C1C; font-size: 11px; font-weight: bold; cursor: pointer;">↺ Effacer</button>
+            <form id="form-sign-7p" onsubmit="validerSignatureContrat7P(event)">
+                <div style="background: #FFFFFF; border: 1.5px solid var(--border); padding: 14px; border-radius: 8px; margin: 15px 0;">
+                    <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #05231A; font-weight: 700; cursor: pointer;">
+                        <input type="checkbox" id="chk-contrat-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
+                        <span>Je confirme être le représentant légal habilité, atteste avoir pris connaissance des 7 pages du dossier contractuel et valide formellement la commande, le devis et les conditions de service.</span>
+                    </label>
                 </div>
-                <canvas id="canvas-contrat"></canvas>
-                <small style="color: #64748B; font-size: 10.5px; display: block; margin-top: 4px;">Cette signature scellera l'exemplaire contractuel archivé dans THEMIS ERP.</small>
-            </div>
 
-            <button type="submit" id="btn-submit-7p" class="btn-sign">
-                🔒 SCELLER ET VALIDER DÉFINITIVEMENT LE DOSSIER CONTRACTUEL (7P)
-            </button>
-        </form>
+                <div class="signature-zone">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <strong style="font-size: 11px; text-transform: uppercase; color: var(--primary);">✍️ Tracez votre signature au doigt ou à la souris *</strong>
+                        <button type="button" onclick="clearSignatureCanvas()" style="background: none; border: none; color: #B91C1C; font-size: 11px; font-weight: bold; cursor: pointer;">↺ Effacer</button>
+                    </div>
+                    <canvas id="canvas-contrat"></canvas>
+                    <small style="color: #64748B; font-size: 10.5px; display: block; margin-top: 6px;">Cette empreinte horodatée avec votre IP sera scellée et archivée dans THEMIS ERP.</small>
+                </div>
+
+                <button type="submit" id="btn-submit-7p" class="btn-sign">
+                    🔒 SCELLER ET VALIDER DÉFINITIVEMENT LE DOSSIER CONTRACTUEL (7P)
+                </button>
+            </form>
+        </div>
 
     </div>
 </div>
@@ -129,12 +180,11 @@ let canvas = null, ctx = null, isDrawing = false, hasDrawn = false;
 let contratData = {};
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Lecture des paramètres passés dans le lien
     const p = new URLSearchParams(window.location.search);
     
     contratData = {
         devis: p.get("devis") || p.get("id") || "DEV-OFFICIEL",
-        ste: p.get("ste") || "Votre Entreprise",
+        ste: p.get("ste") || "Société Partenaire",
         siret: p.get("siret") || "Non renseigné",
         rep: p.get("rep") || "Le Dirigeant",
         montant: p.get("montant") || "0.00",
@@ -143,7 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
         tel: p.get("tel") || ""
     };
 
-    // Remplissage immédiat des textes (plus aucun "---")
     document.getElementById("c-num-devis").textContent = "Réf : " + contratData.devis;
     document.getElementById("c-ste-sticky").textContent = contratData.ste;
     document.getElementById("c-montant-sticky").textContent = contratData.montant + " € HT";
@@ -151,9 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("c-siret").textContent = contratData.siret;
     document.getElementById("c-rep").textContent = contratData.rep;
     document.getElementById("c-montant").textContent = contratData.montant + " € HT";
+    document.getElementById("c-montant-table").textContent = contratData.montant + " € HT";
     document.getElementById("c-acompte").textContent = contratData.acompte;
 
-    // Initialisation du Canvas de Signature
     canvas = document.getElementById("canvas-contrat");
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
@@ -198,19 +247,17 @@ async function validerSignatureContrat7P(e) {
     btn.disabled = true;
     btn.textContent = "⏳ Scellement cryptographique du contrat...";
 
-    // 1. 🛡️ CAPTURE BLINDÉE DE L'ADRESSE IP (AVEC DOUBLE SOLUTION DE REPLI)
-    let clientIP = "127.0.0.1";
+    let clientIP = "IP_NON_RESOLUE";
     try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 1500); // 1.5s max d'attente
-        const res = await fetch("https://api.ipify.org?format=json", { signal: controller.signal });
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch("https://api64.ipify.org?format=json", { signal: controller.signal });
         clearTimeout(timeoutId);
         const data = await res.json();
         if (data && data.ip) clientIP = data.ip;
     } catch(err) {
         try {
-            // Repli secondaire instantané
-            const res2 = await fetch("https://api64.ipify.org?format=json");
+            const res2 = await fetch("https://api.ipify.org?format=json");
             const data2 = await res2.json();
             if (data2 && data2.ip) clientIP = data2.ip;
         } catch(e2) {
@@ -218,10 +265,9 @@ async function validerSignatureContrat7P(e) {
         }
     }
 
-    // 2. ✍️ CONVERSION IMMÉDIATE & FORCÉE DU TRACÉ DE SIGNATURE EN PNG BASE64
     const signatureBase64 = canvas.toDataURL("image/png");
+    const now = new Date();
 
-    // 3. 🚀 CRÉATION DU PAYLOAD COMPLET AVEC TOUTES LES VARIABLES
     const payloadScellement = {
         event: "contrat_7p_signe_en_ligne",
         type_evenement: "CONTRAT_7P_SIGNE",
@@ -229,25 +275,18 @@ async function validerSignatureContrat7P(e) {
         client_societe: contratData.ste,
         client_siret: contratData.siret,
         client_nom: contratData.rep,
-        client_email: contratData.email,
         destinataire_email: contratData.email,
         email_client: contratData.email,
         client_telephone: contratData.tel,
-        montant_ht: parseFloat(contratData.montant),
-        acompte_pct: contratData.acompte,
-        Acompte_Pct: contratData.acompte,
-        
-        // 🔒 LES DEUX VARIABLES GARANTIES PRÉSENTES :
+        montant_ht: parseFloat(contratData.montant) || 0.0,
+        acompte_pct: parseInt(contratData.acompte, 10) || 30,
         ip_signataire: clientIP,
-        Signature_PNG: signatureBase64,
         signature_png: signatureBase64,
-        
-        date_signature: new Date().toLocaleDateString('fr-FR'),
-        heure_signature: new Date().toLocaleTimeString('fr-FR')
+        date_signature: now.toLocaleDateString('fr-FR'),
+        heure_signature: now.toLocaleTimeString('fr-FR')
     };
 
-    // Webhook Make.com officiel
-    const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7";
+    const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/w1ajh1yhvuxnxks8wk9qkpwkm40k13rh";
 
     try {
         await fetch(MAKE_WEBHOOK_URL, {
