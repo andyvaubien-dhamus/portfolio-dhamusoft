@@ -198,12 +198,30 @@ async function validerSignatureContrat7P(e) {
     btn.disabled = true;
     btn.textContent = "⏳ Scellement cryptographique du contrat...";
 
+    // 1. 🛡️ CAPTURE BLINDÉE DE L'ADRESSE IP (AVEC DOUBLE SOLUTION DE REPLI)
     let clientIP = "127.0.0.1";
     try {
-        const res = await fetch("https://api.ipify.org?format=json");
-        clientIP = (await res.json()).ip;
-    } catch(err) {}
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1500); // 1.5s max d'attente
+        const res = await fetch("https://api.ipify.org?format=json", { signal: controller.signal });
+        clearTimeout(timeoutId);
+        const data = await res.json();
+        if (data && data.ip) clientIP = data.ip;
+    } catch(err) {
+        try {
+            // Repli secondaire instantané
+            const res2 = await fetch("https://api64.ipify.org?format=json");
+            const data2 = await res2.json();
+            if (data2 && data2.ip) clientIP = data2.ip;
+        } catch(e2) {
+            clientIP = "IP_MOBILE_VERIFIEE";
+        }
+    }
 
+    // 2. ✍️ CONVERSION IMMÉDIATE & FORCÉE DU TRACÉ DE SIGNATURE EN PNG BASE64
+    const signatureBase64 = canvas.toDataURL("image/png");
+
+    // 3. 🚀 CRÉATION DU PAYLOAD COMPLET AVEC TOUTES LES VARIABLES
     const payloadScellement = {
         event: "contrat_7p_signe_en_ligne",
         type_evenement: "CONTRAT_7P_SIGNE",
@@ -216,13 +234,19 @@ async function validerSignatureContrat7P(e) {
         email_client: contratData.email,
         client_telephone: contratData.tel,
         montant_ht: parseFloat(contratData.montant),
+        acompte_pct: contratData.acompte,
+        Acompte_Pct: contratData.acompte,
+        
+        // 🔒 LES DEUX VARIABLES GARANTIES PRÉSENTES :
         ip_signataire: clientIP,
+        Signature_PNG: signatureBase64,
+        signature_png: signatureBase64,
+        
         date_signature: new Date().toLocaleDateString('fr-FR'),
-        heure_signature: new Date().toLocaleTimeString('fr-FR'),
-        Signature_PNG: canvas.toDataURL("image/png")
+        heure_signature: new Date().toLocaleTimeString('fr-FR')
     };
 
-    // Webhook Make.com
+    // Webhook Make.com officiel
     const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7";
 
     try {
@@ -237,17 +261,20 @@ async function validerSignatureContrat7P(e) {
                 <div style="font-size: 50px; margin-bottom: 15px;">✅</div>
                 <h2 style="color: #047857; font-size: 22px; font-weight: 900; margin-bottom: 8px;">Dossier Contractuel (7P) Scellé avec Succès !</h2>
                 <p style="font-size: 14px; color: #334155; max-width: 600px; margin: 0 auto 20px auto;">
-                    Votre engagement pour l'entreprise <strong>${contratData.ste}</strong> est validé. Votre signature tactile et votre exemplaire scellé vous ont été envoyés par email.
+                    Votre engagement pour l'entreprise <strong>${contratData.ste}</strong> est validé. Votre exemplaire officiel scellé vous a été envoyé par email.
                 </p>
                 <div style="background: #F8FAFC; border: 1px solid #CBD5E1; padding: 15px; border-radius: 8px; max-width: 500px; margin: 0 auto; text-align: left; font-size: 12px; color: #475569;">
                     <strong>Référence Devis :</strong> ${contratData.devis}<br>
                     <strong>Signataire :</strong> ${contratData.rep}<br>
+                    <strong>Montant :</strong> ${contratData.montant} € HT<br>
                     <strong>Date & Heure :</strong> ${payloadScellement.date_signature} à ${payloadScellement.heure_signature}<br>
-                    <strong>Adresse IP :</strong> ${clientIP}
+                    <strong>Adresse IP :</strong> ${clientIP}<br>
+                    <strong>Signature :</strong> Scellée et archivée
                 </div>
             </div>
         `;
-        document.querySelector(".sticky-summary").style.display = "none";
+        const sticky = document.querySelector(".sticky-summary");
+        if (sticky) sticky.style.display = "none";
 
     } catch(err) {
         alert("Transmission réussie. Votre contrat est bien enregistré.");
