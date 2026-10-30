@@ -1821,6 +1821,12 @@
                 telephone_client: window.dossierClientThemis.telephone_client,
                 tarif_forfait_ht: window.dossierClientThemis.tarif_forfait_ht || 250.00,
                 ip_signataire: window.dossierClientThemis.ip_signataire,
+				
+				// 👇 LES DEUX LIGNES CRUCIALES À AJOUTER ICI 👇
+                signature_devis_png: window.dossierClientThemis.signature_devis_base64,
+                signature_mandat_png: signatureMandatData,
+                // 👆 -------------------------------------- 👆
+				
                 
                 // 🕒 HORODATAGE COMPLET DU DEVIS (JALON 1) :
                 date_signature_devis: window.dossierClientThemis.date_signature_devis,
