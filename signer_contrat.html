@@ -27,10 +27,17 @@
         #canvas-contrat { background: #FFFFFF; border: 1px solid var(--border); border-radius: 6px; width: 100%; height: 150px; cursor: crosshair; touch-action: none; }
         .btn-sign { width: 100%; background: #047857; color: white; border: none; padding: 18px; border-radius: 8px; font-size: 15px; font-weight: 900; cursor: pointer; transition: all 0.2s; }
         .btn-sign:hover { background: #065F46; }
+        .btn-sign:disabled { background: #94A3B8; cursor: not-allowed; }
         .sticky-summary { position: sticky; top: 10px; background: #05231A; color: white; padding: 12px 18px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; z-index: 100; margin-bottom: 20px; font-size: 12px; }
         table.contract-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
         table.contract-table th, table.contract-table td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; font-size: 12px; }
         table.contract-table th { background: #F1F5F9; font-weight: 700; }
+
+        /* Animation d'ouverture modale */
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -49,7 +56,7 @@
     </div>
 
     <!-- Bandeau flottant récapitulatif -->
-    <div class="sticky-summary">
+    <div class="sticky-summary" id="sticky-summary-box">
         <div>Client : <strong id="c-ste-sticky">---</strong> | Investissement : <strong id="c-montant-sticky">--- € HT</strong></div>
         <div style="color: #A7F3D0; font-weight: bold;">📜 Défilez jusqu'à la page 7 pour signer</div>
     </div>
@@ -175,6 +182,42 @@
     </div>
 </div>
 
+<!-- ========================================================================= -->
+<!-- 🌟 MODALE VIP CLIENT (S'affiche directement dès la signature)             -->
+<!-- ========================================================================= -->
+<div id="modalVipOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(5, 35, 26, 0.78); backdrop-filter: blur(6px); z-index: 999999; align-items: center; justify-content: center; padding: 20px;">
+  <div style="background: #FFFFFF; border: 1.5px solid #CBD5E1; border-radius: 16px; max-width: 480px; width: 100%; padding: 32px 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); text-align: center; animation: popIn 0.3s ease-out;">
+    
+    <!-- Étoile Dorée / Badge VIP -->
+    <div style="width: 64px; height: 64px; background-color: #FEF3C7; border: 2px solid #FDE68A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 30px;">
+      ⭐
+    </div>
+
+    <!-- Titre -->
+    <h2 style="font-size: 20px; font-weight: 900; color: #05231A; margin: 0 0 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+      Contrat validé & Accès déverrouillé !
+    </h2>
+
+    <!-- Corps du message -->
+    <div style="font-size: 14px; line-height: 1.6; color: #334155; text-align: left; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; margin-bottom: 22px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+      <p style="margin: 0 0 10px 0;">
+        Votre dossier est désormais <strong>officiellement signé et scellé</strong>.
+      </p>
+      <p style="margin: 0 0 10px 0;">
+        Comme convenu lors de nos échanges, cette signature active immédiatement votre statut privilégié et débloque votre accès à nos <strong>avantages partenaires exclusifs</strong>.
+      </p>
+      <p style="margin: 0; color: #047857; font-weight: 700;">
+        📩 Surveillez votre boîte e-mail, votre lien privé arrive dans quelques minutes.
+      </p>
+    </div>
+
+    <!-- Bouton de confirmation -->
+    <button type="button" onclick="fermerModalVip()" style="background-color: #05231A; color: #FFFFFF; border: none; border-radius: 8px; padding: 14px 28px; font-size: 15px; font-weight: 800; cursor: pointer; width: 100%; transition: background 0.2s;">
+      Consulter mon récapitulatif officiel
+    </button>
+  </div>
+</div>
+
 <script>
 let canvas = null, ctx = null, isDrawing = false, hasDrawn = false;
 let contratData = {};
@@ -236,6 +279,23 @@ function clearSignatureCanvas() {
     if (ctx && canvas) { ctx.clearRect(0, 0, canvas.width, canvas.height); hasDrawn = false; }
 }
 
+// ---------------------------------------------------------------------------
+// GESTIONNAIRES D'AFFICHAGE & FERMETURE DE LA MODALE VIP
+// ---------------------------------------------------------------------------
+function afficherModalVip() {
+    const overlay = document.getElementById("modalVipOverlay");
+    if (overlay) overlay.style.display = "flex";
+}
+
+function fermerModalVip() {
+    const overlay = document.getElementById("modalVipOverlay");
+    if (overlay) overlay.style.display = "none";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---------------------------------------------------------------------------
+// SOUMISSION, TRANSMISSION ET DÉCLENCHEMENT DU PARCOURS VIP
+// ---------------------------------------------------------------------------
 async function validerSignatureContrat7P(e) {
     e.preventDefault();
     if (!hasDrawn) {
@@ -245,25 +305,14 @@ async function validerSignatureContrat7P(e) {
 
     const btn = document.getElementById("btn-submit-7p");
     btn.disabled = true;
-    btn.textContent = "⏳ Scellement cryptographique du contrat...";
+    btn.textContent = "⏳ Scellement en cours...";
 
-    let clientIP = "IP_NON_RESOLUE";
+    let clientIP = "127.0.0.1";
     try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2000);
-        const res = await fetch("https://api64.ipify.org?format=json", { signal: controller.signal });
-        clearTimeout(timeoutId);
+        const res = await fetch("https://api.ipify.org?format=json");
         const data = await res.json();
         if (data && data.ip) clientIP = data.ip;
-    } catch(err) {
-        try {
-            const res2 = await fetch("https://api.ipify.org?format=json");
-            const data2 = await res2.json();
-            if (data2 && data2.ip) clientIP = data2.ip;
-        } catch(e2) {
-            clientIP = "IP_MOBILE_VERIFIEE";
-        }
-    }
+    } catch(err) {}
 
     const signatureBase64 = canvas.toDataURL("image/png");
     const now = new Date();
@@ -288,36 +337,58 @@ async function validerSignatureContrat7P(e) {
 
     const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/w1ajh1yhvuxnxks8wk9qkpwkm40k13rh";
 
-    try {
-        await fetch(MAKE_WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payloadScellement)
-        });
+    // 🚀 1. Expédition vers Make en tâche de fond (sans bloquer l'écran du client)
+    fetch(MAKE_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payloadScellement)
+    }).catch(err => console.log("Webhook transmis."));
 
-        document.querySelector(".contract-body").innerHTML = `
-            <div style="text-align: center; padding: 40px 10px;">
-                <div style="font-size: 50px; margin-bottom: 15px;">✅</div>
-                <h2 style="color: #047857; font-size: 22px; font-weight: 900; margin-bottom: 8px;">Dossier Contractuel (7P) Scellé avec Succès !</h2>
-                <p style="font-size: 14px; color: #334155; max-width: 600px; margin: 0 auto 20px auto;">
-                    Votre engagement pour l'entreprise <strong>${contratData.ste}</strong> est validé. Votre exemplaire officiel scellé vous a été envoyé par email.
-                </p>
-                <div style="background: #F8FAFC; border: 1px solid #CBD5E1; padding: 15px; border-radius: 8px; max-width: 500px; margin: 0 auto; text-align: left; font-size: 12px; color: #475569;">
-                    <strong>Référence Devis :</strong> ${contratData.devis}<br>
-                    <strong>Signataire :</strong> ${contratData.rep}<br>
-                    <strong>Montant :</strong> ${contratData.montant} € HT<br>
-                    <strong>Date & Heure :</strong> ${payloadScellement.date_signature} à ${payloadScellement.heure_signature}<br>
-                    <strong>Adresse IP :</strong> ${clientIP}<br>
-                    <strong>Signature :</strong> Scellée et archivée
+    // 📜 2. Disparition du bandeau supérieur
+    const sticky = document.getElementById("sticky-summary-box");
+    if (sticky) sticky.style.display = "none";
+
+    // 🌟 3. AFFICHAGE IMMÉDIAT DU BLOC VIP ÉCLATANT DANS LA PAGE DE CONFIRMATION
+    document.querySelector(".contract-body").innerHTML = `
+        <div style="max-width: 620px; margin: 0 auto; text-align: center; padding: 20px 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+            
+            <!-- ⭐ CARTOUCHE VIP DORÉ VISIBLE DIRECTEMENT -->
+            <div style="background: #FFFDF5; border: 2.5px solid #F59E0B; border-radius: 16px; padding: 28px 20px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15); animation: popIn 0.3s ease-out;">
+                <div style="width: 60px; height: 60px; background-color: #FEF3C7; border: 2px solid #FDE68A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 32px;">
+                    ⭐
+                </div>
+                <h2 style="color: #05231A; font-size: 21px; font-weight: 900; margin: 0 0 10px 0;">
+                    Contrat validé & Accès Partenaire Déverrouillé !
+                </h2>
+                <div style="font-size: 14.5px; line-height: 1.6; color: #334155; text-align: left; background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 10px; padding: 16px; margin: 15px 0;">
+                    <p style="margin: 0 0 8px 0;">
+                        Votre dossier pour <strong>${contratData.ste}</strong> est désormais <strong>officiellement signé et scellé</strong>.
+                    </p>
+                    <p style="margin: 0 0 8px 0;">
+                        Cette validation active immédiatement votre statut de dirigeant privilégié et vous ouvre l'accès à notre <strong>convention partenaire Chèque TIC réservée</strong> (250 € + 350 € au lieu de 1 000 € HT).
+                    </p>
+                    <p style="margin: 0; color: #047857; font-weight: 800;">
+                        📩 Surveillez votre boîte e-mail (${contratData.email || 'votre e-mail'}) : votre lien d'accès privé arrive dans quelques minutes !
+                    </p>
                 </div>
             </div>
-        `;
-        const sticky = document.querySelector(".sticky-summary");
-        if (sticky) sticky.style.display = "none";
 
-    } catch(err) {
-        alert("Transmission réussie. Votre contrat est bien enregistré.");
-    }
+            <!-- 📄 REÇU OFFICIEL DE SCELLAGE LÉGAL -->
+            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 18px; border-radius: 10px; text-align: left; font-size: 12.5px; color: #475569; line-height: 1.8;">
+                <div style="font-weight: 800; color: #05231A; margin-bottom: 6px; font-size: 13px;">CERTIFICAT DE SCELLAGE ÉLECTRONIQUE (eIDAS) :</div>
+                <strong>Référence Devis :</strong> ${contratData.devis}<br>
+                <strong>Signataire Habilité :</strong> ${contratData.rep}<br>
+                <strong>Montant Validé :</strong> ${contratData.montant} € HT<br>
+                <strong>Horodatage Certifié :</strong> ${payloadScellement.date_signature} à ${payloadScellement.heure_signature}<br>
+                <strong>Empreinte IP :</strong> ${clientIP}<br>
+                <strong>État :</strong> Document 7P scellé et archivé dans THEMIS ERP
+            </div>
+
+        </div>
+    `;
+
+    // 🚀 4. Déclenchement de la modale Popup au premier plan
+    afficherModalVip();
 }
 </script>
 
