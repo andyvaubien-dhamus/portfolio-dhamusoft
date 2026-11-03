@@ -17,25 +17,40 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px 10px; }
         .contract-wrapper { max-width: 860px; margin: 0 auto; background: #FFFFFF; border-radius: 12px; border: 1.5px solid var(--border); box-shadow: 0 10px 30px rgba(5,35,26,0.08); overflow: hidden; }
-        .contract-header { background: var(--primary); color: white; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--accent); }
+        .contract-header { background: var(--primary); color: white; padding: 22px 28px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--accent); }
         .contract-tag { background: #0B382A; color: #A7F3D0; font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .contract-body { padding: 35px 30px; font-size: 12.5px; color: #334155; }
-        .page-break-box { background: #FFFFFF; border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 26px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-        .page-badge { display: inline-block; background: #E2E8F0; color: #0F172A; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; text-transform: uppercase; }
-        .legal-title { font-size: 15px; font-weight: 900; color: var(--primary); margin-bottom: 14px; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px; text-transform: uppercase; }
-        .article { margin-bottom: 14px; text-align: justify; }
-        .article-title { font-weight: 800; color: #05231A; display: block; margin-bottom: 3px; font-size: 13px; }
-        .signature-zone { background: #F8FAFC; border: 2px dashed #047857; border-radius: 10px; padding: 20px; margin: 20px 0; text-align: center; }
-        #canvas-contrat { background: #FFFFFF; border: 1.5px solid var(--border); border-radius: 6px; width: 100%; height: 160px; cursor: crosshair; touch-action: none; display: block; }
+        .contract-body { padding: 35px 28px; font-size: 12px; color: #334155; }
+        .page-break-box { background: #FFFFFF; border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+        .page-badge { display: inline-block; background: #E2E8F0; color: #0F172A; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; text-transform: uppercase; }
+        .legal-title { font-size: 14.5px; font-weight: 900; color: var(--primary); margin-bottom: 12px; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; text-transform: uppercase; }
+        .article { margin-bottom: 12px; text-align: justify; }
+        .article-title { font-weight: 800; color: #05231A; display: block; margin-bottom: 3px; font-size: 12.5px; }
+        
+        /* ZONE DE SIGNATURE OPTIMISÉE SOURIS & TOUCH */
+        .signature-zone { background: #F8FAFC; border: 2px dashed #047857; border-radius: 10px; padding: 16px; margin: 20px 0; text-align: center; }
+        #canvas-contrat { 
+            background: #FFFFFF; 
+            border: 1.5px solid var(--border); 
+            border-radius: 6px; 
+            width: 100%; 
+            height: 160px; 
+            cursor: crosshair; 
+            touch-action: none; 
+            display: block; 
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
         .btn-sign { width: 100%; background: #047857; color: white; border: none; padding: 18px; border-radius: 8px; font-size: 15px; font-weight: 900; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(4,120,87,0.25); }
         .btn-sign:hover { background: #065F46; }
         .btn-sign:disabled { background: #94A3B8; cursor: not-allowed; }
         .sticky-summary { position: sticky; top: 10px; background: #05231A; color: white; padding: 12px 18px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; z-index: 100; margin-bottom: 20px; font-size: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
-        table.contract-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
-        table.contract-table th, table.contract-table td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; font-size: 12px; }
+        
+        table.contract-table { width: 100%; border-collapse: collapse; margin: 10px 0 14px 0; }
+        table.contract-table th, table.contract-table td { border: 1px solid var(--border); padding: 7px 10px; text-align: left; font-size: 11px; }
         table.contract-table th { background: #F1F5F9; font-weight: 800; color: var(--primary); }
         
-        .legal-warning { background: #FFFDF5; border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 4px; margin-bottom: 15px; font-size: 12px; color: #78350F; line-height: 1.5; }
+        .legal-warning { background: #FFFDF5; border-left: 4px solid var(--gold); padding: 10px 14px; border-radius: 4px; margin-bottom: 14px; font-size: 11.5px; color: #78350F; line-height: 1.5; }
 
         @keyframes popIn {
             from { opacity: 0; transform: scale(0.92); }
@@ -51,7 +66,7 @@
     <div class="contract-header">
         <div>
             <span class="contract-tag">DOSSIER CONTRACTUEL EXHAUSTIF • 7 PAGES SCELLÉES SOUS eIDAS</span>
-            <h2 style="font-size: 19px; margin-top: 4px; color: #FFFFFF; font-weight: 900;">Convention d'Ingénierie & Proposition Commerciale</h2>
+            <h2 style="font-size: 18px; margin-top: 4px; color: #FFFFFF; font-weight: 900;">Convention d'Ingénierie & Proposition Commerciale</h2>
         </div>
         <div style="text-align: right; font-size: 11px; color: #A7F3D0;">
             Cabinet Dhamusoft<br><span id="c-num-devis" style="font-weight: 800; color: #FFFFFF;">Réf: Chargement...</span>
@@ -66,62 +81,75 @@
 
     <div class="contract-body">
         
-        <!-- PAGE 1 : DEVIS & PHASAGE TECHNIQUE -->
+        <!-- =============================================================== -->
+        <!-- PAGE 1 : PRESTATIONS RÉELLES THEMIS + CARTOUCHE 4X + PHASAGE   -->
+        <!-- =============================================================== -->
         <div class="page-break-box">
             <span class="page-badge">Page 1 / 7 — Proposition Commerciale & Devis Ferme</span>
-            <div class="legal-title">1. Cahier des Charges & Phasage Opérationnel</div>
+            <div class="legal-title">1. Prestations Commandées & Modalités Financières</div>
             
             <p style="margin-bottom: 8px;">
                 <strong>Entre les soussignés :</strong><br>
                 • <strong>Le Prestataire :</strong> Cabinet Dhamusoft — Ingénierie des Systèmes d'Information, Capesterre-Belle-Eau (Guadeloupe), représenté par Andy VAUBIEN.<br>
-                • <strong>Le Client :</strong> <span id="c-ste" style="font-weight: 800; color: #05231A;">Société Client</span> (SIRET : <span id="c-siret">---</span>), représentée par <span id="c-rep" style="font-weight: 800;">---</span> en qualité de représentant légal habilité.
+                • <strong>Le Client :</strong> <span id="c-ste" style="font-weight: 800; color: #05231A;">Société Client</span> (SIRET : <span id="c-siret">---</span>), représentée par <span id="c-rep" style="font-weight: 800;">---</span> en sa qualité de représentant légal dûment habilité.
             </p>
 
+            <!-- TABLEAU 1 : LES VRAIES LIGNES DU DEVIS THEMIS (COMME AVANT) -->
+            <div style="font-weight: 800; color: #05231A; font-size: 11.5px; margin-top: 10px;">Détail des Prestations d'Ingénierie Commandées :</div>
             <table class="contract-table">
                 <thead>
-                    <tr><th>Phases d'Ingénierie & Livrables Opérationnels</th><th style="text-align: center; width: 60px;">Statut</th><th style="text-align: right; width: 110px;">Total HT</th></tr>
+                    <tr><th>Désignation de la Prestation</th><th style="width: 50px; text-align: center;">Qté</th><th style="width: 110px; text-align: right;">Total HT</th></tr>
+                </thead>
+                <tbody id="table-lignes-themis-body">
+                    <!-- Rempli dynamiquement par JS avec les vraies lignes du devis Themis -->
+                </tbody>
+            </table>
+
+            <!-- SYNTHÈSE TOTAUX & CARTOUCHE STRIPE 4X -->
+            <div style="padding: 10px 14px; background: #F8FAFC; border: 1.5px solid var(--border); border-radius: 6px;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 900; margin-bottom: 4px;">
+                    <span>INVESTISSEMENT GLOBAL TRAVAUX (HT) :</span>
+                    <span id="c-montant" style="color: #047857; font-size: 15px;">--- € HT</span>
+                </div>
+                
+                <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 5px; padding: 7px 10px; margin-top: 6px; font-size: 10.5px; color: #065F46; line-height: 1.45;">
+                    <strong>💳 FACILITÉ DE TRÉSORERIE ACCORDÉE PAR LE PRESTATAIRE :</strong><br>
+                    Règlement échelonné sans frais <strong>jusqu'à 4 mensualités de <span id="c-mensualite-stripe">---</span> € HT</strong> via lien sécurisé par carte bancaire Stripe.<br>
+                    <em>Conformément à l'Article 3 bis des CGV, la <strong>Facture Globale avec mention libératoire 'Acquittée'</strong> pour le déblocage des aides (Région / FEDER) sera remise à encaissement de la 4ème mensualité.</em>
+                </div>
+            </div>
+
+            <!-- TABLEAU 2 : CALENDRIER DE PHASAGE TECHNIQUE FEDER -->
+            <div style="font-weight: 800; color: #05231A; font-size: 11.5px; margin-top: 14px;">Calendrier & Phasage Opérationnel de Réalisation :</div>
+            <table class="contract-table">
+                <thead>
+                    <tr><th>Phases d'Ingénierie & Livrables Conformes Subvention</th><th style="width: 60px; text-align: center;">Statut</th><th style="width: 90px; text-align: right;">Échéance</th></tr>
                 </thead>
                 <tbody id="table-phases-body">
                     <tr>
                         <td>
-                            <strong>Phase 1 — Cadrage, Architecture & Note d'Impact</strong><br>
-                            <span style="color: #64748B; font-size: 10.5px;">Spécifications techniques, modélisation des flux et dossier d'éligibilité aux aides régionales.</span>
+                            <strong>Phase 1 — Cadrage, Architecture & Note d'Impact :</strong> Spécifications techniques et dossier d'éligibilité aux subventions.
                         </td>
                         <td style="text-align: center; color: #047857; font-weight: bold;">Inclus</td>
-                        <td style="text-align: right; font-weight: bold;">Inclus</td>
+                        <td style="text-align: right;">Jalon 1</td>
                     </tr>
                     <tr>
                         <td>
-                            <strong>Phase 2 — Développement Logiciel, Passerelles & Sécurisation</strong><br>
-                            <span style="color: #64748B; font-size: 10.5px;">Déploiement des solutions métiers, connecteurs Stripe/Make, formulaires et protocoles sécurisés.</span>
+                            <strong>Phase 2 — Développement Logiciel, Passerelles & Sécurisation :</strong> Intégration des APIs, flux Stripe/Make et sécurisation TLS.
                         </td>
                         <td style="text-align: center; color: #047857; font-weight: bold;">Inclus</td>
-                        <td style="text-align: right; font-weight: bold;">Inclus</td>
+                        <td style="text-align: right;">Jalon 2</td>
                     </tr>
                     <tr>
                         <td>
-                            <strong>Phase 3 — Recettage Opérationnel, Déploiement & Clôture</strong><br>
-                            <span style="color: #64748B; font-size: 10.5px;">Période de vérification contradictoire (8 jours), kit d'exploitation et procès-verbal de recette.</span>
+                            <strong>Phase 3 — Recettage Opérationnel, Déploiement & Clôture :</strong> Période de vérification contradictoire (8j) et remise du PV de recette.
                         </td>
                         <td style="text-align: center; color: #047857; font-weight: bold;">Inclus</td>
-                        <td style="text-align: right; font-weight: bold;">Inclus</td>
+                        <td style="text-align: right;">Livraison</td>
                     </tr>
-                    <!-- Ligne Option Future injectée dynamiquement par JS si présente -->
+                    <!-- Option éventuelle injectée par JS si renseignée -->
                 </tbody>
             </table>
-
-            <div style="margin-top: 14px; padding: 12px 16px; background: #F8FAFC; border: 1.5px solid var(--border); border-radius: 8px;">
-                <div style="display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 900; margin-bottom: 6px;">
-                    <span>MONTANT GLOBAL DE LA PRESTATION :</span>
-                    <span id="c-montant" style="color: #047857; font-size: 15px;">--- € HT</span>
-                </div>
-                
-                <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 6px; padding: 8px 12px; margin-top: 6px; font-size: 11px; color: #065F46; line-height: 1.5;">
-                    <strong>💳 FACILITÉ DE TRÉSORERIE ACCORDÉE PAR LE PRESTATAIRE :</strong><br>
-                    Règlement échelonné sans frais <strong>jusqu'à 4 mensualités de <span id="c-mensualite-stripe">---</span> € HT</strong> via lien de paiement sécurisé Stripe.<br>
-                    <em>Conformément à l'Article 3 bis des CGV, la <strong>Facture Globale portant mention libératoire 'Acquittée'</strong> pour le déblocage des aides (Région / FEDER) sera délivrée à parfait encaissement de la 4ème mensualité.</em>
-                </div>
-            </div>
         </div>
 
         <!-- PAGE 2 : CGV DÉVELOPPÉES (ARTICLES 1 À 7 + ARTICLE 3 BIS) -->
@@ -136,7 +164,7 @@
 
             <div class="article">
                 <span class="article-title">Article 2 — Commandes & Formation du Contrat :</span>
-                Le contrat est réputé conclu dès l'apposition par le Client de sa signature manuscrite tactile sur le présent dossier et le règlement du premier versement.
+                Le contrat est réputé conclu dès l'apposition par le Client de sa signature manuscrite tactile sur le présent dossier et le versement du premier règlement.
             </div>
 
             <div class="article">
@@ -144,142 +172,82 @@
                 Paiement sous 15 jours nets. Conformément à l'article L441-10 du Code de commerce, tout retard de paiement entraîne de plein droit l'exigibilité d'intérêts au taux légal majoré de 10 points et de l'indemnité forfaitaire de 40,00 €.
             </div>
 
-            <!-- ARTICLE 3 BIS : PHASAGE TECHNIQUE & RÈGLEMENT ÉCHELONNÉ STRIPE -->
+            <!-- ARTICLE 3 BIS STRIPE 4X -->
             <div class="article" style="background: #F8FAFC; border: 1px solid #CBD5E1; padding: 10px; border-radius: 6px;">
                 <span class="article-title">Article 3 bis — Modalités d'Exécution Technique & de Règlement Financier Échelonné :</span>
-                <p style="margin: 2px 0 4px 0;">
-                    • <strong>3 bis.1 Phasage Opérationnel & Conformité des Livrables :</strong> L'exécution de la mission est strictement structurée en trois (3) phases d'avancement technique (1. Cadrage/Architecture, 2. Développement/Sécurisation, 3. Recettage/Clôture) garantissant la réalité des livrables auprès des organismes financeurs (Région Guadeloupe / ASP / FEDER).
-                </p>
-                <p style="margin: 2px 0 4px 0;">
-                    • <strong>3 bis.2 Facilité de Trésorerie & Échelonnement Stripe :</strong> Indépendamment du calendrier d'exécution technique défini au paragraphe 3 bis.1, et dans le but de préserver la trésorerie du Client, Dhamusoft accorde une facilité de paiement. Le montant global de la prestation peut être réglé de manière échelonnée jusqu'à quatre (4) mensualités sans frais, via un échéancier sécurisé opéré par Stripe.
-                </p>
-                <p style="margin: 2px 0 0 0;">
-                    • <strong>3 bis.3 Délivrance de la Facture Finale Acquittée :</strong> La facture globale définitive portant la mention légale "Acquittée", pièce justificative impérative pour le déblocage des fonds d'aides régionales et européennes (ASP), sera remise au Client dès complet encaissement du dernier versement soldant l'intégralité du plan de paiement Stripe.
-                </p>
+                • <strong>3 bis.1 Phasage Opérationnel & Conformité des Livrables :</strong> L'exécution de la mission est strictement structurée en trois (3) phases d'avancement technique (1. Cadrage/Architecture, 2. Développement/Sécurisation, 3. Recettage/Clôture) garantissant la réalité des livrables auprès des organismes financeurs (Région Guadeloupe / ASP / FEDER).<br>
+                • <strong>3 bis.2 Facilité de Trésorerie & Échelonnement Stripe :</strong> Indépendamment du calendrier technique, Dhamusoft accorde une facilité de paiement échelonnée jusqu'à quatre (4) mensualités sans frais par lien sécurisé Stripe.<br>
+                • <strong>3 bis.3 Délivrance de la Facture Finale Acquittée :</strong> La facture globale définitive portant la mention légale "Acquittée", pièce justificative impérative pour le déblocage des aides (ASP), sera remise au Client dès complet encaissement du 4ème versement soldant l'échéancier.
             </div>
 
-            <div class="article">
-                <span class="article-title">Article 4 — Collaboration & Fourniture des Données :</span>
-                Le Client s'engage à transmettre dans les meilleurs délais l'ensemble des accès techniques, spécifications et clés d'API nécessaires au déploiement.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 5 — Réserve de Propriété :</span>
-                Le Prestataire conserve la propriété pleine et exclusive des développements jusqu'au complet encaissement du prix convenu.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 6 — Force Majeure :</span>
-                Les obligations des parties sont suspendues en cas de force majeure telle que définie par l'article 1218 du Code civil.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 7 — Responsabilité & Obligation de Moyens Renforcée :</span>
-                Dhamusoft exécute ses prestations dans le cadre d'une obligation de moyens renforcée. La responsabilité du Prestataire est plafonnée au montant effectif hors taxes encaissé au titre de la commande.
-            </div>
+            <div class="article"><span class="article-title">Article 4 — Collaboration :</span> Le Client s'engage à transmettre dans les meilleurs délais l'ensemble des accès techniques indispensables.</div>
+            <div class="article"><span class="article-title">Article 5 — Réserve de Propriété :</span> Le Prestataire conserve la propriété pleine et exclusive des développements jusqu'au complet encaissement.</div>
+            <div class="article"><span class="article-title">Article 6 — Force Majeure :</span> Les obligations des parties sont suspendues en cas de force majeure au sens de l'art. 1218 du Code civil.</div>
+            <div class="article"><span class="article-title">Article 7 — Responsabilité :</span> Dhamusoft exécute ses prestations au titre d'une obligation de moyens renforcée. Responsabilité plafonnée aux honoraires perçus.</div>
         </div>
 
         <!-- PAGE 3 : CGV (ARTICLES 8 À 14) -->
         <div class="page-break-box">
             <span class="page-badge">Page 3 / 7 — Conditions Générales de Vente (Articles 8 à 14)</span>
             <div class="legal-title">3. Conditions Générales de Vente (Suite & Fin)</div>
-
-            <div class="article">
-                <span class="article-title">Article 8 — Recette & Procès-Verbal de Livraison :</span>
-                La mise à disposition ouvre une phase de vérification de 8 jours ouvrés. À défaut d'anomalie bloquante notifiée durant ce délai, la recette est réputée acquise et rend exigible le solde.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 9 — Propriété Intellectuelle :</span>
-                Sous condition suspensive du complet paiement, Dhamusoft concède un droit d'utilisation personnel, non exclusif et pérenne sur les configurations développées.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 10 — Scope-Shield & Avenants Contractuels :</span>
-                Tout ajout fonctionnel non prévu au cahier des charges initial fera l'objet d'un Avenant Scope-Shield préalable chiffré.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 11 — Clause Résolutoire :</span>
-                En cas de manquement grave non réparé sous 30 jours après mise en demeure, le contrat sera résilié de plein droit.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 12 — Non-Sollicitation de Personnel :</span>
-                Le Client s'interdit d'embaucher tout collaborateur du Prestataire pendant 24 mois suivant la fin du contrat.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 13 — Tolérance & Divisibilité :</span>
-                Le défaut de se prévaloir d'un manquement ne vaut pas renonciation à s'en prévaloir ultérieurement.
-            </div>
-
-            <div class="article">
-                <span class="article-title">Article 14 — Droit Applicable & Compétence Juridictionnelle :</span>
-                La présente convention est soumise au droit français. LITIGES SOUMIS À LA COMPÉTENCE EXCLUSIVE DU TRIBUNAL DE COMMERCE DE POINTE-À-PITRE (GUADELOUPE).
-            </div>
+            <div class="article"><span class="article-title">Article 8 — Recette :</span> Phase de vérification de 8 jours ouvrés. À défaut d'anomalie notifiée, la recette est réputée acquise.</div>
+            <div class="article"><span class="article-title">Article 9 — Propriété Intellectuelle :</span> Cession des droits d'utilisation spécifique subordonnée au paiement intégral du prix.</div>
+            <div class="article"><span class="article-title">Article 10 — Scope-Shield :</span> Tout ajout hors périmètre fera l'objet d'un avenant chiffré préalable interdisant le travail gratuit.</div>
+            <div class="article"><span class="article-title">Article 11 — Clause Résolutoire :</span> Résiliation de plein droit sous 30 jours après mise en demeure infructueuse.</div>
+            <div class="article"><span class="article-title">Article 12 — Non-Sollicitation :</span> Interdiction d'embaucher tout collaborateur du Prestataire pendant 24 mois.</div>
+            <div class="article"><span class="article-title">Article 13 — Tolérance :</span> L'absence d'exigence d'une clause ne vaut pas renonciation à s'en prévaloir.</div>
+            <div class="article"><span class="article-title">Article 14 — Droit Applicable & Compétence :</span> Droit français. TRIBUNAL DE COMMERCE DE POINTE-À-PITRE EXCLUSIVEMENT COMPÉTENT.</div>
         </div>
 
-        <!-- PAGE 4 : ACCORD DE NIVEAU DE SERVICE (SLA) -->
+        <!-- PAGE 4 : SLA -->
         <div class="page-break-box">
             <span class="page-badge">Page 4 / 7 — Accord de Niveau de Service (SLA)</span>
             <div class="legal-title">4. SLA — Disponibilité, Support Technique & Maintien Opérationnel</div>
-
-            <div class="article"><span class="article-title">Article 1 — Périmètre :</span> Maintien en condition opérationnelle des flux logiciels et des passerelles d'automatisation.</div>
-            <div class="article"><span class="article-title">Article 2 — Disponibilité :</span> Taux de disponibilité cible contractuel de 99,5 % par mois civil.</div>
-            <div class="article"><span class="article-title">Article 3 — Niveaux :</span> Bloquant (Niveau 1 : interruption totale) ; Majeur (Niveau 2 : dégradation partielle) ; Mineur (Niveau 3).</div>
-            <div class="article"><span class="article-title">Article 4 — Délais d'Intervention :</span> GTI maximale de 4 heures ouvrées pour incident de Niveau 1, et 8 heures pour Niveau 2.</div>
-            <div class="article"><span class="article-title">Article 5 — Maintenance :</span> Fenêtres d'optimisation programmées avec préavis de 48 heures.</div>
+            <p><strong>Disponibilité cible :</strong> 99,5 % mensuel. <strong>GTI :</strong> 4h ouvrées pour incident Bloquant (N1), 8h pour Majeur (N2). Maintenance préventive avec préavis de 48h.</p>
         </div>
 
-        <!-- PAGE 5 : ACCORD DE CONFIDENTIALITÉ (NDA) -->
+        <!-- PAGE 5 : NDA -->
         <div class="page-break-box">
             <span class="page-badge">Page 5 / 7 — Accord de Confidentialité Stricte (NDA)</span>
             <div class="legal-title">5. Accord de Confidentialité Stricte (Loi Secret des Affaires L151-1)</div>
-
-            <div class="article"><span class="article-title">Article 1 — Définition :</span> Données financières, fichiers clients, architectures d'APIs et modèles métiers confiés.</div>
-            <div class="article"><span class="article-title">Article 2 — Secret Professionnel :</span> Secret le plus absolu sans divulgation tierce sans accord écrit.</div>
-            <div class="article"><span class="article-title">Article 3 — Restitution :</span> Restitution et révocation de l'ensemble des clés et accès à l'achèvement de la mission.</div>
-            <div class="article"><span class="article-title">Article 4 — Durée :</span> Obligation valide pendant l'exécution et 36 mois consécutifs à son terme.</div>
+            <p>Secret professionnel absolu sur l'ensemble des données, flux et modèles échangés. Restitution et révocation des clés en fin de mission. Engagement sur 36 mois.</p>
         </div>
 
-        <!-- PAGE 6 : CONFORMITÉ RGPD -->
+        <!-- PAGE 6 : RGPD -->
         <div class="page-break-box">
             <span class="page-badge">Page 6 / 7 — Protection des Données Personnelles (RGPD)</span>
             <div class="legal-title">6. Engagement de Souveraineté & Conformité RGPD (Art. 28)</div>
-
-            <div class="article"><span class="article-title">Article 1 — Qualité :</span> Client Responsable de Traitement ; Dhamusoft Sous-Traitant technique opérant sur instruction documentée.</div>
-            <div class="article"><span class="article-title">Article 2 — Sécurité :</span> Chiffrement TLS 1.3, isolation des bases locales SQLite et non-commercialisation absolue des données.</div>
-            <div class="article"><span class="article-title">Article 3 — Alerte :</span> Notification sous 24 heures maximales en cas de violation avérée de données.</div>
+            <p>Dhamusoft Sous-Traitant technique opérant exclusivement sur instruction du Client Responsable de Traitement. Chiffrement TLS 1.3, isolation des bases SQLite, alerte sous 24h en cas de faille.</p>
         </div>
 
-        <!-- PAGE 7 : SCELLAGE JURIDIQUE & SIGNATURE eIDAS -->
+        <!-- PAGE 7 : SCELLAGE & SIGNATURE eIDAS -->
         <div class="page-break-box" style="border: 2.5px solid #047857; background: #ECFDF5;">
             <span class="page-badge" style="background: #047857; color: white;">Page 7 / 7 — Scellement Juridique & Emargement</span>
             <div class="legal-title" style="color: #065F46;">7. Protocole de Scellement Numérique & Signature eIDAS</div>
             
             <div class="legal-warning">
-                <strong>AVERTISSEMENT JURIDIQUE FORMEL (ARTICLE 1367 DU CODE CIVIL) :</strong><br>
-                L'apposition de votre signature manuscrite tactile ci-dessous confère à ce document la valeur juridique probante d'un écrit original authentifié. Cet acte emporte acceptation sans réserve, indivisible et pleine de <strong>l'intégralité des 7 pages du présent dossier contractuel</strong> (Cahier des charges & Devis Page 1, CGV 14 articles Pages 2-3, SLA Page 4, NDA Page 5, Accord RGPD Page 6).
+                <strong>AVERTISSEMENT JURIDIQUE (ARTICLE 1367 DU CODE CIVIL) :</strong><br>
+                L'apposition de votre signature manuscrite tactile ci-dessous confère à ce document la valeur juridique probante d'un écrit original authentifié. Cet acte emporte acceptation sans réserve de <strong>l'intégralité des 7 pages du présent dossier contractuel</strong>.
             </div>
 
             <form id="form-sign-7p" onsubmit="validerSignatureContrat7P(event)">
-                <!-- CASE DE CONSENTEMENT STRICTEMENT NON PRÉ-COCHÉE -->
+                <!-- CASE NON PRÉ-COCHÉE (CONSENTEMENT ACTIF OBLIGATOIRE) -->
                 <div style="background: #FFFFFF; border: 1.5px solid var(--border); padding: 14px; border-radius: 8px; margin: 15px 0;">
                     <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #05231A; font-weight: 800; cursor: pointer;">
                         <input type="checkbox" id="chk-contrat-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
-                        <span>Je certifie sur l'honneur être le représentant légal habilité de l'entreprise, atteste avoir pris connaissance de l'intégralité des 7 pages de cette convention et valide formellement le bon de commande ferme, le devis et l'ensemble des clauses de service.</span>
+                        <span>Je certifie être le représentant légal habilité, atteste avoir pris connaissance des 7 pages de cette convention et valide formellement le devis et l'ensemble des clauses de service.</span>
                     </label>
                 </div>
 
+                <!-- ZONE CANVAS SOUPLE POINTER EVENTS (SOURIS, DOIGT, STYLET) -->
                 <div class="signature-zone">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <strong style="font-size: 11px; text-transform: uppercase; color: var(--primary);">✍️ Tracez votre signature manuscrite tactile (Doigt ou Souris) *</strong>
+                        <strong style="font-size: 11px; text-transform: uppercase; color: var(--primary);">✍️ Tracez votre signature manuscrite tactile (Souris ou Doigt) *</strong>
                         <button type="button" onclick="clearSignatureCanvas()" style="background: none; border: none; color: #B91C1C; font-size: 11px; font-weight: bold; cursor: pointer;">↺ Effacer</button>
                     </div>
                     <canvas id="canvas-contrat"></canvas>
-                    <small style="color: #64748B; font-size: 10.5px; display: block; margin-top: 6px;">
-                        Cette signature sera certifiée avec votre adresse IP et un horodatage cryptographique archivé dans THEMIS ERP.
+                    <small id="sig-indicator" style="color: #64748B; font-size: 10.5px; display: block; margin-top: 6px;">
+                        Cliquez et tracez votre signature à l'intérieur du cadre.
                     </small>
                 </div>
 
@@ -308,6 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
         acompte: p.get("acompte") || "30",
         email: p.get("email") || "",
         tel: p.get("tel") || "",
+        lignes_raw: p.get("lignes") || "",
         opt_titre: p.get("opt_titre") || "",
         opt_desc: p.get("opt_desc") || "Architecture technique pré-intégrée. Prestation d'évolution non chiffrée ce jour, mobilisable sur avenant ultérieur."
     };
@@ -322,57 +291,128 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("c-siret").textContent = contratData.siret;
     document.getElementById("c-rep").textContent = contratData.rep;
     document.getElementById("c-montant").textContent = contratData.montant + " € HT";
-    document.getElementById("c-montant-table").textContent = contratData.montant + " € HT";
     document.getElementById("c-mensualite-stripe").textContent = mensualiteStripe;
 
-    // Injection dynamique de l'option future si renseignée dans l'URL
+    // 1. INJECTION DES VRAIES LIGNES DU CATALOGUE THEMIS
+    const tableLignesBody = document.getElementById("table-lignes-themis-body");
+    let lignesAffichees = false;
+
+    if (contratData.lignes_raw) {
+        try {
+            const parsedLignes = JSON.parse(decodeURIComponent(contratData.lignes_raw));
+            if (Array.isArray(parsedLignes) && parsedLignes.length > 0) {
+                tableLignesBody.innerHTML = "";
+                parsedLignes.forEach(l => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td style="border: 1px solid #CBD5E1; padding: 7px 10px; font-size: 11px;">
+                            <strong>${l.designation || 'Prestation d\'ingénierie'}</strong>
+                        </td>
+                        <td style="border: 1px solid #CBD5E1; padding: 7px 10px; text-align: center; font-size: 11px;">${l.qte || 1}</td>
+                        <td style="border: 1px solid #CBD5E1; padding: 7px 10px; text-align: right; font-weight: bold; font-size: 11px;">${parseFloat(l.prix_setup || 0).toFixed(2)} €</td>
+                    `;
+                    tableLignesBody.appendChild(tr);
+                });
+                lignesAffichees = true;
+            }
+        } catch(e) {}
+    }
+
+    if (!lignesAffichees) {
+        tableLignesBody.innerHTML = `
+            <tr>
+                <td style="border: 1px solid #CBD5E1; padding: 7px 10px; font-size: 11px;">
+                    <strong>Déploiement des solutions métiers & ingénierie logicielle</strong><br>
+                    <span style="font-size: 10px; color: #64748B;">Livrables complets selon cahier des charges Themis ERP.</span>
+                </td>
+                <td style="border: 1px solid #CBD5E1; padding: 7px 10px; text-align: center; font-size: 11px;">1</td>
+                <td style="border: 1px solid #CBD5E1; padding: 7px 10px; text-align: right; font-weight: bold; font-size: 11px;">${contratData.montant} €</td>
+            </tr>
+        `;
+    }
+
+    // 2. INJECTION DE L'OPTION FUTURE (SI PRÉSENTE DANS L'URL)
     if (contratData.opt_titre && contratData.opt_titre.trim() !== "") {
-        const tableBody = document.getElementById("table-phases-body");
+        const tablePhasesBody = document.getElementById("table-phases-body");
         const rowOpt = document.createElement("tr");
         rowOpt.style.background = "#FFFDF5";
         rowOpt.innerHTML = `
-            <td style="border: 1px solid #FDE68A; padding: 8px; font-size: 11px;">
+            <td style="border: 1px solid #FDE68A; padding: 7px 10px; font-size: 10.5px;">
                 <strong style="color: #B45309;">Option Évolution — ${contratData.opt_titre}</strong><br>
-                <span style="color: #78350F; font-size: 10px;">${contratData.opt_desc}</span>
+                <span style="color: #78350F; font-size: 9.5px;">${contratData.opt_desc}</span>
             </td>
-            <td style="border: 1px solid #FDE68A; padding: 8px; font-size: 10px; text-align: center; color: #B45309; font-weight: bold;">Option</td>
-            <td style="border: 1px solid #FDE68A; padding: 8px; font-size: 11px; text-align: right; color: #B45309; font-style: italic;">Mémoire</td>
+            <td style="border: 1px solid #FDE68A; padding: 7px 10px; font-size: 10px; text-align: center; color: #B45309; font-weight: bold;">Option</td>
+            <td style="border: 1px solid #FDE68A; padding: 7px 10px; font-size: 10.5px; text-align: right; color: #B45309; font-style: italic;">Mémoire</td>
         `;
-        tableBody.appendChild(rowOpt);
+        tablePhasesBody.appendChild(rowOpt);
     }
 
+    // -----------------------------------------------------------------------
+    // INITIALISATION DU CANVAS AVEC L'API UNIVERSELLE POINTER EVENTS
+    // -----------------------------------------------------------------------
     canvas = document.getElementById("canvas-contrat");
     if (!canvas) return;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width;
-    canvas.height = rect.height;
-    ctx = canvas.getContext("2d");
-    ctx.strokeStyle = "#05231A";
-    ctx.lineWidth = 2.6;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
 
-    function getPos(e) {
-        const r = canvas.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        return { x: clientX - r.left, y: clientY - r.top };
+    function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width || canvas.offsetWidth || 700;
+        canvas.height = rect.height || canvas.offsetHeight || 160;
+        ctx = canvas.getContext("2d");
+        ctx.strokeStyle = "#05231A";
+        ctx.lineWidth = 2.8;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    function getPointerPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
     }
 
-    function start(e) { isDrawing = true; hasDrawn = true; const pos = getPos(e); ctx.beginPath(); ctx.moveTo(pos.x, pos.y); }
-    function draw(e) { if (!isDrawing) return; e.preventDefault(); const pos = getPos(e); ctx.lineTo(pos.x, pos.y); ctx.stroke(); }
-    function stop() { isDrawing = false; }
+    // GESTION POINTER (SOURIS + DOIGT + STYLET GARANTIE)
+    canvas.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        canvas.setPointerCapture(e.pointerId);
+        isDrawing = true;
+        hasDrawn = true;
+        document.getElementById("sig-indicator").textContent = "✓ Signature en cours de tracé...";
+        document.getElementById("sig-indicator").style.color = "#047857";
+        const pos = getPointerPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+    });
 
-    canvas.addEventListener("mousedown", start);
-    canvas.addEventListener("mousemove", draw);
-    window.addEventListener("mouseup", stop);
-    canvas.addEventListener("touchstart", start, { passive: false });
-    canvas.addEventListener("touchmove", draw, { passive: false });
-    window.addEventListener("touchend", stop);
+    canvas.addEventListener("pointermove", (e) => {
+        if (!isDrawing) return;
+        e.preventDefault();
+        const pos = getPointerPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+    });
+
+    function endPointer(e) {
+        if (isDrawing) {
+            isDrawing = false;
+            try { canvas.releasePointerCapture(e.pointerId); } catch(err) {}
+        }
+    }
+
+    canvas.addEventListener("pointerup", endPointer);
+    canvas.addEventListener("pointercancel", endPointer);
 });
 
 function clearSignatureCanvas() {
-    if (ctx && canvas) { ctx.clearRect(0, 0, canvas.width, canvas.height); hasDrawn = false; }
+    if (ctx && canvas) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        hasDrawn = false;
+        document.getElementById("sig-indicator").textContent = "Cliquez et tracez votre signature à l'intérieur du cadre.";
+        document.getElementById("sig-indicator").style.color = "#64748B";
+    }
 }
 
 async function validerSignatureContrat7P(e) {
