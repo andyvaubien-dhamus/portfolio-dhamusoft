@@ -436,6 +436,24 @@ async function validerSignatureContrat7P(e) {
     const signatureBase64 = canvas.toDataURL("image/png");
     const now = new Date();
 
+    // 1. On remplace le cadre de dessin par la vraie image de signature pour le PDF
+    const signatureZone = document.querySelector(".signature-zone");
+    if (signatureZone) {
+        signatureZone.innerHTML = `
+            <div style="text-align: center; padding: 8px;">
+                <strong style="font-size: 11px; text-transform: uppercase; color: #05231A; display: block; margin-bottom: 4px;">Signature Manuscrite Scellée :</strong>
+                <img src="${signatureBase64}" style="max-height: 75px; max-width: 240px; object-fit: contain;" alt="Signature">
+                <small style="color: #64748B; font-size: 10px; display: block; margin-top: 4px;">Horodatage : ${now.toLocaleDateString('fr-FR')} à ${now.toLocaleTimeString('fr-FR')} • IP : ${clientIP}</small>
+            </div>
+        `;
+    }
+
+    // 2. On capture les 7 pages complètes avec tous les styles CSS pour CloudConvert
+    const styleCSS = document.querySelector("style") ? document.querySelector("style").outerHTML : "";
+    const contenuContrat = document.querySelector(".contract-wrapper").outerHTML;
+    const htmlComplet7Pages = `<!DOCTYPE html><html><head><meta charset="utf-8">${styleCSS}</head><body>${contenuContrat}</body></html>`;
+
+    // 3. VOTRE BLOC MIS À JOUR AVEC LE DOCUMENT COMPLET :
     const payloadScellement = {
         event: "contrat_7p_signe_en_ligne",
         type_evenement: "CONTRAT_7P_SIGNE",
@@ -451,7 +469,10 @@ async function validerSignatureContrat7P(e) {
         ip_signataire: clientIP,
         signature_png: signatureBase64,
         date_signature: now.toLocaleDateString('fr-FR'),
-        heure_signature: now.toLocaleTimeString('fr-FR')
+        heure_signature: now.toLocaleTimeString('fr-FR'),
+        
+        // 👇 LA LIGNE MAGIQUE POUR CLOUDCONVERT EST ICI 👇
+        corps_dossier_7p_html: htmlComplet7Pages
     };
 
     const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/w1ajh1yhvuxnxks8wk9qkpwkm40k13rh";
