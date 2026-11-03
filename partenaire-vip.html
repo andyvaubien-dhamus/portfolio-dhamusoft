@@ -308,9 +308,10 @@
             <canvas id="vip-canvas"></canvas>
           </div>
 
-          <label style="display:flex; gap:8px; font-size:12px; color:#065F46; font-weight:700; text-align:left; margin-bottom:15px; cursor:pointer;">
-            <input type="checkbox" required checked style="width:16px; height:16px;">
-            <span>Je valide la commande ferme du Jalon 1 au tarif VIP réservé de 250 € HT.</span>
+          <!-- CASE DÉCOCHÉE PAR DÉFAUT (CONSENTEMENT ACTIF OBLIGATOIRE) -->
+          <label style="display:flex; align-items: flex-start; gap:10px; font-size:12px; color:#065F46; font-weight:700; text-align:left; margin-bottom:15px; cursor:pointer;">
+            <input type="checkbox" id="chk-vip-devis" required style="width:18px; height:18px; margin-top:2px;">
+            <span>Je confirme être le représentant légal habilité et valide la commande ferme du Jalon 1 au tarif partenaire réservé de 250,00 € HT.</span>
           </label>
 
           <button type="submit" class="btn-tunnel">Valider le Jalon 1 & Signer le Mandat ➔</button>
@@ -365,9 +366,10 @@
             <canvas id="vip-canvas"></canvas>
           </div>
 
-          <label style="display:flex; gap:8px; font-size:12px; color:#065F46; font-weight:700; text-align:left; margin-bottom:15px; cursor:pointer;">
-            <input type="checkbox" required checked style="width:16px; height:16px;">
-            <span>Je confirme donner mandat formel à Andy VAUBIEN (Cabinet Dhamusoft).</span>
+          <!-- CASE DÉCOCHÉE PAR DÉFAUT -->
+          <label style="display:flex; align-items: flex-start; gap:10px; font-size:12px; color:#065F46; font-weight:700; text-align:left; margin-bottom:15px; cursor:pointer;">
+            <input type="checkbox" id="chk-vip-mandat" required style="width:18px; height:18px; margin-top:2px;">
+            <span>Je confirme donner mandat exprès et pouvoir de représentation à Monsieur Andy VAUBIEN (Cabinet Dhamusoft) pour le montage et la liquidation du dossier Chèque TIC.</span>
           </label>
 
           <button type="submit" id="btn-vip-final" class="btn-tunnel">🚀 Sceller Définitivement mon Dossier Partenaire</button>
