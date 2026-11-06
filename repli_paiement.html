@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solution de Repli & Assistance • Cabinet Dhamusoft</title>
+  <style>
+    :root {
+      --primary: #2C4C6E;
+      --primary-hover: #1E3754; 
+      --accent: #C59B43;
+      --accent-hover: #A88132;
+      --bg-page: #f8fafc;       
+      --card-bg: #ffffff;       
+      --text-main: #0f172a;     
+      --text-muted: #475569;    
+      --border: #e2e8f0;        
+      --frame-border: #cbd5e1;  
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+    main.container { flex: 1; display: flex; align-items: center; justify-content: center; }
+
+    /* Carte de réassurance principale */
+    .repli-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--frame-border);
+      border-radius: 14px;
+      max-width: 640px;
+      width: 100%;
+      padding: 3rem 2.2rem;
+      box-shadow: 0 10px 30px rgba(44, 76, 110, 0.08);
+      text-align: center;
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFDF5;
+      color: var(--accent-hover);
+      border: 1px solid var(--accent);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .icon-circle {
+      width: 64px;
+      height: 64px;
+      background-color: #FFFDF5;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem auto;
+      font-size: 1.8rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.5px;
+    }
+
+    .intro-p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* Encart de la solution de repli */
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px dashed var(--primary);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.4rem 0;
+      text-align: left;
+    }
+
+    .solution-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.4rem;
+    }
+
+    .solution-text {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    /* Étapes d'activation */
+    .steps-box {
+      background: #FFFDF5;
+      border: 1px solid #FDE68A;
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      text-align: left;
+      font-size: 0.86rem;
+      color: #78350F;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .steps-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+      color: var(--accent-hover);
+    }
+
+    /* Bouton officiel Dhamusoft */
+    .btn-dhamu {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(44, 76, 110, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .btn-dhamu:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .contact-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+    }
+
+    .contact-note a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact-note a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <div class="repli-card">
+      
+      <!-- Badge de statut -->
+      <div class="badge-status">
+        🛡️ Assistance Commerciale • Dossier Préservé
+      </div>
+
+      <!-- Icône bouclier doré -->
+      <div class="icon-circle">
+        🛡️
+      </div>
+
+      <!-- Titre officiel -->
+      <h1>Pas d'inquiétude : votre dossier est en sécurité.</h1>
+
+      <!-- Message d'explication -->
+      <p class="intro-p">
+        Bonjour <strong id="lbl-client-nom">Cher Dirigeant</strong>,<br>
+        Votre tentative de règlement par carte bancaire ou en plusieurs fois n'a pas pu aboutir en raison des filtres bancaires habituels.
+      </p>
+
+      <!-- Solution de repli direct -->
+      <div class="solution-box">
+        <div class="solution-tag">Votre Solution d'Échelonnement Direct Garanti :</div>
+        <div class="solution-text">
+          Afin de ne pas retarder le lancement de votre projet <strong id="lbl-devis-ref"></strong>, le <strong>Cabinet Dhamusoft</strong> active immédiatement son plan de paiement en <strong>4 mensualités sans aucun examen de solvabilité tiers</strong>.
+        </div>
+      </div>
+
+      <!-- Guide d'action -->
+      <div class="steps-box">
+        <strong>👉 Comment finaliser votre règlement en 1 minute :</strong>
+        1. Ouvrez votre messagerie (<span id="lbl-client-email" style="font-weight: bold;">votre e-mail</span>).<br>
+        2. Vous venez de recevoir un message intitulé : <em>« Facilité de règlement : Votre échéancier direct garanti en 4 mensualités »</em>.<br>
+        3. Cliquez sur le lien sécurisé présent dans l'e-mail pour activer vos 4 mensualités avec n'importe quelle carte bancaire professionnelle.
+      </div>
+
+      <!-- Bouton d'action -->
+      <a href="mailto:" id="btn-consulter-mail" class="btn-dhamu">
+        Consulter ma boîte de réception e-mail ➔
+      </a>
+
+      <!-- Contact direct -->
+      <p class="contact-note">
+        Besoin d'un RIB officiel pour un virement ou d'une assistance directe ?<br>
+        Contactez Andy VAUBIEN par e-mail à <a href="mailto:dhamusoft@gmail.com">contact@dhamusoft</a>.
+      </p>
+
+    </div>
+  </main>
+
+  <footer>
+    Cabinet Dhamusoft • Ingénierie Logicielle & Systèmes d'Information • Capesterre-Belle-Eau, Guadeloupe
+  </footer>
+
+  <script>
+    // Lecture dynamique des paramètres d'URL (?client=Nom&devis=DEV-XXXX&email=test@gp)
+    document.addEventListener("DOMContentLoaded", () => {
+      const p = new URLSearchParams(window.location.search);
+      const client = p.get("client") || p.get("rep") || p.get("ste");
+      const devis = p.get("devis") || p.get("id");
+      const email = p.get("email");
+
+      if (client && client.trim() !== "") {
+        document.getElementById("lbl-client-nom").textContent = client.trim();
+      }
+      if (devis && devis.trim() !== "") {
+        document.getElementById("lbl-devis-ref").textContent = "(" + devis.trim() + ")";
+      }
+      if (email && email.trim() !== "") {
+        document.getElementById("lbl-client-email").textContent = email.trim();
+        document.getElementById("btn-consulter-mail").href = "mailto:" + email.trim();
+      }
+    });
+  </script>
+
+</body>
+</html>
