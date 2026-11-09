@@ -1365,7 +1365,9 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // TRIPTYQUE PLAQUETTE
+        // =========================================================================
+        // TRIPTYQUE PLAQUETTE (OFFRE PUBLIQUE SEULEMENT - 1 000 € HT)
+        // =========================================================================
         window.openPlaquetteModal = function() {
             if (!modalBody) return;
             const getPlaquetteHtml = () => `
@@ -1487,8 +1489,8 @@
                             <div class="volet-card-inner" style="border-left: 3.5px solid var(--accent); background: #FFFDF5; padding: 0.65rem 0.75rem;">
                                 <div class="volet-card-title" style="color: #B45309; font-size: 0.80rem; font-weight: 800;">📋 Assistance en 2 Jalons Clairs</div>
                                 <p style="font-size: 0.72rem; color: #475569; line-height: 1.35; margin: 0;">
-                                    • <strong>Projet Dhamusoft :</strong> 250 € + 350 € (Reste réel : 50 € + 70 €).<br>
-                                    • <strong>Sauvetage Rétroactif :</strong> 500 € (Dépôt) + 500 € (Liasse de Liquidation ASP). Reste réel : 100 € + 100 €.
+                                    • <strong>Jalon 1 (Audit, Cadrage & Dépôt) :</strong> 500 € HT (Remboursé 80%, reste 100 € HT).<br>
+                                    • <strong>Jalon 2 (Liasse de Liquidation Finale ASP) :</strong> 500 € HT (Remboursé 80%, reste 100 € HT).
                                 </p>
                             </div>
                         </div>
@@ -1523,16 +1525,37 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // TUNNEL COMMERCIAL
+        // =========================================================================
+        // TUNNEL COMMERCIAL (OFFRE PUBLIQUE 1000€ vs OFFRE PRIVÉE VIP 600€)
+        // =========================================================================
         window.openMandatModal = function() {
             if (!modalBody) return;
-            window.formuleSelectionnee = 'partenaire';
+
+            const isVip = !!window.estClientVipThemis;
+            window.formuleSelectionnee = isVip ? 'partenaire' : 'sauvetage';
+
+            // Paramétrage des textes selon le canal d'accès
+            const titreBadge = isVip ? "OPTION PRIVILÉGIÉE NOUVEAU PROJET DHAMUSOFT" : "CONVENTION D'ACCOMPAGNEMENT RÉGIONALE (PLAFOND 1 000 €)";
+            const missionTitre = isVip 
+                ? "Cadrage Initial (Cat. 3.1) & Déploiement / Formation aux Outils (Cat. 3.2)"
+                : "Mission Échelonnée en 2 Jalons (Cat. 3.1 & 3.2 — Prise en charge 80% Région)";
+            const missionDesc = isVip
+                ? "Tarif exclusif réservé aux clients Dhamusoft : Cadrage au Jalon 1, puis formation approfondie et déblocage de la liquidation ASP au Jalon 2."
+                : "Accompagnement technique officiel : audit de transition numérique, note d'impact et montage de la liasse de liquidation ASP pour déclencher le virement de la subvention sur votre compte.";
+
+            const prixJalon1 = isVip ? "250,00 € HT" : "500,00 € HT";
+            const racJalon1 = isVip ? "50,00 € HT" : "100,00 € HT";
+            const jalon2Titre = isVip ? "JALON 2 (FORMATION & LIQUIDATION ASP) :" : "JALON 2 (LIASSE DE LIQUIDATION ASP) :";
+            const prixJalon2 = isVip ? "350,00 € HT (Reste réel : 70 € HT)" : "500,00 € HT (Reste réel : 100 € HT)";
+            const jalon2Detail = isVip 
+                ? "Formation à l'outil, kit affichage FEDER et demande de paiement ASP (planifié après recevabilité Région)."
+                : "Pointage des écritures bancaires, inventaire matériel, publicité FEDER et déclenchement du virement ASP (planifié après notification Région).";
 
             modalBody.innerHTML = `
                 <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
                     <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #ecfdf5; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 1 SUR 2 • CONVENTION D'ACCOMPAGNEMENT ÉCHELONNÉE</span>
                     <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Devis de Cadrage & Assistance Chèque TIC</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Cabinet Dhamusoft — Prestation d'Ingénierie & de Liquidation ASP (Catégories 3.1 & 3.2 Région Guadeloupe)</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Cabinet Dhamusoft — Prestation d'Ingénierie & Liquidation ASP (Catégories 3.1 & 3.2 Région Guadeloupe)</p>
                 </div>
 
                 <form id="devis-form" onsubmit="validerEtapeDevis(event)">
@@ -1549,59 +1572,25 @@
                     </div>
 
                     <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 1.4rem; margin: 1.2rem 0;">
-                        <div style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 0.6rem;">Périmètre de votre mission d'accompagnement :</div>
-                        
                         <div style="background: #ffffff; border: 1.5px solid var(--primary); border-radius: 8px; padding: 1rem; margin-bottom: 1.2rem;">
-                            <span id="devis-type-badge" style="background: #ecfdf5; color: #047857; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">OPTION NOUVEAU PROJET AVEC DHAMUSOFT</span>
-                            <h4 id="devis-mission-titre" style="color: var(--primary); font-size: 1.05rem; font-weight: 900; margin: 6px 0 4px 0;">
-                                Cadrage Initial (Cat. 3.1) & Déploiement / Formation aux Outils (Cat. 3.2)
-                            </h4>
-                            <p id="devis-mission-desc" style="font-size: 0.84rem; color: #334155; line-height: 1.5; margin: 0;">
-                                Vous concevez votre solution avec Dhamusoft. Cadrage et note d'impact au Jalon 1, puis formation approfondie et déblocage de la liquidation ASP au Jalon 2.
-                            </p>
-                        </div>
-
-                        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.2rem;">
-                            <label id="opt-partenaire-box" style="border: 2.5px solid #047857; background: #ecfdf5; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; transition: all 0.2s;">
-                                <input type="radio" name="formule_tic" id="rad-partenaire" value="partenaire" checked onchange="choisirFormuleAccompagnement('partenaire')" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
-                                <div>
-                                    <strong style="color: #065f46; font-size: 0.95rem; display: block;">🌟 FORMULE PROJET NUMÉRIQUE AVEC DHAMUSOFT</strong>
-                                    <span style="font-size: 0.80rem; color: #047857; line-height: 1.4; display: block; margin-top: 3px;">
-                                        Vous créez votre solution avec Dhamusoft (Site vitrine/marchand, THEMIS ERP, Automatisation).<br>
-                                        • <strong>Jalon 1 (Cadrage, Note d'Impact & Dépôt) :</strong> <strong>250,00 € HT</strong> (Reste réel à charge : <strong>50 € HT</strong>).<br>
-                                        • <strong>Jalon 2 (Formation, Kit FEDER & Liquidation ASP) :</strong> <strong>350,00 € HT</strong> (Planifié dès recevabilité Région • Reste réel : <strong>70 € HT</strong>).
-                                    </span>
-                                </div>
-                            </label>
-
-                            <label id="opt-externe-box" style="border: 1.5px solid #cbd5e1; background: #ffffff; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; transition: all 0.2s;">
-                                <input type="radio" name="formule_tic" id="rad-externe" value="sauvetage" onchange="choisirFormuleAccompagnement('sauvetage')" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
-                                <div>
-                                    <strong style="color: #b45309; font-size: 0.95rem; display: block;">💰 FORMULE SAUVETAGE & REMBOURSEMENT (Factures Déjà Payées Ailleurs)</strong>
-                                    <span style="font-size: 0.80rem; color: #475569; line-height: 1.4; display: block; margin-top: 3px;">
-                                        Vous avez investi récemment dans du matériel, un site ou logiciel sans demander l'aide Région ?<br>
-                                        • <strong>Jalon 1 (Audit d'éligibilité, Note de Régularisation & Dépôt ASP) :</strong> <strong>500,00 € HT</strong> (Reste réel : <strong>100 € HT</strong>).<br>
-                                        • <strong>Jalon 2 (Liasse de Liquidation Finale ASP & Déblocage du Virement) :</strong> <strong>500,00 € HT</strong> (Déclenché dès l'accord officiel Région • Reste réel : <strong>100 € HT</strong>).
-                                    </span>
-                                </div>
-                            </label>
+                            <span style="background: #ecfdf5; color: #047857; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">${titreBadge}</span>
+                            <h4 style="color: var(--primary); font-size: 1.05rem; font-weight: 900; margin: 6px 0 4px 0;">${missionTitre}</h4>
+                            <p style="font-size: 0.84rem; color: #334155; line-height: 1.5; margin: 0;">${missionDesc}</p>
                         </div>
 
                         <div id="box-bilan-prix" style="background: #05231a; color: white; border-radius: 10px; padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border: 1.5px solid #047857;">
                             <div>
-                                <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">JALON 1 — FACTURÉ CE JOUR (ENGAGEMENT FERME) :</span><br>
-                                <span style="font-size: 2.2rem; font-weight: 900; color: #ffffff;" id="lbl-tarif-amo">250,00 € HT</span>
+                                <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">JALON 1 — AUDIT, CADRAGE & DÉPÔT :</span><br>
+                                <span style="font-size: 2.2rem; font-weight: 900; color: #ffffff;">${prixJalon1}</span>
                                 <div style="background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-top: 4px;">
-                                    <span style="font-size: 0.85rem; font-weight: 900; color: #a7f3d0;" id="lbl-rac-amo">👉 Reste à charge réel après subvention (80%) : 50,00 € HT</span>
+                                    <span style="font-size: 0.85rem; font-weight: 900; color: #a7f3d0;">👉 Reste à charge réel après subvention (80%) : ${racJalon1}</span>
                                 </div>
                             </div>
                             
                             <div style="text-align: right; background: rgba(0,0,0,0.3); padding: 0.8rem 1rem; border-radius: 8px; max-width: 380px;">
-                                <span style="font-size: 0.72rem; color: #cbd5e1; font-weight: bold; text-transform: uppercase;" id="lbl-jalon2-titre">JALON 2 (FORMATION & LIQUIDATION ASP) :</span><br>
-                                <span style="font-size: 1.05rem; font-weight: 900; color: #a7f3d0;" id="lbl-jalon2-desc">350,00 € HT (Reste réel : 70 € HT)</span><br>
-                                <small style="font-size: 0.70rem; color: #94a3b8; display: block; margin-top: 4px; line-height: 1.35;" id="lbl-jalon2-detail">
-                                    Formation à l'outil, kit obligatoire affichage FEDER et demande de paiement ASP (planifié après notification de recevabilité Région).
-                                </small>
+                                <span style="font-size: 0.72rem; color: #cbd5e1; font-weight: bold; text-transform: uppercase;">${jalon2Titre}</span><br>
+                                <span style="font-size: 1.05rem; font-weight: 900; color: #a7f3d0;">${prixJalon2}</span><br>
+                                <small style="font-size: 0.70rem; color: #94a3b8; display: block; margin-top: 4px; line-height: 1.35;">${jalon2Detail}</small>
                             </div>
                         </div>
                     </div>
@@ -1617,7 +1606,7 @@
                     <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
                         <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; font-weight: 700; color: #065f46; cursor: pointer;">
                             <input type="checkbox" id="d-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
-                            <span id="d-consent-label">Je confirme être le représentant légal et valide le bon de commande ferme du Jalon 1 (250 € HT, éligible à 80% de prise en charge Chèque TIC).</span>
+                            <span>Je confirme être le représentant légal et valide le bon de commande ferme du Jalon 1 (${prixJalon1}, éligible à 80% de prise en charge Chèque TIC).</span>
                         </label>
                     </div>
 
@@ -1629,54 +1618,6 @@
             if (modal) modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             setTimeout(initSignaturePad, 100);
-        };
-
-        window.choisirFormuleAccompagnement = function(type) {
-            window.formuleSelectionnee = type;
-            
-            const boxPartenaire = document.getElementById('opt-partenaire-box');
-            const boxExterne = document.getElementById('opt-externe-box');
-            const lblTarif = document.getElementById('lbl-tarif-amo');
-            const lblRac = document.getElementById('lbl-rac-amo');
-            const lblJalon2Titre = document.getElementById('lbl-jalon2-titre');
-            const lblJalon2 = document.getElementById('lbl-jalon2-desc');
-            const lblJalon2Detail = document.getElementById('lbl-jalon2-detail');
-            const missionTitre = document.getElementById('devis-mission-titre');
-            const missionDesc = document.getElementById('devis-mission-desc');
-            const typeBadge = document.getElementById('devis-type-badge');
-            const consentLabel = document.getElementById('d-consent-label');
-
-            if (!lblTarif) return;
-
-            if (type === 'partenaire') {
-                if (boxPartenaire) { boxPartenaire.style.border = '2.5px solid #047857'; boxPartenaire.style.background = '#ecfdf5'; }
-                if (boxExterne) { boxExterne.style.border = '1.5px solid #cbd5e1'; boxExterne.style.background = '#ffffff'; }
-
-                if (typeBadge) { typeBadge.textContent = "OPTION NOUVEAU PROJET AVEC DHAMUSOFT"; typeBadge.style.color = "#047857"; typeBadge.style.background = "#ecfdf5"; }
-                if (missionTitre) missionTitre.textContent = "Cadrage Initial (Cat. 3.1) & Déploiement / Formation aux Outils (Cat. 3.2)";
-                if (missionDesc) missionDesc.textContent = "Vous concevez votre solution avec Dhamusoft. Cadrage et note d'impact au Jalon 1, puis formation approfondie et déblocage de la liquidation ASP au Jalon 2.";
-                if (consentLabel) consentLabel.textContent = "Je confirme être le représentant légal et valide le bon de commande ferme du Jalon 1 (250 € HT, éligible à 80% de prise en charge Chèque TIC).";
-
-                lblTarif.textContent = '250,00 € HT';
-                lblRac.textContent = '👉 Reste à charge réel après subvention (80%) : 50,00 € HT';
-                if (lblJalon2Titre) lblJalon2Titre.textContent = "JALON 2 (FORMATION & LIQUIDATION ASP) :";
-                if (lblJalon2) lblJalon2.textContent = "350,00 € HT (Reste réel : 70 € HT)";
-                if (lblJalon2Detail) lblJalon2Detail.textContent = "Formation à l'outil, kit obligatoire affichage FEDER et demande de paiement ASP (planifié après notification de recevabilité Région).";
-            } else {
-                if (boxExterne) { boxExterne.style.border = '2.5px solid #b45309'; boxExterne.style.background = '#fffbeb'; }
-                if (boxPartenaire) { boxPartenaire.style.border = '1.5px solid #cbd5e1'; boxPartenaire.style.background = '#ffffff'; }
-
-                if (typeBadge) { typeBadge.textContent = "OPTION SAUVETAGE FACTURES DÉJÀ RÉGLÉES (PLAFOND RÉGION 1 000 €)"; typeBadge.style.color = "#b45309"; typeBadge.style.background = "#fffbeb"; }
-                if (missionTitre) missionTitre.textContent = "Audit Rétroactif (Cat. 3.1) & Liasse de Liquidation Finale ASP (Cat. 3.2)";
-                if (missionDesc) missionDesc.textContent = "Audit de conformité de vos factures antérieures (matériel, site, logiciels), rédaction de la Note de régularisation (Jalon 1), puis montage de la Liasse de Liquidation ASP (pointage bancaire, n° de série, publicité FEDER) pour ordonner le virement (Jalon 2).";
-                if (consentLabel) consentLabel.textContent = "Je confirme être le représentant légal et valide le bon de commande ferme du Jalon 1 (500 € HT, éligible à 80% de prise en charge Chèque TIC).";
-
-                lblTarif.textContent = '500,00 € HT';
-                lblRac.textContent = '👉 Reste à charge réel après subvention (80%) : 100,00 € HT';
-                if (lblJalon2Titre) lblJalon2Titre.textContent = "JALON 2 (LIASSE DE LIQUIDATION ASP) :";
-                if (lblJalon2) lblJalon2.textContent = "500,00 € HT (Reste réel : 100 € HT)";
-                if (lblJalon2Detail) lblJalon2Detail.textContent = "Pointage bancaire, inventaire matériel n° de série, kit obligatoire affichage FEDER et instruction du virement ASP (déclenché dès notification d'attribution Région).";
-            }
         };
 
         window.validerEtapeDevis = async function(e) {
@@ -1693,7 +1634,6 @@
             }
 
             const signatureDevisData = signaturePadCanvas ? signaturePadCanvas.toDataURL("image/png") : null;
-
             let clientIP = "127.0.0.1";
             try {
                 const ipRes = await fetch("https://api.ipify.org?format=json");
@@ -1701,9 +1641,9 @@
                 clientIP = ipData.ip;
             } catch(err) {}
 
-            const isPartenaire = (window.formuleSelectionnee === 'partenaire');
-            const jalon1 = isPartenaire ? 250.00 : 500.00;
-            const jalon2 = isPartenaire ? 350.00 : 500.00;
+            const isVip = !!window.estClientVipThemis;
+            const j1 = isVip ? 250.00 : 500.00;
+            const j2 = isVip ? 350.00 : 500.00;
 
             window.dossierClientThemis = {
                 entreprise: (document.getElementById('m-ste') || {}).value.trim(),
@@ -1716,21 +1656,21 @@
                 email_client: (document.getElementById('m-email') || {}).value.trim(),
                 telephone_client: (document.getElementById('m-tel') || {}).value.trim(),
                 
-                formule_type: window.formuleSelectionnee,
-                formule_libelle: isPartenaire ? "PROJET_DHAMUSOFT_250_350" : "SAUVETAGE_RETROACTIF_LIASSE_500_500",
-                structure_mission: "2_JALONS_ECHELONNES_CONFORMES_FEDER",
+                formule_type: isVip ? 'partenaire_vip' : 'sauvetage_public',
+                formule_libelle: isVip ? 'PROJET_DHAMUSOFT_250_350' : 'SAUVETAGE_RETROACTIF_LIASSE_500_500',
+                structure_mission: '2_JALONS_ECHELONNES_CONFORMES_FEDER',
                 
-                jalon_1_intitule: isPartenaire ? "Cadrage, Note d'Impact & Dépôt ASP" : "Audit Rétroactif, Note de Régularisation & Dépôt",
-                jalon_1_montant_ht: jalon1,
-                jalon_1_reste_charge_ht: jalon1 * 0.20,
+                jalon_1_intitule: isVip ? "Cadrage, Note d'Impact & Dépôt ASP" : "Audit Rétroactif, Note de Régularisation & Dépôt",
+                jalon_1_montant_ht: j1,
+                jalon_1_reste_charge_ht: j1 * 0.20,
                 
-                jalon_2_intitule: isPartenaire ? "Formation aux Outils, Kit FEDER & Liquidation ASP" : "Liasse de Liquidation Finale ASP & Kit Affichage FEDER",
-                jalon_2_montant_ht: jalon2,
-                jalon_2_reste_charge_ht: jalon2 * 0.20,
-                jalon_2_declencheur: isPartenaire ? "A notification de recevabilité Région" : "A réception de l'Arrêté d'Attribution de subvention",
+                jalon_2_intitule: isVip ? "Formation aux Outils, Kit FEDER & Liquidation ASP" : "Liasse de Liquidation Finale ASP & Kit Affichage FEDER",
+                jalon_2_montant_ht: j2,
+                jalon_2_reste_charge_ht: j2 * 0.20,
+                jalon_2_declencheur: isVip ? "A notification de recevabilité Région" : "A réception de l'Arrêté d'Attribution de subvention",
 
-                total_mission_ht: jalon1 + jalon2,
-                total_reste_charge_ht: (jalon1 + jalon2) * 0.20,
+                total_mission_ht: j1 + j2,
+                total_reste_charge_ht: (j1 + j2) * 0.20,
 
                 ip_signataire: clientIP,
                 signature_devis_base64: signatureDevisData,
@@ -1809,36 +1749,46 @@
             const d = window.dossierClientThemis;
 
             const payloadFinal = {
-                type_evenement: "MANDAT_SIGNE",
-                entreprise: window.dossierClientThemis.entreprise,
-                forme_juridique: window.dossierClientThemis.forme_juridique,
-                siret: window.dossierClientThemis.siret,
-                commune: window.dossierClientThemis.commune,
-                adresse: window.dossierClientThemis.adresse,
-                representant_legal: window.dossierClientThemis.representant_legal,
-                fonction: window.dossierClientThemis.fonction,
-                email_client: window.dossierClientThemis.email_client,
-                telephone_client: window.dossierClientThemis.telephone_client,
-                tarif_forfait_ht: window.dossierClientThemis.tarif_forfait_ht || 250.00,
-                ip_signataire: window.dossierClientThemis.ip_signataire,
-				
-				// 👇 LES DEUX LIGNES CRUCIALES À AJOUTER ICI 👇
-                signature_devis_png: window.dossierClientThemis.signature_devis_base64,
-                signature_png: signatureMandatData,
-                // 👆 -------------------------------------- 👆
-				
+                type_evenement: "DOSSIER_COMPLET_MANDAT_SIGNE",
+                entreprise: d.entreprise,
+                forme_juridique: d.forme_juridique,
+                siret: d.siret,
+                commune: d.commune,
+                adresse: d.adresse,
+                representant_legal: d.representant_legal,
+                fonction: d.fonction,
+                email_client: d.email_client,
+                telephone_client: d.telephone_client,
+                devis_origine: d.devis_origine || "NON_SPECIFIE",
                 
-                // 🕒 HORODATAGE COMPLET DU DEVIS (JALON 1) :
-                date_signature_devis: window.dossierClientThemis.date_signature_devis,
-                heure_signature_devis: window.dossierClientThemis.heure_signature_devis,
+                cadre_juridique: "PRESTATION_AMO_ET_LIQUIDATION_ASP_CHEQUE_TIC",
+                formule_type: d.formule_type,
+                formule_libelle: d.formule_libelle,
+                
+                jalon_1_intitule: d.jalon_1_intitule,
+                jalon_1_montant_ht: d.jalon_1_montant_ht,
+                jalon_1_reste_charge_ht: d.jalon_1_reste_charge_ht,
+                
+                jalon_2_intitule: d.jalon_2_intitule,
+                jalon_2_montant_ht: d.jalon_2_montant_ht,
+                jalon_2_reste_charge_ht: d.jalon_2_reste_charge_ht,
+                jalon_2_declencheur: d.jalon_2_declencheur,
+                
+                total_mission_ht: d.total_mission_ht,
+                total_reste_charge_ht: d.total_reste_charge_ht,
 
-                // 🕒 HORODATAGE DU MANDAT (JALON 2) :
+                ip_signataire: d.ip_signataire,
+                date_signature_devis: d.date_signature_devis,
+                heure_signature_devis: d.heure_signature_devis,
                 date_signature_mandat: new Date().toLocaleDateString('fr-FR'),
                 heure_signature_mandat: new Date().toLocaleTimeString('fr-FR'),
+                
+                signature_devis_png: d.signature_devis_base64,
+                signature_mandat_png: signatureMandatData,
 
                 mandataire: "Andy VAUBIEN - Dhamusoft",
-                dispositif: "Chèque TIC Région Guadeloupe & ASP",
-                _subject: `[DOSSIER COMPLET CHÈQUE TIC] ${window.dossierClientThemis.entreprise}`
+                dispositif: "Chèque TIC Région Guadeloupe & ASP (Catégories 3.1 & 3.2)",
+                _subject: `[DOSSIER CHÈQUE TIC - ${d.formule_libelle}] ${d.entreprise}`
             };
 
             try {
@@ -1869,6 +1819,42 @@
                 closeModal();
             }
         };
+
+        // =========================================================================
+        // DÉTECTION DU LIEN PRIVÉ WHATSAPP THEMIS (DÉVERROUILLAGE FORMULE 600€)
+        // =========================================================================
+        function verifierLienVipThemis() {
+            const params = new URLSearchParams(window.location.search);
+            
+            // Seule la présence de ?mandat=vip débloque l'offre réservée à 600€
+            if (params.get('mandat') === 'vip') {
+                window.estClientVipThemis = true;
+                openMandatModal();
+
+                setTimeout(() => {
+                    const remplir = (id, param) => {
+                        const el = document.getElementById(id);
+                        if (el && params.get(param)) el.value = params.get(param);
+                    };
+
+                    remplir('m-ste', 'ste');
+                    remplir('m-forme', 'forme');
+                    remplir('m-siret', 'siret');
+                    remplir('m-commune', 'commune');
+                    remplir('m-adresse', 'adresse');
+                    remplir('m-rep', 'rep');
+                    remplir('m-fonction', 'fonction');
+                    remplir('m-email', 'email');
+                    remplir('m-tel', 'tel');
+
+                    if (params.get('devis')) {
+                        window.dossierClientThemis.devis_origine = params.get('devis');
+                    }
+                }, 150);
+            }
+        }
+
+        verifierLienVipThemis();
 
         // CANVAS SIGNATURE
         let signaturePadCanvas = null;
