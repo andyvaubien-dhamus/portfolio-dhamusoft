@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="Dhamusoft : Automatisation de vos corvées informatiques, logiciel de facturation THEMIS et applications métiers simples pour artisans, TPE et professionnels de santé en Guadeloupe. Prise en charge jusqu'à 80% par le Chèque TIC.">
+    <meta name="description" content="Dhamusoft : Automatisation de vos tâches répétitives, logiciel de facturation THEMIS et applications sur-mesure pour artisans, TPE et professionnels de santé en Guadeloupe. Prise en charge jusqu'à 80% Chèque TIC.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.dhamusoft.fr"> 
-    <meta property="og:title" content="Dhamusoft — Logiciels Simples, Automatisation & Financement Chèque TIC en Guadeloupe">
-    <meta property="og:description" content="Gagnez du temps sans changer vos habitudes : outils informatiques sur-mesure, vos données restent chez vous, sans abonnement forcé.">
+    <meta property="og:title" content="Dhamusoft — Logiciels Simples, Automatisation & Chèque TIC en Guadeloupe">
+    <meta property="og:description" content="Gagnez du temps sans changer vos habitudes : outils informatiques simples, vos données restent chez vous, sans abonnement forcé.">
     <meta property="og:image" content="https://www.dhamusoft.fr/assets/images/logo_dhamusoft.png">
 
-    <title>Dhamusoft — Des logiciels simples et sur-mesure pour votre quotidien en Guadeloupe</title>
+    <title>Dhamusoft — Des outils simples et sur-mesure pour votre quotidien en Guadeloupe</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     
     <style>
@@ -39,439 +39,329 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             background-color: var(--bg-page);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .container { max-width: 1240px; margin: 0 auto; padding: 3rem 1.8rem; }
         main.container { flex: 1; }
 
-        /* En-tête / Barre de navigation */
+        /* HEADER ÉPURÉ AVEC GRAND LOGO CENTRAL */
         .site-header {
-            background: rgba(255, 255, 255, 0.96);
+            padding: 3rem 1rem 1.5rem 1rem;
+            text-align: center;
+            background: #ffffff;
             border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 999;
-            backdrop-filter: blur(8px);
         }
-        .nav-inner {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0.8rem 1.5rem; max-width: 1200px; margin: 0 auto;
+        .main-logo-hero {
+            display: block;
+            width: 100%;
+            max-width: 440px;
+            height: auto;
+            margin: 0 auto 1.5rem auto;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));
+            transition: transform 0.25s ease;
         }
-        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .nav-logo-mini { height: 42px; width: auto; }
-        .nav-brand-text { font-size: 1.15rem; font-weight: 900; color: var(--primary-dark); letter-spacing: -0.3px; }
-        .nav-actions { display: flex; align-items: center; gap: 10px; }
-        .nav-btn-phone {
-            display: inline-flex; align-items: center; gap: 6px; color: var(--primary);
-            text-decoration: none; font-size: 0.85rem; font-weight: 800; padding: 0.45rem 0.9rem;
-            border: 1px solid var(--frame-border); border-radius: 20px; transition: all 0.2s;
-        }
-        .nav-btn-phone:hover { border-color: var(--primary); background: #f1f5f9; }
-        .nav-btn-rdv {
-            background: var(--primary); color: white; padding: 0.5rem 1.1rem;
-            border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 800;
-            transition: all 0.2s;
-        }
-        .nav-btn-rdv:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .main-logo-hero:hover { transform: scale(1.02); }
 
-        /* Section d'accueil (Hero) */
-        .hero-section {
-            padding: 3rem 1rem 2.2rem 1rem; text-align: center; max-width: 960px; margin: 0 auto;
+        /* HERO ZONE TRÈS AÉRÉE */
+        .hero-statement {
+            max-width: 940px;
+            margin: 2rem auto 3.5rem auto;
+            text-align: center;
         }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe;
-            padding: 0.35rem 1rem; border-radius: 25px; font-size: 0.82rem; font-weight: 800;
-            margin-bottom: 1.2rem;
+        .hero-h1 {
+            font-size: 2.9rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            line-height: 1.25;
+            letter-spacing: -0.6px;
+            margin-bottom: 1.5rem;
         }
-        .hero-title {
-            font-size: 2.5rem; font-weight: 900; color: var(--primary-dark);
-            line-height: 1.25; margin-bottom: 1.2rem; letter-spacing: -0.5px;
-        }
-        .hero-title span { color: var(--primary); }
-        .hero-desc {
-            font-size: 1.12rem; color: var(--text-muted); max-width: 820px;
-            margin: 0 auto 2rem auto; line-height: 1.65;
+        .hero-h1 span { color: var(--primary); }
+        
+        .hero-sublead {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 840px;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.7;
+            font-weight: 450;
         }
 
-        .hero-cta-bar {
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.2rem;
+        /* ACTIONS PRINCIPALES */
+        .hero-actions-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 3.5rem;
         }
         .btn-cta {
-            display: inline-flex; align-items: center; gap: 8px; padding: 0.75rem 1.5rem;
-            border-radius: 30px; font-size: 0.92rem; font-weight: 800; cursor: pointer;
-            transition: all 0.2s ease; text-decoration: none; border: none;
+            display: inline-flex; align-items: center; gap: 10px; padding: 0.9rem 1.8rem;
+            border-radius: 35px; font-size: 0.98rem; font-weight: 800; cursor: pointer;
+            transition: all 0.25s ease; text-decoration: none; border: none;
         }
-        .btn-cta-primary { background: var(--primary); color: white; box-shadow: 0 4px 14px rgba(44, 76, 110, 0.2); }
-        .btn-cta-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
-        .btn-cta-tic { background: var(--emerald); color: white; box-shadow: 0 4px 14px rgba(5, 150, 105, 0.2); }
-        .btn-cta-tic:hover { background: #047857; transform: translateY(-2px); }
+        .btn-cta-primary { background: var(--primary); color: white; box-shadow: 0 6px 18px rgba(44, 76, 110, 0.22); }
+        .btn-cta-primary:hover { background: var(--primary-hover); transform: translateY(-3px); }
+        .btn-cta-tic { background: var(--emerald); color: white; box-shadow: 0 6px 18px rgba(5, 150, 105, 0.22); }
+        .btn-cta-tic:hover { background: #047857; transform: translateY(-3px); }
         .btn-cta-pdf { background: #ffffff; color: var(--primary); border: 1.5px solid var(--frame-border); }
-        .btn-cta-pdf:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .btn-cta-pdf:hover { border-color: var(--primary); transform: translateY(-3px); }
 
-        /* Bandeau de réassurance humaine */
-        .reassurance-strip {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 1.2rem; padding: 1.2rem; background: #ffffff; border: 1px solid var(--border);
-            border-radius: 14px; margin-bottom: 3.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        /* CARTES DE RÉASSURANCE AVEC EFFET HOVER (DÉVOILEMENT AU SURVOL) */
+        .reassurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            max-width: 1160px;
+            margin: 0 auto 4rem auto;
         }
-        .reassurance-item {
-            display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: #334155; line-height: 1.45;
+        .reassurance-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            cursor: default;
         }
-        .reassurance-icon { font-size: 1.3rem; flex-shrink: 0; }
-        .reassurance-item strong { display: block; color: var(--primary-dark); font-size: 0.88rem; margin-bottom: 2px; }
-
-        /* Commutateur de navigation (Onglets) */
-        .hub-switcher-wrap { display: flex; justify-content: center; margin-bottom: 2.8rem; }
-        .hub-switcher {
-            background: #e2e8f0; padding: 5px; border-radius: 30px; display: flex;
-            flex-wrap: wrap; gap: 6px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .hub-btn {
-            border: none; background: transparent; padding: 0.65rem 1.3rem; font-size: 0.90rem;
-            font-weight: 800; color: var(--text-muted); border-radius: 25px; cursor: pointer; transition: all 0.25s ease;
-        }
-        .hub-btn.active { background: var(--primary); color: #ffffff; box-shadow: 0 4px 12px rgba(44, 76, 110, 0.25); }
-        .hub-btn-tic { color: #065f46; }
-        .hub-btn-tic.active { background: #059669; color: white; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25); }
-
-        .view-section { display: none; }
-        .view-section.active { display: block; animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Piliers d'intervention */
-        .section-intro { text-align: center; max-width: 820px; margin: 0 auto 2.5rem auto; }
-        .section-tag {
-            display: inline-block; background: #eff6ff; color: #1e40af; font-size: 0.74rem;
-            font-weight: 800; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 6px; margin-bottom: 0.6rem;
-        }
-        .section-title { font-size: 2rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 0.6rem; }
-        .section-desc { font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; }
-
-        .pillars-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.8rem; margin-bottom: 3.5rem;
-        }
-        .pillar-box {
-            background: #ffffff; border: 1.5px solid var(--border); border-radius: 16px;
-            padding: 2.2rem 1.8rem; display: flex; flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-            position: relative; overflow: hidden;
-        }
-        .pillar-box:hover {
-            transform: translateY(-4px); border-color: var(--primary);
+        .reassurance-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
             box-shadow: 0 12px 25px rgba(44, 76, 110, 0.08);
         }
-        .pillar-box::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; }
+        .reassurance-header {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 0.6rem;
+        }
+        .reassurance-icon { font-size: 1.6rem; }
+        .reassurance-title { font-size: 1.05rem; font-weight: 800; color: var(--primary-dark); }
+        
+        /* Texte qui s'anime et gagne en intensité au survol */
+        .reassurance-detail {
+            font-size: 0.88rem;
+            color: #64748b;
+            line-height: 1.55;
+            transition: color 0.2s;
+        }
+        .reassurance-card:hover .reassurance-detail { color: #1e293b; }
+
+        /* GRAND COMMUTATEUR DES 4 PAGES DÉDIÉES */
+        .hub-switcher-wrap { display: flex; justify-content: center; margin: 2rem 0 3.5rem 0; }
+        .hub-switcher {
+            background: #e2e8f0; padding: 6px; border-radius: 35px; display: flex;
+            flex-wrap: wrap; gap: 8px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+        .hub-btn {
+            border: none; background: transparent; padding: 0.8rem 1.6rem; font-size: 0.95rem;
+            font-weight: 800; color: var(--text-muted); border-radius: 30px; cursor: pointer; transition: all 0.25s ease;
+        }
+        .hub-btn.active { background: var(--primary); color: #ffffff; box-shadow: 0 4px 14px rgba(44, 76, 110, 0.28); }
+        .hub-btn-tic { color: #065f46; }
+        .hub-btn-tic.active { background: #059669; color: white; box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28); }
+
+        /* GESTION MULTI-PAGES EN PLEIN ÉCRAN */
+        .page-view-section { display: none; width: 100%; min-height: 70vh; }
+        .page-view-section.active { display: block; animation: pageFadeIn 0.4s ease-out; }
+        @keyframes pageFadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* EN-TÊTES DE PAGES AÉRÉS */
+        .page-intro-header {
+            text-align: center;
+            max-width: 880px;
+            margin: 0 auto 3.5rem auto;
+            padding: 1rem 0;
+        }
+        .page-tag {
+            display: inline-block; background: #eff6ff; color: #1e40af; font-size: 0.76rem;
+            font-weight: 800; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 6px; margin-bottom: 0.8rem;
+        }
+        .page-title { font-size: 2.3rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 0.8rem; letter-spacing: -0.4px; }
+        .page-desc { font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* LES 3 PILIERS EN CARTES MAJESTUEUSES */
+        .pillars-grid-spacious {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2.2rem; margin-bottom: 4rem;
+        }
+        .pillar-card-hero {
+            background: #ffffff; border: 1.5px solid var(--border); border-radius: 18px;
+            padding: 2.5rem 2rem; display: flex; flex-direction: column;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.03); transition: all 0.3s ease;
+            position: relative; overflow: hidden;
+        }
+        .pillar-card-hero:hover {
+            transform: translateY(-5px); border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(44, 76, 110, 0.1);
+        }
+        .pillar-card-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; }
         .pillar-p1::before { background: #0284c7; }
         .pillar-p2::before { background: var(--accent); }
         .pillar-p3::before { background: var(--emerald); }
 
-        .pillar-icon {
-            font-size: 2.2rem; width: 56px; height: 56px; border-radius: 12px;
+        .pillar-icon-box {
+            font-size: 2.4rem; width: 62px; height: 62px; border-radius: 14px;
             background: #f8fafc; border: 1px solid var(--border); display: flex;
-            align-items: center; justify-content: center; margin-bottom: 1rem;
+            align-items: center; justify-content: center; margin-bottom: 1.2rem;
         }
-        .pillar-h3 { font-size: 1.3rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 0.6rem; }
-        .pillar-p { font-size: 0.90rem; color: #475569; line-height: 1.6; margin-bottom: 1.2rem; flex-grow: 1; }
-        .pillar-list { list-style: none; padding: 0; margin-bottom: 1.4rem; }
-        .pillar-list li {
-            font-size: 0.84rem; color: #334155; margin-bottom: 0.4rem;
+        .pillar-h3 { font-size: 1.35rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 0.8rem; }
+        .pillar-p { font-size: 0.95rem; color: #475569; line-height: 1.65; margin-bottom: 1.5rem; flex-grow: 1; }
+        .pillar-checklist { list-style: none; padding: 0; margin-bottom: 1.8rem; }
+        .pillar-checklist li {
+            font-size: 0.88rem; color: #334155; margin-bottom: 0.5rem;
             display: flex; align-items: flex-start; gap: 8px; font-weight: 600;
         }
-        .pillar-list li span { color: var(--emerald); font-weight: 900; }
+        .pillar-checklist li span { color: var(--emerald); font-weight: 900; }
 
-        /* THEMIS Card */
+        /* FLAGSHIP THEMIS */
         .themis-hero-card {
             background: linear-gradient(135deg, #091a2b 0%, #173352 100%);
-            border-radius: 18px; padding: 2.5rem; color: #ffffff; margin-bottom: 3.5rem;
-            box-shadow: 0 15px 35px rgba(9, 26, 43, 0.25); border: 1px solid rgba(197, 155, 67, 0.35);
+            border-radius: 20px; padding: 3rem 2.5rem; color: #ffffff; margin-bottom: 4rem;
+            box-shadow: 0 18px 40px rgba(9, 26, 43, 0.28); border: 1.5px solid rgba(197, 155, 67, 0.4);
         }
         .themis-badge-top {
             display: inline-block; background: var(--accent); color: #091a2b; font-size: 0.75rem;
-            font-weight: 900; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem;
+            font-weight: 900; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1.2rem;
         }
-        .themis-title { font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
-        .themis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1.5rem 0; }
+        .themis-title { font-size: 2.3rem; font-weight: 900; margin-bottom: 1rem; line-height: 1.25; }
+        .themis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
         @media (max-width: 768px) { .themis-grid { grid-template-columns: 1fr; } }
         .themis-box {
-            background: rgba(255, 255, 255, 0.06); border-left: 4px solid var(--accent);
-            padding: 1.2rem; border-radius: 0 10px 10px 0; font-size: 0.95rem; line-height: 1.6;
+            background: rgba(255, 255, 255, 0.07); border-left: 4px solid var(--accent);
+            padding: 1.4rem; border-radius: 0 12px 12px 0; font-size: 0.98rem; line-height: 1.65;
         }
-        .themis-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+        .themis-actions { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 2rem; }
 
-        /* Showroom & Filtres */
-        .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.65rem; margin-bottom: 2rem; }
+        /* SHOWROOM GRID & CARDS */
+        .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-bottom: 2.8rem; }
         .filter-btn {
-            background: var(--card-bg); border: 1px solid var(--border); color: var(--text-muted);
-            padding: 0.5rem 1.1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); transition: all 0.2s ease;
+            background: var(--card-bg); border: 1.5px solid var(--border); color: var(--text-muted);
+            padding: 0.6rem 1.3rem; border-radius: 25px; font-size: 0.90rem; font-weight: 700; cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03); transition: all 0.2s ease;
         }
-        .filter-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); box-shadow: 0 2px 6px rgba(44, 76, 110, 0.25); }
+        .filter-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); box-shadow: 0 3px 8px rgba(44, 76, 110, 0.25); }
         .filter-btn.chu-filter.active { background: #059669; border-color: #059669; }
 
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2.2rem; }
         .solution-card {
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
-            padding: 1.8rem; display: flex; flex-direction: column; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 16px;
+            padding: 2.2rem; display: flex; flex-direction: column; box-shadow: 0 5px 18px rgba(0, 0, 0, 0.03);
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
-        .solution-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 24px rgba(44, 76, 110, 0.09); }
-        .solution-card.card-chu { border-top: 4px solid #059669; }
-        .solution-badge { font-size: 0.72rem; font-weight: 800; color: var(--accent); text-transform: uppercase; }
-        .solution-title { font-size: 1.35rem; font-weight: 800; color: var(--primary); margin: 0.3rem 0 1rem 0; }
+        .solution-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 14px 28px rgba(44, 76, 110, 0.08); }
+        .solution-card.card-chu { border-top: 5px solid #059669; }
+        .solution-badge { font-size: 0.74rem; font-weight: 800; color: var(--accent); text-transform: uppercase; }
+        .solution-title { font-size: 1.4rem; font-weight: 900; color: var(--primary); margin: 0.4rem 0 1.2rem 0; }
         
         .case-box {
-            background: #f8fafc; border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 0.9rem;
-            font-size: 0.88rem; line-height: 1.55; border: 1px solid var(--border);
+            background: #f8fafc; border-radius: 10px; padding: 1.1rem 1.2rem; margin-bottom: 1.1rem;
+            font-size: 0.90rem; line-height: 1.6; border: 1px solid var(--border);
         }
-        .case-box-enjeu { border-left: 3px solid var(--accent); color: #334155; }
-        .case-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 5px; }
+        .case-box-enjeu { border-left: 3.5px solid var(--accent); color: #334155; }
+        .case-label { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 6px; }
 
         .solution-card-footer {
-            margin-top: auto; padding-top: 1.2rem; border-top: 1px solid var(--border);
-            display: flex; flex-direction: column; gap: 0.7rem;
+            margin-top: auto; padding-top: 1.4rem; border-top: 1px solid var(--border);
+            display: flex; flex-direction: column; gap: 0.8rem;
         }
-        .tech-link { font-size: 0.8rem; color: var(--primary); text-decoration: none; font-weight: 700; cursor: pointer; text-align: center; }
+        .tech-link { font-size: 0.85rem; color: var(--primary); text-decoration: none; font-weight: 800; cursor: pointer; text-align: center; }
         .tech-link:hover { text-decoration: underline; color: var(--accent); }
 
-        /* Méthode en 4 temps */
-        .process-page-wrap { max-width: 950px; margin: 0 auto; }
-        .process-header { text-align: center; margin-bottom: 3rem; }
-        .process-header h2 { font-size: 2.2rem; color: var(--primary); font-weight: 900; margin-bottom: 0.8rem; }
-        .process-header p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
-        
-        .process-timeline { display: flex; flex-direction: column; gap: 1.8rem; margin-bottom: 3.5rem; }
-        .timeline-card {
-            background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem 2rem;
-            display: flex; gap: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border-left: 6px solid var(--primary);
+        /* MÉTHODE / TIMELINE AÉRÉE */
+        .process-timeline-spacious { display: flex; flex-direction: column; gap: 2.2rem; margin-bottom: 4rem; }
+        .timeline-card-large {
+            background: #ffffff; border: 1px solid var(--border); border-radius: 18px; padding: 2.2rem 2.4rem;
+            display: flex; gap: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border-left: 6px solid var(--primary);
         }
-        .timeline-number {
-            background: var(--primary); color: white; font-size: 1.3rem; font-weight: 900; min-width: 50px;
-            height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; box-shadow: 0 4px 10px rgba(44, 76, 110, 0.25);
+        .timeline-num {
+            background: var(--primary); color: white; font-size: 1.4rem; font-weight: 900; min-width: 55px;
+            height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; box-shadow: 0 4px 12px rgba(44, 76, 110, 0.25);
         }
-        .timeline-content h3 { font-size: 1.25rem; color: var(--primary); font-weight: 800; margin-bottom: 0.4rem; }
-        .timeline-content p { color: #334155; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.8rem; }
-        .timeline-highlight {
-            display: inline-block; background: #ecfdf5; color: #065f46; font-size: 0.8rem; font-weight: 700;
-            padding: 0.3rem 0.8rem; border-radius: 6px; border: 1px solid #a7f3d0;
-        }
+        .timeline-h3 { font-size: 1.35rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; }
+        .timeline-p { color: #334155; font-size: 1rem; line-height: 1.65; margin-bottom: 1rem; }
 
-        /* Section Chèque TIC */
-        .tic-wrap { max-width: 1000px; margin: 0 auto; }
-        .tic-hero {
-            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); color: white; border-radius: 18px;
-            padding: 2.5rem; margin-bottom: 2.5rem; box-shadow: 0 10px 30px rgba(6, 78, 59, 0.2); border: 1px solid rgba(167, 243, 208, 0.3);
+        /* CHÈQUE TIC SIMULATEUR */
+        .tic-hero-banner {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); color: white; border-radius: 20px;
+            padding: 3rem 2.5rem; margin-bottom: 3rem; box-shadow: 0 12px 35px rgba(6, 78, 59, 0.22); border: 1px solid rgba(167, 243, 208, 0.3);
         }
-        .tic-hero h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 0.8rem; }
-        .tic-hero p { font-size: 1.05rem; opacity: 0.95; line-height: 1.6; max-width: 840px; }
+        .tic-hero-banner h2 { font-size: 2.3rem; font-weight: 900; margin-bottom: 0.8rem; }
+        .tic-hero-banner p { font-size: 1.1rem; opacity: 0.95; line-height: 1.7; max-width: 860px; }
 
-        .simulator-card {
-            background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 2.2rem;
-            margin-bottom: 3rem; box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+        .simulator-card-wrap {
+            background: #ffffff; border: 1.5px solid var(--border); border-radius: 18px; padding: 2.5rem;
+            margin-bottom: 3.5rem; box-shadow: 0 6px 25px rgba(0,0,0,0.03);
         }
-        .sim-section-title { font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; }
-        .eligibility-checks {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
-            margin-bottom: 2rem; background: #f8fafc; padding: 1.4rem; border-radius: 12px; border: 1px solid var(--border);
-        }
-        .check-label { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; font-weight: 600; color: #334155; cursor: pointer; }
-        .check-label input { width: 18px; height: 18px; margin-top: 2px; cursor: pointer; }
-
-        .budget-inputs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        .budget-input-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; }
-        .budget-input-box h4 { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 0.3rem; }
-        .budget-rate-badge { align-self: flex-start; font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 12px; margin-bottom: 0.8rem; }
-        .badge-80 { background: #dcfce7; color: #15803d; }
-        .badge-40 { background: #e0f2fe; color: #0369a1; }
-        .budget-input-box p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; flex-grow: 1; }
+        .sim-title { font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-bottom: 1.4rem; display: flex; align-items: center; gap: 10px; }
+        .budget-inputs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.8rem; margin-bottom: 2.2rem; }
+        .budget-input-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem; display: flex; flex-direction: column; }
+        .budget-input-box h4 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 0.4rem; }
         .currency-input {
-            width: 100%; padding: 0.7rem 1rem; border: 1.5px solid var(--frame-border); border-radius: 8px;
-            font-size: 1.1rem; font-weight: 700; color: var(--text-main); outline: none; transition: border-color 0.2s;
-        }
-        .currency-input:focus { border-color: var(--primary); }
-
-        .sim-results-panel {
-            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 2px solid #cbd5e1;
-            border-radius: 14px; padding: 2rem; margin-top: 1.5rem;
-        }
-        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center; margin-bottom: 1.5rem; }
-        .result-metric h5 { font-size: 0.82rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; font-weight: 700; }
-        .result-metric .value { font-size: 1.8rem; font-weight: 900; }
-        .val-total { color: var(--primary); }
-        .val-subvention { color: #059669; }
-        .val-reste { color: var(--accent); }
-
-        .disclaimer-box {
-            background: #fffbeb; border-left: 4px solid #f59e0b; padding: 0.85rem 1.2rem;
-            font-size: 0.82rem; color: #92400e; border-radius: 0 8px 8px 0; line-height: 1.5;
+            width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--frame-border); border-radius: 8px;
+            font-size: 1.15rem; font-weight: 700; color: var(--text-main); outline: none; transition: border-color 0.2s;
         }
 
-        /* Boutons standards */
-        .btn {
-            display: inline-block; padding: 0.7rem 1.3rem; border-radius: 8px; border: none; font-weight: 700;
-            cursor: pointer; text-decoration: none; text-align: center; font-size: 0.9rem; transition: all 0.2s;
-        }
-        .btn-gold { background: var(--accent); color: #091a2b; }
-        .btn-gold:hover { background: var(--accent-hover); color: white; }
-        .btn-primary { background: var(--primary); color: #ffffff; }
-        .btn-primary:hover { background: var(--primary-hover); }
-        .btn-outline { background: transparent; border: 1px solid var(--frame-border); color: var(--primary); }
-        .btn-outline:hover { background: #f1f5f9; border-color: var(--primary); }
+        /* GLOSSAIRE */
+        .glossary-section-wrap { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+        .glossary-grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+        .glossary-card-item { background: #ffffff; border: 1px solid var(--border); border-radius: 10px; padding: 1.3rem; }
+        .glossary-term { font-weight: 900; color: var(--primary); margin-bottom: 0.4rem; font-size: 1rem; }
 
-        /* Modales & Signature */
-        .hidden { display: none !important; }
-        #modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
-        #modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); }
-        .modal-dialog { position: relative; background: #ffffff; width: 90%; max-width: 960px; max-height: 92vh; border-radius: 16px; padding: 2.4rem; overflow-y: auto; z-index: 1001; }
-        #modal-close-btn { position: absolute; top: 1.2rem; right: 1.4rem; background: transparent; border: none; font-size: 2rem; color: var(--text-muted); cursor: pointer; }
-
-        .mandat-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
-        @media(max-width: 650px) { .mandat-form-grid { grid-template-columns: 1fr; } }
-        .form-group { display: flex; flex-direction: column; gap: 4px; }
-        .form-group label { font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; }
-        .form-control { padding: 0.65rem 0.9rem; border: 1.5px solid var(--frame-border); border-radius: 6px; font-size: 0.9rem; outline: none; }
-        .form-control:focus { border-color: var(--primary); }
-        .mandat-legal-text {
-            background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;
-            font-size: 0.80rem; color: #475569; line-height: 1.5; max-height: 160px; overflow-y: auto; margin: 1rem 0;
-        }
-
-        .signature-box-wrap { background: #ffffff; border: 1.5px dashed var(--primary); border-radius: 8px; padding: 0.8rem; margin: 1rem 0; }
-        .signature-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-        .signature-header span { font-size: 0.82rem; font-weight: 800; color: var(--primary); }
-        #signature-pad { border: 1px solid #cbd5e1; border-radius: 6px; width: 100%; height: 130px; background: #ffffff; touch-action: none; cursor: crosshair; }
-
-        /* Vidéos et captures */
-        .video-container { width: 100%; background: #000; border-radius: 10px; margin: 1.2rem 0; overflow: hidden; border: 1px solid var(--frame-border); }
-        .video-container video { width: 100%; display: block; max-height: 400px; }
-        .video-focus-box { background: #f8fafc; border-left: 4px solid var(--accent); padding: 0.85rem 1.1rem; font-size: 0.85rem; color: #334155; margin-top: -0.8rem; margin-bottom: 1.5rem; border-radius: 0 0 10px 10px; border: 1px solid var(--border); }
-        
-        .screenshots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.3rem; margin-top: 1rem; }
-        .screenshot-item { background: #f8fafc; border: 1px solid var(--frame-border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .screenshot-item img { width: 100%; height: 165px; object-fit: cover; cursor: pointer; border-bottom: 1px solid var(--border); background: #091a2b; transition: opacity 0.2s; }
-        .screenshot-item img:hover { opacity: 0.88; }
-        .screenshot-item figcaption { font-size: 0.8rem; color: #334155; padding: 0.75rem 0.9rem; background: #ffffff; flex-grow: 1; font-weight: 500; }
-
-        .modal-view-switcher { display: flex; background: #e2e8f0; padding: 4px; border-radius: 10px; gap: 4px; margin: 1.2rem 0; width: fit-content; }
-        .modal-view-tab { border: none; background: transparent; padding: 0.5rem 1.2rem; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-        .modal-view-tab.active { background: var(--primary); color: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-        .modal-iframe-container { width: 100%; height: 540px; border-radius: 12px; overflow: hidden; border: 1px solid var(--frame-border); margin: 1rem 0; background: #f8fafc; }
-        .modal-iframe-container iframe { width: 100%; height: 100%; border: none; }
-
-        /* Lightbox */
-        #lightbox { position: fixed; inset: 0; z-index: 2500; background: rgba(10, 15, 26, 0.94); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; }
-        #lightbox-img-wrap { max-width: 90vw; max-height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; }
-        #lightbox-img { max-width: 100%; max-height: 78vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); }
-        #lightbox-caption { color: #f1f5f9; font-size: 0.95rem; margin-top: 1rem; text-align: center; max-width: 800px; font-weight: 500; }
-        #lightbox-close { position: absolute; top: 25px; right: 35px; color: white; font-size: 2.5rem; background: none; border: none; cursor: pointer; }
-        .lightbox-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.12); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.8rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-        .lightbox-nav-btn:hover { background: var(--accent); color: #091a2b; }
-        #lightbox-prev { left: 25px; }
-        #lightbox-next { right: 25px; }
-
-        /* Triptyque Plaquette */
-        .triptyque-sheet {
-            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4rem; background: #ffffff;
-            border: 1.5px solid var(--frame-border); border-radius: 12px; padding: 1.5rem 1.2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06); margin: 1rem 0 2rem 0; position: relative;
-        }
-        @media (max-width: 880px) { .triptyque-sheet { grid-template-columns: 1fr; gap: 1.5rem; } }
-        .triptyque-volet { display: flex; flex-direction: column; padding: 0 0.6rem; position: relative; }
-        .triptyque-volet:not(:last-child)::after {
-            content: ""; position: absolute; right: -0.75rem; top: 2%; height: 96%; border-right: 1.5px dashed #cbd5e1;
-        }
-        @media (max-width: 880px) { .triptyque-volet:not(:last-child)::after { display: none; } }
-        .volet-header-banner {
-            background: var(--primary); color: white; padding: 0.45rem 0.75rem; border-radius: 6px;
-            margin-bottom: 0.9rem; display: flex; justify-content: space-between; align-items: center;
-        }
-        .volet-header-title { font-size: 0.80rem; font-weight: 900; text-transform: uppercase; margin: 0; }
-        .volet-header-tag { background: var(--accent); color: #091a2b; font-size: 0.62rem; font-weight: 900; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; }
-        .volet-card-inner { background: #f8fafc; border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem 0.75rem; margin-bottom: 0.6rem; }
-        .volet-card-title { font-size: 0.80rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem; }
-
-        /* Glossaire */
-        .glossary-section { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
-        .glossary-title { font-size: 1.5rem; color: var(--primary); font-weight: 800; text-align: center; margin-bottom: 1.5rem; }
-        .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
-        .glossary-card { background: #ffffff; border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem; }
-        .glossary-term { font-weight: 800; color: var(--primary); margin-bottom: 0.3rem; font-size: 0.95rem; }
-        .glossary-def { font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; }
-
-        /* Lab Tech */
-        .tech-spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
-        .tech-card { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
-        .tech-card-title { font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; }
-        .tech-tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-        .tech-pill { background: #f1f5f9; color: var(--primary); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid #e2e8f0; }
-        .tech-card-features { font-size: 0.85rem; color: #334155; line-height: 1.5; padding-left: 1.2rem; }
-
-        /* Boutons flottants */
-        .whatsapp-btn, .email-btn, .share-btn { position: fixed; right: 25px; border-radius: 50%; width: 55px; height: 55px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; transition: transform 0.2s; border: none; cursor: pointer; }
+        /* BOUTONS FLOTTANTS */
+        .whatsapp-btn, .email-btn, .share-btn { position: fixed; right: 25px; border-radius: 50%; width: 55px; height: 55px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 14px rgba(0,0,0,0.18); z-index: 1000; transition: transform 0.2s; border: none; cursor: pointer; }
         .whatsapp-btn { bottom: 25px; background: #25d366; }
         .email-btn { bottom: 90px; background: var(--primary); }
         .share-btn { bottom: 155px; background: var(--accent); }
         .whatsapp-btn:hover, .email-btn:hover, .share-btn:hover { transform: scale(1.1); }
         .whatsapp-btn svg, .email-btn svg, .share-btn svg { width: 26px; height: 26px; fill: white; }
 
-        #toast { visibility: hidden; min-width: 250px; background: #1f2937; color: #fff; text-align: center; border-radius: 8px; padding: 12px; position: fixed; z-index: 3000; left: 50%; bottom: 30px; transform: translateX(-50%); font-weight: 600; opacity: 0; transition: 0.3s; }
-        #toast.show { visibility: visible; opacity: 1; bottom: 50px; }
-
-        .site-footer { background: var(--primary); color: #f8fafc; text-align: center; padding: 2.2rem 1rem; margin-top: 4rem; }
-        .footer-link { color: var(--accent); text-decoration: underline; cursor: pointer; margin-left: 8px; }
-
         #scroll-progress {
             position: fixed; top: 0; left: 0; height: 3px;
             background: linear-gradient(90deg, #C59B43, #059669, #38bdf8);
             width: 0%; z-index: 99999; pointer-events: none; transition: width 0.1s ease-out;
         }
+
+        .site-footer { background: var(--primary); color: #f8fafc; text-align: center; padding: 3rem 1rem; margin-top: 5rem; }
     </style>
 </head>
 <body>
 
-    <!-- Barre de navigation -->
+    <!-- Barre de défilement discrète -->
+    <div id="scroll-progress"></div>
+
+    <!-- En-tête épuré et centré -->
     <header class="site-header">
-        <div class="nav-inner">
-            <a href="https://www.dhamusoft.fr" class="nav-brand">
-                <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft Logo" class="nav-logo-mini">
-                <span class="nav-brand-text">DHAMUSOFT</span>
-            </a>
-            <div class="nav-actions">
-                <a href="tel:0690051144" class="nav-btn-phone">📞 0690 05 11 44</a>
-                <button class="nav-btn-rdv" onclick="openCalendlyModal()">📅 Échange 15 min</button>
-            </div>
-        </div>
+        <a href="https://www.dhamusoft.fr">
+            <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft Logo" class="main-logo-hero">
+        </a>
     </header>
 
     <main class="container">
 
         <!-- ======================================================== -->
-        <!-- 🚀 SECTION HERO : ACCUEIL HUMAIN & ENGAGÉ                -->
+        <!-- 🚀 SECTION D'ACCUEIL : AÉRÉE, HUMAINE ET PERCUTANTE      -->
         <!-- ======================================================== -->
-        <section class="hero-section">
-            <div class="hero-badge">
-                📍 Ingénierie Logicielle & Accompagnement Numérique en Guadeloupe
-            </div>
-            
-            <h1 class="hero-title">
+        <section class="hero-statement">
+            <h1 class="hero-h1">
                 Libérez-vous des corvées informatiques.<br>
                 <span>Des outils simples qui travaillent pour vous.</span>
             </h1>
             
-            <p class="hero-desc">
-                Vous êtes artisan du BTP, prestataire de services ou professionnel de santé ? Vous perdez vos soirées sur des devis Word ou des tableaux Excel instables ?<br>
-                <strong>Dhamusoft crée vos logiciels et automatisations sur-mesure</strong> : ils s'adaptent à vos habitudes actuelles, vos données restent stockées chez vous, sans abonnement forcé, et sont <strong>financés jusqu'à 80% par la Région Guadeloupe</strong>.
+            <p class="hero-sublead">
+                Vous êtes artisan, prestataire de services ou professionnel de santé en Guadeloupe ? Vous perdez vos soirées sur vos devis et vos factures ?<br>
+                <strong>Dhamusoft crée vos logiciels et automatisations sur-mesure</strong> : ils s'adaptent à votre façon de travailler, vos données restent chez vous, sans abonnement mensuel forcé, et sont <strong>financés jusqu'à 80% par la Région Guadeloupe</strong>.
             </p>
 
-            <div class="hero-cta-bar">
+            <div class="hero-actions-bar">
                 <button class="btn-cta btn-cta-primary" onclick="openCalendlyModal()">
                     📅 Réserver un échange flash (15 min offert)
                 </button>
-                <button class="btn-cta btn-cta-tic" onclick="switchHub('chequetic')">
+                <button class="btn-cta btn-cta-tic" onclick="switchPageTab('chequetic')">
                     💰 Calculer mon aide Chèque TIC (80%)
                 </button>
                 <button class="btn-cta btn-cta-pdf" onclick="openPlaquetteModal()">
@@ -479,188 +369,146 @@
                 </button>
             </div>
 
-            <!-- Bandeau de réassurance -->
-            <div class="reassurance-strip">
-                <div class="reassurance-item">
-                    <span class="reassurance-icon">🧩</span>
-                    <div>
-                        <strong>Zéro bouleversement</strong>
-                        Nous créons des passerelles invisibles entre vos logiciels existants.
+            <!-- Grille de réassurance avec révélation au survol de la souris -->
+            <div class="reassurance-grid">
+                <div class="reassurance-card">
+                    <div class="reassurance-header">
+                        <span class="reassurance-icon">🧩</span>
+                        <div class="reassurance-title">Zéro bouleversement</div>
+                    </div>
+                    <div class="reassurance-detail">
+                        Nous créons des passerelles invisibles entre vos outils actuels sans rien casser de vos habitudes.
                     </div>
                 </div>
-                <div class="reassurance-item">
-                    <span class="reassurance-icon">🔒</span>
-                    <div>
-                        <strong>Données chez vous</strong>
-                        Vos fichiers restent sur vos ordinateurs en Guadeloupe, sans fuite Cloud.
+
+                <div class="reassurance-card">
+                    <div class="reassurance-header">
+                        <span class="reassurance-icon">🔒</span>
+                        <div class="reassurance-title">Données chez vous</div>
+                    </div>
+                    <div class="reassurance-detail">
+                        Vos fichiers restent stockés sur vos propres ordinateurs en Guadeloupe, sans aucune fuite Cloud.
                     </div>
                 </div>
-                <div class="reassurance-item">
-                    <span class="reassurance-icon">💎</span>
-                    <div>
-                        <strong>Votre outil à vie</strong>
-                        Vous possédez votre logiciel, sans obligation d'abonnement mensuel à vie.
+
+                <div class="reassurance-card">
+                    <div class="reassurance-header">
+                        <span class="reassurance-icon">💎</span>
+                        <div class="reassurance-title">Votre outil à vie</div>
+                    </div>
+                    <div class="reassurance-detail">
+                        Vous devenez propriétaire de votre logiciel, sans être pris au piège d'abonnements mensuels infinis.
                     </div>
                 </div>
-                <div class="reassurance-item">
-                    <span class="reassurance-icon">🌴</span>
-                    <div>
-                        <strong>Support direct local</strong>
-                        Un interlocuteur dédié qui vous répond directement au téléphone.
+
+                <div class="reassurance-card">
+                    <div class="reassurance-header">
+                        <span class="reassurance-icon">🌴</span>
+                        <div class="reassurance-title">Interlocuteur direct</div>
+                    </div>
+                    <div class="reassurance-detail">
+                        Un développeur disponible en Guadeloupe qui vous répond personnellement sans plateforme d'attente.
                     </div>
                 </div>
             </div>
 
-            <!-- Commutateur des 4 volets -->
+            <!-- COMMUTATEUR MAJESTUEUX DES 4 GRANDES PAGES -->
             <div class="hub-switcher-wrap">
                 <div class="hub-switcher">
-                    <button id="btn-show-solutions" class="hub-btn active">💼 Nos Solutions Métiers</button>
-                    <button id="btn-show-method" class="hub-btn">🤝 Comment travaillons-nous ?</button>
-                    <button id="btn-show-chequetic" class="hub-btn hub-btn-tic">💰 Financement Chèque TIC (80%)</button>
-                    <button id="btn-show-lab" class="hub-btn">⚙️ Les Coulisses Techniques</button>
+                    <button id="tab-btn-solutions" class="hub-btn active" onclick="switchPageTab('solutions')">💼 Nos Solutions Métiers</button>
+                    <button id="tab-btn-method" class="hub-btn" onclick="switchPageTab('method')">🤝 Comment travaillons-nous ?</button>
+                    <button id="tab-btn-chequetic" class="hub-btn hub-btn-tic" onclick="switchPageTab('chequetic')">💰 Financement Chèque TIC (80%)</button>
+                    <button id="tab-btn-lab" class="hub-btn" onclick="switchPageTab('lab')">⚙️ Les Coulisses Techniques</button>
                 </div>
             </div>
         </section>
 
 
         <!-- ======================================================== -->
-        <!-- 💼 ONGLET 1 : SHOWROOM DES SOLUTIONS MÉTIERS             -->
+        <!-- 💼 VRAIE PAGE 1 : NOS SOLUTIONS MÉTIERS (DÉPLOYÉE)       -->
         <!-- ======================================================== -->
-        <section id="view-solutions" class="view-section active">
+        <section id="page-solutions" class="page-view-section active">
 
-            <!-- LES 3 PILIERS D'INTERVENTION -->
-            <div class="section-intro">
-                <span class="section-tag">NOTRE SAVOIR-FAIRE EN 3 DOMAINES CLAIRS</span>
-                <h2 class="section-title">Ce que nous pouvons concrètement faire pour vous</h2>
-                <p class="section-desc">Pas de jargon abstrait : voici les trois façons dont nous soulageons le quotidien de votre entreprise.</p>
+            <div class="page-intro-header">
+                <span class="page-tag">CE QUE NOUS FAISONS CONCRÈTEMENT POUR VOUS</span>
+                <h2 class="page-title">Trois piliers pour simplifier votre entreprise</h2>
+                <p class="page-desc">Découvrez comment nous pouvons éliminer vos tâches chronophages et moderniser vos outils sans stress.</p>
             </div>
 
-            <div class="pillars-grid">
-                <!-- PILIER 1 -->
-                <div class="pillar-box pillar-p1">
-                    <div class="pillar-icon">🤖</div>
+            <div class="pillars-grid-spacious">
+                <div class="pillar-card-hero pillar-p1">
+                    <div class="pillar-icon-box">🤖</div>
                     <h3 class="pillar-h3">1. Automatisation Zéro-Clic & Tâches Répétitives</h3>
                     <p class="pillar-p">
-                        Vous passez du temps à recopier des données d'un document à un autre ? Nous programmons de petits robots logiciels qui lisent vos devis, PDF ou e-mails et recopient les informations à votre place sans aucune faute.
+                        Vous passez du temps à recopier des informations d'un document à un autre ? Nous programmons de petits robots logiciels qui lisent vos devis ou factures et recopient les données sans jamais faire de faute de frappe.
                     </p>
-                    <ul class="pillar-list">
-                        <li><span>✓</span> Extraction automatique depuis des PDF ou factures fournisseurs</li>
-                        <li><span>✓</span> Synchronisation directe avec vos outils comptables existants</li>
-                        <li><span>✓</span> Contrôle d'erreurs automatique avant validation</li>
+                    <ul class="pillar-checklist">
+                        <li><span>✓</span> Lecture et extraction automatique depuis des PDF ou courriels</li>
+                        <li><span>✓</span> Rapprochement direct avec vos tableaux existants</li>
+                        <li><span>✓</span> Alertes automatiques en cas d'erreur ou d'incohérence</li>
                     </ul>
-                    <button class="btn btn-outline" onclick="filtrerShowroom('devops')">Voir les robots & outils d'automatisation →</button>
+                    <button class="btn btn-outline" onclick="filtrerShowroom('devops')">Voir les robots d'automatisation →</button>
                 </div>
 
-                <!-- PILIER 2 -->
-                <div class="pillar-box pillar-p2">
-                    <div class="pillar-icon">💼</div>
+                <div class="pillar-card-hero pillar-p2">
+                    <div class="pillar-icon-box">💼</div>
                     <h3 class="pillar-h3">2. Gestion Commerciale THEMIS & Facturation 2026</h3>
                     <p class="pillar-p">
-                        Fini les soirées perdues sur Word et Excel. THEMIS est un logiciel sur-mesure pour créer des devis professionnels en 2 minutes, suivre vos acomptes encaissés et rester 100% conforme à la loi Factur-X 2026.
+                        Fini les soirées perdues sur Word et Excel. THEMIS regroupe tout : créez un devis en 2 minutes, suivez les acomptes réellement payés et restez 100% conforme à la nouvelle loi sur la facturation électronique 2026.
                     </p>
-                    <ul class="pillar-list">
-                        <li><span>✓</span> Devis précis et calcul automatique des acomptes en direct</li>
-                        <li><span>✓</span> Dossier contractuel complet prêt à signer (Cahier des charges, CGV)</li>
-                        <li><span>✓</span> Suivi clair de votre Chiffre d'Affaires et des impayés</li>
+                    <ul class="pillar-checklist">
+                        <li><span>✓</span> Devis multi-lignes et calcul immédiat des acomptes</li>
+                        <li><span>✓</span> Contrat juridique officiel scellé en 1 clic (Devis, CGV, SLA)</li>
+                        <li><span>✓</span> Vision directe de votre Chiffre d'Affaires et des impayés</li>
                     </ul>
                     <button class="btn btn-gold" onclick="openProjectModal('themis', 'demo')">Tester la démo THEMIS en direct →</button>
                 </div>
 
-                <!-- PILIER 3 -->
-                <div class="pillar-box pillar-p3">
-                    <div class="pillar-icon">🌐</div>
+                <div class="pillar-card-hero pillar-p3">
+                    <div class="pillar-icon-box">🌐</div>
                     <h3 class="pillar-h3">3. Sites Web & Applications Mobiles Tout-Terrain</h3>
                     <p class="pillar-p">
-                        Des sites internet vitrines ultra-rapides (< 1 seconde) et des boutiques e-commerce sécurisées. Mais aussi des applications pour smartphone utilisables <strong>en plein chantier sans aucune connexion internet</strong>.
+                        Des sites internet vitrines ultra-rapides (< 1 seconde) pour trouver de nouveaux clients en Guadeloupe. Mais aussi des applications pour smartphone utilisables <strong>sur un chantier sans réseau internet</strong>.
                     </p>
-                    <ul class="pillar-list">
-                        <li><span>✓</span> Sites vitrines percutants et bien référencés sur Google en Guadeloupe</li>
-                        <li><span>✓</span> Boutiques en ligne avec paiement CB sécurisé (Stripe / CB)</li>
-                        <li><span>✓</span> Outils mobiles hors-ligne (PWA) synchronisés au retour du réseau</li>
+                    <ul class="pillar-checklist">
+                        <li><span>✓</span> Sites vitrines percutants, adaptés aux téléphones et visibles sur Google</li>
+                        <li><span>✓</span> Boutiques en ligne sécurisées avec encaissement par carte bancaire</li>
+                        <li><span>✓</span> Applications mobiles 100% hors-ligne synchronisées dès le retour du réseau</li>
                     </ul>
-                    <button class="btn btn-outline" onclick="filtrerShowroom('web')">Découvrir les sites & applications web →</button>
+                    <button class="btn btn-outline" onclick="filtrerShowroom('web')">Explorer les applications web & mobiles →</button>
                 </div>
             </div>
 
-            <!-- FLAGSHIP BUSINESS : THEMIS ERP -->
+            <!-- FLAGSHIP BUSINESS THEMIS -->
             <div class="themis-hero-card">
                 <span class="themis-badge-top">⭐ En Vedette • Gestion Commerciale & Facturation</span>
-                <h2 class="themis-title">THEMIS — Votre copilote administratif et commercial complet</h2>
-                <p style="font-size: 1.1rem; opacity: 0.95; max-width: 820px; line-height: 1.6;">
-                    Unifiez toute votre chaîne de vente : rédigez vos devis rapidement, suivez vos acomptes en temps réel et assemblez en un clic un contrat juridique propre et scellé pour rassurer vos clients.
+                <h2 class="themis-title">THEMIS — Votre copilote commercial et contractuel</h2>
+                <p style="font-size: 1.15rem; opacity: 0.95; max-width: 840px; line-height: 1.7;">
+                    Unifiez toute votre gestion : rédigez vos devis rapidement, suivez vos acomptes en temps réel et assemblez en un clic un contrat commercial officiel propre et scellé pour rassurer vos clients.
                 </p>
 
                 <div class="themis-grid">
                     <div class="themis-box">
-                        <strong style="color: var(--accent); display: block; margin-bottom: 4px;">🎯 Le Problème du quotidien :</strong>
-                        Rédiger ses devis sous Word, calculer les acomptes à la main sous Excel et chercher ses conditions de vente éparpillées fait perdre des heures chaque semaine et empêche de voir clair sur l'argent réellement encaissé.
+                        <strong style="color: var(--accent); display: block; margin-bottom: 5px;">🎯 Le Problème du quotidien :</strong>
+                        Rédiger ses devis sous Word, calculer les acomptes à la main sous Excel et chercher ses CGV éparpillées fait perdre un temps fou et masque la visibilité sur l'argent réellement encaissé.
                     </div>
                     <div class="themis-box">
-                        <strong style="color: #6ee7b7; display: block; margin-bottom: 4px;">💡 La Solution THEMIS :</strong>
-                        Tout est regroupé : vous cochez vos prestations, les acomptes se calculent seuls et l'outil assemble en 1 clic un dossier officiel complet prêt à signer (Devis, Cahier des charges, CGV et mentions légales).
-                    </div>
-                </div>
-
-                <!-- COMPARATEUR THEMIS AVANT / APRÈS -->
-                <div class="themis-comparison-wrap" style="margin: 2rem 0; background: #071524; border: 1.5px solid rgba(197, 155, 67, 0.45); border-radius: 14px; overflow: hidden; position: relative;">
-                    <div style="padding: 0.8rem 1.4rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-                        <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">⚡ Comparateur de Temps de Gestion</span>
-                        <div style="display: flex; gap: 8px;">
-                            <button type="button" onclick="setSliderPercent(100)" style="background: rgba(239,68,68,0.25); border: 1px solid #ef4444; color: #fecaca; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; cursor: pointer;">
-                                ❌ Méthode Traditionnelle (45 min)
-                            </button>
-                            <button type="button" onclick="setSliderPercent(0)" style="background: rgba(4,120,87,0.35); border: 1px solid #10b981; color: #a7f3d0; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; cursor: pointer;">
-                                ✅ Avec THEMIS ERP (2 min 30)
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="comparison-container" id="themis-slider-box" style="position: relative; min-height: 290px; user-select: none; overflow: hidden; cursor: ew-resize;">
-                        <div class="comp-side comp-after" style="width: 100%; height: 100%; background: linear-gradient(135deg, #05231a 0%, #0b382a 100%); color: white; padding: 2rem; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
-                            <div style="display: inline-block; background: #047857; color: #a7f3d0; font-size: 0.72rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">AVEC THEMIS ERP • CONFORME 2026</div>
-                            <h4 style="font-size: 1.8rem; font-weight: 900; color: #ffffff; margin-bottom: 0.4rem; line-height: 1.2;">⏱️ 2 minutes 30 chrono par devis</h4>
-                            <p style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 1rem; max-width: 680px;">
-                                Devis détaillé généré immédiatement, calcul automatique des acomptes, et contrat officiel prêt à signer assemblé sans aucune manipulation fastidieuse.
-                            </p>
-                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Conforme Factur-X 2026</span>
-                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Inaltérabilité fiscale</span>
-                                <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #a7f3d0;">✓ Suivi Trésorerie en Direct</span>
-                            </div>
-                        </div>
-
-                        <div class="comp-side comp-before" id="themis-before-layer" style="position: absolute; top:0; left:0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e1b18 0%, #2e1015 100%); color: white; padding: 2rem; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); transition: clip-path 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
-                            <div style="max-width: 680px;">
-                                <div style="display: inline-block; background: #991b1b; color: #fecaca; font-size: 0.72rem; font-weight: 900; padding: 0.25rem 0.7rem; border-radius: 12px; width: fit-content; margin-bottom: 0.6rem;">MÉTHODE TRADITIONNELLE (PAPIER / EXCEL)</div>
-                                <h4 style="font-size: 1.8rem; font-weight: 900; color: #f87171; margin-bottom: 0.4rem; line-height: 1.2;">⏳ 45 minutes de galère par dossier</h4>
-                                <p style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.5; margin-bottom: 1rem;">
-                                    Ressaisie manuelle sous Word, formules Excel qui sautent, oublis de relancer les factures en attente et insécurité en cas de contrôle fiscal.
-                                </p>
-                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Soirées perdues</span>
-                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Erreurs de calcul</span>
-                                    <span style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; color: #fca5a5;">❌ Risque de litiges</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comp-handle" id="themis-slider-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: var(--accent); display: flex; align-items: center; justify-content: center; transform: translateX(-50%); box-shadow: 0 0 14px rgba(0,0,0,0.6); transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
-                            <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5); font-weight: 900; color: #091a2b; font-size: 14px;">⟷</div>
-                        </div>
+                        <strong style="color: #6ee7b7; display: block; margin-bottom: 5px;">💡 Ce que THEMIS résout :</strong>
+                        Tout est géré au même endroit : vous cochez vos prestations, les acomptes se recalculent en direct et l'outil assemble en 1 clic un contrat officiel prêt à signer.
                     </div>
                 </div>
 
                 <div class="themis-actions">
-                    <button class="btn btn-gold" onclick="openProjectModal('themis', 'demo')">🚀 Tester la démo interactive</button>
-                    <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="openProjectModal('themis', 'media')">📸 Voir les écrans en détail</button>
-                    <button class="tech-link" style="color: #93c5fd; background: none; border: none; margin-left: 10px;" onclick="goToTechSpec('themis')">⚙️ Voir comment c'est conçu →</button>
+                    <button class="btn btn-gold" onclick="openProjectModal('themis', 'demo')">🚀 Lancer la démo THEMIS en direct</button>
+                    <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="openProjectModal('themis', 'media')">📸 Consulter les captures d'écran</button>
+                    <button class="tech-link" style="color: #93c5fd; background: none; border: none; margin-left: 10px;" onclick="goToTechSpec('themis')">⚙️ Voir comment c'est programmé →</button>
                 </div>
             </div>
 
-            <!-- Filtres du Showroom -->
-            <div class="section-intro" style="margin-bottom: 1.5rem;">
-                <h3 style="font-size: 1.6rem; font-weight: 900; color: var(--primary-dark);">Explorez nos réalisations concrètes</h3>
-                <p style="font-size: 0.95rem; color: var(--text-muted);">Toutes ces solutions sont déjà en production ou testées en conditions réelles.</p>
+            <!-- FILTRE DU SHOWROOM -->
+            <div class="page-intro-header" style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.8rem; font-weight: 900; color: var(--primary-dark);">Toutes nos réalisations concrètes</h3>
+                <p style="font-size: 1rem; color: var(--text-muted);">Cliquez sur les filtres pour explorer les applications déjà en service :</p>
             </div>
 
             <div class="filter-bar">
@@ -673,32 +521,32 @@
             <div id="solutions-grid" class="solutions-grid"></div>
 
             <!-- GLOSSAIRE PÉDAGOGIQUE -->
-            <section class="glossary-section">
-                <h3 class="glossary-title">📖 Glossaire : Les mots de l'informatique expliqués simplement</h3>
-                <div class="glossary-grid">
-                    <div class="glossary-card">
-                        <div class="glossary-term">Automatisation (RPA / Robots)</div>
-                        <div class="glossary-def">Un petit programme informatique qui effectue les tâches répétitives à votre place (comme lire un document et recopier les chiffres dans un tableau sans faire d'erreur).</div>
+            <section class="glossary-section-wrap">
+                <h3 class="glossary-title">📖 Glossaire : Les termes techniques expliqués simplement</h3>
+                <div class="glossary-grid-3">
+                    <div class="glossary-card-item">
+                        <div class="glossary-term">Automatisation (Robots RPA)</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Un programme qui effectue les tâches répétitives à votre place (comme lire un document et recopier les chiffres dans un tableau sans faire d'erreur).</p>
                     </div>
-                    <div class="glossary-card">
+                    <div class="glossary-card-item">
                         <div class="glossary-term">Application Hors-Ligne (PWA)</div>
-                        <div class="glossary-def">Une application capable de fonctionner sur votre téléphone ou tablette même en plein milieu d'un chantier ou d'une zone sans aucun réseau internet. Dès que vous retrouvez du réseau, elle se synchronise toute seule.</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Une application utilisable sur smartphone même sans connexion internet (idéal sur un chantier ou en tournée). Elle se synchronise toute seule dès que le réseau revient.</p>
                     </div>
-                    <div class="glossary-card">
+                    <div class="glossary-card-item">
                         <div class="glossary-term">Tableau Kanban</div>
-                        <div class="glossary-def">Un tableau visuel avec des colonnes simples permettant de faire avancer vos chantiers ou dossiers étape par étape sans rien oublier (À faire ➔ En cours ➔ Terminé).</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Un tableau visuel en colonnes permettant de faire avancer vos dossiers étape par étape sans rien oublier (À faire ➔ En cours ➔ Terminé).</p>
                     </div>
-                    <div class="glossary-card">
+                    <div class="glossary-card-item">
                         <div class="glossary-term">Factur-X (Réforme 2026)</div>
-                        <div class="glossary-def">La nouvelle norme obligatoire de facturation électronique en France : chaque facture contient à la fois un PDF lisible par vous et un fichier informatique lisible par l'administration fiscale.</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">La nouvelle norme obligatoire : votre facture PDF contient un fichier informatique intégré pour être acceptée par l'administration fiscale sans ressaisie.</p>
                     </div>
-                    <div class="glossary-card">
+                    <div class="glossary-card-item">
                         <div class="glossary-term">Données Locales Souveraines</div>
-                        <div class="glossary-def">Vos fichiers clients et comptables restent enregistrés directement sur vos propres ordinateurs en Guadeloupe, et non pas sur des serveurs américains inconnus.</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Vos fichiers clients et comptables restent enregistrés sur vos propres ordinateurs en Guadeloupe, et ne partent pas sur des serveurs Cloud étrangers.</p>
                     </div>
-                    <div class="glossary-card">
+                    <div class="glossary-card-item">
                         <div class="glossary-term">Audit Trail (Journal de Bord)</div>
-                        <div class="glossary-def">Un historique automatique infalsifiable qui enregistre qui a modifié quoi et quand, idéal pour prouver la traçabilité en cas de contrôle ou de litige.</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Un registre infalsifiable qui note automatiquement qui a modifié quoi et quand, idéal pour prouver la traçabilité en cas de contrôle.</p>
                     </div>
                 </div>
             </section>
@@ -707,235 +555,244 @@
 
 
         <!-- ======================================================== -->
-        <!-- 🤝 ONGLET 2 : COMMENT TRAVAILLONS-NOUS ENSEMBLE ?        -->
+        <!-- 🤝 VRAIE PAGE 2 : COMMENT TRAVAILLONS-NOUS ? (DÉPLOYÉE)  -->
         <!-- ======================================================== -->
-        <section id="view-method" class="view-section">
-            <div class="process-page-wrap">
-                <div class="process-header">
-                    <h2>Une collaboration simple, pas-à-pas et sans stress</h2>
-                    <p>Pas de réunions inutiles, pas de jargon compliqué : nous avançons de façon concrète sur votre vrai quotidien de travail.</p>
-                </div>
+        <section id="page-method" class="page-view-section">
 
-                <div class="process-timeline">
-                    <div class="timeline-card">
-                        <div class="timeline-number">1</div>
-                        <div class="timeline-content">
-                            <h3>L'Échange Découverte (15 minutes au téléphone • Gratuit)</h3>
-                            <p>Nous faisons le point sur votre organisation : où perdez-vous du temps chaque semaine ? Quelles tâches vous pèsent le plus ? En 15 minutes, nous vous disons honnêtement si un outil sur-mesure est rentable pour vous et si vous avez droit à l'aide Chèque TIC.</p>
-                            <span class="timeline-highlight">✓ Échange offert • Zéro engagement</span>
-                        </div>
-                    </div>
+            <div class="page-intro-header">
+                <span class="page-tag">UNE COLLABORATION SIMPLE ET SANS JARGON</span>
+                <h2 class="page-title">De votre idée à l'outil en service chez vous</h2>
+                <p class="page-desc">Pas de réunions interminables : nous avançons de façon concrète sur votre vrai quotidien de travail.</p>
+            </div>
 
-                    <div class="timeline-card">
-                        <div class="timeline-number">2</div>
-                        <div class="timeline-content">
-                            <h3>Le Prototype Rapide testé sur vos vraies informations</h3>
-                            <p>Pas de longs mois d'attente théorique : sous 10 à 15 jours, nous vous montrons une première version fonctionnelle. Vous l'essayez directement avec vos vrais devis ou documents pour vérifier qu'elle vous simplifie vraiment la vie.</p>
-                            <span class="timeline-highlight">✓ Vos retours sont pris en compte immédiatement</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-card">
-                        <div class="timeline-number">3</div>
-                        <div class="timeline-content">
-                            <h3>Installation chez vous et formation bienveillante</h3>
-                            <p>L'outil est installé sur votre ordinateur ou votre smartphone. Nous prenons le temps de vous former, vous et vos collaborateurs, avec des explications simples et rassurantes pour que tout le monde soit autonome dès le premier jour.</p>
-                            <span class="timeline-highlight">✓ Prise en main en 1 jour • Support réactif en Guadeloupe</span>
-                        </div>
+            <div class="process-timeline-spacious">
+                <div class="timeline-card-large">
+                    <div class="timeline-num">1</div>
+                    <div>
+                        <h3 class="timeline-h3">L'Échange Découverte (15 minutes au téléphone • Gratuit)</h3>
+                        <p class="timeline-p">
+                            Nous faisons le point sur votre quotidien : où perdez-vous du temps chaque semaine ? Quelles tâches vous pèsent le plus ? En 15 minutes, nous vous disons en toute franchise si un outil sur-mesure est rentable pour votre entreprise et si vous avez droit au Chèque TIC.
+                        </p>
+                        <span class="timeline-highlight">✓ Échange offert • Zéro engagement</span>
                     </div>
                 </div>
 
-                <div class="guarantee-box">
-                    <h3 style="color: var(--primary); font-size: 1.35rem; font-weight: 800; margin-bottom: 0.6rem;">Envie de voir ce qu'on peut améliorer chez vous ?</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Prenez 15 minutes pour échanger directement avec Andy Vaubien au téléphone.</p>
-                    <button class="btn btn-primary" onclick="openCalendlyModal()">📅 Réserver mon créneau de 15 minutes</button>
+                <div class="timeline-card-large">
+                    <div class="timeline-num">2</div>
+                    <div>
+                        <h3 class="timeline-h3">Le Prototype Réel testé sur vos vrais documents</h3>
+                        <p class="timeline-p">
+                            Pas de maquettes théoriques ou de longs mois d'attente : sous 10 à 15 jours, nous concevons un premier outil fonctionnel. Vous l'essayez directement avec vos vrais devis ou documents pour vérifier qu'il vous fait réellement gagner du temps.
+                        </p>
+                        <span class="timeline-highlight">✓ Vos retours sont pris en compte immédiatement</span>
+                    </div>
+                </div>
+
+                <div class="timeline-card-large">
+                    <div class="timeline-num">3</div>
+                    <div>
+                        <h3 class="timeline-h3">Installation chez vous et formation bienveillante</h3>
+                        <p class="timeline-p">
+                            L'outil est installé sur votre ordinateur ou votre smartphone. Nous formons vos équipes avec des explications simples pour que tout le monde soit autonome dès le premier jour, et nous restons joignables directement en Guadeloupe.
+                        </p>
+                        <span class="timeline-highlight">✓ Prise en main en 1 jour • Support réactif local</span>
+                    </div>
                 </div>
             </div>
+
+            <div style="background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%); border: 1.5px solid var(--frame-border); border-radius: 20px; padding: 2.8rem; text-align: center; max-width: 800px; margin: 0 auto;">
+                <h3 style="color: var(--primary-dark); font-size: 1.6rem; font-weight: 900; margin-bottom: 0.6rem;">Envie d'échanger sur vos besoins ?</h3>
+                <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.8rem;">Prenez 15 minutes pour échanger directement avec Andy Vaubien au téléphone.</p>
+                <button class="btn btn-primary" onclick="openCalendlyModal()" style="font-size: 1rem; padding: 0.9rem 1.8rem;">
+                    📅 Réserver mon créneau de 15 minutes
+                </button>
+            </div>
+
         </section>
 
 
         <!-- ======================================================== -->
-        <!-- 💰 ONGLET 3 : CHÈQUE TIC (FINANCEMENT RÉGION GUADELOUPE) -->
+        <!-- 💰 VRAIE PAGE 3 : CHÈQUE TIC (DÉPLOYÉE SUR TOUTE LA PAGE) -->
         <!-- ======================================================== -->
-        <section id="view-chequetic" class="view-section">
-            <div class="tic-wrap">
-                
-                <div class="tic-hero">
-                    <span style="background: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">Aide Régionale & Fonds Européens FEDER</span>
-                    <h2>Financez jusqu'à 80 % de vos outils informatiques</h2>
-                    <p>Le dispositif <strong>Chèque TIC</strong> de la Région Guadeloupe permet aux artisans, TPE et professionnels libéraux de moderniser leur entreprise presque sans frais, avec une subvention pouvant atteindre <strong>jusqu'à 10 000 €</strong>.</p>
-                </div>
+        <section id="page-chequetic" class="page-view-section">
 
-                <!-- SCANNER D'INVESTISSEMENTS RÉCENTS -->
-                <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; margin-bottom: 2.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.2rem;">
-                        <div>
-                            <span style="background: #ecfdf5; color: #047857; font-size: 0.72rem; font-weight: 800; padding: 3px 8px; border-radius: 5px; text-transform: uppercase; border: 1px solid #a7f3d0;">Remboursement Rétroactif</span>
-                            <h3 style="font-size: 1.4rem; font-weight: 900; color: var(--primary); margin: 4px 0 2px 0;">Vous avez déjà acheté du matériel ou un site cette année ?</h3>
-                            <p style="font-size: 0.88rem; color: #64748b; margin: 0;">Cochez vos dépenses passées pour calculer l'argent que vous pouvez vous faire rembourser :</p>
-                        </div>
-                        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.5rem 0.8rem; font-size: 0.75rem; color: #334155;">
-                            <strong>Critères d'accès :</strong><br>
-                            ✓ Entreprise en Guadeloupe • ✓ Plus d'1 an d'activité • ✓ Cotisations sociales & fiscales à jour
-                        </div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; margin-bottom: 1.2rem;">
-                        <label class="scan-card" data-amount="2500" data-rate="0.8" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer;" onclick="toggleScanInvoice()">
-                            <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
-                            <div>
-                                <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Création ou refonte de Site Internet</strong>
-                                <span style="font-size: 0.74rem; color: #64748b;">Facture : 2 500 € HT</span>
-                                <span style="display: block; color: #047857; font-size: 0.72rem; font-weight: bold; margin-top: 2px;">Remboursement à 80% (Gain : 2 000 €)</span>
-                            </div>
-                        </label>
-
-                        <label class="scan-card" data-amount="1800" data-rate="0.8" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer;" onclick="toggleScanInvoice()">
-                            <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
-                            <div>
-                                <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Sécurité & Sauvegardes Externes</strong>
-                                <span style="font-size: 0.74rem; color: #64748b;">Facture : 1 800 € HT</span>
-                                <span style="display: block; color: #047857; font-size: 0.72rem; font-weight: bold; margin-top: 2px;">Remboursement à 80% (Gain : 1 440 €)</span>
-                            </div>
-                        </label>
-
-                        <label class="scan-card" data-amount="3500" data-rate="0.4" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 8px; padding: 0.8rem; display: flex; align-items: flex-start; gap: 8px; cursor: pointer;" onclick="toggleScanInvoice()">
-                            <input type="checkbox" checked style="width: 16px; height: 16px; margin-top: 2px;">
-                            <div>
-                                <strong style="color: var(--primary); font-size: 0.85rem; display: block;">Ordinateurs & Matériel Informatique</strong>
-                                <span style="font-size: 0.74rem; color: #64748b;">Facture : 3 500 € HT</span>
-                                <span style="display: block; color: #0369a1; font-size: 0.72rem; font-weight: bold; margin-top: 2px;">Remboursement à 40% (Gain : 1 400 €)</span>
-                            </div>
-                        </label>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, #05231a 0%, #0f3d2e 100%); color: white; border-radius: 10px; padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">Subvention Régionale Estimée :</span>
-                            <div style="font-size: 2rem; font-weight: 900; color: #ffffff;" id="scan-total-refund">4 840,00 €</div>
-                            <small style="color: #cbd5e1; font-size: 0.74rem;">L'aide est versée directement sur le compte bancaire (RIB) de votre entreprise.</small>
-                        </div>
-                        <button class="btn btn-gold" onclick="openMandatModal()" style="padding: 0.8rem 1.4rem; font-weight: 900; font-size: 0.90rem;">
-                            🚀 Récupérer mon remboursement sous mandat
-                        </button>
-                    </div>
-                </div>
-
-                <!-- SIMULATEUR DE PROJET FUTUR -->
-                <div class="simulator-card">
-                    <div class="sim-section-title"><span>1️⃣ Vérifiez votre éligibilité en 3 critères simples</span></div>
-                    <div class="eligibility-checks">
-                        <label class="check-label"><input type="checkbox" id="check-loc" checked onchange="calculerChequeTic()"><span>Entreprise immatriculée en Guadeloupe</span></label>
-                        <label class="check-label"><input type="checkbox" id="check-age" checked onchange="calculerChequeTic()"><span>Activité créée depuis au moins 1 an</span></label>
-                        <label class="check-label"><input type="checkbox" id="check-fisc" checked onchange="calculerChequeTic()"><span>Impôts et cotisations CGSS à jour</span></label>
-                    </div>
-
-                    <div class="sim-section-title"><span>2️⃣ Estimez votre projet par catégorie de dépenses (en HT)</span></div>
-                    <div class="budget-inputs-grid">
-                        <div class="budget-input-box">
-                            <h4>🌐 Site Web & E-Commerce</h4>
-                            <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
-                            <p>Création de site vitrine, boutique en ligne avec paiement par carte bancaire et nom de domaine.</p>
-                            <input type="number" id="input-web" class="currency-input" placeholder="0 €" value="2500" min="0" oninput="calculerChequeTic()">
-                        </div>
-                        <div class="budget-input-box">
-                            <h4>🛡️ Sécurité & Sauvegardes</h4>
-                            <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
-                            <p>Protection antivirus professionnelle, sauvegardes de sécurité automatiques et pare-feu.</p>
-                            <input type="number" id="input-secu" class="currency-input" placeholder="0 €" value="1500" min="0" oninput="calculerChequeTic()">
-                        </div>
-                        <div class="budget-input-box">
-                            <h4>💻 Logiciels Métiers & Équipement</h4>
-                            <span class="budget-rate-badge badge-40">Pris en charge à 40%</span>
-                            <p>Logiciel de gestion sur-mesure (THEMIS), ordinateurs de travail portables ou fixes.</p>
-                            <input type="number" id="input-trans" class="currency-input" placeholder="0 €" value="5000" min="0" oninput="calculerChequeTic()">
-                        </div>
-                    </div>
-
-                    <div class="sim-results-panel">
-                        <div class="results-grid">
-                            <div class="result-metric"><h5>Montant Total du Projet</h5><div class="value val-total" id="res-total">9 000 € HT</div></div>
-                            <div class="result-metric"><h5>Aide Chèque TIC Prise en Charge</h5><div class="value val-subvention" id="res-aide">5 200 €</div></div>
-                            <div class="result-metric"><h5>Votre Reste à Charge Réel</h5><div class="value val-reste" id="res-reste">3 800 € HT</div></div>
-                        </div>
-
-                        <div id="eligibility-alert" style="display: none; background: #fee2e2; border-left: 4px solid #ef4444; padding: 0.8rem 1.1rem; border-radius: 6px; font-size: 0.88rem; color: #991b1b; margin-bottom: 1rem;">
-                            ⚠️ <strong>Attention :</strong> Pour avoir droit au Chèque TIC, votre entreprise doit obligatoirement remplir les 3 critères réglementaires ci-dessus.
-                        </div>
-
-                        <div class="disclaimer-box">
-                            ℹ️ <strong>Information légale :</strong> Simulation indicative calculée selon la Délibération officielle n°CR-19-175. L'attribution finale relève de la commission de la Région Guadeloupe et de l'ASP.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NOTRE ACCOMPAGNEMENT EN 2 JALONS -->
-                <div class="accompagnement-box">
-                    <h3 style="color: var(--primary); font-size: 1.45rem; font-weight: 800; margin-bottom: 0.6rem;">
-                        🤝 L'Accompagnement Dhamusoft : Nous montons votre dossier de A à Z
-                    </h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        Ne vous perdez pas dans les formulaires administratifs. En tant que prestataire informatique en Guadeloupe, nous prenons en charge l'ensemble de la démarche :
-                    </p>
-
-                    <div class="accompagnement-steps">
-                        <div class="acc-step">
-                            <strong>1. Devis & Pièces Conformes</strong>
-                            <p>Nous calibrons les devis techniques pour qu'ils respectent scrupuleusement les exigences de la Région.</p>
-                        </div>
-                        <div class="acc-step">
-                            <strong>2. Note d'Impact Stratégique (3 pages)</strong>
-                            <p>Nous rédigeons le dossier démontrant concrètement l'intérêt économique et la sécurité de votre projet.</p>
-                        </div>
-                        <div class="acc-step">
-                            <strong>3. Dépôt & Déblocage du Virement ASP</strong>
-                            <p>Nous télétransmettons votre dossier sous mandat, puis nous montons la liasse de liquidation pour débloquer le versement sur votre compte.</p>
-                        </div>
-                    </div>
-
-                    <div class="mandat-cta-banner">
-                        <div>
-                            <h4>📋 Vous souhaitez faire financer vos outils ou être remboursé ?</h4>
-                            <p>Signez votre mandat en ligne en 30 secondes pour nous autoriser à préparer votre dossier officiel.</p>
-                        </div>
-                        <button class="btn btn-gold" onclick="openMandatModal()">✍️ Lancer mon accompagnement sous mandat</button>
-                    </div>
-                </div>
-
+            <div class="tic-hero-banner">
+                <span style="background: rgba(255,255,255,0.2); padding: 0.35rem 0.9rem; border-radius: 25px; font-size: 0.76rem; font-weight: 800; text-transform: uppercase;">Aide Régionale & Fonds Européens FEDER</span>
+                <h2>Financez jusqu'à 80 % de vos investissements informatiques</h2>
+                <p>Le dispositif <strong>Chèque TIC</strong> de la Région Guadeloupe soutient les artisans, TPE et professionnels de santé pour moderniser leurs outils, avec une subvention pouvant atteindre <strong>jusqu'à 10 000 €</strong>.</p>
             </div>
+
+            <!-- SCANNER DES DÉPENSES PASSÉES -->
+            <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 18px; padding: 2.2rem; margin-bottom: 3rem; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.4rem;">
+                    <div>
+                        <span style="background: #ecfdf5; color: #047857; font-size: 0.74rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; border: 1px solid #a7f3d0;">Remboursement Rétroactif</span>
+                        <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 6px 0 2px 0;">Vous avez déjà acheté du matériel ou un site cette année ?</h3>
+                        <p style="font-size: 0.90rem; color: #64748b; margin: 0;">Cochez vos dépenses passées pour calculer l'argent que vous pouvez vous faire rembourser :</p>
+                    </div>
+                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.6rem 0.9rem; font-size: 0.78rem; color: #334155;">
+                        <strong>Critères d'accès :</strong><br>
+                        ✓ Siège en Guadeloupe • ✓ Plus d'1 an d'activité • ✓ Cotisations sociales & fiscales à jour
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                    <label class="scan-card" data-amount="2500" data-rate="0.8" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 10px; cursor: pointer;" onclick="toggleScanInvoice()">
+                        <input type="checkbox" checked style="width: 18px; height: 18px; margin-top: 2px;">
+                        <div>
+                            <strong style="color: var(--primary); font-size: 0.90rem; display: block;">Création ou refonte de Site Internet</strong>
+                            <span style="font-size: 0.78rem; color: #64748b;">Facture : 2 500 € HT</span>
+                            <span style="display: block; color: #047857; font-size: 0.75rem; font-weight: bold; margin-top: 3px;">Remboursement à 80% (Gain : 2 000 €)</span>
+                        </div>
+                    </label>
+
+                    <label class="scan-card" data-amount="1800" data-rate="0.8" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 10px; cursor: pointer;" onclick="toggleScanInvoice()">
+                        <input type="checkbox" checked style="width: 18px; height: 18px; margin-top: 2px;">
+                        <div>
+                            <strong style="color: var(--primary); font-size: 0.90rem; display: block;">Sécurité & Sauvegardes Externes</strong>
+                            <span style="font-size: 0.78rem; color: #64748b;">Facture : 1 800 € HT</span>
+                            <span style="display: block; color: #047857; font-size: 0.75rem; font-weight: bold; margin-top: 3px;">Remboursement à 80% (Gain : 1 440 €)</span>
+                        </div>
+                    </label>
+
+                    <label class="scan-card" data-amount="3500" data-rate="0.4" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 10px; cursor: pointer;" onclick="toggleScanInvoice()">
+                        <input type="checkbox" checked style="width: 18px; height: 18px; margin-top: 2px;">
+                        <div>
+                            <strong style="color: var(--primary); font-size: 0.90rem; display: block;">Ordinateurs & Matériel Informatique</strong>
+                            <span style="font-size: 0.78rem; color: #64748b;">Facture : 3 500 € HT</span>
+                            <span style="display: block; color: #0369a1; font-size: 0.75rem; font-weight: bold; margin-top: 3px;">Remboursement à 40% (Gain : 1 400 €)</span>
+                        </div>
+                    </label>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #05231a 0%, #0f3d2e 100%); color: white; border-radius: 12px; padding: 1.4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem;">
+                    <div>
+                        <span style="font-size: 0.76rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">Subvention Régionale Estimée :</span>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: #ffffff;" id="scan-total-refund">4 840,00 €</div>
+                        <small style="color: #cbd5e1; font-size: 0.78rem;">L'aide est versée directement sur le compte bancaire officiel (RIB) de votre entreprise.</small>
+                    </div>
+                    <button class="btn btn-gold" onclick="openMandatModal()" style="padding: 0.9rem 1.6rem; font-weight: 900; font-size: 0.95rem;">
+                        🚀 Récupérer mon remboursement sous mandat
+                    </button>
+                </div>
+            </div>
+
+            <!-- SIMULATEUR PROJET FUTUR -->
+            <div class="simulator-card-wrap">
+                <div class="sim-title"><span>1️⃣ Vérifiez votre éligibilité en 3 critères simples</span></div>
+                <div class="eligibility-checks">
+                    <label class="check-label"><input type="checkbox" id="check-loc" checked onchange="calculerChequeTic()"><span>Entreprise immatriculée en Guadeloupe</span></label>
+                    <label class="check-label"><input type="checkbox" id="check-age" checked onchange="calculerChequeTic()"><span>Activité créée depuis au moins 1 an</span></label>
+                    <label class="check-label"><input type="checkbox" id="check-fisc" checked onchange="calculerChequeTic()"><span>Impôts et cotisations CGSS à jour</span></label>
+                </div>
+
+                <div class="sim-title"><span>2️⃣ Estimez votre budget par catégorie de dépenses (en HT)</span></div>
+                <div class="budget-inputs-grid">
+                    <div class="budget-input-box">
+                        <h4>🌐 Site Web & E-Commerce</h4>
+                        <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
+                        <p>Création de site vitrine, boutique en ligne avec paiement CB et nom de domaine.</p>
+                        <input type="number" id="input-web" class="currency-input" placeholder="0 €" value="2500" min="0" oninput="calculerChequeTic()">
+                    </div>
+                    <div class="budget-input-box">
+                        <h4>🛡️ Sécurité & Sauvegardes</h4>
+                        <span class="budget-rate-badge badge-80">Pris en charge à 80%</span>
+                        <p>Protection antivirus professionnelle, sauvegardes de sécurité automatiques et pare-feu.</p>
+                        <input type="number" id="input-secu" class="currency-input" placeholder="0 €" value="1500" min="0" oninput="calculerChequeTic()">
+                    </div>
+                    <div class="budget-input-box">
+                        <h4>💻 Logiciels Métiers & Matériel</h4>
+                        <span class="budget-rate-badge badge-40">Pris en charge à 40%</span>
+                        <p>Logiciel de gestion sur-mesure (THEMIS), ordinateurs de travail portables ou fixes.</p>
+                        <input type="number" id="input-trans" class="currency-input" placeholder="0 €" value="5000" min="0" oninput="calculerChequeTic()">
+                    </div>
+                </div>
+
+                <div class="sim-results-panel">
+                    <div class="results-grid">
+                        <div class="result-metric"><h5>Montant Total du Projet</h5><div class="value val-total" id="res-total">9 000 € HT</div></div>
+                        <div class="result-metric"><h5>Aide Chèque TIC Estimée</h5><div class="value val-subvention" id="res-aide">5 200 €</div></div>
+                        <div class="result-metric"><h5>Votre Reste à Charge Réel</h5><div class="value val-reste" id="res-reste">3 800 € HT</div></div>
+                    </div>
+
+                    <div id="eligibility-alert" style="display: none; background: #fee2e2; border-left: 4px solid #ef4444; padding: 0.9rem 1.2rem; border-radius: 8px; font-size: 0.90rem; color: #991b1b; margin-bottom: 1rem;">
+                        ⚠️ <strong>Attention :</strong> Pour avoir droit au Chèque TIC, votre entreprise doit obligatoirement cocher l'ensemble des 3 conditions réglementaires ci-dessus.
+                    </div>
+
+                    <div class="disclaimer-box">
+                        ℹ️ <strong>Cadre légal :</strong> Simulation calculée selon la Délibération officielle n°CR-19-175. L'attribution finale relève de la commission de la Région Guadeloupe et de l'ASP.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCOMPAGNEMENT SOUS MANDAT -->
+            <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 18px; padding: 2.5rem; box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 3.5rem;">
+                <h3 style="color: var(--primary); font-size: 1.5rem; font-weight: 800; margin-bottom: 0.6rem;">
+                    🤝 L'Accompagnement Dhamusoft : Votre dossier monté et déposé sous mandat
+                </h3>
+                <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.65;">
+                    Ne perdez pas de temps avec la paperasse administrative. Nous nous chargeons de tout préparer et déposer pour vous :
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.8rem 0;">
+                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.4rem; border: 1px solid var(--border); border-top: 4px solid var(--primary);">
+                        <strong style="color: var(--primary); display: block; margin-bottom: 0.4rem; font-size: 1.05rem;">1. Cadrage & Devis Conformes</strong>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin: 0;">Nous calibrons les devis techniques pour qu'ils répondent aux critères stricts de la Région.</p>
+                    </div>
+                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.4rem; border: 1px solid var(--border); border-top: 4px solid var(--primary);">
+                        <strong style="color: var(--primary); display: block; margin-bottom: 0.4rem; font-size: 1.05rem;">2. Note d'Impact Stratégique (3 pages)</strong>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin: 0;">Nous rédigeons le dossier démontrant l'utilité économique et la sécurité de vos investissements.</p>
+                    </div>
+                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.4rem; border: 1px solid var(--border); border-top: 4px solid var(--primary);">
+                        <strong style="color: var(--primary); display: block; margin-bottom: 0.4rem; font-size: 1.05rem;">3. Dépôt & Déblocage du Virement ASP</strong>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin: 0;">Nous montons la liasse de liquidation finale pour que l'argent arrive directement sur votre compte.</p>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; border-radius: 12px; padding: 1.8rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
+                    <div>
+                        <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.3rem;">📋 Lancez votre accompagnement Chèque TIC</h4>
+                        <p style="font-size: 0.88rem; color: #cbd5e1; margin: 0;">Validez votre bon de commande et signez votre mandat de représentation avec votre doigt en 30 secondes.</p>
+                    </div>
+                    <button class="btn btn-gold" onclick="openMandatModal()">✍️ Lancer mon accompagnement sous mandat</button>
+                </div>
+            </div>
+
         </section>
 
 
         <!-- ======================================================== -->
-        <!-- ⚙️ ONGLET 4 : LES COULISSES TECHNIQUES (LAB)             -->
+        <!-- ⚙️ VRAIE PAGE 4 : LES COULISSES TECHNIQUES (DÉPLOYÉE)    -->
         <!-- ======================================================== -->
-        <section id="view-lab" class="view-section">
-            <div class="section-intro">
-                <span class="section-tag">TRANSPARENCE TECHNIQUE TOTALE</span>
-                <h2 class="section-title">Ce qui tourne sous le capot de nos logiciels</h2>
-                <p class="section-desc">Pour les curieux ou les responsables informatiques : découvrez les moteurs, les bases de données souveraines et la sécurité derrière chaque outil.</p>
+        <section id="page-lab" class="page-view-section">
+
+            <div class="page-intro-header">
+                <span class="page-tag">TRANSPARENCE TECHNIQUE TOTALE</span>
+                <h2 class="page-title">Les technologies qui font tourner nos logiciels</h2>
+                <p class="page-desc">Pour les responsables informatiques ou les passionnés : voici les moteurs, bases de données locales et protocoles sous le capot de chaque solution.</p>
             </div>
 
-            <div class="pillars-grid" style="margin-bottom: 3rem;">
-                <div class="pillar-box">
-                    <div class="pillar-icon">🖥️</div>
-                    <h3 class="pillar-h3">Moteurs Visuels & Ergonomie</h3>
-                    <p class="pillar-p">Frameworks Flet (Flutter Web) pour des applications ultra-réactives et CustomTkinter pour des logiciels de bureau légers et stables.</p>
+            <div class="pillars-grid-spacious" style="margin-bottom: 3.5rem;">
+                <div class="pillar-card-hero">
+                    <div class="pillar-icon-box">🖥️</div>
+                    <h3 class="pillar-h3">Moteurs Visuels & Réactivité</h3>
+                    <p class="pillar-p">Framework Flet (Flutter Web) pour des interfaces SaaS fluides et CustomTkinter pour des logiciels de bureau légers et stables.</p>
                 </div>
-                <div class="pillar-box">
-                    <div class="pillar-icon">🛡️</div>
-                    <h3 class="pillar-h3">Sécurité & Souveraineté Locale</h3>
-                    <p class="pillar-p">Bases de données locales SQLite et IndexedDB (Dexie.js). Aucune fuite de données chez des tiers : tout reste chez vous.</p>
+                <div class="pillar-card-hero">
+                    <div class="pillar-icon-box">🛡️</div>
+                    <h3 class="pillar-h3">Sécurité & Données Souveraines</h3>
+                    <p class="pillar-p">Bases de données locales SQLite et IndexedDB (Dexie.js). Zéro fuite chez des hébergeurs tiers : vos données restent physiquement chez vous.</p>
                 </div>
-                <div class="pillar-box">
-                    <div class="pillar-icon">🤖</div>
+                <div class="pillar-card-hero">
+                    <div class="pillar-icon-box">🤖</div>
                     <h3 class="pillar-h3">Robots & Passerelles Invisibles</h3>
-                    <p class="pillar-p">Scripts Selenium et moteurs de lecture de documents pour faire communiquer vos logiciels entre eux sans ressaisie manuelle.</p>
+                    <p class="pillar-p">Scripts Selenium et modules de lecture de documents pour faire communiquer vos logiciels entre eux sans aucune ressaisie manuelle.</p>
                 </div>
             </div>
 
-            <h3 style="font-size: 1.4rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 1.5rem;">Fiches techniques détaillées par application :</h3>
+            <h3 style="font-size: 1.5rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 1.5rem;">Fiches techniques détaillées par projet :</h3>
             <div id="tech-spec-grid" class="tech-spec-grid"></div>
+
         </section>
 
     </main>
@@ -951,7 +808,7 @@
         </div>
     </footer>
 
-    <!-- Fenêtre modale universelle -->
+    <!-- Modale universelle -->
     <div id="modal" class="hidden">
         <div id="modal-overlay"></div>
         <div class="modal-dialog">
@@ -971,21 +828,19 @@
 
     <div id="toast">✅ Action réalisée avec succès !</div>
 
-    <!-- Boutons flottants de contact direct -->
+    <!-- Boutons flottants -->
     <button id="btn-partager" class="share-btn" aria-label="Partager le site"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.9-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.9 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg></button>
     <a href="mailto:dhamusoft@gmail.com" class="email-btn" aria-label="Envoyer un email à Dhamusoft"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
     <a href="https://wa.me/590690051144" class="whatsapp-btn" target="_blank" aria-label="Contactez Dhamusoft sur WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-3.1-5.3-1.4-8.2 1.4-11 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 .9-7-1.4-11-2.8-5.6-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
-
-    <div id="scroll-progress"></div>
-    <script>
+<script>
     (function() {
         const CALENDLY_LINK = "https://cal.com/andy-vaubien-4rxyqe";
 
         window.estClientVipThemis = false;
-        window.formuleSelectionnee = 'sauvetage'; // Formule publique par défaut
+        window.formuleSelectionnee = 'sauvetage'; // Par défaut sur le site public
         window.dossierClientThemis = {};
 
-        // BASE DE DONNÉES COMPLÈTE ET EXHAUSTIVE DES 10 PROJETS
+        // 1. BASE DE DONNÉES COMPLÈTE ET EXHAUSTIVE DES 10 PROJETS
         let projectsData = [
             {
                 "id": "webstudio",
@@ -1338,45 +1193,43 @@
             }
         ];
 
-        // 1. COMMUTATEUR D'ONGLETS (NAVIGATION FLUIDE)
-        const btnShowSolutions = document.querySelector('#btn-show-solutions');
-        const btnShowMethod = document.querySelector('#btn-show-method');
-        const btnShowChequetic = document.querySelector('#btn-show-chequetic');
-        const btnShowLab = document.querySelector('#btn-show-lab');
-        
-        const viewSolutions = document.querySelector('#view-solutions');
-        const viewMethod = document.querySelector('#view-method');
-        const viewChequetic = document.querySelector('#view-chequetic');
-        const viewLab = document.querySelector('#view-lab');
-
-        window.switchHub = function(tab) {
-            [btnShowSolutions, btnShowMethod, btnShowChequetic, btnShowLab].forEach(b => { if (b) b.classList.remove('active'); });
-            [viewSolutions, viewMethod, viewChequetic, viewLab].forEach(v => { if (v) v.classList.remove('active'); });
-
-            if (tab === 'solutions' && btnShowSolutions && viewSolutions) {
-                btnShowSolutions.classList.add('active');
-                viewSolutions.classList.add('active');
-            } else if (tab === 'method' && btnShowMethod && viewMethod) {
-                btnShowMethod.classList.add('active');
-                viewMethod.classList.add('active');
-            } else if (tab === 'chequetic' && btnShowChequetic && viewChequetic) {
-                btnShowChequetic.classList.add('active');
-                viewChequetic.classList.add('active');
-                calculerChequeTic();
-            } else if (tab === 'lab' && btnShowLab && viewLab) {
-                btnShowLab.classList.add('active');
-                viewLab.classList.add('active');
-            }
-            window.scrollTo({ top: 480, behavior: 'smooth' });
+        // 2. ROUTEUR MULTI-PAGES EN PLEIN ÉCRAN (AÉRATION TOTALE)
+        const tabBtns = {
+            solutions: document.getElementById('tab-btn-solutions'),
+            method: document.getElementById('tab-btn-method'),
+            chequetic: document.getElementById('tab-btn-chequetic'),
+            lab: document.getElementById('tab-btn-lab')
         };
 
-        if (btnShowSolutions) btnShowSolutions.addEventListener('click', () => switchHub('solutions'));
-        if (btnShowMethod) btnShowMethod.addEventListener('click', () => switchHub('method'));
-        if (btnShowChequetic) btnShowChequetic.addEventListener('click', () => switchHub('chequetic'));
-        if (btnShowLab) btnShowLab.addEventListener('click', () => switchHub('lab'));
+        const pageSections = {
+            solutions: document.getElementById('page-solutions'),
+            method: document.getElementById('page-method'),
+            chequetic: document.getElementById('page-chequetic'),
+            lab: document.getElementById('page-lab')
+        };
+
+        window.switchPageTab = function(targetKey) {
+            // Désactiver tous les onglets et pages
+            Object.values(tabBtns).forEach(b => { if (b) b.classList.remove('active'); });
+            Object.values(pageSections).forEach(sec => { if (sec) sec.classList.remove('active'); });
+
+            // Activer uniquement la page et l'onglet cliqué
+            if (tabBtns[targetKey]) tabBtns[targetKey].classList.add('active');
+            if (pageSections[targetKey]) pageSections[targetKey].classList.add('active');
+
+            if (targetKey === 'chequetic') {
+                calculerChequeTic();
+            }
+
+            // Remonter de façon douce et fluide en tête de page
+            const hubElement = document.querySelector('.hub-switcher-wrap');
+            if (hubElement) {
+                hubElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
 
         window.goToTechSpec = function(projectId) {
-            switchHub('lab');
+            switchPageTab('lab');
             setTimeout(() => {
                 const target = document.getElementById('tech-card-' + projectId);
                 if (target) {
@@ -1387,7 +1240,7 @@
             }, 300);
         };
 
-        // 2. SIMULATEUR DU CHÈQUE TIC (CR-19-175)
+        // 3. SIMULATEUR DU CHÈQUE TIC (CR-19-175)
         window.calculerChequeTic = function() {
             const elLoc = document.getElementById('check-loc');
             const elAge = document.getElementById('check-age');
@@ -1416,7 +1269,7 @@
             if (document.getElementById('res-reste')) document.getElementById('res-reste').textContent = formatEuro(resteACharge) + ' HT';
         };
 
-        // 3. RENDU DU SHOWROOM & FILTRAGE
+        // 4. RENDU DU SHOWROOM & FILTRES
         const solutionsGrid = document.querySelector('#solutions-grid');
         const filterBtns = document.querySelectorAll('.filter-btn');
         let currentFilter = 'all';
@@ -1447,7 +1300,7 @@
                         </div>
                         ` : ''}
 
-                        <p style="font-size: 0.88rem; color: #475569; margin-bottom: 1rem; line-height: 1.55;">
+                        <p style="font-size: 0.90rem; color: #475569; margin-bottom: 1.2rem; line-height: 1.6;">
                             ${p.description}
                         </p>
 
@@ -1497,7 +1350,7 @@
             });
         });
 
-        // 4. RENDU DES FICHES DU LAB TECHNIQUE
+        // 5. RENDU DU LAB TECHNIQUE
         const techSpecGrid = document.querySelector('#tech-spec-grid');
         function renderLabTech(projects) {
             if (!techSpecGrid) return;
@@ -1508,7 +1361,7 @@
                         <span class="tech-pill" style="background: var(--primary); color: white;">${p.category}</span>
                         ${(p.tags || []).map(t => `<span class="tech-pill">${t}</span>`).join('')}
                     </div>
-                    <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.8rem;">
                         <strong>Type d'outil :</strong> ${p.type === 'web_standalone' ? 'Application Web / PWA Tout-Terrain' : 'Logiciel de Bureau Indépendant'}
                     </p>
                     <ul class="tech-card-features">
@@ -1518,7 +1371,7 @@
             `).join('');
         }
 
-        // 5. LIGHTBOX (VISIONNEUSE D'IMAGES SÉCURISÉE)
+        // 6. LIGHTBOX
         let currentGalleryImages = [];
         let currentLightboxIndex = 0;
         const lightbox = document.querySelector('#lightbox');
@@ -1567,7 +1420,7 @@
             }
         });
 
-        // 6. MODALE DÉTAILLÉE DE PROJET
+        // 7. MODALE DE PROJET
         const modal = document.querySelector('#modal');
         const modalBody = document.querySelector('#modal-body');
         const closeBtn = document.querySelector('#modal-close-btn');
@@ -1582,8 +1435,8 @@
                 </figure>
             `).join('');
             return `
-                <div style="margin-top: 1.8rem;">
-                    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem;">📸 Captures d'écrans & Vues de travail</h3>
+                <div style="margin-top: 2rem;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem;">📸 Captures d'écrans & Vues de travail</h3>
                     <div class="screenshots-grid">${items}</div>
                 </div>
             `;
@@ -1622,10 +1475,10 @@
             let liveFrameHtml = '';
             if (isLive) {
                 liveFrameHtml = `
-                    <div id="modal-view-demo-content" style="${initialView === 'demo' ? 'display: block;' : 'display: none;'} margin: 1rem 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                            <span style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">Application fonctionnelle en direct :</span>
-                            <a href="${project.download_url}" target="_blank" style="font-size: 0.82rem; color: var(--accent); font-weight: 700; text-decoration: underline;">Ouvrir en plein écran ↗</a>
+                    <div id="modal-view-demo-content" style="${initialView === 'demo' ? 'display: block;' : 'display: none;'} margin: 1.2rem 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 0.90rem; font-weight: 800; color: var(--primary);">Application fonctionnelle en direct :</span>
+                            <a href="${project.download_url}" target="_blank" style="font-size: 0.85rem; color: var(--accent); font-weight: 800; text-decoration: underline;">Ouvrir en grand ↗</a>
                         </div>
                         <div class="modal-iframe-container"><iframe src="${project.download_url}" allow="fullscreen"></iframe></div>
                     </div>
@@ -1633,9 +1486,9 @@
             }
 
             modalBody.innerHTML = `
-                <div style="margin-bottom: 1.2rem;">
-                    <span style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">${project.badge}</span>
-                    <h2 style="font-size: 1.8rem; font-weight: 900; color: var(--primary); margin-top: 0.3rem;">${project.title}</h2>
+                <div style="margin-bottom: 1.4rem;">
+                    <span style="font-size: 0.76rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">${project.badge}</span>
+                    <h2 style="font-size: 1.9rem; font-weight: 900; color: var(--primary); margin-top: 0.4rem;">${project.title}</h2>
                 </div>
                 ${modeSwitcherHtml}
                 ${liveFrameHtml}
@@ -1643,10 +1496,10 @@
                     ${renderVideos(project)}
                     ${renderScreenshots(project.screenshots, project.id)}
                 </div>
-                ${project.enjeu ? `<div class="case-box case-box-enjeu" style="margin-top: 1.5rem;"><div class="case-label" style="color: var(--accent);">🎯 Ce que ça change concrètement :</div>${project.enjeu}</div>` : ''}
-                <p style="font-size: 0.95rem; color: #334155; line-height: 1.6; margin-bottom: 1.2rem;">${project.description}</p>
+                ${project.enjeu ? `<div class="case-box case-box-enjeu" style="margin-top: 1.8rem;"><div class="case-label" style="color: var(--accent);">🎯 Ce que ça change concrètement :</div>${project.enjeu}</div>` : ''}
+                <p style="font-size: 0.98rem; color: #334155; line-height: 1.7; margin-bottom: 1.5rem;">${project.description}</p>
                 <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
-                    ${isLive ? `<a href="${project.download_url}" target="_blank" class="btn btn-primary">🚀 Ouvrir l'application dans un onglet</a>` : `<div style="background: #f8fafc; border: 1px solid var(--border); padding: 0.65rem 1.1rem; border-radius: 8px; font-size: 0.88rem; color: #475569;">🔒 Logiciel sécurisé / Démonstration encadrée sur demande</div>`}
+                    ${isLive ? `<a href="${project.download_url}" target="_blank" class="btn btn-primary">🚀 Ouvrir l'application dans un onglet</a>` : `<div style="background: #f8fafc; border: 1px solid var(--border); padding: 0.7rem 1.2rem; border-radius: 8px; font-size: 0.90rem; color: #475569;">🔒 Logiciel d'entreprise / Démonstration encadrée sur demande</div>`}
                 </div>
             `;
 
@@ -1676,10 +1529,10 @@
         window.openCalendlyModal = function() {
             if (!modalBody) return;
             modalBody.innerHTML = `
-                <div style="margin-bottom: 1rem;">
+                <div style="margin-bottom: 1.2rem;">
                     <span style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">Prise de Contact Directe</span>
-                    <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--primary); margin-top: 0.3rem;">📅 Réserver un échange (15 min offert)</h2>
-                    <p style="font-size: 0.95rem; color: #475569; margin-top: 0.5rem;">Choisissez le jour et l'heure de votre choix pour échanger directement avec Andy Vaubien.</p>
+                    <h2 style="font-size: 1.7rem; font-weight: 900; color: var(--primary); margin-top: 0.3rem;">📅 Réserver un échange (15 min offert)</h2>
+                    <p style="font-size: 0.95rem; color: #475569; margin-top: 0.5rem;">Choisissez directement le créneau de votre choix avec Andy Vaubien.</p>
                 </div>
                 <div class="modal-iframe-container" style="height: 580px;"><iframe src="${CALENDLY_LINK}"></iframe></div>
             `;
@@ -1687,7 +1540,7 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // 7. TRIPTYQUE PLAQUETTE CORPORATE (OFFRE PUBLIQUE SEULEMENT - 1 000 € HT)
+        // 8. TRIPTYQUE PLAQUETTE
         window.openPlaquetteModal = function() {
             if (!modalBody) return;
             const getPlaquetteHtml = () => `
@@ -1845,7 +1698,7 @@
             document.body.style.overflow = 'hidden';
         };
 
-        // 8. TUNNEL COMMERCIAL (OFFRE PUBLIQUE 1000€ vs OFFRE PRIVÉE VIP 600€)
+        // 9. TUNNEL COMMERCIAL (OFFRE PUBLIQUE 1000€ vs OFFRE PRIVÉE VIP 600€)
         window.openMandatModal = function() {
             if (!modalBody) return;
 
@@ -1869,10 +1722,10 @@
                 : "Pointage des écritures bancaires, inventaire matériel, publicité FEDER et déclenchement du virement ASP (planifié après notification Région).";
 
             modalBody.innerHTML = `
-                <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
+                <div style="margin-bottom: 1.2rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
                     <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #ecfdf5; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 1 SUR 2 • CONVENTION D'ACCOMPAGNEMENT ÉCHELONNÉE</span>
-                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Devis de Cadrage & Assistance Chèque TIC</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Cabinet Dhamusoft — Prestation d'Ingénierie & Liquidation ASP (Catégories 3.1 & 3.2 Région Guadeloupe)</p>
+                    <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--primary); margin: 6px 0 0 0;">Devis de Cadrage & Assistance Chèque TIC</h2>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Cabinet Dhamusoft — Prestation d'Ingénierie & Liquidation ASP (Catégories 3.1 & 3.2 Région Guadeloupe)</p>
                 </div>
 
                 <form id="devis-form" onsubmit="validerEtapeDevis(event)">
@@ -1888,16 +1741,16 @@
                         <div class="form-group"><label>Téléphone *</label><input type="tel" id="m-tel" class="form-control" required placeholder="0690 XX XX XX"></div>
                     </div>
 
-                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 1.4rem; margin: 1.2rem 0;">
-                        <div style="background: #ffffff; border: 1.5px solid var(--primary); border-radius: 8px; padding: 1rem; margin-bottom: 1.2rem;">
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 14px; padding: 1.6rem; margin: 1.4rem 0;">
+                        <div style="background: #ffffff; border: 1.5px solid var(--primary); border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem;">
                             <span style="background: #ecfdf5; color: #047857; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">${titreBadge}</span>
-                            <h4 style="color: var(--primary); font-size: 1.05rem; font-weight: 900; margin: 6px 0 4px 0;">${missionTitre}</h4>
-                            <p style="font-size: 0.84rem; color: #334155; line-height: 1.5; margin: 0;">${missionDesc}</p>
+                            <h4 style="color: var(--primary); font-size: 1.1rem; font-weight: 900; margin: 6px 0 4px 0;">${missionTitre}</h4>
+                            <p style="font-size: 0.86rem; color: #334155; line-height: 1.55; margin: 0;">${missionDesc}</p>
                         </div>
 
-                        <div id="box-bilan-prix" style="background: #05231a; color: white; border-radius: 10px; padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border: 1.5px solid #047857;">
+                        <div id="box-bilan-prix" style="background: #05231a; color: white; border-radius: 10px; padding: 1.3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border: 1.5px solid #047857;">
                             <div>
-                                <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">JALON 1 — AUDIT, CADRAGE & DÉPÔT :</span><br>
+                                <span style="font-size: 0.74rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">JALON 1 — AUDIT, CADRAGE & DÉPÔT :</span><br>
                                 <span style="font-size: 2.2rem; font-weight: 900; color: #ffffff;">${prixJalon1}</span>
                                 <div style="background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-top: 4px;">
                                     <span style="font-size: 0.85rem; font-weight: 900; color: #a7f3d0;">👉 Reste à charge réel après subvention (80%) : ${racJalon1}</span>
@@ -1921,13 +1774,13 @@
                     </div>
 
                     <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
-                        <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; font-weight: 700; color: #065f46; cursor: pointer;">
+                        <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.84rem; font-weight: 700; color: #065f46; cursor: pointer;">
                             <input type="checkbox" id="d-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
                             <span>Je confirme être le représentant légal et valide le bon de commande ferme du Jalon 1 (${prixJalon1}, éligible à 80% de prise en charge Chèque TIC).</span>
                         </label>
                     </div>
 
-                    <button type="submit" id="btn-submit-devis" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
+                    <button type="submit" id="btn-submit-devis" class="btn btn-gold" style="width: 100%; padding: 0.95rem; font-size: 1rem; font-weight: 900;">
                         ✍️ Valider le Jalon 1 & Débloquer le Mandat de Représentation ➔
                     </button>
                 </form>
@@ -2003,25 +1856,25 @@
             const d = window.dossierClientThemis;
 
             modalBody.innerHTML = `
-                <div style="margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
+                <div style="margin-bottom: 1.2rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;">
                     <span style="font-size: 0.75rem; font-weight: 800; color: #1e40af; background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">ÉTAPE 2 SUR 2 • DERNIÈRE ÉTAPE</span>
-                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 4px 0 0 0;">Mandat Exprès de Représentation Administrative</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Dépôt dématérialisé et instruction de liquidation auprès de la Région Guadeloupe & de l'ASP</p>
+                    <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--primary); margin: 6px 0 0 0;">Mandat Exprès de Représentation Administrative</h2>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Dépôt dématérialisé et instruction de liquidation auprès de la Région Guadeloupe & de l'ASP</p>
                 </div>
 
                 <form id="mandat-form" onsubmit="envoyerMandatAutomatique(event)">
-                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 0.9rem; margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.5;">
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 1.1rem; margin-bottom: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
                         <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
                             <strong>ENTREPRISE : ${d.entreprise} (${d.forme_juridique})</strong>
                             <span style="background: #e2e8f0; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 800;">SIRET : ${d.siret}</span>
                         </div>
                         <div><strong>SIGNATAIRE :</strong> ${d.representant_legal} (${d.fonction}) | <strong>COMMUNE :</strong> ${d.commune}</div>
-                        <div style="margin-top: 4px; color: var(--primary); font-weight: 700;">
+                        <div style="margin-top: 6px; color: var(--primary); font-weight: 800;">
                             👉 MISSION : ${d.jalon_1_montant_ht} € HT (Jalon 1 immédiat) + ${d.jalon_2_montant_ht} € HT (${d.jalon_2_intitule})
                         </div>
                     </div>
 
-                    <div class="mandat-legal-text" style="font-size: 0.80rem; line-height: 1.5; color: #334155; margin-bottom: 1rem;">
+                    <div class="mandat-legal-text" style="font-size: 0.82rem; line-height: 1.55; color: #334155; margin-bottom: 1.2rem;">
                         <strong>OBJET DU MANDAT :</strong> L'entreprise mandante donne mandat exprès et pouvoir de représentation à Monsieur Andy VAUBIEN (Cabinet Dhamusoft) pour préparer les pièces techniques, formaliser les Notes d'Impact et de Régularisation, télétransmettre la demande d'aide Chèque TIC, et assembler la liasse de liquidation finale (pointage des écritures bancaires, fiches d'inventaire matériel et conformité d'affichage européen FEDER).<br><br>
                         <strong>TRANSPARENCE FINANCIÈRE TOTALE :</strong> La subvention allouée par la Région Guadeloupe et le FEDER sera directement et intégralement créditée par l'ASP sur le compte bancaire officiel (RIB) de l'entreprise mandante.
                     </div>
@@ -2034,14 +1887,14 @@
                         <canvas id="signature-pad"></canvas>
                     </div>
 
-                    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.8rem; border-radius: 8px; margin: 1rem 0;">
+                    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.85rem; border-radius: 8px; margin: 1rem 0;">
                         <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; font-weight: 700; color: #065f46; cursor: pointer;">
                             <input type="checkbox" id="m-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
                             <span>Je confirme être le représentant légal habilité, donner mandat formel à Andy VAUBIEN (Dhamusoft) et atteste que la signature manuscrite ci-dessus est la mienne.</span>
                         </label>
                     </div>
 
-                    <button type="submit" id="btn-submit-mandat" class="btn btn-gold" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 900;">
+                    <button type="submit" id="btn-submit-mandat" class="btn btn-gold" style="width: 100%; padding: 0.95rem; font-size: 1rem; font-weight: 900;">
                         🚀 Valider & Synchroniser le Mandat vers THEMIS ERP
                     </button>
                 </form>
@@ -2116,13 +1969,13 @@
                 });
 
                 modalBody.innerHTML = `
-                    <div style="text-align: center; padding: 2rem 1rem;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                    <div style="text-align: center; padding: 2.2rem 1.2rem;">
+                        <div style="font-size: 3.2rem; margin-bottom: 1rem;">✅</div>
                         <h2 style="color: var(--primary); font-size: 1.8rem; font-weight: 900; margin-bottom: 0.5rem;">Dossier Complet et Scellé !</h2>
-                        <p style="color: #334155; font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto;">
+                        <p style="color: #334155; font-size: 1.05rem; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
                             Le bon de commande Jalon 1 (${payloadFinal.jalon_1_montant_ht} € HT) et le mandat d'instruction pour <strong>${payloadFinal.entreprise}</strong> ont été signés et synchronisés avec THEMIS ERP.
                         </p>
-                        <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; max-width: 500px; margin: 0 auto 1.5rem auto; text-align: left; font-size: 0.85rem;">
+                        <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; max-width: 520px; margin: 0 auto 1.8rem auto; text-align: left; font-size: 0.88rem; line-height: 1.6;">
                             <strong>Prochaines étapes :</strong><br>
                             1. Vous recevez par email votre bon de commande Jalon 1 acquitté.<br>
                             2. Dhamusoft dépose votre dossier sous mandat sur le portail régional.<br>
@@ -2137,7 +1990,7 @@
             }
         };
 
-        // 9. DÉTECTION DU LIEN PRIVÉ WHATSAPP THEMIS (DÉVERROUILLAGE FORMULE 600€)
+        // 10. DÉTECTION DU LIEN PRIVÉ WHATSAPP THEMIS (DÉVERROUILLAGE FORMULE 600€)
         function verifierLienVipThemis() {
             const params = new URLSearchParams(window.location.search);
             
@@ -2169,7 +2022,7 @@
             }
         }
 
-        // 10. CANVAS DE SIGNATURE MANUSCRITE
+        // 11. CANVAS DE SIGNATURE MANUSCRITE
         let signaturePadCanvas = null;
         let signatureCtx = null;
         let isDrawingSignature = false;
@@ -2247,55 +2100,6 @@
             }
         });
 
-        // 11. COMPARATEUR THEMIS AVANT / APRÈS
-        function initThemisSlider() {
-            const container = document.getElementById('themis-slider-box');
-            const beforeLayer = document.getElementById('themis-before-layer');
-            const handle = document.getElementById('themis-slider-handle');
-            if (!container || !beforeLayer || !handle) return;
-
-            window.setSliderPercent = function(pct) {
-                const cleanPct = Math.max(0, Math.min(100, pct));
-                beforeLayer.style.transition = 'clip-path 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
-                handle.style.transition = 'left 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
-                beforeLayer.style.clipPath = `polygon(0 0, ${cleanPct}% 0, ${cleanPct}% 100%, 0 100%)`;
-                handle.style.left = cleanPct + '%';
-            };
-
-            function updateSliderDirect(clientX) {
-                const rect = container.getBoundingClientRect();
-                let pct = ((clientX - rect.left) / rect.width) * 100;
-                pct = Math.max(0, Math.min(100, pct));
-                beforeLayer.style.transition = 'none';
-                handle.style.transition = 'none';
-                beforeLayer.style.clipPath = `polygon(0 0, ${pct}% 0, ${pct}% 100%, 0 100%)`;
-                handle.style.left = pct + '%';
-            }
-
-            container.addEventListener('mousedown', (e) => {
-                const onMouseMove = (ev) => updateSliderDirect(ev.clientX);
-                const onMouseUp = () => {
-                    window.removeEventListener('mousemove', onMouseMove);
-                    window.removeEventListener('mouseup', onMouseUp);
-                };
-                window.addEventListener('mousemove', onMouseMove);
-                window.addEventListener('mouseup', onMouseUp);
-                updateSliderDirect(e.clientX);
-            });
-
-            container.addEventListener('touchstart', (e) => {
-                const onTouchMove = (ev) => updateSliderDirect(ev.touches[0].clientX);
-                const onTouchEnd = () => {
-                    window.removeEventListener('touchmove', onTouchMove);
-                    window.removeEventListener('touchend', onTouchEnd);
-                };
-                window.addEventListener('touchmove', onTouchMove);
-                window.addEventListener('touchend', onTouchEnd);
-                updateSliderDirect(e.touches[0].clientX);
-            });
-        }
-        setTimeout(initThemisSlider, 250);
-
         // 12. SCANNER FACTURES RÉTROACTIVES
         window.toggleScanInvoice = function() {
             setTimeout(() => {
@@ -2320,7 +2124,7 @@
             }, 50);
         };
 
-        // 13. INITIALISATION AU CHARGEMENT
+        // 13. INITIALISATION AU DÉMARRAGE
         renderShowroom(projectsData);
         renderLabTech(projectsData);
         verifierLienVipThemis();
@@ -2333,14 +2137,14 @@
                 if (!modalBody) return;
                 modalBody.innerHTML = `
                     <h2>⚖️ Mentions Légales & Confidentialité</h2>
-                    <div style="margin-top: 1.2rem; font-size: 0.92rem; color: #475569; line-height: 1.65;">
+                    <div style="margin-top: 1.2rem; font-size: 0.95rem; color: #475569; line-height: 1.65;">
                         <p><strong>Éditeur du site :</strong> Cabinet Dhamusoft<br>
                         <strong>Siège :</strong> Capesterre-Belle-Eau, Guadeloupe (971)<br>
                         <strong>Responsable de publication :</strong> Andy VAUBIEN<br>
                         <strong>Contact direct :</strong> dhamusoft@gmail.com | <strong>Téléphone :</strong> 0690 05 11 44<br>
                         <strong>Site web officiel :</strong> https://www.dhamusoft.fr<br>
                         <strong>Hébergement :</strong> GitHub Pages, GitHub Inc., San Francisco, CA, USA.<br><br>
-                        <strong>Protection des données (RGPD) :</strong> Les données transmises via nos simulateurs ou mandats sont strictement confidentielles et ne sont jamais revendues. Elles servent exclusivement à la constitution des dossiers Chèque TIC auprès de la Région Guadeloupe et de l'ASP.</p>
+                        <strong>Protection des données (RGPD) :</strong> Les données transmises via nos simulateurs ou mandats sont strictement confidentielles et ne sont jamais cédées ou vendues. Elles servent exclusivement à l'instruction des dossiers Chèque TIC auprès de la Région Guadeloupe et de l'ASP.</p>
                     </div>
                 `;
                 if (modal) modal.classList.remove('hidden');
