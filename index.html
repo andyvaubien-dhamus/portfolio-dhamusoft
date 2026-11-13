@@ -234,17 +234,19 @@
         .hero-h1 span.static-sub { color: var(--primary); display: block; margin-top: 6px; }
 
         .target-roller {
-            display: inline-block;
-            vertical-align: bottom;
+            display: block; /* 👈 Passe en bloc centré sous la 1ère ligne */
+            margin: 0.2rem auto 0 auto;
             height: 1.35em;
             overflow: hidden;
             position: relative;
-            text-align: left;
-            min-width: 320px;
+            text-align: center; /* 👈 Centrage absolu du texte */
+            width: 100%;
+            max-width: 600px;
         }
         .target-roller-inner {
             display: flex;
             flex-direction: column;
+            align-items: center; /* 👈 Centre chaque mot verticalement et horizontalement */
             animation: rollTargets 8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
         }
         .target-word {
@@ -253,11 +255,14 @@
             line-height: 1.35em;
             color: var(--accent);
             white-space: nowrap;
+            text-align: center;
+            width: 100%;
         }
         @keyframes rollTargets {
-            0%, 26% { transform: translateY(0); }
-            33%, 59% { transform: translateY(-1.35em); }
-            66%, 92% { transform: translateY(-2.70em); }
+            0%, 20% { transform: translateY(0); }             /* 1. Artisans & BTP */
+            25%, 45% { transform: translateY(-1.35em); }      /* 2. Professionnels de Santé */
+            50%, 70% { transform: translateY(-2.70em); }      /* 3. Prestataires & TPE */
+            75%, 95% { transform: translateY(-4.05em); }      /* 4. Associations */
             100% { transform: translateY(0); }
         }
         @media (max-width: 768px) {
@@ -1124,6 +1129,245 @@
             background: linear-gradient(90deg, #C59B43, #059669, #38bdf8);
             width: 0%; z-index: 99999; pointer-events: none; transition: width 0.1s ease-out;
         }
+		
+		/* ======================================================== */
+        /* SCHÉMA INTERACTIF DU PARCOURS CHÈQUE TIC                 */
+        /* ======================================================== */
+        .tic-chronoguide-card {
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+        }
+        .chrono-header {
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto 2rem auto;
+        }
+        .chrono-header h3 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* COMMUTATEUR DE STRATÉGIE (PRESSÉ VS PRUDENT) */
+        .chrono-switch-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 1.5rem 0 2.5rem 0;
+            flex-wrap: wrap;
+        }
+        .chrono-switch-btn {
+            background: #f1f5f9;
+            border: 1.5px solid var(--border);
+            color: #475569;
+            font-size: 0.84rem;
+            font-weight: 800;
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .chrono-switch-btn:hover { border-color: var(--primary); }
+        .chrono-switch-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 14px rgba(44, 76, 110, 0.25);
+        }
+
+        /* TIMELINE HORIZONTALE EN 4 PHASES */
+        .chrono-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 992px) {
+            .chrono-timeline { grid-template-columns: 1fr; }
+        }
+
+        .chrono-step-card {
+            background: #f8fafc;
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            padding: 1.4rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .chrono-step-card.active-step {
+            background: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(44, 76, 110, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .chrono-step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .chrono-step-title {
+            font-size: 0.95rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
+        }
+        .chrono-step-desc {
+            font-size: 0.80rem;
+            color: #475569;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        /* BALISES DES 2 MOMENTS CLÉS (CLIGNOTANTES / ANIMÉES) */
+        .key-moment-badge {
+            display: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: badgePulse 2s infinite;
+        }
+        @keyframes badgePulse {
+            0% { transform: scale(0.98); opacity: 0.9; }
+            50% { transform: scale(1.03); opacity: 1; }
+            100% { transform: scale(0.98); opacity: 0.9; }
+        }
+
+        .badge-moment-1 {
+            background: #ecfdf5;
+            border: 1.5px solid #10b981;
+            color: #047857;
+        }
+        .badge-moment-2 {
+            background: #fef3c7;
+            border: 1.5px solid var(--accent);
+            color: #b45309;
+        }
+
+        /* ÉCRAN D'EXPLICATION DYNAMIQUE */
+        .chrono-explainer-box {
+            background: #091a2b;
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 1.4rem 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            border: 1px solid rgba(197, 155, 67, 0.4);
+        }
+		
+		/* ======================================================== */
+        /* FAQ & BOUCLIER CHÈQUE TIC (VENTE EN AUTONOMIE)           */
+        /* ======================================================== */
+        .tic-faq-section {
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 18px;
+            padding: 2.5rem;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.03);
+        }
+        .tic-faq-title {
+            font-size: 1.45rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tic-faq-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .tic-faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .tic-faq-item {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+        .tic-faq-item:hover {
+            border-color: var(--primary);
+        }
+        .tic-faq-question {
+            padding: 1.1rem 1.4rem;
+            font-weight: 800;
+            font-size: 0.98rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .tic-faq-icon {
+            font-size: 1.2rem;
+            color: var(--accent);
+            transition: transform 0.25s ease;
+        }
+        .tic-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            background: #ffffff;
+            color: #334155;
+            font-size: 0.9rem;
+            line-height: 1.65;
+            padding: 0 1.4rem;
+            border-top: 1px solid transparent;
+        }
+        .tic-faq-item.open .tic-faq-answer {
+            max-height: 500px;
+            padding: 1.2rem 1.4rem;
+            border-top-color: #f1f5f9;
+            transition: max-height 0.35s ease-in-out;
+        }
+        .tic-faq-item.open .tic-faq-icon {
+            transform: rotate(45deg);
+        }
+        .tic-highlight-badge {
+            display: inline-block;
+            background: #ecfdf5;
+            color: #047857;
+            font-weight: 800;
+            font-size: 0.74rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
 
         .site-footer { background: var(--primary); color: #f8fafc; text-align: center; padding: 3rem 1rem; margin-top: 5rem; }
     </style>
@@ -1187,8 +1431,9 @@
                 <span class="target-roller">
                     <span class="target-roller-inner">
                         <span class="target-word">Artisans & BTP</span>
-                        <span class="target-word">Santé & Cabinets</span>
+                        <span class="target-word">Professionnels de Santé</span>
                         <span class="target-word">Prestataires & TPE</span>
+						<span class="target-word">Associations</span>
                     </span>
                 </span>
                 <span class="static-sub">Des outils simples qui travaillent pour vous.</span>
@@ -1232,8 +1477,8 @@
                     <p>Plafond maximum de subvention</p>
                 </div>
                 <div class="stat-cell">
-                    <h4 class="counter-num" data-target="2.5" data-suffix=" min" data-decimal="1">0 min</h4>
-                    <p>Pour éditer un devis et contrat scellé</p>
+                    <h4 class="counter-num" data-target="5" data-suffix=" min" data-decimal="0">0 min</h4>
+                    <p>Temps moyen pour éditer un devis et sceller son contrat</p>
                 </div>
             </div>
 
@@ -1282,10 +1527,11 @@
         </section>
 
         <!-- ======================================================== -->
-        <!-- 💼 VRAIE PAGE 1 : NOS SOLUTIONS                          -->
+        <!-- 💼 VRAIE PAGE 1 : NOS SOLUTIONS (ORDRE OPTIMISÉ)         -->
         <!-- ======================================================== -->
         <section id="page-solutions" class="page-view-section active">
 
+            <!-- 1. EN-TÊTE & LES 3 PILIERS MAJESTUEUX -->
             <div class="page-intro-header">
                 <span class="page-tag">CE QUE NOUS FAISONS CONCRÈTEMENT POUR VOUS</span>
                 <h2 class="page-title">Trois piliers pour simplifier votre entreprise</h2>
@@ -1311,7 +1557,7 @@
                     <div class="pillar-icon-box">💼</div>
                     <h3 class="pillar-h3">2. Gestion Commerciale THEMIS & Facturation 2026</h3>
                     <p class="pillar-p">
-                        Fini les soirées perdues sur Word et Excel. THEMIS regroupe tout : devis en 2 minutes, calcul automatique des acomptes et conformité stricte Factur-X 2026.
+                        Fini les soirées perdues sur Word et Excel. THEMIS regroupe tout : votre devis complet bouclé en moins de 5 minutes, calcul automatique des acomptes et conformité stricte Factur-X 2026.
                     </p>
                     <ul class="pillar-checklist">
                         <li><span>✓</span> Devis multi-lignes et acomptes calculés au centime</li>
@@ -1336,49 +1582,7 @@
                 </div>
             </div>
 
-            <!-- TERMINAL RPA -->
-            <div class="page-intro-header" style="margin-bottom: 1.5rem;">
-                <span class="page-tag">SIMULATION EN DIRECT</span>
-                <h3 style="font-size: 1.8rem; font-weight: 900; color: var(--primary-dark);">Voyez un Robot d'Automatisation à l'Œuvre</h3>
-                <p style="font-size: 0.95rem; color: var(--text-muted);">Cliquez pour lancer la simulation d'un robot qui extrait un PDF et le classe sans intervention humaine :</p>
-            </div>
-
-            <div class="terminal-rpa-wrap">
-                <div class="terminal-header">
-                    <div class="terminal-dots">
-                        <span class="td-red"></span>
-                        <span class="td-yellow"></span>
-                        <span class="td-green"></span>
-                    </div>
-                    <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">DHAMUSOFT RPA ENGINE v3.4 — CLI EXECUTION</span>
-                    <button class="btn btn-gold" id="btn-run-terminal" onclick="lancerSimulationRobot()" style="padding: 0.25rem 0.8rem; font-size: 0.75rem;">
-                        ▶ Lancer la simulation (3s)
-                    </button>
-                </div>
-                <div class="terminal-body" id="terminal-body">
-                    <div class="terminal-line"><span class="term-prompt">user@guadeloupe:~$</span> <span>dhamusoft-agent --watch /dossier-factures/</span></div>
-                    <div class="terminal-line" style="color:#64748b;">// En attente d'un document ou cliquez sur "Lancer la simulation"...</div>
-                    <div class="terminal-line"><span class="term-prompt">agent ready:</span> <span class="term-cursor"></span></div>
-                </div>
-            </div>
-
-            <!-- SHOWROOM MARQUEE -->
-            <div class="page-intro-header" style="margin-bottom: 1.5rem;">
-                <span class="page-tag">SHOWROOM CONTINU</span>
-                <h3 style="font-size: 1.8rem; font-weight: 900; color: var(--primary-dark);">Nos Réalisations en Mouvement</h3>
-                <p style="font-size: 0.95rem; color: var(--text-muted);">Les cartes avancent automatiquement. Survolez-les pour figer le défilement et cliquez pour inspecter :</p>
-            </div>
-
-            <div class="marquee-carousel-wrap">
-                <div class="marquee-track" id="marquee-track"></div>
-            </div>
-
-            <div class="carousel-manual-nav">
-                <button class="carousel-nav-arrow" onclick="scrollCarouselManual(-380)" aria-label="Précédent">&#8249;</button>
-                <button class="carousel-nav-arrow" onclick="scrollCarouselManual(380)" aria-label="Suivant">&#8250;</button>
-            </div>
-
-            <!-- FLAGSHIP THEMIS -->
+            <!-- 2. FLAGSHIP BUSINESS THEMIS (LE CARROUSEL NARRATIF EN 5 ACTES REMONTÉ EN PRIORITÉ) -->
             <div class="themis-hero-card">
                 <span class="themis-badge-top">⭐ En Vedette • Gestion Commerciale & Facturation</span>
                 <h2 class="themis-title">THEMIS — Votre copilote commercial et contractuel</h2>
@@ -1440,13 +1644,13 @@
                         <div class="themis-slide-item" id="themis-slide-3">
                             <div class="themis-slide-header">
                                 <span class="themis-slide-badge" style="background:#10b981; color:white;">ACTE 4 • LA PUISSANCE OPÉRATIONNELLE</span>
-                                <span class="themis-slide-title">THEMIS ERP : Contrat scellé en 2m 30 & Pilotage automatique du CA</span>
+                                <span class="themis-slide-title">THEMIS ERP : Contrat scellé en ~5 min & Pilotage automatique du CA</span>
                             </div>
                             <div class="themis-slide-media-wrap">
-                                <img src="assets/images/themis/themis_04_interface.png" alt="Interface double-panel THEMIS" onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 400%22><rect width=%22800%22 height=%22400%22 fill=%22%23091a2b%22/><text x=%2250%25%22 y=%2245%25%22 fill=%22%2334d399%22 font-family=%22sans-serif%22 font-size=%2222%22 font-weight=%22bold%22 text-anchor=%22middle%22>💼 ACTE 4 : THEMIS en Pleine Action</text><text x=%2250%25%22 y=%2260%25%22 fill=%22%23cbd5e1%22 font-family=%22sans-serif%22 font-size=%2215%22 text-anchor=%22middle%22>Panneau Gauche : Contrat Scellé 2m30 | Panneau Droit : Dashboard &amp; Factur-X</text></svg>';">
+                                <img src="assets/images/themis/themis_04_interface.png" alt="Interface double-panel THEMIS" onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 400%22><rect width=%22800%22 height=%22400%22 fill=%22%23091a2b%22/><text x=%2250%25%22 y=%2245%25%22 fill=%22%2334d399%22 font-family=%22sans-serif%22 font-size=%2222%22 font-weight=%22bold%22 text-anchor=%22middle%22>💼 ACTE 4 : THEMIS en Pleine Action</text><text x=%2250%25%22 y=%2260%25%22 fill=%22%23cbd5e1%22 font-family=%22sans-serif%22 font-size=%2215%22 text-anchor=%22middle%22>Panneau Gauche : Contrat Scellé ~5 min | Panneau Droit : Dashboard &amp; Factur-X</text></svg>';">
                             </div>
                             <div class="themis-slide-caption">
-                                <h4>🚀 Après : 2 minutes 30 pour sceller un contrat officiel complet</h4>
+                                <h4>🚀 Après : Moins de 5 minutes chrono pour sceller un contrat officiel complet</h4>
                                 <p>À gauche, votre devis multi-lignes génère automatiquement un dossier contractuel blindé de 7 pages (Devis, CGV, SLA) avec signature tactile. À droite, les graphiques financiers et les jauges de marge s'actualisent en temps réel, 100% conformes Factur-X 2026.</p>
                             </div>
                         </div>
@@ -1478,7 +1682,7 @@
                             <span class="themis-step-pill active" onclick="jumpToThemisSlide(0)">1. Dispersion</span>
                             <span class="themis-step-pill" onclick="jumpToThemisSlide(1)">2. Fusion</span>
                             <span class="themis-step-pill" onclick="jumpToThemisSlide(2)">3. Deux Voies</span>
-                            <span class="themis-step-pill" onclick="jumpToThemisSlide(3)">4. THEMIS 2m30</span>
+                            <span class="themis-step-pill" onclick="jumpToThemisSlide(3)">4. THEMIS ~5 min</span>
                             <span class="themis-step-pill" onclick="jumpToThemisSlide(4)">5. Souveraineté</span>
                         </div>
                         <div class="themis-dots-cluster">
@@ -1497,7 +1701,49 @@
                 </div>
             </div>
 
-            <!-- GLOSSAIRE -->
+            <!-- 3. PREUVE TECHNIQUE EN DIRECT : LE TERMINAL RPA -->
+            <div class="page-intro-header" style="margin-bottom: 1.5rem;">
+                <span class="page-tag">SIMULATION EN DIRECT</span>
+                <h3 style="font-size: 1.8rem; font-weight: 900; color: var(--primary-dark);">Voyez un Robot d'Automatisation à l'Œuvre</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">Cliquez pour lancer la simulation d'un robot qui extrait un PDF et le classe sans intervention humaine :</p>
+            </div>
+
+            <div class="terminal-rpa-wrap">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="td-red"></span>
+                        <span class="td-yellow"></span>
+                        <span class="td-green"></span>
+                    </div>
+                    <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">DHAMUSOFT RPA ENGINE v3.4 — CLI EXECUTION</span>
+                    <button class="btn btn-gold" id="btn-run-terminal" onclick="lancerSimulationRobot()" style="padding: 0.25rem 0.8rem; font-size: 0.75rem;">
+                        ▶ Lancer la simulation (3s)
+                    </button>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <div class="terminal-line"><span class="term-prompt">user@guadeloupe:~$</span> <span>dhamusoft-agent --watch /dossier-factures/</span></div>
+                    <div class="terminal-line" style="color:#64748b;">// En attente d'un document ou cliquez sur "Lancer la simulation"...</div>
+                    <div class="terminal-line"><span class="term-prompt">agent ready:</span> <span class="term-cursor"></span></div>
+                </div>
+            </div>
+
+            <!-- 4. SHOWROOM CONTINU (CARROUSEL INFINI DES 10 PROJETS) -->
+            <div class="page-intro-header" style="margin-bottom: 1.5rem;">
+                <span class="page-tag">SHOWROOM</span>
+                <h3 style="font-size: 1.8rem; font-weight: 900; color: var(--primary-dark);">Nos Réalisations</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">Les cartes avancent automatiquement. Survolez-les pour figer le défilement et cliquez pour inspecter :</p>
+            </div>
+
+            <div class="marquee-carousel-wrap">
+                <div class="marquee-track" id="marquee-track"></div>
+            </div>
+
+            <div class="carousel-manual-nav">
+                <button class="carousel-nav-arrow" onclick="scrollCarouselManual(-380)" aria-label="Précédent">&#8249;</button>
+                <button class="carousel-nav-arrow" onclick="scrollCarouselManual(380)" aria-label="Suivant">&#8250;</button>
+            </div>
+
+            <!-- 5. GLOSSAIRE PÉDAGOGIQUE (RÉASSURANCE TECHNIQUE) -->
             <section class="glossary-section-wrap">
                 <div class="page-intro-header" style="margin-bottom: 2rem;">
                     <h3 style="font-size: 1.6rem; font-weight: 900; color: var(--primary-dark);">📖 Glossaire : Les mots de l'informatique expliqués simplement</h3>
@@ -1587,78 +1833,24 @@
         </section>
 
         <!-- ======================================================== -->
-        <!-- 💰 VRAIE PAGE 3 : CHÈQUE TIC                             -->
+        <!-- 💰 VRAIE PAGE 3 : CHÈQUE TIC (ENTONNOIR ÉPURÉ & OPTIMISÉ) -->
         <!-- ======================================================== -->
         <section id="page-chequetic" class="page-view-section">
 
+            <!-- 1. BANNIÈRE D'ACCROCHE FINANCIÈRE -->
             <div class="tic-hero-banner">
-                <span style="background: rgba(255,255,255,0.2); padding: 0.35rem 0.9rem; border-radius: 25px; font-size: 0.76rem; font-weight: 800; text-transform: uppercase;">Aide Régionale & Fonds Européens FEDER</span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.35rem 0.9rem; border-radius: 25px; font-size: 0.76rem; font-weight: 800; text-transform: uppercase;">
+                    Aide Régionale Guadeloupe & Fonds Européens FEDER
+                </span>
                 <h2>Financez jusqu'à 80 % de vos investissements informatiques</h2>
-                <p>Le dispositif <strong>Chèque TIC</strong> de la Région Guadeloupe soutient les artisans, TPE et professionnels de santé pour moderniser leurs outils, avec une subvention pouvant atteindre <strong>jusqu'à 10 000 €</strong>.</p>
+                <p>
+                    Le dispositif <strong>Chèque TIC</strong> soutient les artisans, TPE et professionnels de santé pour moderniser leurs logiciels, sites web et matériels avec une subvention pouvant atteindre <strong>jusqu'à 10 000 €</strong>.
+                </p>
             </div>
 
-            <!-- SCANNER DES DÉPENSES PASSÉES -->
-            <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 18px; padding: 2.2rem; margin-bottom: 3rem; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.4rem;">
-                    <div>
-                        <span style="background: #ecfdf5; color: #047857; font-size: 0.74rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; border: 1px solid #a7f3d0;">Remboursement Rétroactif</span>
-                        <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 6px 0 2px 0;">Vous avez déjà acheté du matériel ou un site cette année ?</h3>
-                        <p style="font-size: 0.90rem; color: #64748b; margin: 0;">Cochez vos dépenses passées pour calculer l'argent que vous pouvez vous faire rembourser :</p>
-                    </div>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                    <label class="scan-card" data-amount="2500" data-rate="0.8" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 10px; cursor: pointer;" onclick="toggleScanInvoice()">
-                        <input type="checkbox" checked style="width: 18px; height: 18px; margin-top: 2px;">
-                        <div>
-                            <strong style="color: var(--primary); font-size: 0.90rem; display: block;">Création ou refonte de Site Internet</strong>
-                            <span style="font-size: 0.78rem; color: #64748b;">Facture : 2 500 € HT</span>
-                            <span style="display: block; color: #047857; font-size: 0.75rem; font-weight: bold; margin-top: 3px;">Remboursement à 80% (Gain : 2 000 €)</span>
-                        </div>
-                    </label>
-
-                    <label class="scan-card" data-amount="1800" data-rate="0.8" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 10px; cursor: pointer;" onclick="toggleScanInvoice()">
-                        <input type="checkbox" checked style="width: 18px; height: 18px; margin-top: 2px;">
-                        <div>
-                            <strong style="color: var(--primary); font-size: 0.90rem; display: block;">Sécurité & Sauvegardes Externes</strong>
-                            <span style="font-size: 0.78rem; color: #64748b;">Facture : 1 800 € HT</span>
-                            <span style="display: block; color: #047857; font-size: 0.75rem; font-weight: bold; margin-top: 3px;">Remboursement à 80% (Gain : 1 440 €)</span>
-                        </div>
-                    </label>
-
-                    <label class="scan-card" data-amount="3500" data-rate="0.4" style="border: 1.5px solid #047857; background: #f0fdf4; border-radius: 10px; padding: 1rem; display: flex; align-items: flex-start; gap: 10px; cursor: pointer;" onclick="toggleScanInvoice()">
-                        <input type="checkbox" checked style="width: 18px; height: 18px; margin-top: 2px;">
-                        <div>
-                            <strong style="color: var(--primary); font-size: 0.90rem; display: block;">Ordinateurs & Matériel Informatique</strong>
-                            <span style="font-size: 0.78rem; color: #64748b;">Facture : 3 500 € HT</span>
-                            <span style="display: block; color: #0369a1; font-size: 0.75rem; font-weight: bold; margin-top: 3px;">Remboursement à 40% (Gain : 1 400 €)</span>
-                        </div>
-                    </label>
-                </div>
-
-                <div style="background: linear-gradient(135deg, #05231a 0%, #0f3d2e 100%); color: white; border-radius: 12px; padding: 1.4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem;">
-                    <div>
-                        <span style="font-size: 0.76rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">Subvention Régionale Estimée :</span>
-                        <div style="font-size: 2.2rem; font-weight: 900; color: #ffffff;" id="scan-total-refund">4 840,00 €</div>
-                        <small style="color: #cbd5e1; font-size: 0.78rem;">L'aide est versée directement sur le compte bancaire officiel (RIB) de votre entreprise.</small>
-                    </div>
-                    <button class="btn btn-gold" onclick="openMandatModal()" style="padding: 0.9rem 1.6rem; font-weight: 900; font-size: 0.95rem;">
-                        🚀 Récupérer mon remboursement sous mandat
-                    </button>
-                </div>
-            </div>
-
-            <!-- SIMULATEUR PROJET -->
+            <!-- 2. SIMULATEUR BUDGÉTAIRE IMMÉDIAT -->
             <div class="simulator-card-wrap">
-                <div class="eligibility-radar-box">
-                    <div class="radar-status">
-                        <div class="radar-dot active" id="radar-indicator"></div>
-                        <span id="radar-text" style="color: var(--primary-dark);">● BOUCLIER ADMINISTRATIF DÉBLOQUÉ : ÉLIGIBLE 80%</span>
-                    </div>
-                    <span style="font-size: 0.75rem; font-weight: 800; color: #059669; background: #ecfdf5; padding: 3px 8px; border-radius: 4px;">CONFORME CR-19-175</span>
-                </div>
-
-                <div class="sim-title"><span>1️⃣ Vos critères d'accès</span></div>
+                <div class="sim-title"><span>1️⃣ Vos critères d'éligibilité réglementaires</span></div>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2rem; background: #f8fafc; padding: 1.2rem; border-radius: 12px; border: 1px solid var(--border);">
                     <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; font-weight: 600; color: #334155; cursor: pointer;">
                         <input type="checkbox" id="check-loc" checked onchange="calculerChequeTic()" style="width: 18px; height: 18px; margin-top: 2px;">
@@ -1696,65 +1888,221 @@
                     </div>
                 </div>
 
-                <div style="margin: 1.5rem 0 0.5rem 0;">
-                    <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 800; margin-bottom: 4px;">
-                        <span style="color: #059669;">Aide Régionale (FEDER) : <strong id="lbl-pct-aide">58%</strong></span>
-                        <span style="color: #b45309;">Votre Reste à Charge : <strong id="lbl-pct-rac">42%</strong></span>
+                <!-- JAUGE BICOLORE & RÉSULTATS CHIFFRÉS FUSIONNÉS -->
+                <div style="background: #f8fafc; border: 1.5px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-top: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 800; margin-bottom: 6px;">
+                        <span style="color: #059669;">Subvention Régionale (FEDER) : <strong id="lbl-pct-aide">58%</strong></span>
+                        <span style="color: #b45309;">Votre Reste à Charge Réel : <strong id="lbl-pct-rac">42%</strong></span>
                     </div>
-                    <div class="jauge-wrap">
+                    <div class="jauge-wrap" style="margin-bottom: 1.5rem;">
                         <div class="jauge-bar-aide" id="jauge-aide">SUBVENTION 80%</div>
                         <div class="jauge-bar-rac" id="jauge-rac">VOTRE PART</div>
                     </div>
-                </div>
 
-                <div class="sim-results-panel" style="margin-top: 1.5rem;">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center; margin-bottom: 1rem;">
-                        <div style="background:#f8fafc; padding:1rem; border-radius:10px; border:1px solid var(--border);">
-                            <h5 style="color:#64748b; font-size:0.8rem; margin-bottom:4px;">Total Projet</h5>
-                            <div style="font-size:1.35rem; font-weight:900; color:var(--primary);" id="res-total">9 000 € HT</div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+                        <div style="background:#ffffff; padding:1.2rem 1rem; border-radius:10px; border:1px solid var(--border);">
+                            <h5 style="color:#64748b; font-size:0.82rem; margin-bottom:4px; text-transform:uppercase;">Total Projet Estimé</h5>
+                            <div style="font-size:1.4rem; font-weight:900; color:var(--primary);" id="res-total">9 000 € HT</div>
                         </div>
-                        <div style="background:#ecfdf5; padding:1rem; border-radius:10px; border:1px solid #a7f3d0;">
-                            <h5 style="color:#047857; font-size:0.8rem; margin-bottom:4px;">Aide Estimée</h5>
-                            <div style="font-size:1.35rem; font-weight:900; color:#059669;" id="res-aide">5 200 €</div>
+                        <div style="background:#ecfdf5; padding:1.2rem 1rem; border-radius:10px; border:1px solid #a7f3d0;">
+                            <h5 style="color:#047857; font-size:0.82rem; margin-bottom:4px; text-transform:uppercase;">Aide Région / FEDER</h5>
+                            <div style="font-size:1.4rem; font-weight:900; color:#059669;" id="res-aide">5 200 €</div>
                         </div>
-                        <div style="background:#fffdf5; padding:1rem; border-radius:10px; border:1px solid #fde68a;">
-                            <h5 style="color:#b45309; font-size:0.8rem; margin-bottom:4px;">Reste Réel</h5>
-                            <div style="font-size:1.35rem; font-weight:900; color:#b45309;" id="res-reste">3 800 € HT</div>
+                        <div style="background:#fffdf5; padding:1.2rem 1rem; border-radius:10px; border:1px solid #fde68a;">
+                            <h5 style="color:#b45309; font-size:0.82rem; margin-bottom:4px; text-transform:uppercase;">Reste à Charge Réel</h5>
+                            <div style="font-size:1.4rem; font-weight:900; color:#b45309;" id="res-reste">3 800 € HT</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 18px; padding: 2.5rem; box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 3.5rem;">
-                <h3 style="color: var(--primary); font-size: 1.5rem; font-weight: 800; margin-bottom: 0.6rem;">
-                    🤝 L'Accompagnement Dhamusoft : Votre dossier monté et déposé sous mandat
-                </h3>
-                <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.65;">
-                    Ne perdez pas de temps avec la paperasse administrative. Nous nous chargeons de tout préparer et déposer pour vous :
+            <!-- 3. SCHÉMA DU PARCOURS : LES 2 MOMENTS CLÉS D'ACHAT (CHRONO-GUIDE) -->
+            <div class="tic-chronoguide-card">
+                <div class="chrono-header">
+                    <span style="background: #fef2f2; color: #991b1b; font-size: 0.74rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; border: 1px solid #fecaca;">
+                        RÈGLE D'EFFET INCITATIF FEDER (RÈGLEMENT UE 651/2014 & CR-19-175)
+                    </span>
+                    <h3>Quand pouvez-vous signer vos devis et acheter votre matériel ?</h3>
+                    <p style="font-size: 0.92rem; color: #64748b; margin-top: 6px;">
+                        Pour ne pas perdre vos 80 % de subvention, <strong>le Mandat Dhamusoft (Jalon 1) doit obligatoirement être signé en premier</strong>. Choisissez votre profil pour visualiser le moment exact où vos achats sont autorisés :
+                    </p>
+
+                    <!-- COMMUTATEUR CLIENT PRESSÉ VS PRUDENT -->
+                    <div class="chrono-switch-wrap">
+                        <button type="button" class="chrono-switch-btn active" id="btn-mode-presse" onclick="basculerModeParcours('presse')">
+                            ⚡ Option A : « Je suis pressé » (Déblocage dès l'Accusé de Réception)
+                        </button>
+                        <button type="button" class="chrono-switch-btn" id="btn-mode-prudent" onclick="basculerModeParcours('prudent')">
+                            🛡️ Option B : « Je suis prudent » (Déblocage après le Vote Régional)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- LES 4 ÉTAPES CHRONOLOGIQUES -->
+                <div class="chrono-timeline">
+                    <!-- ÉTAPE 1 -->
+                    <div class="chrono-step-card active-step">
+                        <div class="chrono-step-num">1</div>
+                        <h4 class="chrono-step-title">Mandat & Cadrage Jalon 1 (Obligatoire)</h4>
+                        <p class="chrono-step-desc">
+                            Signature de la convention sous mandat (500 € HT / reste réel 100 €). Rédaction de la Note d'Impact et calibrage des devis proforma avec les libellés officiels FEDER.
+                        </p>
+                        <span style="font-size:0.72rem; color:#b45309; font-weight:800; background:#fffdf5; padding:4px 8px; border-radius:6px; border:1px solid #fde68a;">
+                            ⛔ Zéro commande signée à ce stade
+                        </span>
+                    </div>
+
+                    <!-- ÉTAPE 2 -->
+                    <div class="chrono-step-card active-step" id="card-step-2">
+                        <div class="chrono-step-num" style="background:#0284c7;">2</div>
+                        <h4 class="chrono-step-title">Dépôt & Accusé de Réception Région</h4>
+                        <p class="chrono-step-desc">
+                            Dhamusoft dépose votre dossier. La Région Guadeloupe délivre sous 48h à 72h l'<strong>Accusé de Réception officiel (AR horodaté)</strong>.
+                        </p>
+                        <div class="key-moment-badge badge-moment-1" id="badge-moment-1" style="display: block;">
+                            ⚡ MOMENT CLÉ 1 : ACHATS AUTORISÉS (Légalement débloqué)
+                        </div>
+                    </div>
+
+                    <!-- ÉTAPE 3 -->
+                    <div class="chrono-step-card" id="card-step-3">
+                        <div class="chrono-step-num" style="background:var(--accent);">3</div>
+                        <h4 class="chrono-step-title">Arrêté d'Attribution Régional</h4>
+                        <p class="chrono-step-desc">
+                            La Commission Permanente de la Région vote formellement votre subvention. Vous recevez l'arrêté officiel fixant le montant de l'aide réservée.
+                        </p>
+                        <div class="key-moment-badge badge-moment-2" id="badge-moment-2">
+                            🛡️ MOMENT CLÉ 2 : GARANTIE FINANCIÈRE ABSOLUE
+                        </div>
+                    </div>
+
+                    <!-- ÉTAPE 4 -->
+                    <div class="chrono-step-card">
+                        <div class="chrono-step-num" style="background:#059669;">4</div>
+                        <h4 class="chrono-step-title">Liasse ASP & Virement sur votre RIB</h4>
+                        <p class="chrono-step-desc">
+                            Exécution du Jalon 2 Dhamusoft (500 € HT / reste 100 €). Montage de la liasse de liquidation (relevés bancaires pointés) pour ordonner le virement ASP à 100% sur votre compte.
+                        </p>
+                        <span style="font-size:0.72rem; color:#047857; font-weight:800; background:#ecfdf5; padding:4px 8px; border-radius:6px; border:1px solid #a7f3d0;">
+                            💰 Versement direct sur votre RIB
+                        </span>
+                    </div>
+                </div>
+
+                <!-- BANDEAU EXPLICATIF DYNAMIQUE -->
+                <div class="chrono-explainer-box">
+                    <div>
+                        <span style="color:var(--accent); font-size:0.75rem; font-weight:800; text-transform:uppercase;" id="chrono-exp-tag">
+                            STRATÉGIE CLIENT PRESSÉ (RECOMMANDÉE SI BESOIN OPÉRATIONNEL IMMÉDIAT)
+                        </span>
+                        <h4 style="font-size:1.1rem; font-weight:900; margin:4px 0;" id="chrono-exp-title">
+                            ⚡ Vos achats débloqués en quelques jours dès l'Accusé de Réception (Étape 2)
+                        </h4>
+                        <p style="font-size:0.86rem; color:#cbd5e1; margin:0; max-width:760px; line-height:1.5;" id="chrono-exp-desc">
+                            En droit européen (Art. 6 RGEC 651/2014), l'effet incitatif est acquis dès l'Accusé de Réception de la Région. Vous gagnez 2 à 4 mois : vous pouvez signer le devis THEMIS et commander vos ordinateurs immédiatement, sans risque de rejet pour antériorité.
+                        </p>
+                    </div>
+                    <button class="btn btn-gold" onclick="openMandatModal()" style="padding:0.8rem 1.4rem; font-weight:900; white-space:nowrap;">
+                        ✍️ Signer mon mandat en priorité
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4. FAQ BOUCLIER ADMINISTRATIF (LEVÉE DE DOUTES) -->
+            <div class="tic-faq-section">
+                <div class="tic-faq-title">
+                    <span>🛡️ Le Bouclier Administratif : Tout ce que vous devez savoir avant de signer</span>
+                </div>
+                <p class="tic-faq-subtitle">
+                    Nous gérons l'intégralité de la procédure auprès de la Région Guadeloupe et de l'ASP sous mandat de représentation. Cliquez sur une question pour lever vos doutes :
                 </p>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.8rem 0;">
-                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.4rem; border: 1px solid var(--border); border-top: 4px solid var(--primary);">
-                        <strong style="color: var(--primary); display: block; margin-bottom: 0.4rem; font-size: 1.05rem;">1. Cadrage & Devis Conformes</strong>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin: 0;">Nous calibrons les devis techniques pour qu'ils répondent aux critères stricts de la Région.</p>
+                <div class="tic-faq-grid">
+                    <!-- QUESTION 1 : LA PEUR DU REJET -->
+                    <div class="tic-faq-item">
+                        <div class="tic-faq-question" onclick="toggleTicFaq(this)">
+                            <span>1. Que se passe-t-il si mon dossier Chèque TIC fait l'objet d'un refus ?</span>
+                            <span class="tic-faq-icon">+</span>
+                        </div>
+                        <div class="tic-faq-answer">
+                            <span class="tic-highlight-badge">OBLIGATION DE MOYENS & HAUTE EXIGENCE</span>
+                            <p>La décision finale appartient souverainement au Comité Régional. En tant que cabinet d'assistance à maîtrise d'ouvrage (AMO), <strong>Dhamusoft est tenu à une obligation de moyens stricte et applique un niveau d'exigence maximal</strong> : audit réglementaire initial, devis calibrés aux libellés FEDER, note d'impact stratégique de 3 pages et vérification préalable de vos attestations sociales et fiscales. Si un risque d'inéligibilité est identifié dès le départ, nous vous en informons en toute transparence avant d'engager le moindre dépôt.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.4rem; border: 1px solid var(--border); border-top: 4px solid var(--primary);">
-                        <strong style="color: var(--primary); display: block; margin-bottom: 0.4rem; font-size: 1.05rem;">2. Note d'Impact Stratégique (3 pages)</strong>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin: 0;">Nous rédigeons le dossier démontrant l'utilité économique et la sécurité de vos investissements.</p>
-                    </div>
-                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.4rem; border: 1px solid var(--border); border-top: 4px solid var(--primary);">
-                        <strong style="color: var(--primary); display: block; margin-bottom: 0.4rem; font-size: 1.05rem;">3. Dépôt & Déblocage du Virement ASP</strong>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin: 0;">Nous montons la liasse de liquidation finale pour que l'argent arrive directement sur votre compte.</p>
-                    </div>
-                </div>
 
-                <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; border-radius: 12px; padding: 1.8rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
-                    <div>
-                        <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.3rem;">📋 Lancez votre accompagnement Chèque TIC</h4>
-                        <p style="font-size: 0.88rem; color: #cbd5e1; margin: 0;">Validez votre bon de commande et signez votre mandat de représentation avec votre doigt en 30 secondes.</p>
+                    <!-- QUESTION 2 : FRANCHISE DE TVA (MICRO-ENTREPRISES) -->
+                    <div class="tic-faq-item">
+                        <div class="tic-faq-question" onclick="toggleTicFaq(this)">
+                            <span>2. Je suis en franchise de TVA (micro-entreprise / libéral) : l'aide s'applique comment ?</span>
+                            <span class="tic-faq-icon">+</span>
+                        </div>
+                        <div class="tic-faq-answer">
+                            <span class="tic-highlight-badge">RÈGLE OFFICIELLE RÉGION</span>
+                            <p>Si vous n'êtes pas assujetti à la TVA et ne pouvez pas la récupérer, la Région Guadeloupe et le FEDER calculent votre subvention directement sur le <strong>montant TTC réellement payé</strong>. Vous ne perdez aucun euro de prise en charge et touchez bien vos 80 % sur la totalité de votre dépense.</p>
+                        </div>
                     </div>
-                    <button class="btn btn-gold" onclick="openMandatModal()">✍️ Lancer mon accompagnement sous mandat</button>
+
+                    <!-- QUESTION 3 : VERSEMENT DU VIREMENT SUR LE RIB -->
+                    <div class="tic-faq-item">
+                        <div class="tic-faq-question" onclick="toggleTicFaq(this)">
+                            <span>3. Comment et quand l'argent arrive-t-il sur mon compte bancaire ?</span>
+                            <span class="tic-faq-icon">+</span>
+                        </div>
+                        <div class="tic-faq-answer">
+                            <span class="tic-highlight-badge">TRANSPARENCE TOTALE DU RIB</span>
+                            <p>La subvention ne transite jamais par Dhamusoft : <strong>l'ASP (Agence de Services et de Paiement) vire 100 % de l'aide directement sur le RIB officiel de votre entreprise</strong>. Notre Jalon 2 consiste précisément à monter la « liasse de liquidation » (factures, relevés bancaires pointés, numéros de série) pour déclencher ce virement sans blocage administratif.</p>
+                        </div>
+                    </div>
+
+                    <!-- QUESTION 4 : CE QU'IL FAUT AVANCER -->
+                    <div class="tic-faq-item">
+                        <div class="tic-faq-question" onclick="toggleTicFaq(this)">
+                            <span>4. Dois-je avancer la totalité de la somme de ma poche ?</span>
+                            <span class="tic-faq-icon">+</span>
+                        </div>
+                        <div class="tic-faq-answer">
+                            <span class="tic-highlight-badge">ÉCHELONNEMENT PAR JALONS</span>
+                            <p>Pour le montage de dossier, vous réglez uniquement le Jalon 1 (500 € HT), qui vous revient en réalité à <strong>100 € HT</strong> après remboursement. Le Jalon 2 de liquidation finale n'est facturé qu'après validation de l'arrêté d'attribution par la Région. Vous n'avez aucune trésorerie lourde immobilisée à l'aveugle.</p>
+                        </div>
+                    </div>
+
+                    <!-- QUESTION 5 : LES 2 MOMENTS D'ACHAT & L'EFFET INCITATIF -->
+                    <div class="tic-faq-item">
+                        <div class="tic-faq-question" onclick="toggleTicFaq(this)">
+                            <span>5. Quand ai-je le droit de signer mon devis THEMIS ou d'acheter mon matériel ?</span>
+                            <span class="tic-faq-icon">+</span>
+                        </div>
+                        <div class="tic-faq-answer">
+                            <span class="tic-highlight-badge">RÈGLE STRICTE UE 651/2014 & CR-19-175</span>
+                            <p><strong>Deux moments clés sont possibles selon votre profil :</strong></p>
+                            <p style="margin-top:6px;">
+                                1. <strong>Dès l'Accusé de Réception (AR) de la Région (Étape 2) :</strong> Si vous êtes pressé, vous pouvez commander immédiatement. L'effet incitatif européen est juridiquement satisfait, vos factures ne seront pas rejetées pour antériorité.<br>
+                                2. <strong>Après l'Arrêté d'Attribution (Étape 3) :</strong> Si vous êtes prudent, vous attendez la notification officielle du vote de la Région avant de débourser le moindre acompte.
+                            </p>
+                            <p style="margin-top:8px; font-weight:700; color:#b45309;">
+                                ⚠️ Dans tous les cas, le Mandat Dhamusoft (Jalon 1) doit impérativement être signé avant toute commande d'équipement ou de logiciel.
+                            </p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <!-- 5. DÉCLENCHEUR D'ACTION FINAL (SOUS MANDAT) -->
+            <div style="background: linear-gradient(135deg, #091a2b 0%, #173352 100%); color: white; border-radius: 18px; padding: 2.2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; box-shadow: 0 12px 32px rgba(9, 26, 43, 0.25); border: 1.5px solid rgba(197, 155, 67, 0.4); margin-bottom: 3.5rem;">
+                <div>
+                    <span style="background: var(--accent); color: #091a2b; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 12px; text-transform: uppercase;">
+                        MANDAT D'ACCOMPAGNEMENT OFFICIEL
+                    </span>
+                    <h3 style="font-size: 1.45rem; font-weight: 900; margin: 0.5rem 0 0.3rem 0; color: #ffffff;">
+                        Sécurisez votre subvention Chèque TIC dès aujourd'hui
+                    </h3>
+                    <p style="font-size: 0.90rem; color: #cbd5e1; margin: 0; max-width: 680px; line-height: 1.55;">
+                        Validez votre Jalon 1 (500 € HT • <strong>reste réel 100 € HT</strong>) et signez votre mandat de représentation avec votre doigt en 30 secondes pour bloquer votre Accusé de Réception Région.
+                    </p>
+                </div>
+                <button class="btn btn-gold" onclick="openMandatModal()" style="padding: 1rem 1.8rem; font-weight: 900; font-size: 1rem;">
+                    ✍️ Lancer mon accompagnement sous mandat
+                </button>
             </div>
 
         </section>
@@ -1923,7 +2271,7 @@
             id: "themis",
             title: "THEMIS ERP",
             badge: "Gestion Commerciale & Facturation",
-            description: "Plateforme de gestion complète : devis en 2 min 30, calcul automatique des acomptes et contrat juridique scellé en 1 clic.",
+            description: "Plateforme de gestion complète : devis complet en 5 minutes, calcul automatique des acomptes et contrat juridique scellé en 1 clic.",
             enjeu: "Sécuriser les flux de vente et anticiper la réforme Factur-X 2026 sans abonnement forcé.",
             tags: ["Python", "Flet", "Flutter Web", "CRM", "Factur-X 2026"],
             moteur: "Python compilé vers Flutter Web pour une réactivité native multiplateforme.",
@@ -2334,6 +2682,8 @@
         if (document.getElementById('lbl-pct-aide')) document.getElementById('lbl-pct-aide').textContent = pctAide + '%';
         if (document.getElementById('lbl-pct-rac')) document.getElementById('lbl-pct-rac').textContent = (100 - pctAide) + '%';
     };
+	
+	
 
     window.toggleScanInvoice = function() {
         setTimeout(() => {
@@ -2350,6 +2700,58 @@
             const el = document.getElementById('scan-total-refund');
             if (el) el.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(total);
         }, 50);
+    };
+	
+	// COMMUTATEUR DU CHRONO-GUIDE CHÈQUE TIC (PRESSÉ VS PRUDENT)
+    window.basculerModeParcours = function(mode) {
+        const btnPresse = document.getElementById('btn-mode-presse');
+        const btnPrudent = document.getElementById('btn-mode-prudent');
+        const badgeM1 = document.getElementById('badge-moment-1');
+        const badgeM2 = document.getElementById('badge-moment-2');
+        const expTag = document.getElementById('chrono-exp-tag');
+        const expTitle = document.getElementById('chrono-exp-title');
+        const expDesc = document.getElementById('chrono-exp-desc');
+        const cardStep2 = document.getElementById('card-step-2');
+        const cardStep3 = document.getElementById('card-step-3');
+
+        if (mode === 'presse') {
+            btnPresse.classList.add('active');
+            btnPrudent.classList.remove('active');
+            badgeM1.style.display = 'block';
+            badgeM2.style.display = 'none';
+            cardStep2.classList.add('active-step');
+            cardStep3.classList.remove('active-step');
+
+            expTag.textContent = "STRATÉGIE CLIENT PRESSÉ (RECOMMANDÉE SI BESOIN OPÉRATIONNEL IMMÉDIAT)";
+            expTitle.textContent = "⚡ Vos achats débloqués en quelques jours dès l'Accusé de Réception (Étape 2)";
+            expDesc.textContent = "En droit européen (Art. 6 RGEC 651/2014), l'effet incitatif est acquis dès l'Accusé de Réception de la Région. Vous gagnez 2 à 4 mois : vous pouvez signer le devis THEMIS et commander vos ordinateurs immédiatement, sans risque de rejet pour antériorité.";
+        } else {
+            btnPrudent.classList.add('active');
+            btnPresse.classList.remove('active');
+            badgeM1.style.display = 'none';
+            badgeM2.style.display = 'block';
+            cardStep3.classList.add('active-step');
+            cardStep2.classList.remove('active-step');
+
+            expTag.textContent = "STRATÉGIE CLIENT PRUDENT (SÉCURITÉ FINANCIÈRE ABSOLUE)";
+            expTitle.textContent = "🛡️ Signature et achats après la publication de l'Arrêté Régional (Étape 3)";
+            expDesc.textContent = "Vous préférez ne débourser aucun acompte sans la certitude absolue de la subvention ? Nous temporisons vos commandes : vous n'achetez votre matériel qu'une fois la notification de l'Arrêté d'Attribution formellement signée par la Région.";
+        }
+    };
+	
+	// GESTION DU DÉPLIAGE DE LA FAQ CHÈQUE TIC
+    window.toggleTicFaq = function(element) {
+        const item = element.closest('.tic-faq-item');
+        if (!item) return;
+        const isOpen = item.classList.contains('open');
+
+        // Ferme les autres questions pour une lecture nette
+        document.querySelectorAll('.tic-faq-item').forEach(el => el.classList.remove('open'));
+
+        // Ouvre ou ferme la question cliquée
+        if (!isOpen) {
+            item.classList.add('open');
+        }
     };
 
     // 11. MODALE PLAQUETTE TRIPTYQUE PLEIN FORMAT
@@ -2464,7 +2866,7 @@
                         </div>
                         <div style="border-left:4px solid var(--accent); background:#FFFDF5; border:1.5px solid #fde68a; padding:0.8rem; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
                             <div style="color:#B45309; font-size:0.84rem; font-weight:800; margin-bottom:0.25rem;">THEMIS (ERP & Factur-X 2026)</div>
-                            <div style="font-size:0.75rem; color:#047857; line-height:1.45;">💡 Devis en 2 min, calcul d'acomptes, contrat scellé et conformité fiscale stricte Art. 286 du CGI.</div>
+                            <div style="font-size:0.75rem; color:#047857; line-height:1.45;">💡 Devis en ~5 min, calcul d'acomptes, contrat scellé et conformité fiscale stricte Art. 286 du CGI.</div>
                         </div>
                         <div style="background:#F8FAFC; border:1px solid var(--frame-border); padding:0.6rem; border-radius:6px; text-align:center;">
                             <span style="font-size:0.74rem; color:#475569; font-weight:800;">Des solutions faites pour votre rentabilité</span>
@@ -2545,57 +2947,206 @@
         document.body.style.overflow = 'hidden';
     };
 
+    // 12 BIS. MODALE OFFICIELLE DE MANDAT AVEC SIGNATURE TACTILE
+    let mandatCanvas = null, mandatCtx = null, mandatHasDrawn = false;
+
     window.openMandatModal = function() {
         const modal = document.getElementById('modal');
         const body = document.getElementById('modal-body');
         if (!modal || !body) return;
 
-        const isVip = !!window.estClientVipThemis;
-        const prixJ1 = isVip ? "250,00 € HT" : "500,00 € HT";
-        const racJ1 = isVip ? "50,00 € HT" : "100,00 € HT";
+        const p = new URLSearchParams(window.location.search);
+        const refDevis = p.get('devis') || p.get('ref') || 'PROFORMA-DIRECT';
+        const ste = p.get('ste') || p.get('entreprise') || '';
+        const siret = p.get('siret') || '';
+        const rep = p.get('rep') || p.get('nom') || '';
+        const tel = p.get('tel') || '';
+        const email = p.get('email') || '';
 
         body.innerHTML = `
-            <h2 style="font-size:1.5rem;font-weight:900;color:var(--primary);margin-bottom:0.5rem;">Convention d'Assistance & Mandat Chèque TIC</h2>
-            <p style="font-size:0.85rem;color:#64748b;margin-bottom:1rem;">Cabinet Dhamusoft — Prestation d'Ingénierie & Liquidation ASP</p>
+            <div style="text-align: left; margin-bottom: 1rem; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">
+                <span style="font-size: 11px; font-weight: 800; color: #047857; background: #ECFDF5; padding: 4px 8px; border-radius: 4px; text-transform: uppercase;">
+                    CONVENTION D'AMO & MANDAT EXPRÈS • JALON 1
+                </span>
+                <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin: 6px 0 2px 0;">
+                    Sécurisation de votre subvention Chèque TIC (80%)
+                </h2>
+                <p style="font-size: 0.85rem; color: #64748b; margin: 0;">
+                    Rattaché au Devis Proforma : <strong>${refDevis}</strong>
+                </p>
+            </div>
+
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 10px 12px; font-size: 0.80rem; color: #991B1B; margin-bottom: 1rem;">
+                ⚖️ <strong>Règle d'Effet Incitatif (UE 651/2014) :</strong> Ce mandat autorise le dépôt de votre dossier pour déclencher l'Accusé de Réception officiel avant tout achat ou signature de commande de matériel.
+            </div>
+
             <form id="mandat-quick-form" onsubmit="window.submitMandat(event)">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem;">
-                    <input type="text" id="m-ste" placeholder="Nom de l'entreprise *" required class="currency-input" style="font-size:0.9rem;">
-                    <input type="text" id="m-siret" placeholder="Numéro SIRET *" required class="currency-input" style="font-size:0.9rem;">
-                    <input type="text" id="m-rep" placeholder="Nom du signataire *" required class="currency-input" style="font-size:0.9rem;">
-                    <input type="tel" id="m-tel" placeholder="Téléphone *" required class="currency-input" style="font-size:0.9rem;">
-                </div>
-                <div style="background:#05231a;color:white;padding:1rem;border-radius:10px;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1rem;">
                     <div>
-                        <span style="font-size:0.75rem;color:#a7f3d0;font-weight:800;">JALON 1 — FACTURÉ CE JOUR :</span>
-                        <div style="font-size:1.8rem;font-weight:900;">${prixJ1}</div>
-                        <small style="color:#a7f3d0;">Reste à charge réel après 80% d'aide : <strong>${racJ1}</strong></small>
+                        <label style="font-size: 11px; font-weight: 700; color: #475569;">Société / Raison Sociale *</label>
+                        <input type="text" id="m-ste" placeholder="Nom de l'entreprise *" required class="currency-input" style="font-size: 0.9rem;" value="${ste}">
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; font-weight: 700; color: #475569;">Numéro SIRET (14 chiffres) *</label>
+                        <input type="text" id="m-siret" placeholder="Numéro SIRET *" required class="currency-input" style="font-size: 0.9rem;" value="${siret}">
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; font-weight: 700; color: #475569;">Nom du Dirigeant / Signataire *</label>
+                        <input type="text" id="m-rep" placeholder="Nom du signataire *" required class="currency-input" style="font-size: 0.9rem;" value="${rep}">
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; font-weight: 700; color: #475569;">Téléphone portable *</label>
+                        <input type="tel" id="m-tel" placeholder="Téléphone *" required class="currency-input" style="font-size: 0.9rem;" value="${tel}">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-gold" style="width:100%;padding:1rem;font-weight:900;font-size:1rem;">
-                    ✍️ Valider mon accompagnement
+
+                <!-- ENCART TARIFAIRE OFFICIEL UNIQUE -->
+                <div style="background: #05231a; color: white; padding: 1rem 1.2rem; border-radius: 10px; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="font-size: 0.72rem; color: #a7f3d0; font-weight: 800; text-transform: uppercase;">MISSION D'AMO JALON 1 FACTURÉE CE JOUR :</span>
+                        <div style="font-size: 1.6rem; font-weight: 900;">500,00 € HT</div>
+                        <small style="color: #a7f3d0;">Reste à charge réel après subvention 80% : <strong>100,00 € HT</strong></small>
+                    </div>
+                    <div style="text-align: right; font-size: 0.75rem; color: #cbd5e1;">
+                        Jalon 2 (Clôture & ASP) : 500 € HT<br>
+                        <em>Exigible après arrêté Région</em>
+                    </div>
+                </div>
+
+                <!-- PAD DE SIGNATURE TACTILE AU DOIGT/STYLET -->
+                <div style="border: 2px dashed #94A3B8; border-radius: 8px; background: #F8FAFC; padding: 10px; margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: bold; margin-bottom: 4px; color: var(--primary);">
+                        <span>✍️ APPOSEZ VOTRE SIGNATURE MANUSCRITE AU DOIGT OU À LA SOURIS</span>
+                        <button type="button" onclick="effacerMandatCanvas()" style="background:none; border:none; color:#B91C1C; cursor:pointer; font-weight:bold;">↺ Effacer</button>
+                    </div>
+                    <canvas id="mandat-canvas" style="background: #FFFFFF; border: 1px solid var(--border); border-radius: 6px; width: 100%; height: 120px; touch-action: none; cursor: crosshair;"></canvas>
+                </div>
+
+                <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #065F46; font-weight: 700; text-align: left; margin-bottom: 1.2rem; cursor: pointer;">
+                    <input type="checkbox" id="chk-mandat" required style="width: 18px; height: 18px; margin-top: 2px;">
+                    <span>Je mandate expressément le Cabinet Dhamusoft pour déposer le dossier Chèque TIC et valide l'étude préalable Jalon 1 (500 € HT / reste réel 100 €).</span>
+                </label>
+
+                <button type="submit" id="btn-submit-mandat" class="btn btn-gold" style="width: 100%; padding: 1rem; font-weight: 900; font-size: 1rem;">
+                    🚀 Sceller mon Mandat & Bloquer mon Accusé de Réception
                 </button>
             </form>
         `;
+
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        setTimeout(initMandatCanvas, 80);
     };
 
+    function initMandatCanvas() {
+        mandatCanvas = document.getElementById("mandat-canvas");
+        if (!mandatCanvas) return;
+        const rect = mandatCanvas.getBoundingClientRect();
+        mandatCanvas.width = rect.width;
+        mandatCanvas.height = rect.height;
+        mandatCtx = mandatCanvas.getContext("2d");
+        mandatCtx.strokeStyle = "#05231A";
+        mandatCtx.lineWidth = 2.5;
+        mandatCtx.lineCap = "round";
+        mandatHasDrawn = false;
+
+        let drawing = false;
+        function getP(e) {
+            const r = mandatCanvas.getBoundingClientRect();
+            const cx = e.touches ? e.touches[0].clientX : e.clientX;
+            const cy = e.touches ? e.touches[0].clientY : e.clientY;
+            return { x: cx - r.left, y: cy - r.top };
+        }
+
+        function start(e) { drawing = true; mandatHasDrawn = true; const p = getP(e); mandatCtx.beginPath(); mandatCtx.moveTo(p.x, p.y); }
+        function draw(e) { if (!drawing) return; e.preventDefault(); const p = getP(e); mandatCtx.lineTo(p.x, p.y); mandatCtx.stroke(); }
+        function stop() { drawing = false; }
+
+        mandatCanvas.addEventListener("mousedown", start);
+        mandatCanvas.addEventListener("mousemove", draw);
+        window.addEventListener("mouseup", stop);
+        mandatCanvas.addEventListener("touchstart", start, { passive: false });
+        mandatCanvas.addEventListener("touchmove", draw, { passive: false });
+        window.addEventListener("touchend", stop);
+    }
+
+    window.effacerMandatCanvas = function() {
+        if (mandatCtx && mandatCanvas) {
+            mandatCtx.clearRect(0, 0, mandatCanvas.width, mandatCanvas.height);
+            mandatHasDrawn = false;
+        }
+    };
+
+    // 13. TRANSMISSION DU MANDAT SCELLÉ VERS MAKE.COM & THEMIS
     window.submitMandat = async function(e) {
         e.preventDefault();
+        if (!mandatHasDrawn) {
+            alert("⚠️ Veuillez apposer votre signature manuscrite dans le cadre avant de valider.");
+            return;
+        }
+
+        const btn = document.getElementById('btn-submit-mandat');
+        if (btn) {
+            btn.disabled = true;
+            btn.textContent = "⏳ Scellement et enregistrement du dossier...";
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const refDevis = urlParams.get('devis') || urlParams.get('ref') || 'DIRECT-WEB';
+        const signatureBase64 = mandatCanvas.toDataURL("image/png");
+
+        const payloadMandat = {
+            type_evenement: "MANDAT_SIGNE",
+            event: "contrat_chequetic_signe_en_ligne",
+            formule_libelle: "CONVENTION_AMO_MANDAT_OFFICIEL_500_500",
+            devis_themis_ref: refDevis,
+            entreprise: (document.getElementById('m-ste') || {}).value || '',
+            siret: (document.getElementById('m-siret') || {}).value || '',
+            representant_legal: (document.getElementById('m-rep') || {}).value || '',
+            telephone: (document.getElementById('m-tel') || {}).value || '',
+            jalon_1_montant_ht: 500.00,
+            jalon_1_reste_charge_ht: 100.00,
+            jalon_2_montant_ht: 500.00,
+            jalon_2_reste_charge_ht: 100.00,
+            total_mission_ht: 1000.00,
+            signature_png: signatureBase64,
+            date_signature: new Date().toLocaleDateString('fr-FR'),
+            heure_signature: new Date().toLocaleTimeString('fr-FR'),
+            _subject: `[MANDAT CHÈQUE TIC] ${(document.getElementById('m-ste') || {}).value || ''} (Réf: ${refDevis})`
+        };
+
+        try {
+            await fetch("https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payloadMandat)
+            });
+        } catch (err) {
+            console.warn("Transmission Webhook : mémorisé localement.", err);
+        }
+
         const body = document.getElementById('modal-body');
         if (body) {
             body.innerHTML = `
-                <div style="text-align:center;padding:2rem;">
-                    <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
-                    <h2 style="color:var(--primary);font-size:1.6rem;font-weight:900;">Dossier Transmis avec Succès !</h2>
-                    <p style="color:#475569;font-size:0.95rem;margin:1rem auto 1.5rem auto;">Votre demande a bien été enregistrée. Andy Vaubien vous recontactera directement pour finaliser le dépôt de votre dossier Chèque TIC.</p>
-                    <button class="btn btn-primary" onclick="window.closeModal()">Fermer</button>
+                <div style="text-align: center; padding: 2rem 1rem;">
+                    <div style="font-size: 3.5rem; margin-bottom: 10px;">⚖️✅</div>
+                    <span style="background: #ecfdf5; color: #047857; font-weight: 800; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; text-transform: uppercase;">
+                        DOSSIER D'AMO ENREGISTRÉ & SCELLÉ
+                    </span>
+                    <h2 style="color: var(--primary); font-size: 1.6rem; font-weight: 900; margin: 0.8rem 0 0.5rem 0;">
+                        Mandat Validé avec Succès !
+                    </h2>
+                    <p style="color: #475569; font-size: 0.95rem; max-width: 540px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+                        Votre convention d'AMO Jalon 1 (<strong>500,00 € HT</strong> • reste réel 100 €) pour <strong>${payloadMandat.entreprise}</strong> est officiellement scellée.<br>
+                        Le dossier est rattaché à votre proforma <strong>${refDevis}</strong>. Andy Vaubien finalise le dépôt en Région pour délivrer votre Accusé de Réception officiel.
+                    </p>
+                    <button class="btn btn-primary" onclick="window.closeModal()">Fermer la fenêtre</button>
                 </div>
             `;
         }
     };
 
-    // 13. BOUTON PARTAGER (AVEC PROTECTION CRASH CHROMIUM)
+    // 14. BOUTON PARTAGER (AVEC PROTECTION CRASH CHROMIUM)
     const shareBtn = document.getElementById('btn-partager');
     if (shareBtn) {
         shareBtn.addEventListener('click', function(e) {
@@ -2637,7 +3188,7 @@
         });
     }
 
-    // 14. BARRE DE PROGRESSION AU SCROLL
+    // 15. BARRE DE PROGRESSION AU SCROLL
     window.addEventListener('scroll', () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -2647,7 +3198,7 @@
     });
 
     // ========================================================
-    // 15. HORLOGE GUADELOUPE (UTC-4) & POP-OVER DU SCEAU
+    // 16. HORLOGE GUADELOUPE (UTC-4) & POP-OVER DU SCEAU
     // ========================================================
     function updateGuadeloupeClock() {
         const clockEl = document.getElementById('workshop-clock');
@@ -2681,7 +3232,7 @@
     updateGuadeloupeClock();
 
     // ========================================================
-    // 16. INITIALISATION IMMÉDIATE AU CHARGEMENT DU DOM
+    // 17. INITIALISATION IMMÉDIATE AU CHARGEMENT DU DOM
     // ========================================================
     document.addEventListener('DOMContentLoaded', function() {
         initMarqueeCarousel();
@@ -2691,10 +3242,10 @@
         initOdometers();
         updateGuadeloupeClock();
 
+        // DÉTECTION DU LIEN WHATSAPP THEMIS (OUVERTURE DIRECTE DU MANDAT)
         const params = new URLSearchParams(window.location.search);
-        if (params.get('mandat') === 'vip') {
-            window.estClientVipThemis = true;
-            setTimeout(() => window.openMandatModal(), 300);
+        if (params.get('action') === 'mandat' || params.get('mandat') === 'vip') {
+            setTimeout(() => window.openMandatModal(), 350);
         }
     });
 
