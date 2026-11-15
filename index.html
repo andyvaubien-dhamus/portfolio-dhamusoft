@@ -2682,26 +2682,7 @@
         if (document.getElementById('lbl-pct-aide')) document.getElementById('lbl-pct-aide').textContent = pctAide + '%';
         if (document.getElementById('lbl-pct-rac')) document.getElementById('lbl-pct-rac').textContent = (100 - pctAide) + '%';
     };
-	
-	
 
-    window.toggleScanInvoice = function() {
-        setTimeout(() => {
-            let total = 0;
-            document.querySelectorAll('.scan-card').forEach(card => {
-                const cb = card.querySelector('input[type="checkbox"]');
-                if (cb && cb.checked) {
-                    const amt = parseFloat(card.getAttribute('data-amount')) || 0;
-                    const r = parseFloat(card.getAttribute('data-rate')) || 0;
-                    total += amt * r;
-                }
-            });
-            total = Math.min(10000, total);
-            const el = document.getElementById('scan-total-refund');
-            if (el) el.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(total);
-        }, 50);
-    };
-	
 	// COMMUTATEUR DU CHRONO-GUIDE CHÈQUE TIC (PRESSÉ VS PRUDENT)
     window.basculerModeParcours = function(mode) {
         const btnPresse = document.getElementById('btn-mode-presse');
@@ -2771,8 +2752,8 @@
                             <span style="background:#A7F3D0; color:#05231A; font-weight:900; font-size:0.65rem; padding:2px 6px; border-radius:4px;">PROTECTION</span>
                         </div>
                         <div style="background:#FFFDF5; border:1.5px solid var(--accent); border-radius:8px; padding:0.8rem; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <strong style="font-size:0.84rem; color:#B45309; display:block; margin-bottom:3px;">⚡ Vous avez déjà investi cette année ?</strong>
-                            <p style="font-size:0.75rem; color:#78350F; line-height:1.45; margin:0;">Achat d'ordinateurs ou site web ? Activez jusqu'à 80% de remboursement Chèque TIC rétroactif sur vos factures réglées !</p>
+                            <strong style="font-size:0.84rem; color:#B45309; display:block; margin-bottom:3px;">⚖️ Règle d'Or FEDER : Effet Incitatif</strong>
+                            <p style="font-size:0.75rem; color:#78350F; line-height:1.45; margin:0;">Signez le Mandat (Jalon 1) avant toute commande. Vos achats et devis sont débloqués légalement dès l'Accusé de Réception Région !</p>
                         </div>
                         <div class="volet-card-inner" style="border-left:4px solid var(--primary); padding:0.75rem 0.8rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
                             <div style="font-size:0.82rem; font-weight:800; color:var(--primary); margin-bottom:0.25rem;">☁️ Multi-Postes Cloud OVH (France)</div>
