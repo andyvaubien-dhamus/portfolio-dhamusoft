@@ -282,6 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const p = new URLSearchParams(window.location.search);
     
     contratData = {
+        mode: (p.get("mode") || "signature").toLowerCase(),
         devis: p.get("devis") || p.get("id") || "DEV-OFFICIEL",
         ste: p.get("ste") || "Votre Entreprise",
         siret: p.get("siret") || "Non renseigné",
