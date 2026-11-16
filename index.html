@@ -3083,21 +3083,40 @@
         const signatureBase64 = mandatCanvas.toDataURL("image/png");
 
         // 🎯 LECTURE OBLIGATOIRE DE L'E-MAIL SAISI DANS LA CASE m-email
-        const emailClientSaisi = (document.getElementById('m-email') || {}).value || urlParams.get('email') || '';
+        const steSaisi = (document.getElementById('m-ste') || {}).value || '';
+        const siretSaisi = (document.getElementById('m-siret') || {}).value || '';
+        const repSaisi = (document.getElementById('m-rep') || {}).value || '';
+        const telSaisi = (document.getElementById('m-tel') || {}).value || '';
 
         const payloadMandat = {
             type_evenement: "MANDAT_SIGNE",
             event: "mandat_jalon1_signe_web",
             formule_libelle: "CONVENTION_AMO_MANDAT_OFFICIEL_500_500",
             devis_themis_ref: refDevis,
-            entreprise: (document.getElementById('m-ste') || {}).value || '',
-            siret: (document.getElementById('m-siret') || {}).value || '',
-            representant_legal: (document.getElementById('m-rep') || {}).value || '',
-            representant: (document.getElementById('m-rep') || {}).value || '',
-            dirigeant: (document.getElementById('m-rep') || {}).value || '',
-            Dirigeant: (document.getElementById('m-rep') || {}).value || '',
-            client_nom: (document.getElementById('m-rep') || {}).value || '',
-            telephone: (document.getElementById('m-tel') || {}).value || '',
+            Devis_Ref: refDevis,
+            devis_ref: refDevis,
+            numero_devis: refDevis,
+            Numero_Devis: refDevis,
+
+            entreprise: steSaisi,
+            Entreprise: steSaisi,
+            client_societe: steSaisi,
+            Societe: steSaisi,
+
+            siret: siretSaisi,
+            SIRET: siretSaisi,
+            client_siret: siretSaisi,
+
+            representant_legal: repSaisi,
+            representant: repSaisi,
+            dirigeant: repSaisi,
+            Dirigeant: repSaisi,
+            client_nom: repSaisi,
+
+            telephone: telSaisi,
+            Telephone: telSaisi,
+            Téléphone: telSaisi,
+            client_telephone: telSaisi,
             
             // 🎯 LE TRIPLE ALIAS E-MAIL INJECTÉ POUR MAKE, GMAIL ET GOOGLE SHEETS :
             email: emailClientSaisi,
