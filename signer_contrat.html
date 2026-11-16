@@ -372,6 +372,43 @@ document.addEventListener("DOMContentLoaded", () => {
         tablePhasesBody.appendChild(rowOpt);
     }
 
+    // Verrouillage légal FEDER si mode=proforma (avant Accusé de Réception Région)
+    if (contratData.mode === "proforma") {
+        const sticky = document.getElementById("sticky-summary-box");
+        if (sticky) {
+            sticky.style.background = "#78350F";
+            sticky.innerHTML = `
+                <div>PROFORMA NON SIGNABLE • Client : <strong>${contratData.ste}</strong> | Total : <strong>${fmt(montantNum)} € HT</strong></div>
+                <div style="color: #FDE68A; font-weight: bold;">🔒 Verrouillé jusqu'à l'AR Région (Art. 6 FEDER)</div>
+            `;
+        }
+        const formSign = document.getElementById("form-sign-7p");
+        if (formSign) {
+            const page7Box = formSign.closest(".page-break-box");
+            if (page7Box) {
+                page7Box.style.border = "2.5px solid #F59E0B";
+                page7Box.style.background = "#FFFBEB";
+            }
+            const mandatUrl = `https://dhamusoft.fr/?action=mandat&devis=${encodeURIComponent(contratData.devis)}&ste=${encodeURIComponent(contratData.ste)}&siret=${encodeURIComponent(contratData.siret)}&rep=${encodeURIComponent(contratData.rep)}&tel=${encodeURIComponent(contratData.tel)}&email=${encodeURIComponent(contratData.email)}`;
+            formSign.outerHTML = `
+                <div style="background: #FFFFFF; border: 2px solid #F59E0B; border-radius: 10px; padding: 22px; text-align: center; margin-top: 12px;">
+                    <div style="font-size: 2.5rem; margin-bottom: 8px;">🔒</div>
+                    <h3 style="color: #92400E; font-size: 16px; font-weight: 900; margin-bottom: 8px;">
+                        SIGNATURE VERROUILLÉE — DOCUMENT PROFORMA DE CONSULTATION
+                    </h3>
+                    <p style="font-size: 12px; color: #78350F; line-height: 1.6; margin-bottom: 16px; text-align: center;">
+                        Conformément à l'<strong>Article 6 du Règlement (UE) n° 651/2014 (Effet Incitatif FEDER)</strong>, ce devis technique ne doit pas être signé avant l'obtention de l'Accusé de Réception officiel de la Région Guadeloupe.<br>
+                        Pour lancer le dépôt de votre dossier sans délai, signez en priorité le <strong>Mandat d'Étude Préalable (Jalon 1)</strong>.
+                    </p>
+                    <a href="${mandatUrl}" style="display: inline-block; background: #B45309; color: #FFFFFF; text-decoration: none; padding: 14px 24px; border-radius: 8px; font-weight: 900; font-size: 14px; box-shadow: 0 4px 12px rgba(180,83,9,0.25);">
+                        ✍️ Activer mes 80 % — Signer le Mandat Jalon 1 en priorité ➔
+                    </a>
+                </div>
+            `;
+        }
+        return;
+    }
+
     // Initialisation Canvas Pointer Events
     canvas = document.getElementById("canvas-contrat");
     if (!canvas) return;
