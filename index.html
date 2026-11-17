@@ -3064,7 +3064,7 @@
         }
     };
 
-    // 13. TRANSMISSION DU MANDAT SCELLÉ VERS MAKE.COM & THEMIS (CORRIGÉ AVEC E-MAIL)
+    // 13. TRANSMISSION DU MANDAT SCELLÉ VERS MAKE.COM & THEMIS
     window.submitMandat = async function(e) {
         e.preventDefault();
         if (!mandatHasDrawn) {
@@ -3082,7 +3082,7 @@
         const refDevis = urlParams.get('devis') || urlParams.get('ref') || 'DIRECT-WEB';
         const signatureBase64 = mandatCanvas.toDataURL("image/png");
 
-        // 🎯 LECTURE OBLIGATOIRE DE L'E-MAIL SAISI DANS LA CASE m-email
+        const emailClientSaisi = (document.getElementById('m-email') || {}).value || urlParams.get('email') || '';
         const steSaisi = (document.getElementById('m-ste') || {}).value || '';
         const siretSaisi = (document.getElementById('m-siret') || {}).value || '';
         const repSaisi = (document.getElementById('m-rep') || {}).value || '';
@@ -3117,8 +3117,7 @@
             Telephone: telSaisi,
             Téléphone: telSaisi,
             client_telephone: telSaisi,
-            
-            // 🎯 LE TRIPLE ALIAS E-MAIL INJECTÉ POUR MAKE, GMAIL ET GOOGLE SHEETS :
+
             email: emailClientSaisi,
             destinataire_email: emailClientSaisi,
             Email: emailClientSaisi,
@@ -3131,17 +3130,21 @@
             signature_png: signatureBase64,
             date_signature: new Date().toLocaleDateString('fr-FR'),
             heure_signature: new Date().toLocaleTimeString('fr-FR'),
-            _subject: `[MANDAT CHÈQUE TIC] ${(document.getElementById('m-ste') || {}).value || ''} (Réf: ${refDevis})`
+            _subject: `[MANDAT CHÈQUE TIC] ${steSaisi} (Réf: ${refDevis})`
         };
 
         try {
+            const controller = new AbortController();
+            const timerId = setTimeout(() => controller.abort(), 6000);
             await fetch("https://hook.eu2.make.com/tkdorzxtj3vyuafqa5cbvjccifmnexu7", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payloadMandat)
+                body: JSON.stringify(payloadMandat),
+                signal: controller.signal
             });
+            clearTimeout(timerId);
         } catch (err) {
-            console.warn("Transmission Webhook : mémorisé localement.", err);
+            console.warn("Transmission Webhook :", err);
         }
 
         const body = document.getElementById('modal-body');
@@ -3156,7 +3159,7 @@
                         Mandat Validé avec Succès !
                     </h2>
                     <p style="color: #475569; font-size: 0.95rem; max-width: 540px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
-                        Votre convention d'AMO Jalon 1 (<strong>500,00 € HT</strong> • reste réel 100 €) pour <strong>${payloadMandat.entreprise}</strong> est officiellement scellée.<br>
+                        Votre convention d'AMO Jalon 1 (<strong>500,00 € HT</strong> • reste réel 100 €) pour <strong>${steSaisi}</strong> est officiellement scellée.<br>
                         Le dossier est rattaché à votre proforma <strong>${refDevis}</strong>. Un e-mail de confirmation vient de vous être envoyé à <strong>${emailClientSaisi}</strong>.
                     </p>
                     <button class="btn btn-primary" onclick="window.closeModal()">Fermer la fenêtre</button>
