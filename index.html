@@ -2937,13 +2937,12 @@
         if (!modal || !body) return;
 
         const p = new URLSearchParams(window.location.search);
-		const emailClient = p.get('email') || p.get('mail') || p.get('destinataire_email') || '';
-        const refDevis = p.get('devis') || p.get('ref') || 'PROFORMA-DIRECT';
-        const ste = p.get('ste') || p.get('entreprise') || '';
-        const siret = p.get('siret') || '';
-        const rep = p.get('rep') || p.get('nom') || '';
-        const tel = p.get('tel') || '';
-        const email = p.get('email') || '';
+        const refDevis = p.get('devis') || p.get('numero_devis') || p.get('ref') || 'PROFORMA-DIRECT';
+        const ste = p.get('ste') || p.get('entreprise') || p.get('client_societe') || '';
+        const siret = p.get('siret') || p.get('SIRET') || p.get('client_siret') || '';
+        const rep = p.get('rep') || p.get('dirigeant') || p.get('nom') || p.get('client_nom') || '';
+        const tel = p.get('tel') || p.get('telephone') || p.get('client_telephone') || '';
+        const email = p.get('email') || p.get('Email') || p.get('mail') || p.get('destinataire_email') || p.get('client_email') || '';
 
         body.innerHTML = `
             <div style="text-align: left; margin-bottom: 1rem; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">
