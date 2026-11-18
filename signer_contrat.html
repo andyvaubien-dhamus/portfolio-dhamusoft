@@ -118,10 +118,10 @@
                     • <em style="color: #64748B;">TVA non applicable, art. 293 B du CGI (Régime Franchise en base).</em>
                 </div>
                 
-                <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 5px; padding: 8px 12px; margin-top: 10px; font-size: 10px; color: #065F46; line-height: 1.45;">
-                    <strong>💳 FACILITÉ DE TRÉSORERIE MULTI-PASSERELLES :</strong><br>
-                    Règlement échelonné sans frais <strong>jusqu'à 4 mensualités de <span id="c-mensualite-stripe">---</span> € HT</strong> via nos partenaires sécurisés <strong>Stripe, PayPal Pro 4X ou Heropay</strong>.<br>
-                    <em>Conformément à l'Article 3 bis des CGV, la <strong>Facture Finale avec mention libératoire 'Acquittée'</strong> pour le déblocage des aides (ASP / FEDER) sera remise à encaissement de la 4ème mensualité.</em>
+                <div id="box-facilite-page1" style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 5px; padding: 8px 12px; margin-top: 10px; font-size: 10px; color: #065F46; line-height: 1.45;">
+                    <strong>💳 FACILITÉ DE TRÉSORERIE :</strong><br>
+                    Règlement échelonné sans frais <strong>en 4 mensualités de <span id="c-mensualite-stripe">---</span> € HT</strong> via <strong>PayPal Pro 4X sans frais</strong> (ou Heropay B2B prochainement), ou paiement par acompte + solde (CB Stripe, Virement SEPA, Tap to Pay).<br>
+                    <em id="txt-aide-page1">Conformément à l'Article 3 bis des CGV, la <strong>Facture Finale avec mention libératoire 'Acquittée'</strong> pour le déblocage des aides (ASP / FEDER) sera remise à complet encaissement.</em>
                 </div>
             </div>
 
@@ -189,11 +189,11 @@
                 Paiement sous 15 jours nets. Conformément à l'article L441-10 du Code de commerce, tout retard de paiement entraîne de plein droit l'exigibilité d'intérêts au taux légal majoré de 10 points et de l'indemnité forfaitaire de 40,00 €.
             </div>
 
-            <div class="article" style="background: #F8FAFC; border: 1px solid #CBD5E1; padding: 10px; border-radius: 6px;">
-                <span class="article-title">Article 3 bis — Modalités d'Exécution Technique & de Règlement Financier Échelonné :</span>
-                • <strong>3 bis.1 Phasage Opérationnel & Conformité des Livrables :</strong> L'exécution de la mission est strictement structurée selon trois (3) axes d'avancement technique (1. Cadrage/Architecture, 2. Développement/Sécurisation, 3. Recettage/Clôture) garantissant la réalité des livrables auprès des organismes financeurs (Région Guadeloupe / ASP / FEDER).<br>
-                • <strong>3 bis.2 Facilité de Trésorerie Multi-Passerelles :</strong> Indépendamment du calendrier technique, Dhamusoft accorde une facilité de paiement échelonnée jusqu'à quatre (4) mensualités sans frais par passerelles sécurisées (Stripe, PayPal Pro 4X sans frais ou Heropay).<br>
-                • <strong>3 bis.3 Délivrance de la Facture Finale Acquittée :</strong> La facture globale définitive portant la mention légale "Acquittée", pièce justificative impérative pour le déblocage des aides (ASP), sera remise au Client dès complet encaissement du 4ème versement soldant l'échéancier.
+            <div id="article-3bis-box" class="article" style="background: #F8FAFC; border: 1px solid #CBD5E1; padding: 10px; border-radius: 6px;">
+                <span class="article-title">Article 3 bis — Modalités d'Exécution Technique & de Règlement :</span>
+                • <strong>3 bis.1 Phasage Opérationnel & Conformité des Livrables :</strong> L'exécution de la mission est structurée selon trois (3) axes d'avancement technique (1. Cadrage/Architecture, 2. Développement/Sécurisation, 3. Recettage/Clôture)<span id="txt-art3bis-feder"> garantissant la réalité des livrables auprès des organismes financeurs (Région Guadeloupe / ASP / FEDER)</span>.<br>
+                • <strong>3 bis.2 Facilité de Trésorerie :</strong> Le Client peut opter à la signature entre le paiement par acompte + solde (CB Stripe, Virement SEPA, Tap to Pay) ou le règlement échelonné en quatre (4) mensualités sans frais via PayPal Pro 4X (ou Heropay B2B dès disponibilité).<br>
+                • <strong>3 bis.3 Délivrance de la Facture Finale Acquittée :</strong> La facture définitive portant la mention « Acquittée » sera remise au Client dès complet encaissement du prix convenu.
             </div>
 
             <div class="article"><span class="article-title">Article 4 — Collaboration :</span> Le Client s'engage à transmettre dans les meilleurs délais l'ensemble des accès techniques indispensables.</div>
@@ -283,6 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     contratData = {
         mode: (p.get("mode") || "signature").toLowerCase(),
+		parcours: (p.get("parcours") || "FEDER_MANDAT").toUpperCase(),
         devis: p.get("devis") || p.get("id") || "DEV-OFFICIEL",
         ste: p.get("ste") || "Votre Entreprise",
         siret: p.get("siret") || "Non renseigné",
@@ -317,6 +318,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById("c-acompte-euros")) document.getElementById("c-acompte-euros").textContent = fmt(acompteEuros) + " € HT";
     if (document.getElementById("c-solde-euros")) document.getElementById("c-solde-euros").textContent = fmt(soldeEuros) + " € HT";
     if (document.getElementById("c-mensualite-stripe")) document.getElementById("c-mensualite-stripe").textContent = fmt(mensualiteStripe);
+	
+	if (contratData.parcours === "DIRECT_STANDARD") {
+        const txtAide = document.getElementById("txt-aide-page1");
+        if (txtAide) txtAide.innerHTML = "Conformément à l'Article 3 bis des CGV, la <strong>Facture Finale avec mention « Acquittée »</strong> est remise à complet encaissement (Parcours Direct sans subvention).";
+        const txtArt = document.getElementById("txt-art3bis-feder");
+        if (txtArt) txtArt.textContent = ".";
+    }
 
     // Injection des lignes du devis Themis
     const tableLignesBody = document.getElementById("table-lignes-themis-body");
