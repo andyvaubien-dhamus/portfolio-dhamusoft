@@ -113,14 +113,14 @@
                 </div>
 
                 <div style="font-size: 11px; color: #334155; line-height: 1.8;">
-                    • <strong>Acompte exigible à la commande (<span id="c-acompte-pct">30</span>%) :</strong> <span id="c-acompte-euros" style="font-weight: bold; color: #05231A;">--- € HT</span><br>
-                    • <strong>Solde restant à livraison des outils :</strong> <span id="c-solde-euros" style="font-weight: bold; color: #05231A;">--- € HT</span><br>
+                    • <strong>Facturation à la commande (100 %) :</strong> <span id="c-total-cmd" style="font-weight: bold; color: #05231A;">Règlement intégral (en 4X sans frais ou comptant)</span><br>
+                    • <strong>Échéance indicative en 4X sans frais :</strong> 4 mensualités de <span id="c-mensualite-4x" style="font-weight: bold; color: #047857;">--- € HT</span><br>
                     • <em style="color: #64748B;">TVA non applicable, art. 293 B du CGI (Régime Franchise en base).</em>
                 </div>
                 
                 <div id="box-facilite-page1" style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 5px; padding: 8px 12px; margin-top: 10px; font-size: 10px; color: #065F46; line-height: 1.45;">
                     <strong>💳 FACILITÉ DE TRÉSORERIE :</strong><br>
-                    Règlement échelonné sans frais <strong>en 4 mensualités de <span id="c-mensualite-stripe">---</span> € HT</strong> via <strong>PayPal Pro 4X sans frais</strong> (ou Heropay B2B prochainement), ou paiement par acompte + solde (CB Stripe, Virement SEPA, Tap to Pay).<br>
+                    Règlement échelonné sans frais <strong>en 4 mensualités de <span id="c-mensualite-stripe">---</span> € HT</strong> via <strong>PayPal Pro 4X sans frais</strong> ou <strong>Alma 3X/4X</strong> (ou Heropay B2B prochainement), ou paiement comptant 100 % (CB Stripe, Virement SEPA, Tap to Pay).<br>
                     <em id="txt-aide-page1">Conformément à l'Article 3 bis des CGV, la <strong>Facture Finale avec mention libératoire 'Acquittée'</strong> pour le déblocage des aides (ASP / FEDER) sera remise à complet encaissement.</em>
                 </div>
             </div>
@@ -247,6 +247,31 @@
             </div>
 
             <form id="form-sign-7p" onsubmit="validerSignatureContrat7P(event)">
+			
+			<div style="background: #FFFFFF; border: 1.5px solid var(--border); padding: 14px; border-radius: 8px; margin: 15px 0;">
+                    <div style="font-size: 12px; font-weight: 900; color: #05231A; margin-bottom: 8px; text-transform: uppercase;">
+                        💳 Choisissez votre modalité de règlement (Facturation globale 100 % à la commande) :
+                    </div>
+                    <div style="display: grid; gap: 8px; font-size: 11.5px; color: #334155;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; background: #ECFDF5; padding: 8px 10px; border-radius: 6px; border: 1px solid #A7F3D0;">
+                            <input type="radio" name="mode_paiement_choisi" value="PAYPAL_4X_TOTAL" checked>
+                            <span><strong>🅿️ Recommandé — PayPal 4X Sans Frais</strong> (4 mensualités égales, démarrage immédiat)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 4px 10px;">
+                            <input type="radio" name="mode_paiement_choisi" value="ALMA_4X_TOTAL">
+                            <span><strong>🅰️ Alma 3X / 4X par Carte Bancaire</strong> (Échelonnement en 3 ou 4 mensualités par CB)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; color: #94A3B8; cursor: not-allowed; padding: 4px 10px;" title="Passerelle en cours de maintenance sur Hero.fr">
+                            <input type="radio" name="mode_paiement_choisi" value="HEROPAY_B2B" disabled>
+                            <span><strong>🦸 Heropay B2B (Paiement 4X Sociétés)</strong> — <em>Indisponible temporairement (site Hero.fr en maintenance)</em></span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 4px 10px;">
+                            <input type="radio" name="mode_paiement_choisi" value="COMPTANT_TOTAL">
+                            <span><strong>🏦 Paiement Comptant Intégral (100 % en 1 fois)</strong> — Carte Bancaire Stripe, Virement SEPA ou Tap to Pay</span>
+                        </label>
+                    </div>
+                </div>
+			
                 <div style="background: #FFFFFF; border: 1.5px solid var(--border); padding: 14px; border-radius: 8px; margin: 15px 0;">
                     <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #05231A; font-weight: 800; cursor: pointer;">
                         <input type="checkbox" id="chk-contrat-consent" required style="width: 18px; height: 18px; margin-top: 2px;">
@@ -318,6 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById("c-acompte-euros")) document.getElementById("c-acompte-euros").textContent = fmt(acompteEuros) + " € HT";
     if (document.getElementById("c-solde-euros")) document.getElementById("c-solde-euros").textContent = fmt(soldeEuros) + " € HT";
     if (document.getElementById("c-mensualite-stripe")) document.getElementById("c-mensualite-stripe").textContent = fmt(mensualiteStripe);
+	if (document.getElementById("c-mensualite-4x")) document.getElementById("c-mensualite-4x").textContent = fmt(mensualiteStripe) + " € HT";
 	
 	if (contratData.parcours === "DIRECT_STANDARD") {
         const txtAide = document.getElementById("txt-aide-page1");
@@ -517,8 +543,12 @@ async function validerSignatureContrat7P(e) {
     const montantVal = parseFloat(contratData.montant) || 0.0;
     const acomptePctVal = parseInt(contratData.acompte, 10) || 30;
 
+    const modeRadio = document.querySelector('input[name="mode_paiement_choisi"]:checked');
+    const modePaiementChoisi = modeRadio ? modeRadio.value : "PAYPAL_4X_TOTAL";
+
     const payloadScellement = {
         event: "contrat_7p_signe_en_ligne",
+        mode_paiement_choisi: modePaiementChoisi,
         type_evenement: "CONTRAT_7P_SIGNE",
         numero_devis: contratData.devis,
         client_societe: contratData.ste,
@@ -553,6 +583,12 @@ async function validerSignatureContrat7P(e) {
     const montantAffiche = montantVal.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " € HT";
 
     // 🎯 REMPLACEMENT DÉFINITIF DE L'ÉCRAN DE CONFIRMATION (FIN DU 250/350 € & VRAI MONTANT)
+	const fmtConf = (v) => parseFloat(v).toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const texteFactureConfirmation = (modePaiementChoisi === "PAYPAL_4X_TOTAL")
+        ? `votre <strong>facture globale (100 % — éligible PayPal 4X sans frais, 4 × ${fmtConf(montantVal / 4)} €)</strong>`
+        : (modePaiementChoisi === "ALMA_4X_TOTAL")
+            ? `votre <strong>facture globale (100 % — éligible Alma 4X par CB, 4 × ${fmtConf(montantVal / 4)} €)</strong>`
+            : `votre <strong>facture globale comptant (100 % — ${fmtConf(montantVal)} € HT)</strong>`;
     document.querySelector(".contract-body").innerHTML = `
         <div style="max-width: 620px; margin: 0 auto; text-align: center; padding: 20px 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
             
@@ -569,7 +605,7 @@ async function validerSignatureContrat7P(e) {
                         Votre engagement ferme pour l'entreprise <strong>${contratData.ste}</strong> est désormais <strong>officiellement scellé et archivé</strong> dans notre environnement <strong>THEMIS ERP</strong>.
                     </p>
                     <p style="margin: 0; color: #065F46; font-size: 12.5px;">
-                        📩 <strong>Notification immédiate :</strong> Votre exemplaire certifié conforme de 7 pages ainsi que votre facture d'acompte de démarrage (1/4) viennent de vous être expédiés par e-mail à <strong>${contratData.email || 'votre adresse'}</strong>.
+                        📩 <strong>Notification immédiate :</strong> Votre exemplaire certifié conforme de 7 pages ainsi que ${texteFactureConfirmation} viennent de vous être expédiés par e-mail à <strong>${contratData.email || 'votre adresse'}</strong>.
                     </p>
                 </div>
             </div>
