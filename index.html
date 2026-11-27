@@ -13,7 +13,7 @@
 
     <title>Dhamusoft — Des outils simples et sur-mesure pour votre quotidien en Guadeloupe</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
-    
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <style>
         :root {
             --primary: #2C4C6E;
@@ -1790,31 +1790,36 @@
             </div>
 
             <div class="workflow-theater">
-                <div class="workflow-stepper-nav">
+                <div class="workflow-stepper-nav" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));">
                     <div class="wf-nav-step active" id="wf-step-1" onclick="selectWorkflowStep(1)">
                         <span style="font-size: 1.3rem;">📞</span>
-                        <strong>1. Échange Cadrage (15 min)</strong>
-                        <small style="color: #64748b; font-size: 0.74rem;">Diagnostic gratuit & Chèque TIC</small>
+                        <strong>1. Appel Flash (15 min)</strong>
+                        <small style="color: #64748b; font-size: 0.74rem;">Diagnostic offert & Chèque TIC</small>
                     </div>
                     <div class="wf-nav-step" id="wf-step-2" onclick="selectWorkflowStep(2)">
-                        <span style="font-size: 1.3rem;">⚙️</span>
-                        <strong>2. Prototype Réel</strong>
-                        <small style="color: #64748b; font-size: 0.74rem;">Délai ajusté selon complexité</small>
+                        <span style="font-size: 1.3rem;">🤝</span>
+                        <strong>2. Réunion de Lancement</strong>
+                        <small style="color: #64748b; font-size: 0.74rem;">Cadrage des 3 axes & vrais documents</small>
                     </div>
                     <div class="wf-nav-step" id="wf-step-3" onclick="selectWorkflowStep(3)">
-                        <span style="font-size: 1.3rem;">🚀</span>
-                        <strong>3. Déploiement & Autonomie</strong>
-                        <small style="color: #64748b; font-size: 0.74rem;">Formation & virement ASP</small>
+                        <span style="font-size: 1.3rem;">⚙️</span>
+                        <strong>3. Prototype & Réalisation</strong>
+                        <small style="color: #64748b; font-size: 0.74rem;">Testé sur vos chantiers & devis</small>
+                    </div>
+                    <div class="wf-nav-step" id="wf-step-4" onclick="selectWorkflowStep(4)">
+                        <span style="font-size: 1.3rem;">🏁</span>
+                        <strong>4. Réunion de Clôture</strong>
+                        <small style="color: #64748b; font-size: 0.74rem;">Recette, formation & virement ASP</small>
                     </div>
                 </div>
 
                 <div class="wf-screen-box" id="wf-screen-display">
-                    <span class="wf-screen-badge" id="wf-screen-badge">ÉTAPE 1 / 3 • DÉPART SANS ENGAGEMENT</span>
+                    <span class="wf-screen-badge" id="wf-screen-badge">ÉTAPE 1 / 4 • DÉPART SANS ENGAGEMENT</span>
                     <h3 id="wf-screen-title" style="font-size: 1.4rem; font-weight: 900; margin-bottom: 0.6rem; color: #ffffff;">
-                        📞 L'Échange Découverte (15 minutes au téléphone • Gratuit)
+                        📞 L'Appel Flash Découverte (15 minutes offertes)
                     </h3>
                     <p id="wf-screen-desc" style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.65; max-width: 780px; margin-bottom: 1.2rem;">
-                        Nous faisons le point sur votre quotidien : où perdez-vous du temps chaque semaine ? En 15 minutes, nous vous disons en toute franchise si un outil sur-mesure est rentable et si vous avez droit au Chèque TIC.
+                        Nous faisons le point sur votre quotidien : où perdez-vous du temps chaque semaine (devis, factures, relances, terrain) ? En 15 minutes, nous vous disons en toute franchise si un outil sur-mesure est rentable et vérifions votre éligibilité Chèque TIC (jusqu'à 80 %).
                     </p>
                     <div id="wf-screen-pill" style="background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 6px; font-size: 0.76rem; font-weight: 800; color: #a7f3d0; width: fit-content;">
                         ✓ Zéro engagement • Réponse d'éligibilité Chèque TIC immédiate
@@ -2633,22 +2638,45 @@
         carouselElem.addEventListener('mouseleave', () => startThemisAutoPlay());
     }
 
-    // 9. WORKFLOW STEPPER (MÉTHODE)
+    // 9. WORKFLOW STEPPER (MÉTHODE EN 4 ÉTAPES)
     window.selectWorkflowStep = function(stepNum) {
-        for (let i = 1; i <= 3; i++) {
+        for (let i = 1; i <= 4; i++) {
             const btn = document.getElementById('wf-step-' + i);
             if (btn) btn.classList.toggle('active', i === stepNum);
         }
         const infos = {
-            1: { b: "ÉTAPE 1 / 3 • DÉPART SANS ENGAGEMENT", t: "📞 L'Échange Découverte (15 minutes au téléphone • Gratuit)", d: "Nous faisons le point sur votre quotidien : où perdez-vous du temps chaque semaine ? En 15 minutes, nous vous disons en toute franchise si un outil sur-mesure est rentable et si vous avez droit au Chèque TIC." },
-            2: { b: "ÉTAPE 2 / 3 • PROTOTYPAGE CONCRET", t: "⚙️ Le Prototype Réel testé sur vos vrais documents", d: "Pas de maquettes théoriques : nous concevons un premier outil fonctionnel testé avec vos vrais devis et documents. Le délai de livraison du prototype est défini dès le cadrage initial en fonction de la complexité technique de vos processus." },
-            3: { b: "ÉTAPE 3 / 3 • EN PRODUCTION CHEZ VOUS", t: "🚀 Déploiement chez vous, formation et virement de l'aide ASP", d: "L'outil est installé sur votre ordinateur ou smartphone. Nous formons vos équipes et montons la liasse de liquidation pour ordonner le virement sur votre compte." }
+            1: {
+                b: "ÉTAPE 1 / 4 • DÉPART SANS ENGAGEMENT",
+                t: "📞 L'Appel Flash Découverte (15 minutes offertes)",
+                d: "Nous faisons le point sur votre quotidien : où perdez-vous du temps chaque semaine (devis, factures, relances, terrain) ? En 15 minutes, nous vous disons en toute franchise si un outil sur-mesure est rentable et vérifions votre éligibilité Chèque TIC (jusqu'à 80 %).",
+                p: "✓ Zéro engagement • Réponse d'éligibilité Chèque TIC immédiate"
+            },
+            2: {
+                b: "ÉTAPE 2 / 4 • CADRAGE & LANCEMENT",
+                t: "🤝 La Réunion de Lancement sur vos vrais documents",
+                d: "Nous analysons ensemble vos devis actuels, tableaux et habitudes de chantier pour fixer un cahier des charges clair en 3 axes (Cadrage, Réalisation, Clôture). Si vous optez pour le Chèque TIC, nous sécurisons d'abord le Mandat Jalon 1 et votre Accusé de Réception Région avant toute commande.",
+                p: "✓ Cahier des charges 3 Axes validé • Dossier FEDER sécurisé dès le départ"
+            },
+            3: {
+                b: "ÉTAPE 3 / 4 • PROTOTYPAGE & DÉVELOPPEMENT",
+                t: "⚙️ Prototype Réel & Automatisations sur mesure",
+                d: "Pas de maquettes théoriques : nous concevons un outil fonctionnel testé sur vos vrais devis, PDF et flux métiers (THEMIS, site web, robots Make, appli hors-ligne), sans jamais interrompre vos chantiers en cours.",
+                p: "✓ Zéro bouleversement • Essais concrets sur vos vrais cas terrain"
+            },
+            4: {
+                b: "ÉTAPE 4 / 4 • RECETTE, FORMATION & LIQUIDATION",
+                t: "🏁 La Réunion de Clôture, Signature du PV & Autonomie",
+                d: "Nous contrôlons ensemble chaque livrable en direct, signons le Procès-Verbal de Recette (avec planification claire si un ajustement est souhaité), formons vos équipes et remettons vos accès souverains ainsi que la liasse ASP pour déclencher le virement sur votre RIB.",
+                p: "✓ PV de Recette signé • Formation incluse • Liasse ASP prête pour virement"
+            }
         };
         const cur = infos[stepNum];
         if (cur) {
             document.getElementById('wf-screen-badge').textContent = cur.b;
             document.getElementById('wf-screen-title').textContent = cur.t;
             document.getElementById('wf-screen-desc').textContent = cur.d;
+            const pillEl = document.getElementById('wf-screen-pill');
+            if (pillEl) pillEl.textContent = cur.p;
         }
     };
 
@@ -2735,147 +2763,255 @@
         }
     };
 
-    // 11. MODALE PLAQUETTE TRIPTYQUE PLEIN FORMAT
+    // 11. MODALE PLAQUETTE TRIPTYQUE PLEIN FORMAT (ÉDITION SALON DE L'HABITAT & ARTISANS BTP)
     window.openPlaquetteModal = function() {
         const modal = document.getElementById('modal');
         const modalBody = document.getElementById('modal-body');
         if (!modal || !modalBody) return;
 
+        const getDhamusoftQrHtml = () => {
+            try {
+                if (typeof window.qrcode === 'function') {
+                    const qr = window.qrcode(0, 'M');
+                    qr.addData('https://www.dhamusoft.fr');
+                    qr.make();
+                    return qr.createSvgTag({ cellSize: 3, margin: 1, scalable: true })
+                        .replace('<svg ', '<svg style="width:76px;height:76px;display:block;border-radius:5px;background:#fff;padding:3px;" ');
+                }
+            } catch (e) {}
+            return '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&margin=4&color=05231A&data=https%3A%2F%2Fwww.dhamusoft.fr" alt="QR Code www.dhamusoft.fr" style="width:76px;height:76px;display:block;border-radius:5px;background:#fff;" />';
+        };
+
+        const qrSiteHtml = getDhamusoftQrHtml();
+
         const getPlaquetteHtml = () => `
-            <!-- PAGE 1 : EXTÉRIEUR RECTO -->
-            <div class="triptyque-sheet" style="background:#ffffff; min-height:195mm; height:195mm; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8mm; padding:6mm 8mm; box-sizing:border-box; border:1px solid #cbd5e1; border-radius:8px; page-break-after:always; margin-bottom:2rem;">
-                <!-- Volet 1 -->
-                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; height:100%; border-right:1.5px dashed #cbd5e1; padding-right:8mm;">
-                    <div style="display:flex; flex-direction:column; height:100%; justify-content:space-between;">
-                        <div style="background:#05231A; padding:0.55rem 0.8rem; border-radius:6px; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:center;">
-                            <span style="font-size:0.85rem; font-weight:900; color:#FFFFFF;">1. Vos Données en Sécurité</span>
-                            <span style="background:#A7F3D0; color:#05231A; font-weight:900; font-size:0.65rem; padding:2px 6px; border-radius:4px;">PROTECTION</span>
-                        </div>
-                        <div style="background:#FFFDF5; border:1.5px solid var(--accent); border-radius:8px; padding:0.8rem; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <strong style="font-size:0.84rem; color:#B45309; display:block; margin-bottom:3px;">⚖️ Règle d'Or FEDER : Effet Incitatif</strong>
-                            <p style="font-size:0.75rem; color:#78350F; line-height:1.45; margin:0;">Signez le Mandat (Jalon 1) avant toute commande. Vos achats et devis sont débloqués légalement dès l'Accusé de Réception Région !</p>
-                        </div>
-                        <div class="volet-card-inner" style="border-left:4px solid var(--primary); padding:0.75rem 0.8rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <div style="font-size:0.82rem; font-weight:800; color:var(--primary); margin-bottom:0.25rem;">☁️ Multi-Postes Cloud OVH (France)</div>
-                            <p style="font-size:0.75rem; color:#334155; line-height:1.45; margin:0;">Vos applications sont déployées sur le Cloud européen souverain OVH pour un accès multi-postes, tandis que vos bases de données clients restent stockées en local chez vous.</p>
-                        </div>
-                        <div style="border-left:4px solid #059669; padding:0.75rem 0.8rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <div style="font-size:0.82rem; font-weight:800; color:#047857; margin-bottom:0.25rem;">🔒 Fichiers Stockés Chez Vous</div>
-                            <p style="font-size:0.75rem; color:#334155; line-height:1.45; margin:0;">Bases locales SQLite : vos fichiers clients, devis et factures restent physiquement stockés sur vos propres machines en Guadeloupe.</p>
-                        </div>
-                        <div style="background:#ECFDF5; border:1px solid #A7F3D0; padding:0.6rem; border-radius:6px; text-align:center;">
-                            <span style="font-size:0.74rem; color:#065F46; font-weight:900;">✓ CONTRÔLE TOTAL DE VOS FICHIERS</span>
-                        </div>
+            <!-- PAGE 1 : EXTÉRIEUR RECTO (VOLET 1 : CIRCUIT CHÈQUE TIC | VOLET 2 : MÉTHODE & GARANTIES | VOLET 3 : COUVERTURE & CONTACT QR) -->
+            <div class="triptyque-sheet" style="background:#ffffff; min-height:195mm; height:195mm; display:grid; grid-template-columns:1fr 1fr 1fr; gap:7mm; padding:5mm 7mm; box-sizing:border-box; border:1px solid #cbd5e1; border-radius:8px; page-break-after:always; margin-bottom:2rem;">
+                
+                <!-- Volet 1 : Schéma exact du circuit Chèque TIC & Effet Incitatif -->
+                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; gap:2.2mm; height:100%; border-right:1.5px dashed #cbd5e1; padding-right:7mm;">
+                    <div style="background:#05231A; padding:0.5rem 0.7rem; border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:900; color:#FFFFFF;">1. Circuit Chèque TIC (80 %)</span>
+                        <span style="background:#A7F3D0; color:#05231A; font-weight:900; font-size:0.62rem; padding:2px 6px; border-radius:4px;">EFFET INCITATIF</span>
+                    </div>
+
+                    <div style="background:#FEF2F2; border:1px solid #FECACA; border-radius:6px; padding:0.45rem 0.65rem; font-size:0.70rem; color:#991B1B; line-height:1.38;">
+                        <strong>⚖️ Règle d'Or UE 651/2014 :</strong> Signez d'abord le Mandat Jalon 1 avant toute commande (PC, site web, logiciel) pour ne jamais perdre votre aide.
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid #091a2b; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; padding:0.5rem 0.7rem;">
+                        <div style="font-size:0.77rem; font-weight:900; color:#091a2b;">① Mandat & Cadrage Jalon 1 (Obligatoire)</div>
+                        <p style="font-size:0.70rem; color:#475569; margin:3px 0; line-height:1.38;">Convention sous mandat (500 € HT • <strong>reste réel 100 €</strong>), Note d'Impact 3P et devis calibrés aux libellés FEDER.</p>
+                        <span style="font-size:0.66rem; font-weight:800; color:#b45309; background:#FFFDF5; padding:2px 6px; border-radius:4px; border:1px solid #fde68a; width:fit-content;">⛔ Zéro commande signée à ce stade</span>
+                    </div>
+
+                    <div style="text-align:center; font-size:0.72rem; font-weight:900; color:#64748b; line-height:0.8;">▼</div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid #059669; background:#ECFDF5; border:1.5px solid #10b981; border-radius:6px; padding:0.5rem 0.7rem;">
+                        <div style="font-size:0.77rem; font-weight:900; color:#065F46;">② Dépôt & Accusé de Réception (48–72h)</div>
+                        <p style="font-size:0.70rem; color:#047857; margin:3px 0; line-height:1.38;">Dépôt du dossier complet (5 pièces Drive vérifiées : Kbis, DGFIP, CGSS, CNI, RIB) et réception de l'AR officiel horodaté.</p>
+                        <span style="font-size:0.66rem; font-weight:900; color:#FFFFFF; background:#059669; padding:2px 7px; border-radius:4px; width:fit-content;">⚡ MOMENT CLÉ 1 : Achats autorisés (si pressé)</span>
+                    </div>
+
+                    <div style="text-align:center; font-size:0.72rem; font-weight:900; color:#64748b; line-height:0.8;">▼</div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--accent); background:#FFFDF5; border:1.5px solid #fde68a; border-radius:6px; padding:0.5rem 0.7rem;">
+                        <div style="font-size:0.77rem; font-weight:900; color:#92400E;">③ Arrêté d'Attribution Régional (Vote)</div>
+                        <p style="font-size:0.70rem; color:#78350F; margin:3px 0; line-height:1.38;">La Commission Régionale vote votre subvention et arrête officiellement le montant réservé pour votre entreprise.</p>
+                        <span style="font-size:0.66rem; font-weight:900; color:#091a2b; background:#fde68a; padding:2px 7px; border-radius:4px; width:fit-content;">🛡️ MOMENT CLÉ 2 : Garantie absolue (si prudent)</span>
+                    </div>
+
+                    <div style="text-align:center; font-size:0.72rem; font-weight:900; color:#64748b; line-height:0.8;">▼</div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--primary); background:#F8FAFC; border:1px solid #cbd5e1; border-radius:6px; padding:0.5rem 0.7rem;">
+                        <div style="font-size:0.77rem; font-weight:900; color:var(--primary);">④ Réunion de Clôture, Jalon 2 & Virement</div>
+                        <p style="font-size:0.70rem; color:#334155; margin:3px 0 0 0; line-height:1.38;">Jalon 2 (500 € HT • <strong>reste 100 €</strong>) : PV de recette + liasse ASP 6 pages ➔ <strong>💰 100 % viré sur votre RIB</strong>.</p>
                     </div>
                 </div>
 
-                <!-- Volet 2 -->
-                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; height:100%; border-right:1.5px dashed #cbd5e1; padding-right:8mm;">
-                    <div style="display:flex; flex-direction:column; height:100%; justify-content:space-between;">
-                        <div style="background:var(--primary); padding:0.55rem 0.8rem; border-radius:6px; margin-bottom:0.6rem;">
-                            <span style="font-size:0.85rem; font-weight:900; color:#FFFFFF;">2. Comment Travaillons-Nous ?</span>
-                        </div>
-                        <div style="border-left:4px solid var(--primary); padding:0.75rem 0.8rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <strong style="font-size:0.82rem; color:var(--primary); display:block; margin-bottom:2px;">1. Échange Découverte (15 min)</strong>
-                            <span style="font-size:0.75rem; color:#475569; line-height:1.45;">Au téléphone, nous identifions vos tâches chronophages et vérifions votre éligibilité Chèque TIC sans engagement.</span>
-                        </div>
-                        <div style="border-left:4px solid var(--accent); padding:0.75rem 0.8rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <strong style="font-size:0.82rem; color:#B45309; display:block; margin-bottom:2px;">2. Prototype Réel sur-mesure</strong>
-                            <span style="font-size:0.75rem; color:#475569; line-height:1.45;">Conception d'un premier prototype testé sur vos vrais documents, avec un calendrier calibré selon la technicité du projet.</span>
-                        </div>
-                        <div style="border-left:4px solid #059669; padding:0.75rem 0.8rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <strong style="font-size:0.82rem; color:#047857; display:block; margin-bottom:2px;">3. Déploiement & Suivi Serein</strong>
-                            <span style="font-size:0.74rem; color:#475569; line-height:1.45;">Installation et formation. Nos forfaits optionnels couvrent le maintien en condition opérationnelle (MCO) et les APIs tierces connectées.</span>
-                        </div>
-                        <div style="background:#F8FAFC; border:1.5px solid var(--frame-border); padding:0.6rem; border-radius:6px; text-align:center;">
-                            <span style="font-size:0.74rem; color:var(--primary); font-weight:900;">Andy VAUBIEN • 0690 05 11 44</span>
-                        </div>
+                <!-- Volet 2 : Notre Fonctionnement & Vos Garanties -->
+                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; gap:2.6mm; height:100%; border-right:1.5px dashed #cbd5e1; padding-right:7mm;">
+                    <div style="background:var(--primary); padding:0.5rem 0.7rem; border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:900; color:#FFFFFF;">2. Fonctionnement & Garanties</span>
+                        <span style="background:#bfdbfe; color:#1e3a8a; font-weight:900; font-size:0.62rem; padding:2px 6px; border-radius:4px;">SUR-MESURE</span>
+                    </div>
+
+                    <div style="flex:1.4; display:flex; flex-direction:column; justify-content:center; border-left:4px solid #0284c7; padding:0.6rem 0.75rem; background:#F0F9FF; border:1px solid #bae6fd; border-radius:6px;">
+                        <div style="font-size:0.80rem; font-weight:900; color:#0369a1; margin-bottom:4px;">🤝 Notre Méthode en 4 Étapes Claires</div>
+                        <p style="font-size:0.71rem; color:#1e293b; line-height:1.45; margin:0;">
+                            <strong>1. Appel Flash (15 min offertes) :</strong> Repérage de vos pertes de temps et test d'éligibilité Chèque TIC.<br>
+                            <strong>2. Réunion de Lancement :</strong> Cadrage sur vos vrais devis et chantiers pour fixer les 3 axes d'action.<br>
+                            <strong>3. Prototype & Réalisation :</strong> Testé sur vos vrais documents sans jamais stopper vos chantiers.<br>
+                            <strong>4. Réunion de Clôture :</strong> Vérification en direct, signature du PV de recette (suivi si réserve), formation et remise des accès.
+                        </p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid #059669; padding:0.55rem 0.75rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px;">
+                        <div style="font-size:0.78rem; font-weight:800; color:#047857; margin-bottom:3px;">🔒 Vos Fichiers Restent Chez Vous</div>
+                        <p style="font-size:0.71rem; color:#334155; line-height:1.42; margin:0;">Bases locales SQLite en Guadeloupe : vos clients, devis, chantiers et factures ne partent pas chez un géant étranger.</p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--primary); padding:0.55rem 0.75rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px;">
+                        <div style="font-size:0.78rem; font-weight:800; color:var(--primary); margin-bottom:3px;">☁️ Multi-Postes Cloud OVH (France)</div>
+                        <p style="font-size:0.71rem; color:#334155; line-height:1.42; margin:0;">Besoin d'accéder à vos outils au bureau et sur chantier ? Déploiement possible sur serveurs français souverains OVH.</p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--accent); padding:0.55rem 0.75rem; background:#FFFDF5; border:1px solid #fde68a; border-radius:6px;">
+                        <div style="font-size:0.78rem; font-weight:800; color:#B45309; margin-bottom:3px;">💎 Licence Définitive • Zéro Rente Forcée</div>
+                        <p style="font-size:0.71rem; color:#475569; line-height:1.42; margin:0;">Aucun loyer obligatoire pour ouvrir vos propres dossiers. Seuls l'hébergement OVH, sauvegardes et MCO optionnels sont facturés.</p>
+                    </div>
+
+                    <div style="background:#ECFDF5; border:1px solid #A7F3D0; padding:0.5rem; border-radius:6px; text-align:center;">
+                        <span style="font-size:0.71rem; color:#065F46; font-weight:900;">✓ ZÉRO BOULEVERSEMENT DE VOS HABITUDES</span>
                     </div>
                 </div>
 
-                <!-- Volet 3 -->
-                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; height:100%; text-align:center;">
-                    <div style="margin-top:0.8rem;">
-                        <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width:100%; max-width:240px; margin:0 auto; display:block;">
-                        <span style="display:inline-block; background:#E2E8F0; color:#091A2B; font-size:0.70rem; font-weight:900; padding:0.25rem 0.7rem; border-radius:10px; margin-top:0.8rem;">Édition Officielle 2026</span>
+                <!-- Volet 3 : Couverture Face Avant (Artisans BTP / Salon de l'Habitat) + Rubrique Contact & QR Code -->
+                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; gap:3mm; height:100%; text-align:center;">
+                    <div style="margin-top:0.2rem;">
+                        <img src="assets/images/logo_dhamusoft.png" alt="Dhamusoft" style="width:100%; max-width:220px; margin:0 auto; display:block;">
+                        <span style="display:inline-block; background:#05231A; color:#A7F3D0; font-size:0.68rem; font-weight:900; padding:0.28rem 0.75rem; border-radius:12px; margin-top:0.5rem; letter-spacing:0.4px;">SPÉCIAL ARTISANS, BTP & SALON DE L'HABITAT</span>
                     </div>
-                    <div style="padding:1.2rem 0.5rem; flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
-                        <h3 style="font-size:1.2rem; font-weight:900; color:var(--primary); margin-bottom:0.6rem;">De l'idée au déploiement de vos outils sur-mesure.</h3>
-                        <p style="font-size:0.82rem; color:#475569; line-height:1.55;">Des logiciels simples, sans contrainte, qui s'adaptent à vos méthodes de travail en Guadeloupe.</p>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:0.4rem 0.3rem;">
+                        <h3 style="font-size:1.22rem; font-weight:900; color:var(--primary-dark); margin-bottom:0.55rem; line-height:1.28;">
+                            Finissez vos chantiers à l'heure, pas vos soirées sur les devis.
+                        </h3>
+                        <p style="font-size:0.78rem; color:#334155; line-height:1.5; margin:0 0 0.65rem 0;">
+                            Maçonnerie, plomberie, électricité, menuiserie, couverture, clim, piscine, rénovation ou aménagement : équipez votre entreprise d'outils simples qui vous font gagner du temps chaque jour.
+                        </p>
+                        <div style="background:#ECFDF5; border:1.5px solid #A7F3D0; border-radius:8px; padding:0.55rem 0.7rem; font-size:0.74rem; color:#065F46; font-weight:800;">
+                            💰 Logiciels, Site Web, PC & Sécurité financés jusqu'à <span style="font-size:0.86rem; color:#047857;">80 %</span> par le Chèque TIC Région Guadeloupe
+                        </div>
                     </div>
-                    <div style="background:#091A2B; color:white; padding:1rem; border-radius:10px; border:1.5px solid rgba(197, 155, 67, 0.45); text-align:center;">
-                        <strong style="font-size:0.92rem; color:var(--accent); display:block;">Andy VAUBIEN</strong>
-                        <span style="font-size:0.78rem; color:#CBD5E1; display:block; margin-top:2px;">Concepteur Logiciel • Cabinet Dhamusoft</span>
-                        <span style="font-size:0.74rem; color:#94a3b8; display:block;">Capesterre-Belle-Eau, Guadeloupe</span>
+
+                    <!-- RUBRIQUE CONTACT REGROUPANT TOUT + QR CODE -->
+                    <div style="background:#091A2B; color:white; padding:0.8rem 0.9rem; border-radius:10px; border:1.5px solid rgba(197, 155, 67, 0.6); text-align:left;">
+                        <div style="font-size:0.70rem; font-weight:900; color:var(--accent); text-transform:uppercase; letter-spacing:0.6px; border-bottom:1px solid rgba(255,255,255,0.16); padding-bottom:4px; margin-bottom:7px;">
+                            📍 CONTACT DIRECT & SIMULATEUR EN LIGNE
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                            <div style="font-size:0.71rem; line-height:1.52; color:#E2E8F0;">
+                                <strong style="color:#FFFFFF; font-size:0.84rem;">Andy VAUBIEN</strong><br>
+                                <span style="color:#A7F3D0; font-size:0.68rem; font-weight:700;">Concepteur SI & Fondateur • Dhamusoft</span><br>
+                                📞 <strong>0690 05 11 44</strong> (Appel / WhatsApp)<br>
+                                ✉️ <strong>dhamusoft@gmail.com</strong><br>
+                                🌐 <strong style="color:var(--accent);">https://www.dhamusoft.fr</strong><br>
+                                🌴 Capesterre-Belle-Eau, Guadeloupe
+                            </div>
+                            <div style="flex-shrink:0; text-align:center;">
+                                ${qrSiteHtml}
+                                <span style="display:block; font-size:0.56rem; color:#A7F3D0; font-weight:800; margin-top:3px;">SCANNEZ LE SITE</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PAGE 2 : INTÉRIEUR VERSO -->
-            <div class="triptyque-sheet" style="background:#ffffff; min-height:195mm; height:195mm; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8mm; padding:6mm 8mm; box-sizing:border-box; border:1px solid #cbd5e1; border-radius:8px; page-break-before:always;">
-                <!-- Volet 1 -->
-                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; height:100%; border-right:1.5px dashed #cbd5e1; padding-right:8mm;">
-                    <div style="display:flex; flex-direction:column; height:100%; justify-content:space-between;">
-                        <div style="background:#065F46; padding:0.55rem 0.8rem; border-radius:6px; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:center;">
-                            <span style="font-size:0.85rem; font-weight:900; color:#FFFFFF;">Santé & Milieu Médical</span>
-                            <span style="background:#A7F3D0; color:#065F46; font-weight:900; font-size:0.65rem; padding:2px 6px; border-radius:4px;">SÉCURITÉ</span>
-                        </div>
-                        <div style="border-left:4px solid #059669; padding:0.8rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <div style="font-size:0.84rem; font-weight:800; color:#065F46; margin-bottom:0.25rem;">PRAXIS GOLD (Dossier Médical)</div>
-                            <div style="font-size:0.75rem; color:#047857; line-height:1.45;">💡 Bloque les incohérences de dates et sécurise l'historique clinique et biologique sur 30 ans.</div>
-                        </div>
-                        <div style="border-left:4px solid #059669; padding:0.8rem; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <div style="font-size:0.84rem; font-weight:800; color:#065F46; margin-bottom:0.25rem;">IKNOS (Alertes Pré-Greffe)</div>
-                            <div style="font-size:0.75rem; color:#047857; line-height:1.45;">💡 Tableau visuel alertant automatiquement l'équipe avant la caducité des bilans obligatoires.</div>
-                        </div>
-                        <div style="background:#ECFDF5; border:1px solid #A7F3D0; padding:0.6rem; border-radius:6px; text-align:center;">
-                            <span style="font-size:0.74rem; color:#065F46; font-weight:900;">✓ CONFORMITÉ LÉGALE STRICTE</span>
-                        </div>
+            <!-- PAGE 2 : INTÉRIEUR VERSO (VOLET 4 : GAINS TERRAIN | VOLET 5 : BTP & HABITAT | VOLET 6 : BUDGET CHÈQUE TIC) -->
+            <div class="triptyque-sheet" style="background:#ffffff; min-height:195mm; height:195mm; display:grid; grid-template-columns:1fr 1fr 1fr; gap:7mm; padding:5mm 7mm; box-sizing:border-box; border:1px solid #cbd5e1; border-radius:8px; page-break-before:always;">
+                
+                <!-- Volet 4 : Ce que la technologie fait concrètement pour un artisan -->
+                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; gap:2.8mm; height:100%; border-right:1.5px dashed #cbd5e1; padding-right:7mm;">
+                    <div style="background:var(--primary); padding:0.5rem 0.7rem; border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:900; color:#FFFFFF;">3. Vos Gains Concrets (Zéro Jargon)</span>
+                        <span style="background:#fde68a; color:#091a2b; font-weight:900; font-size:0.62rem; padding:2px 6px; border-radius:4px;">RENTABILITÉ</span>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--accent); background:#FFFDF5; border:1px solid #fde68a; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <div style="color:#B45309; font-size:0.78rem; font-weight:900; margin-bottom:3px;">💼 Devis & Contrats Signés en 5 min (THEMIS)</div>
+                        <p style="font-size:0.71rem; color:#334155; line-height:1.42; margin:0;">
+                            Fini Word le dimanche soir : chiffrez votre chantier en 5 min, envoyez un contrat carré 7 pages et faites <strong>signer au doigt sur téléphone</strong> (eIDAS). Proposez le <strong>paiement en 4X sans frais</strong> (PayPal / Stripe) pour décrocher plus de chantiers particuliers dès le salon !
+                        </p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid #059669; background:#ECFDF5; border:1px solid #a7f3d0; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <div style="color:#065F46; font-size:0.78rem; font-weight:900; margin-bottom:3px;">⚡ Facturation 2026, Acomptes & URSSAF Auto</div>
+                        <p style="font-size:0.71rem; color:#047857; line-height:1.42; margin:0;">
+                            Acomptes de démarrage et soldes calculés au centime, factures infalsifiables (Art. 286 CGI + QR Code), format officiel <strong>Factur-X PDF/A-3</strong>, quittances en 1 clic, relances d'impayés et <strong>Livre des Recettes URSSAF / seuil TVA 8,5 %</strong> calculés tout seuls.
+                        </p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid #0284c7; background:#F0F9FF; border:1px solid #bae6fd; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <div style="color:#0369a1; font-size:0.78rem; font-weight:900; margin-bottom:3px;">🤖 Robots Invisibles (Make & RPA)</div>
+                        <p style="font-size:0.71rem; color:#334155; line-height:1.42; margin:0;">
+                            Zéro recopie manuelle : nos robots lisent vos PDF fournisseurs, classent vos pièces Chèque TIC sur Drive (suivi 0/5 ➔ 5/5), envoient vos rappels <strong>WhatsApp & E-mail</strong> et rapprochent automatiquement vos paiements Stripe, PayPal et virements Swan/Indy.
+                        </p>
+                    </div>
+
+                    <div style="background:#F8FAFC; border:1px solid #cbd5e1; padding:0.5rem; border-radius:6px; text-align:center;">
+                        <span style="font-size:0.71rem; color:var(--primary); font-weight:900;">⏱️ +4 à 6 heures récupérées chaque semaine</span>
                     </div>
                 </div>
 
-                <!-- Volet 2 -->
-                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; height:100%; border-right:1.5px dashed #cbd5e1; padding-right:8mm;">
-                    <div style="display:flex; flex-direction:column; height:100%; justify-content:space-between;">
-                        <div style="background:var(--primary); padding:0.55rem 0.8rem; border-radius:6px; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:center;">
-                            <span style="font-size:0.85rem; font-weight:900; color:#FFFFFF;">Entreprises & Artisans</span>
-                            <span style="background:#bfdbfe; color:#1e3a8a; font-weight:900; font-size:0.65rem; padding:2px 6px; border-radius:4px;">GESTION</span>
-                        </div>
-                        <div style="border-left:4px solid #0284C7; background:#F0F9FF; border:1px solid #e0f2fe; padding:0.8rem; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <div style="color:#0369A1; font-size:0.84rem; font-weight:800; margin-bottom:0.25rem;">🌐 Sites Web & E-Commerce (80%)</div>
-                            <div style="font-size:0.75rem; color:#047857; line-height:1.45;">💡 Sites rapides (< 1 s), boutiques sécurisées et outils utilisables 100% hors-ligne.</div>
-                        </div>
-                        <div style="border-left:4px solid var(--accent); background:#FFFDF5; border:1.5px solid #fde68a; padding:0.8rem; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <div style="color:#B45309; font-size:0.84rem; font-weight:800; margin-bottom:0.25rem;">THEMIS (ERP & Factur-X 2026)</div>
-                            <div style="font-size:0.75rem; color:#047857; line-height:1.45;">💡 Devis en ~5 min, calcul d'acomptes, contrat scellé et conformité fiscale stricte Art. 286 du CGI.</div>
-                        </div>
-                        <div style="background:#F8FAFC; border:1px solid var(--frame-border); padding:0.6rem; border-radius:6px; text-align:center;">
-                            <span style="font-size:0.74rem; color:#475569; font-weight:800;">Des solutions faites pour votre rentabilité</span>
-                        </div>
+                <!-- Volet 5 : Outils Taillés pour l'Artisanat, le BTP & l'Habitat -->
+                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; gap:2.8mm; height:100%; border-right:1.5px dashed #cbd5e1; padding-right:7mm;">
+                    <div style="background:#065F46; padding:0.5rem 0.7rem; border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:900; color:#FFFFFF;">4. Spécial BTP, Artisans & Habitat</span>
+                        <span style="background:#A7F3D0; color:#065F46; font-weight:900; font-size:0.62rem; padding:2px 6px; border-radius:4px;">TERRAIN</span>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid #0284c7; background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <div style="color:#0369a1; font-size:0.78rem; font-weight:900; margin-bottom:3px;">🌐 Site Vitrine Rapide (< 1 s) & Demandes de Devis</div>
+                        <p style="font-size:0.71rem; color:#334155; line-height:1.42; margin:0;">
+                            Soyez trouvé sur Google en Guadeloupe après le salon : galerie de vos chantiers (avant/après), fiche métier claire, prise de RDV téléphonique et formulaire de devis qualifié qui arrive directement dans votre suivi.
+                        </p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--accent); background:#F8FAFC; border:1px solid #e2e8f0; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <div style="color:#B45309; font-size:0.78rem; font-weight:900; margin-bottom:3px;">📱 Fiches Chantier 100 % Hors-Ligne (PWA)</div>
+                        <p style="font-size:0.71rem; color:#334155; line-height:1.42; margin:0;">
+                            Sur chantier isolé, sous-sol ou zone blanche sans 4G : saisissez vos relevés, comptes-rendus ou heures sur smartphone/tablette. Tout se synchronise automatiquement dès que le réseau revient.
+                        </p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid #059669; background:#ECFDF5; border:1px solid #a7f3d0; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <div style="color:#065F46; font-size:0.78rem; font-weight:900; margin-bottom:3px;">🏁 Réception de Travaux & Clôture Carrée</div>
+                        <p style="font-size:0.71rem; color:#047857; line-height:1.42; margin:0;">
+                            En fin de chantier ou lors de votre réunion de clôture : vérifiez les points un par un, signez le <strong>PV de réception</strong> sur place (avec gestion des éventuelles réserves et date de reprise) pour encaisser votre solde sereinement.
+                        </p>
+                    </div>
+
+                    <div style="background:#F8FAFC; border:1px solid #cbd5e1; padding:0.5rem; border-radius:6px; text-align:center;">
+                        <span style="font-size:0.71rem; color:#065F46; font-weight:900;">✓ PENSÉ POUR LE CHANTIER COMME POUR LE BUREAU</span>
                     </div>
                 </div>
 
-                <!-- Volet 3 -->
-                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; height:100%;">
-                    <div style="display:flex; flex-direction:column; height:100%; justify-content:space-between;">
-                        <div style="background:#065F46; padding:0.55rem 0.8rem; border-radius:6px; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:center;">
-                            <span style="font-size:0.85rem; font-weight:900; color:#FFFFFF;">Subvention Chèque TIC</span>
-                            <span style="background:#A7F3D0; color:#065F46; font-weight:900; font-size:0.65rem; padding:2px 6px; border-radius:4px;">JUSQU'À 80%</span>
-                        </div>
-                        <div style="background:#ECFDF5; border:1.5px solid #A7F3D0; border-radius:8px; padding:0.8rem; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <strong style="font-size:0.82rem; color:#065F46; display:block; margin-bottom:3px;">💡 Barème Région Guadeloupe :</strong>
-                            <p style="font-size:0.74rem; color:#047857; line-height:1.45; margin:0;">• Sites Web, Logiciels & Sécurité : 80% pris en charge<br>• Matériel & Ordinateurs : 40% pris en charge</p>
-                        </div>
-                        <div style="border-left:4px solid var(--accent); background:#FFFDF5; border:1px solid #fde68a; padding:0.8rem; border-radius:6px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; margin-bottom:0.6rem;">
-                            <div style="color:#B45309; font-size:0.82rem; font-weight:800; margin-bottom:0.25rem;">📋 Assistance en 2 Jalons Clairs</div>
-                            <p style="font-size:0.74rem; color:#475569; line-height:1.4; margin:0;">
-                                • <strong>Jalon 1 (Audit & Dépôt) :</strong> 500 € HT (Reste réel : 100 € HT).<br>
-                                • <strong>Jalon 2 (Liasse Liquidation ASP) :</strong> 500 € HT (Reste réel : 100 € HT).
-                            </p>
-                        </div>
-                        <div style="background:#091A2B; color:white; padding:0.7rem; border-radius:6px; font-size:0.72rem; text-align:center;">
-                            <span style="color:var(--accent); font-weight:900;">Transparence Totale :</span> L'aide est versée à 100% sur votre RIB.
-                        </div>
+                <!-- Volet 6 : Budget Chèque TIC Chiffré & Passage à l'Action -->
+                <div class="triptyque-volet" style="display:flex; flex-direction:column; justify-content:space-between; gap:2.8mm; height:100%;">
+                    <div style="background:#05231A; padding:0.5rem 0.7rem; border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:900; color:#FFFFFF;">5. Votre Budget Chèque TIC</span>
+                        <span style="background:#A7F3D0; color:#05231A; font-weight:900; font-size:0.62rem; padding:2px 6px; border-radius:4px;">JUSQU'À 10 000 €</span>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; background:#ECFDF5; border:1.5px solid #A7F3D0; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <strong style="font-size:0.77rem; color:#065F46; display:block; margin-bottom:3px;">💡 Barème Officiel Région Guadeloupe :</strong>
+                        <p style="font-size:0.71rem; color:#047857; line-height:1.42; margin:0;">
+                            • <strong>80 % pris en charge :</strong> Site Web vitrine/pro, Cybersécurité & Sauvegardes, Accompagnement AMO (Mandat + Liquidation).<br>
+                            • <strong>40 % pris en charge :</strong> Logiciel sur-mesure (THEMIS Devis/Factures) & ordinateurs / tablettes chantier.
+                        </p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--accent); background:#FFFDF5; border:1px solid #fde68a; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <strong style="font-size:0.77rem; color:#B45309; display:block; margin-bottom:3px;">📊 Exemple Concret Artisan BTP / Habitat :</strong>
+                        <p style="font-size:0.70rem; color:#334155; line-height:1.42; margin:0;">
+                            • Site Web Chantiers + Sauvegardes (80 %) : 5 000 € ➔ <strong>4 000 € aidés</strong><br>
+                            • Logiciel THEMIS + PC portable (40 %) : 2 800 € ➔ <strong>1 120 € aidés</strong><br>
+                            • <strong style="color:#047857;">Total financé : 5 120 € virés directement sur votre RIB !</strong>
+                        </p>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--primary); background:#F8FAFC; border:1px solid #cbd5e1; border-radius:6px; padding:0.6rem 0.75rem;">
+                        <strong style="font-size:0.77rem; color:var(--primary); display:block; margin-bottom:3px;">📋 Accompagnement AMO Clé en Main :</strong>
+                        <p style="font-size:0.70rem; color:#475569; line-height:1.42; margin:0;">
+                            Note d'impact 3P rédigée pour vous, contrôle des 5 pièces Drive, affichage réglementaire UE et liasse finale ASP complète.<br>
+                            <em>Micro-entreprises : subvention calculée sur le TTC payé.</em>
+                        </p>
+                    </div>
+
+                    <div style="background:#091A2B; color:white; padding:0.65rem 0.75rem; border-radius:8px; border:1.5px solid rgba(197, 155, 67, 0.55); text-align:center;">
+                        <span style="color:var(--accent); font-weight:900; font-size:0.76rem; display:block;">📅 APPEL FLASH 15 MIN OFFERT (OU SUR STAND)</span>
+                        <span style="font-size:0.70rem; color:#E2E8F0; line-height:1.4;">Simulez votre aide en 30 s sur <strong>www.dhamusoft.fr</strong><br>ou contactez Andy VAUBIEN au <strong>0690 05 11 44</strong></span>
                     </div>
                 </div>
             </div>
